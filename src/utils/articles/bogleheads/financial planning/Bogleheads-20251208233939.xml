@@ -1,0 +1,906 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd" version="0.11" xml:lang="en">
+  <siteinfo>
+    <sitename>Bogleheads</sitename>
+    <dbname>wiki</dbname>
+    <base>https://www.bogleheads.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.43.5</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Bogleheads</namespace>
+      <namespace key="5" case="first-letter">Bogleheads talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="274" case="first-letter">Widget</namespace>
+      <namespace key="275" case="first-letter">Widget talk</namespace>
+      <namespace key="828" case="first-letter">Module</namespace>
+      <namespace key="829" case="first-letter">Module talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Donating appreciated securities</title>
+    <ns>0</ns>
+    <id>1527</id>
+    <revision>
+      <id>72080</id>
+      <parentid>60237</parentid>
+      <timestamp>2021-02-21T10:26:40Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>Apply {{US}} template.</comment>
+      <origin>72080</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="3841" sha1="ioyfkxoxij260tj1630uo68dos0yhwg" xml:space="preserve">{{US|reason=irrelevant}}
+
+If you have appreciated stock or mutual funds in your taxable account, you will have to pay capital-gains tax if you sell them.  However, by '''donating appreciated securities''' directly to a charity you can forgo paying tax as long as you have held the securities for more than one year.  (The deduction is limited to 30% of your adjusted gross income for most charities, rather than the usual 50% limit; consult your tax advisor or see [http://www.irs.gov/pub/irs-pdf/p526.pdf IRS Publication 526, Charitable Contributions] for details.)
+
+The benefit of this type of donation is equal to the value of the tax deduction. If you donate $10,000 worth of a mutual fund and you paid $5,000 for the shares, you avoid a $5,000 long-term gain, saving $750 at the 15% tax rate.  The charity, since it is tax-exempt, can sell the shares itself and pay no tax.
+
+Note that if you have shares with a loss, you should not donate them to charity; instead, you should sell them, claiming the capital loss which will reduce your taxable income, and then donate the sale proceeds to the charity.
+
+==Donating securities at Vanguard==
+
+To donate mutual funds with Vanguard, go to [https://personal.vanguard.com/us/literature Forms], then under "Change of Ownership", select "Giving Fund Shares to Organizations" to give shares of mutual funds; fill out the start of the form yourself and have the charity fill out the rest of the form.  If the charity does not wish to hold the fund, one of the options allows the charity to ask Vanguard to sell the fund and give it the proceeds in cash.  
+
+To donate securities from a Vanguard brokerage account, select the form "Letter of Instruction for Gifts of Securities".  The charity must already have a brokerage account (not necessarily with Vanguard); you can get this information from the charity and fill out the form yourself.  If the charity also has a Vanguard brokerage account, you may need to use the "Change of Ownership between Nonretirement Accounts" form.
+
+Since you pay no tax on the donation, you would usually want to donate your lowest-basis shares which have a long-term gain.  If you donate non-covered mutual fund shares, Vanguard will only provide average-cost information.  If you are using [[Specific identification of shares| specific identification of shares]] for tax purposes, you need to identify which shares are being donated in the same way; send Vanguard a secure E-mail, or enclose a letter with the form, which says, "Please donate $10,000 (or 123.456 shares) from the shares purchased on 1/2/04."   If you donate covered mutual fund shares, Vanguard will use your preferred lot identification method; if this is specific identification, you will have to include a similar letter because there is nowhere to select lots on the form.  If you donate securities from your brokerage account, you can specify lots on the form itself, and you can use specific identification even if this is not your default method.  (For example, you might want to sell shares automatically as highest-in-first-out, which usually minimizes taxes; when you donate, you would specify your lowest-basis shares.)
+
+You cannot deduct the charitable contribution until the securities are transferred from your account; if you are donating mutual funds, you have to wait for the charity to fill out the paperwork after you send the form.  Therefore, if you want to get a deduction on this year's taxes, don't make the contribution very late in the year.  (In contrast, if you mail a check on December 31, it is deductible this year even if the charity deposits the check in January.)
+
+==See also==
+*[[Donor advised fund]]
+
+{{Bogleheads personal finance planning start-up kit}}
+{{Charitable giving}}
+{{Tax considerations}}
+[[Category:Tax considerations]]
+[[Category:Charitable giving]]</text>
+      <sha1>ioyfkxoxij260tj1630uo68dos0yhwg</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Donor advised fund</title>
+    <ns>0</ns>
+    <id>1543</id>
+    <revision>
+      <id>87236</id>
+      <parentid>87204</parentid>
+      <timestamp>2025-08-26T10:39:20Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Remove link to [[Fidelity Pooled Income Fund]].</comment>
+      <origin>87236</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="20944" sha1="fkkoe9xjg8lxv9bhyrp7tol0ahqtmu8" xml:space="preserve">{{US|reason=irrelevant}}
+
+In the U.S. a '''{{PAGENAME}}''' means a public charity operated by a financial services firm, which serves as a convenient "umbrella" for individual or institutional contributors. One or more donors make irrevocable and unconditional contributions to an account within the fund. They receive an immediate tax deduction and normally become account advisors. They name the account (e.g., The John Doe Memorial Fund for Educational Excellence) and usually choose one or more investment pools where the funds reside. Advisors may make subsequent donations at any time. From their funds, the donor can recommend grants to public charities they select. There are some IRS conditions regarding approval of these grants (no personal gain, no gifts to relatives, cannot fulfill a legal pledge, etc.) Once the recipient is verified by the fund operator, grants are essentially automatic as long as the fund's rules are satisfied.
+
+Setting up a donor-advised fund can be done easily with the major players (Vanguard, Schwab, Fidelity, ... ). Donating from a DAF is somewhat like online bill paying, but may take several weeks if it is the first grant the fund is making to a new or small charity.
+
+==Advantages== 
+
+* '''Tax savings''': Donor-advised funds generally accept gifts of marketable securities (e.g., publicly traded stocks &amp; mutual funds), and they sometimes accept certain special assets (e.g., private equity, hedge funds, real property). [[Donating appreciated securities|Donation of appreciated assets]] yields a double tax advantage. Contributions are fully deductible, though IRS limits may force the donor of large gifts to spread the deduction over a period of years.&lt;ref&gt;{{cite web|author=&lt;!--Not stated--&gt;|date=February 26, 2025|title=Publication 526, Charitable Contributions|url=https://www.irs.gov/pub/irs-pdf/p526.pdf|access-date=June 27, 2025|website=|publisher=Internal Revenue Service|quote=}}&lt;/ref&gt; The donor avoids paying capital gains tax on appreciated securities. Note that grants from a fund account are not deductible later when given to the charity.
+* '''Timing/“Bunching”''': If taxpayers are on the borderline of being able to itemize deductions in any particular year, DAFs let people “[https://www.dafgiving360.org/bunching-charitable-contributions bunch]” their donation into one year and then spread the donation to end charities over multiple years thereafter; “Bunchers” often try to compress other deductions (mortgage interest, state and local taxes) into the same year as their charitable giving, so they hurdle the standard deduction by as wide a margin as possible.  With the passage of the [https://en.m.wikipedia.org/wiki/One_Big_Beautiful_Bill_Act OBBBA] in 2025, starting in 2026, only charitable contributions over 0.5% of AGI will be deductible as an itemized deduction,&lt;ref&gt;[https://natlawreview.com/article/one-big-beautiful-bill-effect-exempt-organizations#:~:text=Individual%20Donors:%20Individuals%20may%20now,and%20$1%2C000%20for%20everyone%20else. One Big Beautiful Bill: Effect on Exempt Organizations]&lt;/ref&gt; making bunching more attractive in certain circumstances.
+* '''Deliberate giving''': The timing of a big charitable donation is often motivated by the donor's tax situation in a particular year. However, [[Charity selection links|prudent selection]] of the specific charities to benefit may take a substantially longer period. A donor-advised fund provides a good solution to this problem.
+* '''Investment growth''': A donor's account value has the potential to increase over the years with the financial markets, resulting in larger charitable grants.
+* '''Estate planning options''': Upon the original advisors' deaths, a number of choices are available, such as the ability to continue a gifting tradition by naming successor advisors; or making the donor-advised fund a beneficiary of an IRA or Charitable Remainder Trust. The funds themselves are not part of the estate and cannot be given to the donors' heirs.
+* '''Paperwork simplification''': A contributor who frequently makes gifts to several charities, especially of securities, will experience a reduced paperwork burden by using a donor-advised fund. 
+* '''Optional anonymity''': An account advisor is free to request selected grants be made anonymously.
+
+Currently donor-advised funds are specifically excluded from receiving Qualified Charitable Donations which according to IRS rules may only be made by an individual donating directly to a qualified charity.
+
+==Alternatives== 
+
+* '''Direct giving:''' This method puts a donation to work immediately for the cause, while avoiding donor-advised fund fees. There are some drawbacks, especially if the selected charity is small and the donor is making a large contribution for tax reasons. If the gift is very large, the organization may not be able to spend it wisely, whereas smaller donations spread over a period of years may be more effective. The donor may wish to give appreciated securities, but some charities have difficulty handling noncash contributions. Anonymous giving is also difficult when an individual is sending funds to a charity.
+* '''Split-interest giving:''' A contributor to a donor-advised fund receives no financial benefits as a result of the gift, aside from tax breaks. [[Split-interest gifts |Split-interest giving]] addresses this drawback.
+* '''Private foundations:''' Donor-advised funds provide limited investment options, and they restrict potential grant recipients to recognized public charities. Sponsors of private foundations exercise a much higher degree of control over their charitable assets, with respect to both investment and granting. Unfortunately, foundations are very complex and costly to administer, and they are subject to tight IRS regulation. Only extremely wealthy individuals and families need consider this option.
+*'''Qualified charitable distributions:''' Distributions from individual IRAs can be donated directly to a qualified charity. These [[qualified charitable distributions]] can be used as part of a [[Required Minimum Distribution vs annuitization|Required Minimum Distribution]].
+
+==Setting up, funding and donating from a donor-advised fund==
+Donor-advised funds are operated by independent organizations linked or related to major players (Vanguard, Schwab, Fidelity). Starting an account is relatively simple (comparable to setting up any other account). Each organization has different fees, minimum donations, choices in AA in their investment pools, etc.
+
+Funding a donor-advised fund involves transferring the securities (irrevocably!) to the charitable account. If a trust is involved, this may require multiple phone calls, special forms and notarized signatures. Donors should be aware that contributions for a taxable year benefit should be initiated well before the end of the year.
+
+It has been said that donating from a DAF "is basically as simple as online bill pay"&lt;ref name="forumthread"&gt;{{Forum post|t=155276|title=Donor Advised Fund|p=}} (2015)&lt;/ref&gt;.
+
+==Notable examples==
+* [http://fidelitycharitable.org/giving-account/features/how-it-works.shtml Fidelity Charitable] (Largest donor-advised vehicle in the U.S.)
+* [https://www.dafgiving360.org/ DAFgiving360] (formerly, Schwab Charitable)
+* [http://www.programforgiving.org/ T. Rowe Charitable]
+* [https://www.vanguardcharitable.org/ Vanguard Charitable] (Also see [[Vanguard Charitable Endowment Program|this wiki page]])
+* [https://www.daffy.org/ Daffy] - A newer option with lower overall fees. Offers cryptocurrency portfolios.
+
+{| class=wikitable style="text-align:center" 
+|+ align="top"|'''''Comparison of Selected Donor-Advised Funds (Individual Accounts)'''''
+|- style="background:#f0f0f0;"
+| align="center"|'''Provider''' || align="center"|'''Min Initial Donation''' || align="center"|'''Min Additional Donation''' || align="center"|'''Min Grant''' || align="center"|'''Annual Admin Fee''' || align="center"|'''Pool Expense Ratios''' || align="center"|'''Total Annual Expenses'''
+|-
+| Fidelity || align="center"|No minimum&lt;ref group="*" name=":3"&gt;{{Cite web|title=Giving Account Fees {{!}} Fidelity Charitable|url=https://www.fidelitycharitable.org/giving-account/what-it-costs.html|access-date=June 27, 2025|website=Fidelity}}&lt;/ref&gt;|| align="center" |No minimum&lt;ref name=":3" group="*" /&gt;|| $50&lt;ref name=":3" group="*" /&gt;|| 0.60% &lt;ref group = "*" name="Minimum"&gt; Minimum $100 fee &lt;/ref&gt; &lt;ref group = "*" name="Discounts"&gt; Discounts apply for account balances over $500,000 &lt;/ref&gt;   || 0.025% - 0.97%     || align="center"|0.625% - 1.57%
+|-
+| Schwab   || align="center"|No minimum&lt;ref name=":0" group="*"&gt;[https://www.schwabcharitable.org/fees-and-account-minimums Account minimums, administrative fees and investment fees]. Retrieved June 27, 2025&lt;/ref&gt;|| align="center" |No minimum&lt;ref name=":0" group="*" /&gt;|| $50&lt;ref name=":0" group="*" /&gt;|| 0.60%&lt;ref name="Discounts" group="*" /&gt; &lt;ref name=":0" group="*" /&gt;|| 0.03% - 0.78%     || align="center" |0.63% - 1.38%
+|-
+| T. Rowe Price || align="center"|$10,000         || align="center"|$500                    || $100 &lt;ref group = "*"&gt;Free annual grants are limited (10 for account balances under $250,000; $10 each thereafter)&lt;/ref&gt;  || 0.50% &lt;ref group = "*" name="Discounts" /&gt;          || 0.34% - 0.75% &lt;ref group = "*"&gt;Minimum $2,500 balance per pool&lt;/ref&gt;   || align="center"|0.84% - 1.25%
+|-
+| Vanguard || align="center"|$25,000 &lt;ref name=":1" group="*" /&gt;|| align="center" |$5,000 &lt;ref name=":1" group="*" /&gt;|| $500 &lt;ref name=":1" group="*" /&gt;|| 0.60%&lt;ref name="Discounts" group="*" /&gt;&lt;ref group="*" name=":1"&gt; [https://www.vanguardcharitable.org/giving-with-vc/fees-and-minimums Vanguard fees and expenses], retrieved June 27, 2025. An annual maintenance fee of $250 is charged for balances under $25,000.&lt;/ref&gt;|| align="center" |0.01% - 0.59% &lt;ref group="*"&gt;{{cite web|author=&lt;!--Not stated--&gt;|date=|title=Vanguard Charitable Investment Options|url=https://www.vanguardcharitable.org/investments/all-investment-options|access-date=June 27, 2025|website=|publisher=Vanguard Charitable Endowment Program|quote=}}&lt;/ref&gt;|| align="center" |0.61% - 1.19%
+|-
+|Daffy
+|No minimum&lt;ref group="*" name=":2"&gt;{{cite web|author=&lt;!--Not stated--&gt;|date=|title=Compare Daffy vs. Fidelity vs. Schwab vs. Vanguard|url=https://www.daffy.org/compare|access-date=June 27, 2025|website=|publisher=Daffy Charitable Fund|quote=}}&lt;/ref&gt;
+|$10
+|$18&lt;ref name=":2" group="*" /&gt;
+|$36 - $240/year flat rate&lt;ref group="*"&gt;{{cite web|author=&lt;!--Not stated--&gt;|date=|title=Simple &amp; Transparent Membership Pricing|url=https://www.daffy.org/membership|access-date=June 27, 2025|website=|publisher=Daffy Charitable Fund|quote=}}&lt;/ref&gt;
+|0.05% average&lt;ref name=":2" group="*" /&gt;
+|0.05% + $36-240&lt;ref group="*"&gt;Credit cards - A 2.9% surcharge applies after the first contribution up to $1,000.&lt;/ref&gt;
+|-
+|colspan = "7"|&lt;references group="*" /&gt;
+|}
+
+==Charity recommendations==
+{{main|Charity selection links}}
+
+The reader should refer to [[Charity selection links]] for guidance in selecting an appropriate charity.
+
+==Additional information==
+The following information was supplied by Phil DeMuth, author of “[https://phildemuth.com/how-we-invest/the-tax-smart-donor/ The Tax Smart Donor]”.&lt;ref&gt;{{Forum link|title=Re: Phil DeMuth joined me on the "Bogleheads on Investing" podcast to discuss his new book, The Tax-Smart Donor.|p=8424699|author=Phil DeMuth|date=June 25, 2025}}.&lt;/ref&gt;  
+
+A Donor-Advised Fund (DAF) is a 501(c)(3) charitable giving vehicle that allows donors to:
+
+#Make a tax-deductible contribution into a segregated account for their own use
+#Recommend how the money will be invested
+#Authorize grants from the account to qualified charities thereafter
+
+DAFs have become increasingly popular among investors for their flexibility, tax advantages, and investment growth potential. They have become like “private foundations” for non-billionaires.
+
+=== How Donor-Advised Funds Work ===
+
+#'''Contribution:''' You contribute cash, securities, or other assets to a DAF operating as a public charity. If your DAF is sponsored by the same institution where your investment accounts already reside (e.g., Vanguard, Fidelity, Schwab), the donation can be accomplished quickly and easily. The DAF sells the assets you choose, deposits the proceeds in your account, and sends you a contemporaneous letter of acknowledgement for the donation, also filed online for your reference. You name the account (e.g., “The Jones Family Fund”).
+#'''Tax Deduction:''' Other things equal, donors are eligible for an immediate tax deduction for the full fair market value of your contribution, including any long-term capital gains that otherwise would be taxed if you sold the securities yourself.
+#'''Investment Growth:''' Your contribution will be invested in investment pools or mutual funds you nominate (often including low-expense, market-wide index funds) and grows tax-free over time.
+#'''Grant Recommendations:''' You recommend grants to qualified 501(c)(3) organizations from a comprehensive list on the DAF website. You stipulate that you are not receiving any tangible benefits (gala dinners, football tickets, etc.) in exchange for the gift. You can specify the degree of recognition or anonymity for the gift that you want to make.
+#'''Distribution:''' The sponsoring organization reviews your request and distributes the funds to your recommended charities. Note that no further charitable deduction accrues here, as you took the tax deduction when you initially contributed to the DAF. The DAF manages all the relevant paperwork on your behalf.
+
+There is an unwritten compact between the donor and the DAF: the DAF retains the legal right to invest and donate the funds however it wishes. However, the donor maintains effective control over their investment and its distribution. This tradeoff works because if the DAF were to violate this unwritten agreement, donors would flee and that would be the end of the DAF.
+
+=== Tax Benefits ===
+==== Immediate Deduction ====
+
+*Receive a tax deduction in the year you contribute, regardless of when the final grants are made
+*Deduction limits: up to 60% of AGI for cash contributions, 30% of AGI for appreciated securities
+*Excess deductions can be carried forward for up to five years. subject to the same percentage-of-AGI rules each year.
+
+==== Avoidance of Investment Taxes ====
+
+*Contributing appreciated securities (stocks, mutual funds, ETFs) allows you to avoid any embedded long-term capital gains taxes. (But note that if you held them until death, they might receive a reset to fair market value.)
+*The DAF receives the full fair market value when they liquidate the securities, and you may deduct the full amount, capital gains and all
+*The higher the capital gains, the greater the potential tax savings
+*The donation is also an opportunity to slough off unwanted high-dividend stocks or high-expense-ratio mutual funds from a taxable account
+*Assets in the DAF grow tax-free while awaiting distribution: there are no taxes on dividends, interest, or capital gains within the fund
+
+=== Advantages ===
+
+==== Tax Planning ====
+
+*The Tax Cuts and Jobs Act of 2017 established a high standard deduction ($15,000 single/$30,000 married filing jointly in 2025)
+*As such, most charitable givers receive no income tax credit for their gifting, because they fail to cross this threshold
+*DAFs let people “bunch” their donation into one year and then spread the donation to end charities over multiple years thereafter; ideal for tithers
+*“Bunchers” often try to compress other deductions (mortgage interest, state and local taxes) into the same year as their charitable giving, so they hurdle the standard deduction by as wide a margin as possible
+*DAFs also allow donors to contribute in high-income years and distribute over time, perhaps during recessions when charities face greater need
+
+==== Ease of Use ====
+
+*No startup costs
+*No deadline for making grants. Donors can invest today, then investigate charities at leisure
+*Can be easy to donate securities with a few clicks
+*Easy to make grants to multiple charities
+*DAFs take care of all the paperwork and record keeping, no need to track down multiple letters of acknowledgement
+*Ability to donate stocks to DAF and send cash to small charities that otherwise are not set up to process non-cash donations
+*Anonymous gifts let you avoid nuisance spam requests and pitches from call centers
+*Ease of separating your aggressive charitable investing strategy from more conservative personal investments
+
+==== Investment Growth ====
+*Tax-free growth increases charitable impact
+*No excise tax on investments (unlike private foundations)
+*Longer time horizons can benefit from high-equity allocations
+
+==== Family Legacy ====
+
+*Create a family generational giving tool
+*Can name successor advisors (spouse, children)
+*Opportunity to involve family in charitable decision-making
+*Providers may offer family giving tools and education
+*Offers pretext for families to gather who otherwise might never reconvene after the passing of original donor
+
+=== Disadvantages ===
+
+==== No Guarantee of Distribution ====
+
+*Sponsoring organization has legal control over funds
+*Grant recommendations can be rejected if donors violate terms (e.g., self-dealing)
+*DAFs can facilitate donor procrastination
+
+==== Limited Investment Control ====
+
+*Must choose from provider's investment menu
+*Index fund options can be buried in a list of high-fee funds
+*Cannot invest in individual stocks or bonds
+*Less flexibility than with a private foundation
+*Fees on investments may outweigh benefits from tax-free compounding
+
+==== No Second Tax Deduction for Follow-on Grants ====
+
+*Tax benefit comes when contributing to DAF, not when making grants
+*Cannot sync tax deductions with downstream grant-making
+
+=== Best Practices for Bogleheads ===
+
+==== Contribution Strategy ====
+
+*Contribute appreciated securities rather than cash
+*Make contributions in high-income years for maximum tax benefit
+*Investigate “bunching” deductions; contribute enough to itemize deductions if you normally take the standard deduction
+
+==== Investment Approach ====
+
+*Choose low-cost index options, identifiable by their low expense ratios
+*Consider your grant-making timeline when setting asset allocation
+*Distinguish between charitable investing and retirement investing: typically charitable investing can be more aggressive
+
+=== Comparison to Other Charitable Strategies ===
+
+==== Direct Giving ====
+
+*DAF Advantages: Tax-free growth, contribution timing flexibility, simplified paperwork
+*Direct Giving Advantages: Immediate impact, no fees, complete control
+
+==== Private Foundation ====
+
+*DAF Advantages: Lower costs, no minimum distributions, no excise taxes, no annual filings, potential anonymity
+*Foundation Advantages: More investment control, potential board involvement, more flexibility regarding charitable recipients
+
+==== Qualified Charitable Distributions from IRA ====
+
+*DAF Advantages: Usually better for people under age 73 (who have not started taking RMDs)
+*QCD Advantages: QCDs can replace required minimum distributions and so lower AGI, also helping with affiliated taxes like Medicare IRMAA breakpoints.
+
+=== DAF Providers ===
+
+==== The Big Three ====
+
+*Fidelity Charitable: The largest grantmaker in the United States
+*Schwab Charitable: Top 10 grantmaker in the United States
+*Vanguard Charitable: Top 10 grantmaker in the United States
+
+==== Community Foundations ====
+
+*Local and regional community foundations often sponsor DAFs
+*Many donors prefer to give locally
+*Higher fees than Vanguard, Fidelity, Schwab
+*Offer expertise about local charities
+
+==== Financial Institution DAFs ====
+
+*Many major brokerages and banks offer DAF services
+*Convenience of having DAF alongside other accounts
+*Fees also tend to be higher
+
+==== Specialized DAFs ====
+
+*Focus on charities in a specific domain
+*Often affiliated with universities, churches, or major medical charities
+
+==References==
+{{Reflist}}
+
+==External links== 
+
+* [http://www.irs.gov/pub/irs-pdf/f8283.pdf IRS Form 8283: Noncash Charitable Contributions]
+* [http://www.irs.gov/pub/irs-pdf/i8283.pdf Instructions for Form 8283] 
+* [https://www.irs.gov/pub/irs-tege/donor_advised_explanation_073108.pdf Donor-Advised Funds Guide Sheet Explanation], IRS Rulings and Agreements, July 31, 2008.
+* [https://www.irs.gov/charities-non-profits/charitable-organizations/donor-advised-funds Donor-Advised Funds], Internal Revenue Service. November 26, 2024. Retrieved June 27, 2025.
+* [https://www.irs.gov/charities-non-profits/charitable-organizations/new-requirements-for-donor-advised-funds New Requirements for Donor-Advised Funds], Internal Revenue Service. Guidance subsequent to the Pension Protection Act of 2006.
+
+{{Charitable giving |state=collapsed}}
+[[Category:Charitable giving]]</text>
+      <sha1>fkkoe9xjg8lxv9bhyrp7tol0ahqtmu8</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Vanguard Charitable Endowment Program</title>
+    <ns>0</ns>
+    <id>1532</id>
+    <revision>
+      <id>84698</id>
+      <parentid>77096</parentid>
+      <timestamp>2025-06-19T22:48:42Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>Small style fixes.</comment>
+      <origin>84698</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="5450" sha1="6cn2peuqezg2g96bzfmhgcfsafvrt7v" xml:space="preserve">{{US}}
+
+The '''{{PAGENAME}}'''&lt;ref&gt;
+{{cite web |url=https://www.vanguardcharitable.org |title=  Vanguard Charitable Endowment Program| publisher=Vanguard Charitable Endowment Program| access-date= March 23, 2021}}&lt;/ref&gt; is a [[Donor-Advised Funds|donor-advised fund]] which uses [[The Vanguard Group|Vanguard]] [[Mutual fund|mutual funds]] as investment options.
+
+A Program account may have one or two advisors, who are able to recommend grants and otherwise maintain the account. Vanguard's offering has a $25,000 initial minimum contribution, a $5,000 threshold for subsequent contributions, and a $500 minimum grant amount. There is no minimum ongoing balance, but account values under $25,000 will be charged an annual $250 maintenance fee.&lt;ref name="fee_schedule" /&gt; In addition to the typical immediate contributions, the Program accepts revocable deferred gifts, i.e., contributions planned upon a donor's death.
+
+==Investment options and fees==
+The Program's annual fee has two components, an administrative fee plus an investment fee. The tiered administrative fee covers the Program's operating costs. It is currently 0.60% per year for the first $500,000 in account value. There are 20 available investment pools, which an advisor may employ in any combination.
+
+==Investment fees==
+Pool compositions and annual costs are as follows:&lt;ref&gt;{{cite web |url=https://www.vanguardcharitable.org/investments/all-investment-options |title= Vanguard Charitable Investment Options| publisher=Vanguard Charitable Endowment Program |access-date= March 23, 2021}}&lt;/ref&gt;
+
+===Portfolio solutions===
+* Income (80% Vanguard Total Bond Market, 14% Vanguard Total Stock Market, 6% Vanguard Total International): 0.04%
+* Conservative Growth (60% Vanguard Total Bond Market, 30% Vanguard Total Stock Market, 10% Vanguard Total International): 0.04%
+* Moderate Growth (45% Vanguard Balanced, 45% Vanguard Wellington™ Fund, 10% Vanguard Total International): 0.15%
+* Growth (55% Vanguard Total Stock Market Index Fund, 20% Vanguard Total Bond Market, 25% Vanguard Total International Stock): 0.04%
+
+===Building blocks===
+* Money Market (100% Vanguard Federal Money Market Fund (VMFXX)): 0.11%
+* Short-Term Bond (100% Vanguard Short-Term Investment-Grade Fund): 0.10%
+* Total Bond (100% Vanguard Total Bond Market): 0.035%
+* Total International Bond (100% Vanguard Total International Bond): 0.11%
+* Total Equity (55% Vanguard Institutional Index, 15% Extended Market Index, 30% Total International Stock): 0.05%
+* Total U.S. Stock (100% Vanguard Total Stock Market): 0.03%
+* Total International Stock (100% Vanguard Total International Stock): 0.08%
+
+===Balanced funds===
+* Balanced Index (100% Vanguard Balanced Index Fund): 0.07%
+* Wellington (100% Vanguard Wellington™ Fund): 0.25%
+* TIFF Multi-Asset Pool (100% TIFF Multi-Asset Fund): 1.61%
+
+===Specific regions===
+* European Stock (100% Vanguard European Stock Index Fund): 0.10%
+* Pacific Stock (100% Vanguard Pacific Stock Index Fund): 0.10%
+* Emerging Markets (100% Vanguard Emerging Markets Stock Index Fund): 0.14%
+
+===Values-driven investments===
+* ESG U.S. Stock (100% Vanguard ESG U.S. Stock ETF): 0.12%
+* ESG International Stock (100% Vanguard ESG International Stock ETF): 0.15%
+* ESG Global Stock (70% Vanguard ESG U.S. Stock ETF, 30% Vanguard ESG International Stock ETF): 0.13%
+
+===Maintenance Fees===
+* Account values under $25,000 will be charged an annual $250 maintenance fee.&lt;ref name="fee_schedule"&gt;{{cite web |url=https://www.vanguardcharitable.org/giving-with-vc/fees-and-minimums |title= Philanthropic account fee schedule| publisher=Vanguard Charitable Endowment Program |access-date= March 23, 2021}}&lt;/ref&gt;
+
+==Succession plan choices==
+
+Account advisors may choose among five options which take effect after they die or become incapacitated. The last selection (Endowed Grant Plan) precludes all others, but account assets may be split among the first four on a percentage basis.
+
+* Retain assets in the account and appoint one or two successor advisor(s).
+* Split the assets equally among multiple new accounts, appointing one or two successor advisor(s) for each.
+* Make lump sum grants to specified charities.
+* Donate the assets to the Vanguard Charitable's General Fund, a permanent endowment supporting grants to various charities chosen by the Board of Trustees.
+* Employ the [https://www.vanguardcharitable.org/giving-with-vc/how-it-works/contributions/deferred-giving Endowed Grant Plan], which enables annual grants to one or more charities for a fixed term or in perpetuity, assuming the account balance does not fall below $5,000. An account balance percentage must be specified for each named charity, with the percentages adding to at least 5%.
+
+==Website==
+Vanguard Charitable maintains a secure website. An account advisor can log in and perform most common actions, for example, check investment pool prices and balances, recommend one-time or recurring grants, and recommend pool exchanges. There is also the ability to make some contributions of Vanguard mutual fund shares entirely online. Detailed account history is available regarding balances, contributions, grants, and exchanges.
+
+==References==
+{{Reflist}} 
+
+==External links==
+
+*{{Forum post| t= 7706| title=Vanguard Charitable Endowment Program| author=xenial |date=October 29, 2007}}
+
+{{Charitable giving}}
+{{The Vanguard Group}}
+[[Category:Charitable giving]]
+[[Category:Vanguard investment plans]]</text>
+      <sha1>6cn2peuqezg2g96bzfmhgcfsafvrt7v</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Charity selection links</title>
+    <ns>0</ns>
+    <id>1531</id>
+    <revision>
+      <id>88133</id>
+      <parentid>87233</parentid>
+      <timestamp>2025-10-24T03:26:02Z</timestamp>
+      <contributor>
+        <username>Pizzaisgood</username>
+        <id>398</id>
+      </contributor>
+      <minor/>
+      <comment>A typo.</comment>
+      <origin>88133</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="4927" sha1="su5n9wxhu5l3dzhuv9vuhinq20xu7c6" xml:space="preserve">{{US}}
+
+Regardless of the methods by which an individual contributes to charity (e.g., direct gifts, [[Donor advised fund | donor advised funds]]), selection of the organizations deserving support is a daunting task. The choices are primarily influenced by personal beliefs and preferences, but the '''charity selection links''' below may provide some guidance.
+
+==Tax deductibility==
+If an individual in the U.S. is itemizing their income tax deductions, some charitable contributions are eligible to be deducted.  There are regulations regarding the form, valuation, documentation, and recipient of the contribution. Not all tax exempt organizations can receive tax deductible contributions.  (For example, political campaigns are generally tax exempt, but contributions to them are not tax deductible.)
+
+Information about tax-exempt organizations, including those eligible to receive tax-deductible charitable contributions, can be done online by using the IRS's [https://www.irs.gov/charities-non-profits/tax-exempt-organization-search Tax Exempt Organization Search] (formerly Select Check). You may search for:&lt;ref&gt;{{cite web |url=https://www.irs.gov/charities-non-profits/tax-exempt-organization-search |title=Tax Exempt Organization Search (formerly Select Check) |last=|first=|publisher=Internal Revenue Service |date=July 24, 2018 |access-date=July 24, 2018}}&lt;/ref&gt;
+* Organizations eligible to receive tax-deductible charitable contributions (Pub 78 data).
+** Users may rely on this list in determining deductibility of their contributions. (Users may also download a complete [https://www.irs.gov/charities-non-profits/tax-exempt-organization-search-bulk-data-downloads list].) (Data posting date: 07-09-2018)
+**Be aware of the following when searching for organizations that can receive tax-deductible contributions:
+***Certain eligible donees (i.e., churches, group ruling subordinates, and governmental units) may not be listed. See [https://www.irs.gov/charities-non-profits/contributors/other-eligible-donees Other Eligible Donees] for more information.
+***“Doing business as” (also known as DBA) names of organizations are not listed. See [https://www.irs.gov/charities-non-profits/tips-for-tax-exempt-organization-search Search Tips] for additional guidance.
+*Automatically revoked organizations
+**By law, tax-exempt status is revoked when an organization does not file required Form 990-series returns or notices annually for three consecutive years. The automatic revocation date listed for each organization is historical; it reflects an organization's effective date of automatic revocation, but not necessarily its current tax-exempt status. The organization may have applied to the IRS for reinstatement of exemption and been recognized by the IRS as tax-exempt after its effective date of automatic revocation. (Users may also download a complete [https://www.irs.gov/charities-non-profits/tax-exempt-organization-search-bulk-data-downloads list].) (Data posting date: 07-09-2018)
+* IRS determination letters dated on or after January 1, 2014
+**IRS issues a determination letter recognizing an organization as tax-exempt under the sub-section for which it applied. An organization must apply and pay a user fee to receive a determination letter. Note: The May 2018 release of Tax Exempt Organization Search contains a limited number of determination letters. The IRS is in the process of adding letters and expects to have all determination letters issued since January 2014 available soon. (Data posting date: 07-11-2018)
+*Form 990-series returns
+**Forms 990, 990-EZ, 990-PF and 990-T (990-T returns for 501(c)(3) organizations only). Initially, the data includes Form 990-series returns filed in January and February 2018. The IRS will add future Form 990-series filed returns monthly. (Users may also download a complete [https://www.irs.gov/charities-non-profits/tax-exempt-organization-search-bulk-data-downloads list].)
+*Organizations that have filed a Form 990-N (e-Postcard)
+**Form 990-N (e-Postcard) is an annual electronic notice most small tax-exempt organizations (annual gross receipts normally $50,000 or less) are eligible to file instead of Form 990 or Form 990-EZ. (Users may also download a complete [https://www.irs.gov/charities-non-profits/tax-exempt-organization-search-bulk-data-downloads list].) Data posting date: 07-24-2018
+
+==References==
+{{Reflist}}
+
+==External links==
+* [http://www.guidestar.org/ GuideStar] (Nonprofit database)
+
+===Charity evaluators===
+* [http://www.give.org BBB Wise Giving Alliance] (Charity evaluator)
+* [http://charitynavigator.org/ Charity Navigator] (Charity evaluator)
+* [http://givewell.org/ Givewell] (Charity evaluator)
+
+===Forum discussions===
+*{{forum post|t=7708|title=Effective Charity|date=Oct 29, 2007}}
+
+{{Bogleheads personal finance planning start-up kit}}
+{{Charitable giving}}
+{{Estate planning}} 
+
+[[Category:Charitable giving]]</text>
+      <sha1>su5n9wxhu5l3dzhuv9vuhinq20xu7c6</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Qualified charitable distributions</title>
+    <ns>0</ns>
+    <id>7369</id>
+    <revision>
+      <id>88662</id>
+      <parentid>88121</parentid>
+      <timestamp>2025-11-28T01:22:30Z</timestamp>
+      <contributor>
+        <username>Grabiner</username>
+        <id>8</id>
+      </contributor>
+      <minor/>
+      <comment>updated limits for 2026</comment>
+      <origin>88662</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="10024" sha1="7sj95yqw7e3mc4cc9x7ceq8r3hzfus1" xml:space="preserve">{{US|reason=irrelevant}}
+
+'''{{PAGENAME}}''' (QCDs) let you donate to charity as a tax-free [[Traditional IRA|IRA]] distribution. You can include QCDs as part of a [[Required Minimum Distribution vs annuitization | Required Minimum Distribution]].&lt;ref name="590B"&gt;{{cite web |url=https://www.irs.gov/publications/p590b/ch01.html#en_US_2015_publink100041439
+|title= Publication 590-B (2015), Distributions from Individual Retirement Arrangements (IRAs) |date= 2015 |publisher= Internal Revenue Service |website= IRS.gov|access-date= August 5, 2016}}&lt;/ref&gt; There are several restrictions:&lt;ref name="26USC"&gt;{{cite web |url=https://www.law.cornell.edu/uscode/text/26/408
+|title=26 USC 408: Individual retirement accounts | page=section 408(d)(8)
+|publisher = Office of the Law Revision Counsel
+|website= www.law.cornell.edu |access-date= September 10, 2025}}&lt;/ref&gt;&lt;ref group="note"&gt;The [https://uscode.house.gov/about_office.xhtml Office of the Law Revision Counsel] is the official source of US law. [https://www.congress.gov/bill/114th-congress/house-bill/2029 H.R.2029 - 114th Congress (2015-2016): Consolidated Appropriations Act, 2016] contains the ''Protecting Americans from Tax Hikes Act of 2015'' which made the tax law permanent on December 18, 2015.&lt;/ref&gt;
+
+* The maximum deductible contribution limit is $108,000 in 2025, $111,000 in 2026.&lt;ref&gt;{{cite web|url=https://www.irs.gov/pub/irs-drop/n-25-67.pdf|title=Notice 2025-67|publisher=IRS|accessdate=27 November 2025}}&lt;/ref&gt;
+* Distributions must be made directly to the charitable organization.{{#tag:ref|From the Oblivious Investor (Mike Piper) website:&lt;ref&gt;{{cite web| url=https://obliviousinvestor.com/qualified-charitable-distributions-qcds-concerns-from-first-timers/| title=Qualified Charitable Distributions (QCDs): Concerns from First-Timers| publisher=Oblivious Investor| date=December 2, 2024| accessdate=October 22, 2025}}&lt;/ref&gt;
+{{blockquote|The IRC section that defines qualified charitable distributions (§ 408(d)(8)(B)) explicitly states that the distribution must be made “directly” by the trustee to the qualifying non-profit organization. So I understand why people might be concerned if the check arrives in their own mailbox. But, to be clear:
+*It’s OK if the check is ''made out to'' the charity but ''delivered'' to you and you forward it to the charity.
+*It’s ''not'' OK for the check to be made out to you (or for the funds to be electronically distributed from the IRA to your own account). In that case it’s not a QCD. It’s just a regular distribution.
+In fact, that’s often preferable to have the check made out to the charity but mailed to you, because it gives you a chance to scan the check for your records}}|group="note"}}
+* The IRA owner must be over 70 1/2 years old.&lt;ref&gt;Some choose to wait until 73 years old and use the QCD as part of the RMD, making sure to get as much of tax benefit as possible by offsetting all or part of your RMD income. In addition the resulting lower AGI/MAGI can have other taxes benefits related to AGI/MAGI threshold based deductions or income. &lt;/ref&gt;
+
+QCDs must come from an [[Traditional IRA|individual IRA]] or a [[Roth IRA]]. An [[SEP]] or [[SIMPLE IRA]] also qualify if there are no active contributions.&lt;ref name="590B" /&gt;&lt;ref group="note"&gt;[https://www.irs.gov/pub/irs-drop/n-07-07.pdf IRS Notice N-07-07] (A-36) defines a QCD for any type of IRA (including a Roth IRA) that is neither an (''on-going'' SEP or ''on-going'' SIMPLE IRA). An SEP or SIMPLE IRA is ''on-going'' if it is maintained under an employer arrangement under which an employer contribution is made for the plan year ending with or within the IRA owner’s taxable year in which the charitable contributions would be made. As employer retirement plans (such as a [[401(k)]], [[403(b)]], or the federal [[Thrift Savings Plan#Qualified charitable distributions|Thrift Savings Plan]]) are not mentioned, they do not qualify for QCDs.&lt;/ref&gt;
+
+If you file a joint return, your spouse can also have a QCD and exclude an equal amount. The amount of the QCD is limited to the amount of the distribution that would otherwise be included in income. If your IRA includes nondeductible contributions, the distribution is first considered to be paid out of otherwise taxable income.&lt;ref name="590B" /&gt;
+
+When using a QCD as part of your RMD, because the first money withdrawn from your IRA is your Required Minimum Distribution (RMD), it is a good habit to take the QCDs at the start of the year and complete drawing your RMDs nearer the end of the year. That way, you do not withdraw more taxable income than necessary.&lt;ref name="DeMuth"&gt;{{forum link| p=8418533| title=Re: Phil DeMuth joined me on the "Bogleheads on Investing" podcast ...| date=June 24, 2025}}.&lt;/ref&gt;
+
+==Guidance==
+You can find a comprehensive "How to" guide on the Michael Kitces blog. See: [https://www.kitces.com/blog/qualified-charitable-distribution-qcd-from-ira-to-satisfy-rmd-rules-and-requirements/ Rules To Do An IRA Qualified Charitable Distribution]
+
+It is important to note that to be a valid QCD, the funds must be paid directly from your IRA custodian to the qualified charitable organization. The QCD money is a direct transfer to the charity that never passes through the hands of the IRA holder. Instead, the IRA custodian can either send an electronic transfer of funds or a check directly to the charity.&lt;ref name="Fidelity"&gt;{{cite web| url=https://www.fidelitycharitable.org/guidance/philanthropy/qualified-charitable-distribution.html| title=Qualified Charitable Distribution| publisher=Fidelity Charitable| accessdate=June 27, 2025}}&lt;/ref&gt; Distributing the funds to yourself and then gifting to a charity does not qualify as a QCD.&lt;ref&gt;{{cite web| url=https://www.fidelity.com/retirement-ira/required-minimum-distributions-qcds| title=Qualified Charitable Distributions (QCDs) - planning your IRA withdrawal| publisher=Fidelity| accessdate=June 27, 2025}}&lt;/ref&gt; QCDs cannot be made to Donor Advised Funds.&lt;ref name="Fidelity" /&gt;
+
+Also it is a good idea when creating a QCD to specifically instruct the applicable brokerage to write the name and address of the donor on the check that is issued in order to receive an acknowledgment from the charity. The brokerage may have procedures that prevent them from releasing this information without permission.&lt;ref name="DeMuth" /&gt;
+
+==Benefits of a QCD==
+* Allows someone using the standard deduction to realize a tax advantage from a charitable contribution.{{#tag:ref|In addition to the benefits of giving to charity, a QCD excludes the amount donated from taxable income, which is unlike regular withdrawals from an IRA. Keeping your taxable income lower may reduce the impact to certain tax credits and deductions, including Social Security and Medicare.&lt;ref&gt;{{cite web| url=https://www.fidelity.com/building-savings/learn-about-iras/required-minimum-distributions/qcds| title=Qualified Charitable Distributions (QCDs)| publisher=Fidelity Investments| accessdate=August 4, 2017}}&lt;/ref&gt;|group="note"}}
+** [[Required Minimum Distribution|Required Minimum Distributions]] (RMDs) and additional distributions from an IRA are part of your taxable income. QCDs do not count as taxable income, so you can lower your taxable income by the amount of your QCD, which lowers your taxes. This is beneficial if you use the standard deduction instead of itemizing.
+
+* A QCD done as part of an RMD lowers your AGI (adjusted gross income), which may increase the tax benefit of AGI based deductions such as medical expenses or miscellaneous itemized deductions. 
+
+* A QCD done as part of an RMD lowers your MAGI (modified adjusted gross income), which could decrease the amount of NIIT (net investment income tax).&lt;ref name=":0" group="note"&gt;The IRS MAGI calculation is based on the type of income. See: [[Modified Adjusted Gross Income]]&lt;/ref&gt;
+
+* Allows those at or near the earnings limit for higher Medicare premiums to lower their MAGI which could lower their future [[Income-Related Monthly Adjustment Amount (IRMAA)|IRMAA]] adjustment.&lt;ref name=":0" group="note" /&gt;
+
+* For those states that have an income tax, but don’t have a charitable contributions deduction, the tax benefit of a QCD may be comparatively even greater.&lt;ref name="DeMuth" /&gt;
+
+* With the passage of the [https://en.m.wikipedia.org/wiki/One_Big_Beautiful_Bill_Act OBBBA] in 2025, starting in 2026, only charitable contributions over 0.5% of AGI will be deductible as an itemized deduction.&lt;ref&gt;{{cite web| url=https://natlawreview.com/article/one-big-beautiful-bill-effect-exempt-organizations#:~:text=Individual%20Donors:%20Individuals%20may%20now,and%20$1%2C000%20for%20everyone%20else.| title=OBBB Reshapes Nonprofit Tax Rules and Charitable Deductions| publisher=The National Law Review| accessdate=October 22, 2025}}&lt;/ref&gt; QCDs are not subject to this threshold, making them comparatively more attractive than charitable contributions as itemized deductions.
+
+==Notes==
+{{Reflist|group="note"}}
+
+==References==
+{{Reflist}}
+
+==External links==
+* [https://www.irs.gov/retirement-plans/retirement-plans-faqs-regarding-iras-distributions-withdrawals IRA FAQs - Distributions (Withdrawals)], from the IRS
+* {{Forum post|t=195210|title=RMD/QCD &lt;nowiki&gt;[Qualified Charitable Distributions]&lt;/nowiki&gt;|date=12 Jul 2016}}
+* {{Forum post|t=236118|title=Will Vanguard/Fidelity automatically deduct QCD from RMD?|date=29 Dec 2017}}
+* [https://www.irs.gov/publications/p590b/ch01.html#en_US_2015_publink100041439 Publication 590-B (2015), Distributions from Individual Retirement Arrangements (IRAs)]
+* [https://www.kitces.com/blog/qualified-charitable-distribution-qcd-from-ira-to-satisfy-rmd-rules-and-requirements/ Rules To Do An IRA Qualified Charitable Distribution]
+* [https://youtu.be/Ot75szTR7Ps?si=QM4ctvhk3qYP9ocY Bogleheads® on Investing Podcast 083: Phil DeMuth, "The Tax-Smart Donor"]
+
+{{Managing your IRA}}
+{{Charitable giving}}
+[[Category:Pages requiring annual tax updates]]
+[[Category:Charitable giving]]
+[[Category:IRAs]]</text>
+      <sha1>7sj95yqw7e3mc4cc9x7ceq8r3hzfus1</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Charitable pooled income fund</title>
+    <ns>0</ns>
+    <id>2168</id>
+    <revision>
+      <id>87234</id>
+      <parentid>85084</parentid>
+      <timestamp>2025-08-26T10:33:45Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Remove stale data section. Fix or remove broken external links.</comment>
+      <origin>87234</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="2183" sha1="sxinm2lqx3wepvzkvq4bly3hzpspg64" xml:space="preserve">{{US|reason=irrelevant}}
+
+A '''pooled income fund''' is a trust that is established and maintained by a public charity. Individual donors can irrevocably contribute cash or appreciated investment securities (with the exception of tax-free bonds which the trusts are forbidden to hold) to the fund. The charity can sell the assets free of taxation and invest the proceeds in a commingled investment fund. 
+
+==Basic features==
+In practice, a pooled investment fund operates much like a mutual fund. A donor is free to make additional donations to the pool. Each year, a pooled income fund is required to distribute a pro rata share of all its earned income to its income beneficiaries.  After a beneficiary’s death, the remainder interest is distributed from the fund to the charity.&lt;ref name="PGDC"&gt;{{cite web| url=http://www.pgdc.com/pgdc/pooled-income-fund| title=Pooled Income Fund| publisher=Planned Giving Design Center, LLC| url-status=dead| archive-url=https://web.archive.org/web/20221207230554/https://www.pgdc.com/pgdc/pooled-income-fund| archive-date=December 7, 2022}}&lt;/ref&gt;
+
+A donor can choose up to two income beneficiaries to receive income for life.
+
+A donor can receive a number of tax benefits with a contribution to a pooled fund. First, a donor will receive a charitable deduction based on the discounted value of the remainder interest flowing to the charity after the donor/ beneficiary’s death. The charitable deduction is calculated based on the amount of the contribution, the age and number of the income beneficiaries, and the pooled income fund's highest rate of return during the past three years. Secondly, if the donation is made with appreciated assets, the donor can escape capital gains taxation with the donation, since the charitable pooled fund is not taxed on selling the appreciated asset.&lt;ref name="PGDC"/&gt;
+
+==References==
+{{Reflist}}
+
+==External links==
+*[https://www.irs.gov/statistics/soi-tax-stats-split-interest-trust-statistics IRS SOI Tax Stats] - Split Interest Trust Statistics
+
+{{Bogleheads retirement planning start-up kit}}
+{{Charitable giving}}
+{{Estate planning}}
+[[Category:Estate planning]]
+[[Category:Split-interest gifts]]</text>
+      <sha1>sxinm2lqx3wepvzkvq4bly3hzpspg64</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Charitable remainder trust</title>
+    <ns>0</ns>
+    <id>2169</id>
+    <revision>
+      <id>84249</id>
+      <parentid>84247</parentid>
+      <timestamp>2025-03-18T08:59:47Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>Fix 'CS1 maint: url-status'.</comment>
+      <origin>84249</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="6837" sha1="4bakkos4jyil1ggaicdiff99ilfzzhe" xml:space="preserve">{{US|reason=irrelevant}}
+
+{{Expand article|further=no}}
+A '''{{PAGENAME}}''' is a trust that provides for a specified distribution, at least annually, to one or more beneficiaries, at least one of which is not a charity.&lt;ref name="PGDC"&gt;[http://www.pgdc.com/pgdc/charitable-remainder-trusts Charitable Remainder Trusts | Planned Giving Design Center], February 5, 2015. Viewed December 24, 2015.&lt;/ref&gt;
+
+The distribution must be paid at least annually for life or for a term of years, with an irrevocable remainder interest to be held for the benefit of, or paid over to, one or more qualified charities.&lt;ref name="PGDC" /&gt;
+
+The specified distribution must be either a sum certain, which is not less than five percent and not more than fifty percent of the initial net fair market value of all property placed in trust (a charitable remainder annuity trust), or a fixed percentage, which is not less than five percent and not more than fifty percent, of the net fair market value of the trust assets, valued annually (a charitable remainder unitrust).&lt;ref name="PGDC" /&gt;
+
+==Charitable remainder annuity trust (CRAT)==
+
+Charitable remainder annuity trusts (CRATs) distribute a fixed annuity amount each year, and additional contributions are not allowed.&lt;ref&gt;{{Cite web|last=Fidelity Charitable|title=Charitable remainder trusts|url=https://www.fidelitycharitable.org/guidance/philanthropy/charitable-remainder-trusts.html#:~:text=Charitable%20remainder%20annuity%20trusts%20(CRATs,additional%20contributions%20can%20be%20made.|website=Fidelity Investments}}&lt;/ref&gt;   
+
+==Charitable remainder unitrust (CRUT)==
+
+Charitable remainder unitrusts (CRUTs) distribute a fixed percentage based on the balance of the trust assets, revalued annually, and additional contributions can be made.&lt;ref&gt;{{Cite web|last=Fidelity Charitable|title=Charitable remainder trusts|url=https://www.fidelitycharitable.org/guidance/philanthropy/charitable-remainder-trusts.html#:~:text=Charitable%20remainder%20annuity%20trusts%20(CRATs,additional%20contributions%20can%20be%20made.|website=Fidelity Investments}}&lt;/ref&gt;
+
+One potential application of a CRT, typically a CRUT, is as a beneficiary of a traditional IRA. After the SECURE ACT most non-spouse inherited IRA beneficiaries must distribute the IRA within 10 years.  However by making the CRUT the IRA beneficiary, and the individual the beneficiary of the CRUT, the beneficiary may be able to get an extended stretch before eventually making the residual charitable distribution.  This strategy may be optimal for those wishing to extend the benefits of tax deferral combined with a charitable intent.&lt;ref&gt;{{Cite web|last=Levine|first=Jeffrey|date=July 28, 2021|title=Can A Charitable Remainder UniTrust (CRUT) Truly Replace The Benefits Of The “Stretch” IRA?|url=https://www.kitces.com/blog/charitable-remainder-unitrust-crut-secure-act-stretch-ira-lifetime-distribution-beneficiaries-crt-10-year-rule-tax-deferral/|website=Kitces.com}}&lt;/ref&gt;&lt;ref&gt;{{Cite web|last=Steiner|first=Bruce|title=Charitable Remainder Trusts Replicate-the-Stretch-for-IRAs|url=https://www.kkwc.com/wp-content/uploads/2020/06/Charitable_remainder_trusts_replicate_the_stretch_-_Trusts__Estates_4_2020.pdf|website=}}&lt;/ref&gt;
+
+==Net income with makeup charitable remainder unit trust (NIMCRUT)==
+
+A NIMCRUT is similar to a CRUT, with the difference being the distribution is limited to the income of the CRUT, if less than calculated percent distribution.&lt;ref&gt;{{Cite web|date=November 26, 2024|title=Types of CRUT: What’s The Difference?|url=https://learn.valur.com/types-of-crut/#:~:text=A%20NIMCRUT%20(Net%20Income%20with,receive%20the%20trust's%20income%20from|website=VALUR LIBRARY}}&lt;/ref&gt;
+
+==Flip charitable remainder unitrust (Flip CRUT)==
+
+A Flip CRUT starts out as a NIMCRUT, then later "flips" to a standard CRUT. It allows more control over distributions initially, a characteristic of NIMCRUTs, but later benefits from the consistent distributions of a Standard CRUT. The main benefit of the Flip CRUT is that it allows you to initially maximize your returns for now with the NIMCRUT’s flexible distribution structure, and then you can switch to the consistent payouts of the Standard CRUT down the line.&lt;ref&gt;{{Cite web|date=October 29, 2024|title=Flip CRUT: Definition, Comparison &amp; Examples|url=https://learn.valur.com/flip-crut/|website=VALUR LIBRARY}}&lt;/ref&gt;
+
+==Taxation==
+
+The tax treatment of  Charitable Remainder Trust distributions to income recipients is determined according to the rules established in  U.S.C. § 664 : US Code - Section 664: Charitable remainder trusts.&lt;ref&gt;[http://codes.lp.findlaw.com/uscode/26/A/1/J/I/C/664 U.S.C. § 664 : US Code - Section 664: Charitable remainder trusts]&lt;/ref&gt; A charitable remainder trust assumes the holding period and cost basis of assets transferred to it and will ordinarily pay no tax on income realized through the holding and sale of trust assets.&lt;ref&gt; [http://www.pgdc.com/pgdc/charitable-remainder-trusts Charitable Remainder Trusts, PGDC Library]&lt;/ref&gt; Distributions made to income recipients are considered taxable according to the ''four-tier system'' set out in Reg. §1.664-1(d)(1)(i).&lt;ref&gt;[http://www.charitableplanning.com/tools/preview.php?id=469284 Reg. §1.664-1(d)(1)(i)]&lt;/ref&gt; Generally all income from one tier must be reported and exhausted before income from the next tier down can be reported. States may also have additional tax rules on distributions. The four tiers are as follows:&lt;ref&gt;[http://www.charitytrusts.org/taxation-of-charitable-remainder-trusts.php IRS Taxation Of Charitable Remainder Trusts] &lt;/ref&gt;
+
+# '''Ordinary income.''' This includes interest income, dividend income, and rent income from real estate.
+# '''Capital gains.''' Income from the sale of appreciated assets such as stocks, bonds, and real estate.
+# '''Tax exempt income.''' This mainly includes income from municipal tax-exempt bonds.
+# '''Return of principal (corpus)'''. Income taken from principal.  
+
+==References==
+{{Reflist}}
+
+==External links==
+*[http://www.charitytrusts.org/ charitytrusts.org.]
+*[http://www.pgdc.com/host/planned-giving-design-center-llc/overview Planning Giving Design Center]
+:*[http://www.pgdc.com/pgdc/resources/tables/charitable-federal-midterm-rate-archive Charitable Federal Midterm Rate Archive]
+*[http://www.sharpenet.com/gt/ Sharpe Group: Give and Take]
+*[http://www.irs.gov/taxstats/charitablestats/article/0,,id=97066,00.html IRS SOI Tax Stats - Split Interest Trust Statistics]
+
+===Articles===
+*[http://www.pgdc.com/pgdc/charitable-remainder-trusts Charitable Remainder Trusts]
+*[http://www.sharpenet.com/gt/pdfs/2007/jan07.pdf CRTs by the Numbers] Barlow Mann  (January 2007)
+
+{{Charitable giving|state=uncollapsed}}
+{{Estate planning|state=uncollapsed}}
+
+[[Category:Estate planning]]
+[[Category:Split-interest gifts]]</text>
+      <sha1>4bakkos4jyil1ggaicdiff99ilfzzhe</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Charitable lead trust</title>
+    <ns>0</ns>
+    <id>2170</id>
+    <revision>
+      <id>76788</id>
+      <parentid>53638</parentid>
+      <timestamp>2022-08-10T11:10:06Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>Apply {{US}} template.</comment>
+      <origin>76788</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="947" sha1="hkniaan9ggcmxtzalj6gu5g7jec3jeo" xml:space="preserve">{{US|reason=irrelevant}}
+
+{{Expand article|further=no}}
+
+==Articles==
+*[http://sharpenet.com/info/booklet/PDFs/460Z.pdf Giving Through Charitable Lead Trusts]
+*[http://resourcecenter.lpl.com/Tools/Planning/AMO-WH/charitable_lead_trusts.htm Charitable Lead Trusts]
+*[http://www.pgdc.com/pgdc/charitable-lead-trust Charitable Lead Trust]
+
+==External links==
+*[http://www.pgdc.com/host/planned-giving-design-center-llc/overview Planning Giving Design Center]
+*[http://www.sharpenet.com/gt/ Sharpe Group: Give and Take]
+*[http://online.wsj.com/article/SB10001424052970204528204577010061347756838.html Giving What We Can]
+*[http://www.nytimes.com/2011/07/23/your-money/estate-planning/charitable-lead-trusts-draw-renewed-interest.html?pagewanted=all A Trust Surges, Heirs and Taxes in Mind, but Mind the Details]
+
+{{Charitable giving |state=collapsed}}
+{{Estate planning|state=collapsed}}
+
+[[Category:Estate planning]]
+[[Category:Split-interest gifts]]</text>
+      <sha1>hkniaan9ggcmxtzalj6gu5g7jec3jeo</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Charitable gift annuity</title>
+    <ns>0</ns>
+    <id>2162</id>
+    <revision>
+      <id>87202</id>
+      <parentid>87099</parentid>
+      <timestamp>2025-08-24T22:50:59Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>/* Considerations */ Desire -&gt; want.</comment>
+      <origin>87202</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="17908" sha1="6bmzqmx2ol1ckcha3ymrfl6azjdezue" xml:space="preserve">{{US|reason=irrelevant}}
+
+A '''charitable gift annuity''' is an instrument designed to allow an individual to make a gift to a favorite charity and still receive an income from the gifted capital. An individual irrevocably transfers cash or property to a charitable organization in exchange for the charity's promise to make fixed annuity payments to one or a maximum two life annuitants. Unlike other [[Split-interest gifts|split-interest]] gifting vehicles, which are funded from an individual trust or pooled segregated fund, a gift annuity is considered a general obligation of the issuing charity. Many states require issuing organizations to be licensed and to maintain investment reserves. There are currently more than 4000 charitable organizations offering charitable gift annuities.  Most charities use payout rates established by the American Council of Gift Annuities.&lt;ref&gt;[http://www.acga-web.org/ the American Council of Gift Annuities]&lt;/ref&gt;
+
+The average age of the income beneficiary receiving payments is 78 years of age. A donor can contribute cash or appreciated assets for an immediate gift annuity payment, or make contributions for a deferred payment at a future date. The annuitant is often the donor, but this does not necessarily have to be the case. A donor may establish an immediate gift annuity for an aged parent, or a grandparent may establish a deferred gift annuity for a young child. Payout rates are lower for younger beneficiaries; higher for older beneficiaries.&lt;ref&gt;[http://www.acga-web.org/index.php?option=com_content&amp;view=article&amp;id=51&amp;Itemid=197 Gift Annuity Best Practices]&lt;/ref&gt;  A 2004 ACGA survey found that the average size of a gift annuity contribution was $59,926. The median contribution was $28,027.&lt;ref&gt; [http://www.tiaa-crefinstitute.org/institute/research/trends_issues/ti_giftannuities_1005.html The Role of Gift Annuities In a Planned Giving Program], Frank Minton, TIAA-CREF Institute, p.10 &lt;/ref&gt;
+
+==How income payouts are determined==
+The income streams from a charitable gift annuity are determined by the size of the donation, the number of income beneficiaries and their ages, the choice of payout option, and the payout rate, as established by the ACGA Suggested Charitable Gift Annuity Rate.
+
+;Gift annuities offer the following payout options:
+*Single Life
+*Joint Life
+*Successive
+
+;The latest ACGA Suggested Charitable Gift Annuity Rate is computed by the following input factors:
+*The residuum realized by the charity upon termination of an annuity is 50 percent.  (That is, if you give $100K, the charity expects to have $50K left upon your death based on the assumptions below.)
+*Life expectancies are based on the 2012 Individual Annuity Reserving Table averaging male and female lives.
+*Annual expenses for investment and administration are one percent of the fair market value of gift annuity reserves.
+*The total annual return on gift annuity reserves,periodically adjusted by the ACGA, and available at their [http://www.acga-web.org/index.php?option=com_content&amp;view=category&amp;layout=blog&amp;id=27&amp;Itemid=205 website]. This projection is based on an asset allocation plan consisting of 40% equities, 55% fixed income, and 5% cash.
+*The rates for the youngest and oldest ages are somewhat lower than the rates that would follow from the first four assumptions.&lt;ref&gt;[http://www.acga-web.org/index.php?option=com_content&amp;view=article&amp;id=177:charitable-gift-annuity-rates-effective-january-1-2012&amp;catid=69&amp;Itemid=133#assumptions Underlying the Suggested ACGA Gift Annuity Rates]&lt;/ref&gt;
+
+A 2004 ACGA survey found that the median actual residuum realized by charities from contributions was 65.6 percent.&lt;ref&gt;[http://www.tiaa-crefinstitute.org/institute/research/trends_issues/ti_giftannuities_1005.html The Role of Gift Annuities In a Planned Giving Program], Frank Minton, TIAA-CREF Institute, p.8 &lt;/ref&gt;
+
+==Types of gift annuities==
+Gift Annuities are offered in both Immediate and Deferred Payout contracts.
+
+;Immediate Gift Annuity
+With an Immediate Gift Annuity one donates cash or appreciated assets to a charity in return for an immediate lifetime income stream of payments. These payments can be on a monthly, quarterly, semi-annual, or annual basis. The most common payment period is quarterly payments. The payment occurs on the last day of the period. The initial payment is usually prorated.
+;Deferred Gift Annuity
+A Deferred Gift Annuity allows a donor to contribute to a chosen charity and select a future payment date (at least one year from the contribution date). As with an Immediate Gift Annuity,  income payments can be received on a monthly, quarterly, semi-annual, or annual basis. Quarterly payments are the most common payment period.
+;Tuition (College) Annuity
+This Gift Annuity is a Deferred Gift Annuity established by a parent or grandparent for a young child, with the payment date deferred to the child's eighteenth birthday. The child can then elect lifetime payments, or more commonly, take a commuted value over four or five years. This type of Gift Annuity is not allowed by the state of New York.
+;Flexible (Deferred Payment) Gift Annuity
+With a Flexible Gift Annuity, an annuitant does not have to select a set future start date for receiving payments, but rather selects an initial target date for initiating payments, usually at retirement. The charity will supply a range of payment rates surrounding the target date. Payout rates are linked to age, so later life payout rates are higher than earlier ones.&lt;ref&gt;[http://www.acga-web.org/giftrates.html ACGA Suggested Charitable Gift Annuity Rates]&lt;/ref&gt;
+
+==Tax attributes==
+Individuals who donate to a gift annuity can claim a charitable deduction for the gift, reduced by the present value of the expected income payments (as determined by IRS life expectancy tables and an [http://www.pgdc.com/pgdc/resources/tables/charitable-federal-midterm-rate-archive IRS supplied discount rate]). The IRS also imposes limitations on charitable deductions. If the donation is made with cash, the percentage limitation is 60% of adjusted gross income (AGI). If long-term appreciated property is transferred, the percentage limitation is 30% of AGI. Any deduction over the applicable percentage limitation may be carried forward and taken during the five following tax years. A Donor also has the option of taking a "special election" and use the appreciated asset's basis, and not its fair market value, for valuing the donation.&lt;ref&gt;[http://www.sharpenet.com/gt/pdfs/2008/sept08.pdf Draw, Hold, or Call?], ''Give and Take'', Sept, 2008.&lt;/ref&gt;  
+
+Taxation of income payments will depend on how the donation is funded.
+
+;Cash Donations
+If the gift annuity is funded with cash, part of the payments will be taxed as ordinary income and part will be tax-free.
+;Appreciated Asset Donations
+If funded with appreciated securities or real estate owned more than one year, and the donor is receiving the annuity payments, part of the payments will be taxed as ordinary income, part as capital gain, and part may be tax-free. If you as donor establish a gift annuity for someone other than yourself or your spouse, realize that unless you insert a clause in the contract reserving the right to abrogate the annuitant's right to income, you will be subject to the gift tax. This clause allows you to apply the annual gift tax exclusion to the yearly value of income distributions to the beneficiary annuitant.  If your donation is appreciated property you will also be obligated to pay the capital gains tax on a donation, adjusted for the present value of the income interest. The charitable deduction should be sufficient to cover most of the capital gains tax.  
+;Retirement Plan Donations
+If the gift annuity is the beneficiary of a Retirement Plan (IRA) the income payments are taxable to the annuity beneficiary. The estate receives a charitable deduction for the contribution, adjusted for the present value of the payments that the beneficiary will receive (according to IRS life expectancy tables.)&lt;ref&gt;[http://www.pgdc.com/pgdc/charitable-gift-annuity Charitable Gift Annuity] Frank Minton, Planned Giving Design Center, LLC › PGDC Library&lt;/ref&gt;
+
+===Sample quotes===
+Many charities will provide on-line calculators that will provide the income and tax output for a given immediate or deferred donation.
+
+====Single life immediate gift annuity====
+The following sample quote, for a '''single life immediate gift annuity''' consisting of a gift of appreciated stock market assets, illustrates the tax attributes of the gift. ''Actual results will, of course, vary as payment rates and IRS discount rates change. Changes can also occur if mortality life expectancies change.''
+{| class="wikitable"
+|
+[http://campaign.virginia.edu/site/c.jiKRL5POLvF/b.4776415/k.9595/Gift_Calculator.htm University of Virginia]	Thursday, September 04, 2008&lt;br&gt;
+Deduction Calculations&lt;br&gt;
+Summary of Benefits&lt;br&gt;
+
+Gift Annuity&lt;br&gt;
+ASSUMPTIONS&lt;br&gt;
+*Beneficiary Age(s):	65&lt;br&gt;
+*Gift Amount:	$50,000.00&lt;br&gt;
+*Cost Basis:	$25,000.00&lt;br&gt;
+*Gift Date:	9/4/2008&lt;br&gt;
+*Payment Rate:	5.7 %&lt;br&gt;
+*Payment Schedule: Quarterly&lt;br&gt;
+
+&lt;hr&gt;
+BENEFITS&lt;br&gt;	
+*Charitable Deduction:	$17,273.00&lt;br&gt;
+*Annual Payment:	        $2,850.00&lt;br&gt;
+*Tax Free Portion:	$822.22&lt;br&gt;
+*Capital Gain Income:	$822.23&lt;br&gt;
+*Ordinary Income : 	$1,205.55&lt;br&gt;
+
+After 19.9 years, the entire annuity becomes ordinary income. Total reportable capital gain of $16,363.50 must be reported over 19.9 years. Partial payments for the year of gift will depend on the timing of your gift.&lt;br&gt; 
+IRS Discount Rate is 4.2 %
+|}
+
+====Single life deferred gift annuity====
+The following sample quote, for a '''single life deferred gift annuity''' for a fifty year old donor, deferring the payout until age 66, and consisting of a gift of appreciated stock market assets, illustrates the tax attributes of the gift.
+{| class="wikitable"
+|
+[http://campaign.virginia.edu/site/c.jiKRL5POLvF/b.4776415/k.9595/Gift_Calculator.htm University of Virginia]	Monday, September 08, 2008&lt;br&gt;
+Deduction Calculations&lt;br&gt;
+Summary of Benefits &lt;br&gt;
+
+Deferred Gift Annuity&lt;br&gt;
+ASSUMPTIONS&lt;br&gt;
+*Beneficiary Birth Date(s)	1/1/1958&lt;br&gt;
+*Gift Amount	$20,000.00&lt;br&gt;
+*Cost Basis	$10,000.00&lt;br&gt;
+*Gift Date	9/8/2008&lt;br&gt;
+*Date of First Payment	2/1/2024&lt;br&gt;
+*Payment Rate	11.7 %&lt;br&gt;
+*Payment Schedule	Quarterly&lt;br&gt;
+
+&lt;hr&gt;
+BENEFITS&lt;br&gt;	
+*Charitable Deduction	$8,031.40&lt;br&gt;
+*Annual Payment	$2,340.00&lt;br&gt;
+*Tax Free Portion	$313.56&lt;br&gt;
+*Capital Gain Income	$313.56&lt;br&gt;
+*Ordinary Income	$1,712.88&lt;br&gt;
+
+After 19.1 years, the entire annuity becomes ordinary income. Total reportable capital gain of $5,984.30 must be reported over 19.1 years If you reside in New York or New Jersey, the annuity amount may be less than the amount shown above. 
+IRS Discount Rate is 4.2 %
+|}
+
+==How charities invest charitable gift annuity donations==
+The income payments a gift annuity annuitant receives are an obligation of the charity. The charity must therefore soundly invest the donated funds in order to meet its obligations to donor annuitants, as well as successfully maintain the 50% residual charity donation. Any failure to meet these funding requirements can force the charity to tap its general fund to make up shortfalls, or under the worst scenario, default on its promised payouts.
+
+A charity assumes the following risks in offering gift annuities:
+*'''Rate risk''': The charity may offer overly generous payout rates;
+*'''Mortality risk''': The charity's gift annuity cohort of annuitants might live longer than expected life expectancy;
+*'''Investment risk''': The investment markets may not provide sufficient returns to fund the gift annuity's obligations. Diversification of asset allocations will reduce that risk, but appropriate asset allocation at any given time depends on a judgment about market conditions and risk tolerance.&lt;ref name="pgdc"&gt;[http://www.pgdc.com/pgdc/article/2004/06/maximizing-benefits-your-gift-annuity-program  Maximizing the Benefits from Your Gift Annuity Program], Frank Minton, Planned Giving Design Center, LLC › PGDC Library&lt;/ref&gt; 
+*'''Asset risk''': A charitable gift annuity must sell the appreciated assets a donor gifts to the charity. The asset may fall in price before the charity can sell it.
+*'''Policy risk''': The charity's selection of minimum age and minimum donations for accepting gifts can affect the risk profile of the gift annuity investment pool.&lt;ref name="pgdc" /&gt;
+
+The risks can be offset to some degree by adopting prudent management and investment policies, and through prudent use of "reinsurance", the purchase of commercial immediate annuities to partially transfer mortality risk to an insurer. All purchased annuities belong to the charity.&lt;ref&gt;[http://www.sharpenet.com/gt/issues/2006/aug06/1.shtml Reinsurance of Gift Annuities - A Primer] Robert F. Sharpe, Jr.&lt;/ref&gt;&lt;ref&gt;[http://www.pgdc.com/pgdc/article/2006/03/charitable-gift-annuity-reinsurance-top-ten-frequently-asked-questions Charitable Gift Annuity Reinsurance: The Top Ten Frequently Asked Questions] Bryan K. Clontz, Planned Giving Design Center, LLC › PGDC Library&lt;/ref&gt;
+
+==How gift annuities compare to immediate annuities==
+The 50% charitable residual in a gift annuity means that a charitable gift annuity's payout rate will be lower than the payout rate of a concurrent commercial insurance immediate annuity.&lt;ref&gt;[http://www.sharpenet.com/gt/issues/2006/june06/1.shtml Understanding the "Gift" in "Annuities] Robert F. Sharpe, Jr., ''Give and Take'', June, 2006. 
+&lt;/ref&gt; 
+ 
+The primary motivation for using a charitable gift annuity is therefore the charitable intent.
+
+==Considerations==
+Keep in mind the following considerations when weighing the use of a gift annuity:
+
+*A donation to a Charitable Gift Annuity is irrevocable, so you should definitely wish to be a benefactor to your chosen charity. Like all irrevocable decisions, you should be sure that you have no need for any lump sum you are considering donating. The charitable impulse should be the primary driver of your decision to donate.
+
+*The payout on a Gift Annuity is fixed and is thus exposed to inflation risk. This factor (combined with the higher payouts available at advanced ages) might explain why the average age of a Gift Annuity income recipient is 78 years old. Inflation risk is not as critical a factor for an older annuitant as it is for a younger annuitant.
+
+*A Gift Annuity is an obligation of the charity and is exposed to default risk. It is probably prudent to consider a gift annuity a supplement to one’s retirement income as opposed to being a major income source.
+
+* Keep in mind the tax consequences of the gift--including the limitations (60% of AGI on cash gifts and 30% of AGI on appreciated asset gifts) and five year carryforward-- on taking a charitable deduction.  Be especially aware to the tax consequences of establishing a gift annuity for someone other than yourself or your spouse.
+
+*Deferred Gift Annuities represent a small portion of the market (about 5%) mostly attributable to the inflexibility of the selected payout date. If you are making deferred contributions consider using a Flexible Deferred Gift Annuity to eliminate this rigidity.
+
+*If your gift is large, or if you want an income that is not fixed but can grow with the returns of an investment portfolio, you should consider other split-interest charitable vehicles,such as establishing a [[Charitable remainder  trust| charitable remainder trust]], or making donations to a [[Charitable pooled income fund|charitable pooled income fund]].
+
+==References==
+{{Reflist|30em}}
+
+==External links==
+*[http://www.acga-web.org/whatisga.html American Council of Gift Annuities]
+:*[http://www.acga-web.org/2009ratesfeb/factorsfeb09.html Suggested Charitable Gift Annuity Rates], Effective February 1, 2009 through June 30, 2009.
+*[http://www.pgdc.com/host/planned-giving-design-center-llc/overview Planned Giving Design Center]
+:*[http://www.pgdc.com/pgdc/resources/tables/charitable-federal-midterm-rate-archive Charitable Federal Midterm Rate Archive]
+*[http://www.sharpenet.com/gt/ The Sharpe Group: Give and Take]
+*[http://www.irs.gov/publications/p526/ar02.html#d0e3121 IRS Publication 526 - Charitable Contributions]
+
+===Articles===
+*[http://www.pgdc.com/pgdc/charitable-gift-annuity Charitable Gift Annuity], Planned Giving Design Center, LLC › PGDC Library
+*[https://resourcecenter.lpl.com/Tools/Planning/AMO-WH/charitable_gift_annuities.htm Charitable Gift Annuities]
+*[http://www.tiaa-crefinstitute.org/institute/research/trends_issues/ti_giftannuities_1005.html The Role of Gift Annuities In a Planned Giving Program], Frank Minton, TIAA-CREF Institute
+*[http://www.pgdc.com/pgdc/article/2004/06/maximizing-benefits-your-gift-annuity-program  Maximizing the Benefits from Your Gift Annuity Program], Planned Giving Design Center, LLC › PGDC Library
+*[http://www.pgdc.com/pgdc/article/2000/03/twelve-uncommon-things-you-can-do-gift-annuity Twelve Uncommon Things You Can Do with a Gift Annuity], Planned Giving Design Center, LLC › PGDC Library
+*[http://www.pgdc.com/pgdc/article/2006/03/charitable-gift-annuity-reinsurance-top-ten-frequently-asked-questions Charitable Gift Annuity Reinsurance: The Top Ten Frequently Asked Questions], Planned Giving Design Center, LLC › PGDC Library
+*[http://www.pgdc.com/pgdc/charitable-gift-annuity-reinsurance-part-ii-the-top-10-creative-solutions-turbulent-times Charitable Gift Annuity Reinsurance Part II: The Top 10 Creative Solutions for Turbulent Times], Planned Giving Design Center, LLC › PGDC Library
+*[http://www.sharpenet.com/gt/pdfs/2005/aug05.pdf 2004 Survey of Charitable Gift Annuities], ''Give and Take'', Aug. 2005.
+
+{{Bogleheads retirement planning start-up kit}}
+{{Annuities}}
+{{Charitable giving}}
+{{Estate planning}}
+[[Category:Estate planning]]
+[[Category:Split-interest gifts]]
+[[Category:Annuities]]</text>
+      <sha1>6bmzqmx2ol1ckcha3ymrfl6azjdezue</sha1>
+    </revision>
+  </page>
+</mediawiki>

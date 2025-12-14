@@ -1,0 +1,18 @@
+# Core OpenAI client
+openai>=1.0.0
+
+# PDF reading
+PyPDF2>=3.0.0
+
+# Web scraping
+beautifulsoup4>=4.12.0
+requests>=2.31.0
+
+# Vector search
+faiss-cpu>=1.7.4
+
+# Optional: JSON pretty printing / utilities (comes with stdlib)
+# json
+
+# Optional: progress bars
+tqdm>=4.66.0

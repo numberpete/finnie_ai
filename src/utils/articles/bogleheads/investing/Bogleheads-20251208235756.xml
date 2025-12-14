@@ -1,0 +1,2530 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd" version="0.11" xml:lang="en">
+  <siteinfo>
+    <sitename>Bogleheads</sitename>
+    <dbname>wiki</dbname>
+    <base>https://www.bogleheads.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.43.5</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Bogleheads</namespace>
+      <namespace key="5" case="first-letter">Bogleheads talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="274" case="first-letter">Widget</namespace>
+      <namespace key="275" case="first-letter">Widget talk</namespace>
+      <namespace key="828" case="first-letter">Module</namespace>
+      <namespace key="829" case="first-letter">Module talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Stock market indexing</title>
+    <ns>0</ns>
+    <id>2114</id>
+    <revision>
+      <id>87554</id>
+      <parentid>85217</parentid>
+      <timestamp>2025-09-06T08:08:45Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Remove link to [[Vanguard fund information]].</comment>
+      <origin>87554</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="24095" sha1="57e2y7ldf9xxajack96dejpqxgykoj2" xml:space="preserve">Growing market acceptance of [[Indexing|index based investing]], using traditional [[Mutual fund | mutual funds]] and [[ETFs |exchange traded funds]], has created a proliferation of index providers, attracted by the idea of licensing their indexes to investment companies in exchange for royalty payments.&lt;ref&gt;{{cite book| author=Rick Ferri| author-link=Rick Ferri| title=All About Index Funds: The Easy Way to Get Started| edition=2nd| publisher=Mcgraw-Hill| date=2008| page=88| isbn=0-07-138705-6}}&lt;/ref&gt;
+
+For investors, this growth has created an ever expanding choice of [[index fund]]s. However, the different methods that index providers use to measure and segment the stock market means that returns that can vary considerably over short and intermediate term time frames.&lt;ref&gt;{{cite web| url=http://www.indexuniverse.com/publications/journalofindexes/joi-articles/2622.html| title=Variance Among Indexes| author=Craig Israelsen| publisher=Index Universe| date=2007| url-status=dead| archive-url=https://web.archive.org/web/20121231020509/http://www.indexuniverse.com/publications/journalofindexes/joi-articles/2622.html| archive-date=December 31, 2012}}&lt;/ref&gt; 
+
+==Benchmark indexes==
+The benchmark indexes created by the major index providers share a number of characteristics.
+
+===Benchmark index strategy box===
+These characteristics place benchmark indexes in the ''Passive'' security selection and ''Capitalization'' security weighting segment of the Index Strategy Box (see Figure 1). The index weighting of securities is based on the [[Market capitalization |market capitalization]] of the companies included in the index.
+
+{| class="wikitable"
+|+ Figure 1. Index strategy box&lt;ref&gt;{{cite web| url=http://www.portfoliosolutions.com/f-18.html| title=Indexing in the 21st Century| publisher=Portfolio Solutions Inc.| url-status=dead| archive-url=https://web.archive.org/web/20111230043641/http://www.portfoliosolutions.com/f-18.html| archive-date=December 30, 2011}}&lt;/ref&gt;
+|[[File:Benchmark Index Strategy Box.png|250 px]]
+|}
+
+===Benchmark index style box===
+In general, the stock market breaks down into three levels of [[Market capitalization | market capitalization]] and three [[Stock basics#Style | styles]], resulting in a 3&amp;nbsp;x&amp;nbsp;3 "style" box showing large cap, mid cap and small cap stocks, divided among value, blend, and growth stocks:
+
+{| class="wikitable"
+|+ {{nowrap|Table 1. Total  Market Index  Style Box (%)}}
+| 
+! Value
+! Blend
+! Growth
+|-
+! Large Cap
+|align="center" |LV ||align="center" |LB ||align="center" | LG
+|-
+! Mid Cap
+|align="center" |MV ||align="center" |MB ||align="center" | MG
+|-
+! Small Cap
+|align="center" |SV ||align="center" |SB ||align="center" | SG
+|}
+
+You may also see an expanded breakdown of market cap ranges that includes Mega cap, Micro cap, and Nano cap stocks. 
+
+{| class="wikitable"
+|+ Table 2. Market capitalization 
+! Size Characterization
+! Capitalization Range
+|-
+| Mega capitalization stocks || Over $200 billion  dollars
+|-
+| Large capitalization stocks || Between $10 billion dollar and $200 billion dollars
+|-
+| Mid capitalization stocks ||  Between $2 billion and $10 billion dollars
+|-
+| Small capitalization stocks || Between $300 million and $2 billion dollars
+|-
+| Micro capitalization stocks ||  Between $30 million and $375 million dollars
+|-
+| Nano capitalization stocks ||  Below $50 million dollars
+|}
+
+In addition to index provider companies, since 1960 the Center for Research in Security Prices [[CRSP equity indexes|CRSP]]&lt;ref&gt;{{cite web| url=https://www.refinitiv.com/en/financial-data/pricing-and-market-data/equities-market-data/center-for-research-in-security-prices| title=Center for Research in Security Prices | publisher=Refinitiv| accessdate=October 21, 2023}}&lt;/ref&gt; has provided the academic community with market return data extending from 1926 to the present. CRSP offers Historical Cap-Based Portfolio data tracking micro, small, mid and large-cap stock. For the cap-based portfolios, CRSP ranks all NYSE companies by market capitalization and then divides them into ten equally populated portfolios. Amex and NASDAQ stocks are then placed into the deciles determined by the NYSE breakpoints, based on their market capitalization. CRSP portfolios 1-2 represent large cap stocks, portfolios 3-5 represent mid-caps, portfolios 6-8 represent small caps, and portfolios 9-10 represent a benchmark of micro-cap stocks.&lt;ref&gt;{{cite web| url=http://www.crsp.chicagobooth.edu/products/documentation/crsp-cap-based-portfolios| title=Historical CRSP Cap-Based Portfolios| publisher=CRSP}}{{dead link}}&lt;/ref&gt;
+
+Starting in 2010, CRSP also provides its own investable capitalization-based indexes, which are now tracked by index funds like Vanguard, and defined in a different way from the historical cap-based portfolios (see [[#Index methodology|Index methodology]] below).
+
+==Major index providers==
+Figure 2 below shows the market coverage of major index providers.
+{| class="wikitable"
+|+ Figure 2. Market coverage of major U.S. index providers*&lt;ref name="vanguard"&gt;{{cite web| url=https://www.vanguardcanada.ca/documents/determining-appropriate-benchmark.pdf| title=Determining the appropriate benchmark: A review of major market indexes| publisher=Vanguard research| url-status=dead| archive-url=https://web.archive.org/web/20220205184448/https://www.vanguardcanada.ca/documents/determining-appropriate-benchmark.pdf| archive-date=February 5, 2022}}&lt;/ref&gt;
+|align="center"|
+[[File:Stock Benchmarks - Major US Index Providers.png|700px|center]]
+|-
+|* Sizes of colored bars are not to scale.
+
+Notes: Although each provider listed has an index intended to mirror the entire stock market, including the micro-cap segment, investors typically use the index that encompasses only large-, mid-, and small-cap securities to represent the broad U.S. market. Those indexes are shown in the light blue bars for each index provider.
+|}
+
+==Indices and funds==
+
+===Index types===
+Usually, an index provider supplies three different index returns for its market segment:&lt;ref&gt;{{forum link| p=749823| title=401k Trgt Ret Fund – Pass. to Active Managed, Fee Increase| date=May 29, 2010}}&lt;/ref&gt;
+
+*A ''Price Index'' (Price, PR) which does not include dividends or dividend reinvestment.
+*A ''Gross Dividend Index'' (Total Return, TR) which includes all dividends reinvested.
+*A ''Net Dividend Index'' (Net Return, NR) which recognizes that the dividends are subject to tax and not received by the investor. Only the remaining portion of the dividend (net of tax) can be reinvested. 
+
+For benchmarking international indices, the Net Return index is most commonly used. The Morningstar Index Returns&lt;ref&gt;{{cite web| url=http://news.morningstar.com/index/indexReturn.html| title=Morningstar Index Returns| publisher=Morningstar}}{{dead link}}&lt;/ref&gt; identifies indices by type.{{#tag:ref|Note the MSCI international index designator of "NR", such as ''MSCI EAFE NR USD''. MSCI also supplies indices in local currency (LCL) and US Dollars (USD).&lt;ref&gt;{{cite web| url=http://www.mscibarra.com/products/indices/| title=MSCI Equity Indices Overview}}{{dead link}}&lt;/ref&gt;|group="note"}}
+
+=== US total market===
+In 1974 by Wilshire Associates established the [[wikipedia:Wilshire 5000|Wilshire 5000 Index]], the first index to measure the entirety of the US public market. In 1984, Russell introduced the [[wikipedia:Russell Indexes|Russell 3000 Index]], measuring 98% of the US Market. S&amp;P created its first broad based index of the US market in 1994 with the S&amp;P Composite 1500 index, comprised of the S&amp;P 500, S&amp;P 400, and S&amp;P 600 indices. The index measures approximately 85% of the market. The first retail index fund based on a total market index became available in 1992.
+
+{| class=wikitable
+|+ Index inception dates and market coverage
+! Index provider
+! Inception
+! Backdate data
+! Market coverage
+|-
+|align="center"| Wilshire 
+|align="center"| 1974 
+|align="center"| 1971 
+|align="center"| 100%
+|-
+|align="center"| Russell 
+|align="center"| 1984 
+|align="center"| 1984 
+|align="center"| 98%
+|-
+|align="center"| Dow Jones 
+|align="center"| 1991 
+|align="center"| 1987 
+|align="center"| 100%
+|-
+|align="center"|Morningstar 
+|align="center"|1998 
+|align="center"| 1998 
+|align="center"| 97%
+|-
+|align="center"| MSCI 
+|align="center"| 2004 
+|align="center"| 2004 
+|align="center"| 99.5%
+|-
+|align="center"| S&amp;P 
+|align="center"| 2006 
+|align="center"| 2006 (?) 
+|align="center"| 100%
+|-
+|align="center"| CRSP
+|align="center"| 2001
+|align="center"| 2002
+|align="center"| 100% (?)
+|}
+
+After 2000, the number of index providers in the US market expanded, and indexes broadened  to encompass the total market. Russell added 1000 micro cap stocks to its Russell 3000 index to create its broadest index, the Russell 3000e (extended), encompassing 99% of the US market. In 2006, S&amp;P created its S&amp;P Completion Index, which in combination with the S&amp;P 500 index produced the S&amp;P Total Market Index. Between 2000 and 2010, MSCI, Dow Jones, and Morningstar also created broad based total market indexes. (See Figure 1. for a chart of index provider market coverage.)
+
+At present, only Russell provides total market style indexes (Russell 3000 Value and Russell 3000 Growth).
+
+Broad total market indexes from all providers means very low stock turnover&lt;ref&gt;{{cite web| url=http://www.moneychimp.com/articles/index_funds/turnover.htm| title=Portfolio Turnover| publisher=moneychimp| accessdate=October 21, 2023}}&lt;/ref&gt; and very similar results across providers, especially over long holding periods.&lt;ref group="note"&gt;The data spreadsheet on this page includes data for the Russell 3000 Growth and Russell 3000 Value Indexes&lt;/ref&gt; The differences in return are most often attributed to the breadth of micro cap stocks in a total market index. For example, Morningstar (97%), Russell (98%), and MSCI (99.5%) total market indexes hold lower ranges of micro cap market coverage than does the Wilshire 5000 index (99.9%).
+
+===US large and mid cap===
+====Size indices====
+{| class="wikitable"
+|+ Large Cap Index inception dates and market coverage
+! Index provider
+! Inception
+! Backdate data
+! Market coverage
+! Holdings
+|-
+|align="center"| S&amp;P 
+|align="center"| 1954 
+|align="center"| 1926 
+|align="center"| 75%
+|align="center"| 1-500
+|-
+|align="center"| Russell 
+|align="center"| 1984 
+|align="center"| 1984 
+|align="center"| 92%
+|align="center"| 1-1000
+|-
+|align="center"| MSCI
+|align="center"| 1996 
+|align="center"| 1992
+|align="center"| 86%
+|align="center"| 1-750
+|-
+|align="center"|Morningstar 
+|align="center"|1998 
+|align="center"| 1998 
+|align="center"| 70%
+|align="center"| (?)
+|-
+|align="center"| Dow Jones
+|align="center"| 2005 
+|align="center"| 1991 
+|align="center"| 86%
+|align="center"| 1-750
+|-
+|align="center"| CRSP
+|align="center"| 2001
+|align="center"| 2002
+|align="center"| 85%
+|align="center"| (?)
+|}
+
+{| class="wikitable"
+|+ Mid Cap Index inception dates and market coverage
+! Index provider
+! Inception
+! Backdate data
+! Market coverage
+! Holdings
+|-
+|align="center"| Russell 
+|align="center"| 1984 
+|align="center"| 1984 
+|align="center"| 27%
+|align="center"| 200-1000
+|-
+|align="center"| S&amp;P
+|align="center"| 1991 
+|align="center"| 1991 
+|align="center"| 7%
+|align="center"| 501-900
+|-
+|align="center"|MSCI 
+|align="center"| 1996
+|align="center"| 1992
+|align="center"| 15%
+|align="center"| 301-750
+|-
+|align="center"| Morningstar
+|align="center"| 1998
+|align="center"| 1998
+|align="center"| 20%
+|align="center"| (?)
+|-
+|align="center"| Dow Jones
+|align="center"| 2005 
+|align="center"| 1991 
+|align="center"| (?)
+|align="center"| 501-1000
+|-
+|align="center"| CRSP
+|align="center"| 2001
+|align="center"| 2002
+|align="center"| 15%
+|align="center"| (?)
+|}
+
+===US small cap===
+{{Main|Small caps}}
+
+Russell introduced the first small cap index (the Russell 2000) in 1984. Other index providers created small cap indexes in the last decade of the twentieth century: S&amp;P in 1992; MSCI in 1996; Morningstar 1998. The first retail small cap index fund, based on the Russell 2000 index, was initiated in 1989. More institutional investors' small cap allocation assets are benchmarked to the Russell 2000 index than to any other provider.&lt;ref&gt;{{cite web| url=http://www.russell.com/indexes/about/articles/the_gap_widens.asp| title=U.S. Equity Indexes Market Share Survey}}{{dead link}}&lt;/ref&gt; 
+
+====Size indices====
+{| class="wikitable"
+|+ Small Cap Index inception dates and market coverage
+! Index provider
+! Inception
+! Backdate data
+! Market coverage
+! Holdings
+|-
+|align="center"| Russell 
+|align="center"| 1984 
+|align="center"| 1984 
+|align="center"| 8%
+|align="center"| 1,001-3,000
+|-
+|align="center"| S&amp;P
+|align="center"| 1994 
+|align="center"| 1994 
+|align="center"| 3%
+|align="center"| 901-1,500
+|-
+|align="center"|MSCI 
+|align="center"| 1996
+|align="center"| 1992
+|align="center"| 12%
+|align="center"| 751-2,500
+|-
+|align="center"| Morningstar
+|align="center"| 1998
+|align="center"| 1998
+|align="center"| 7%
+|align="center"|(?)
+|-
+|align="center"| Dow Jones
+|align="center"| 2005 
+|align="center"|1991 
+|align="center"| 12%
+|align="center"| 751-2,500
+|-
+|align="center"| CRSP
+|align="center"| 2001
+|align="center"| 2002
+|align="center"| 13%
+|align="center"| (?)
+|}
+
+===International and global===
+{{Main|Domestic/international}}
+
+{| class="wikitable"
+|+  International index market coverage&lt;ref name="vanguard" /&gt;
+! Index Provider
+! Large Cap
+! Mid Cap
+! Small Cap
+|-
+|align="center"| Dow Jones 
+|align="center"| Top 85%
+|align="center"| Top 80% - 90% (overlaps large and small) 
+|align="center"| 85% - 100%
+|-
+|align="center"| FTSE
+|align="center"|  &gt; 72%
+|align="center"| between 72% and 92%
+|align="center"| &lt; 92%
+|-
+|align="center"| MSCI
+|align="center"| Top 70% +/- 5%
+|align="center"| between 70% and 85% +/- 5%
+|align="center"| between 85% and 99%
+|-
+|align="center"|S&amp;P 
+|align="center"| Top 70%
+|align="center"| Top 70% - 85%
+|align="center"| 85% - 100%
+|-
+|}
+
+==Index methodology==
+Index providers differ in the ways they select and weight securities in the benchmarks’ return calculation. There are three key issues:&lt;ref name="vanguard" /&gt;
+#Security selection and weighting
+#Calculation of returns
+#Ongoing index maintenance
+
+To make their indexes more easily investable for index funds, index providers have adopted [http://www.investopedia.com/terms/f/float.asp free-float] weighting, and added buffer zones to their methodologies. Free float weighting eliminates non-trading shares in a company's capital base. These can include cross-ownership of shares by other companies, government owned shares, privately held shares, and other restricted shares. A company's free-float weighting will reflect the actual amount of shares available for public investment.
+
+All equity-index providers periodically adjust membership to reflect market changes as well as those made necessary by corporate actions such as mergers or spin-offs.&lt;ref name="vanguard" /&gt; Buffer zones reduce the amount of turnover incurred as stocks migrate across market capitalization and style boundaries. Lower turnover helps reduce transaction costs for funds tracking an index.
+
+Each major index provider has a different methodology for determining buffer zones. For example:
+*CRSP: [http://www.crsp.chicagobooth.edu/indexes-pages/methodology CRSP U.S. Equity Indexes Methodology Guide]{{broken link}}
+*Dow Jones: [http://www.djindexes.com/mdsidx/downloads/meth_info/Dow_Jones_US_Total_Stock_Market_Indexes_Size-Segment_and_Style_Indexes_Methodology.pdf Dow Jones Size Segment and Style Indexes Methodology]{{broken link}}
+*FTSE: [http://www.ftse.com/products/downloads/FTSE_UK_Index_Series.pdf?836 FTSE UK Index Series, Ground rules]
+*MSCI: [https://www.msci.com/eqb/methodology/meth_docs/MSCI_Nov11_USMethod.pdf MSCI US Equity Indices Methodology (Nov 11)]
+*Russell: [http://www.ftse.com/products/downloads/Russell-US-indexes.pdf?272 Russell US Indexes Construction and Methodology]
+*Wilshire: [https://www.wilshire.com/indexinfo/pdf/Wilshire%20US%20Large-Cap/Wilshire%20US%20Style%20Indexes%20Introduction.pdf Wilshire U.S. Style Indexes: A Methodology Overview]{{broken link}}
+
+The table below shows a summary of methodologies.
+
+{| class="wikitable"
+|+ Equity index methodology for major U.S. index providers&lt;ref name="vanguard" /&gt;
+|-
+||&amp;nbsp;
+! Standard &amp; Poor's
+! Dow Jones
+! Russell
+! MSCI
+! CRSP
+! FTSE
+|-
+! Weighting methodology
+|Float-adjusted market capitalization.
+|Full market capitalization (float-adjusted market capitalization also available).
+|Full market capitalization, adjusted for free float only after inclusion in index.
+|Full market capitalization, adjusted for free float before inclusion in index.
+|Float-adjusted market capitalization.
+|Float-adjusted market capitalization.
+|-
+! Construction methodology
+|Based on criteria established by S&amp;P committee.
+|Rules-based.
+|Rules-based.
+|Rules-based.
+|Rules-based.
+|Rules-based.
+|-
+! Rebalancing methodology
+|Changes made on an as-needed basis. No annual or semiannual reconstitution.
+|Quarterly, to coincide with review of Dow Jones U.S. Total Stock Market Index.
+|Annual rebalance in June, subject to capitalization banding (&lt;nowiki&gt;+&lt;/nowiki&gt;/- 2.5%) as of 2007.
+|Quarterly review (two full reviews, two partial reviews), with security migration subject to "buffer zones."
+|Quarterly rebalancing, with security migration subject to “packeting.”&lt;ref group="note"&gt;CRSP’s methodology introduces the concept of “packeting,” which cushions movement between adjacent indexes and allows holdings to be shared between two indexes of the same family. At reconstitution, if a company has moved significantly through a breakpoint into the core of an adjacent index, a “packet” of 50% of the total holdings of the company is moved between indexes. The objective is to maximize style purity and minimize turnover.&lt;/ref&gt;
+|Semi-annual review in June and December, subject to capitalization buffers around large, mid-, and
+small-cap indexes.
+|-
+!rowspan = "2"| Number of securities
+|S&amp;P Total Market Index includes all listed securities.
+|DJ U.S. Total Stock Market Index includes all U.S. equity securities with readily available prices.
+|Russell 3000E Index represents approximately 99% of U.S. equity market.
+|MSCI US Broad Market Index targets 99.5% of cumulative full market capitalization of U.S. equity universe.
+|CRSP US Total Market Index targets 99.5% of cumulative full-market capitalization of U.S. equity 
+universe. 
+|FTSE US Total Market Index captures more than 99.5% of U.S. stock market.
+|-
+|Subcomponents of Total Market Index include fixed number of stocks (e.g., S&amp;P 500 contains 500 stocks).
+|Subcomponents of U.S. Total Stock Market Index include fixed number of stocks (e.g., DJ Large-Cap Index contains 750 stocks). 
+|Subcomponents of 3000E Index include fixed number of stocks (e.g., Russell 3000 Index includes 3,000 stocks).
+|Subcomponents of US Broad Market Index include fixed number of stocks (e.g., MSCI US Prime Market 750 Index contains 750 stocks).
+|Subcomponents of US Total Market Index based on market-capitalization targets: Largest 70% constitute mega cap index; next 15%, mid-cap index; final 13.5%, small-cap index. 
+|Subcomponents of US Total Market Index based on market capitalization targets: largest 70% constitute large-cap index; next 20%, mid-cap index; final 9.5%, small-cap index.
+|-
+! Security makeup
+|Securities that reflect the U.S. equity markets and, through the markets, the U.S. economy.
+|Equity issues, common stocks, and REITs.
+|Publicly traded companies in the United States with market cap greater than $30 million.
+|U.S. common stocks, REITs, and select non-U.S.- domiciled stocks trading in the United States.
+|U.S. equities traded on NYSE, AMEX, NASDAQ, or NYSE Arca. 
+|Publically traded companies in United States with an investable market cap exceeding $20 million including REITs, Master Limited Partnerships, Royalty Trusts, American Depository Receipts, and securities listed on OTC Bulletin Boards.
+|-
+! Liquidity requirements
+|Ratio of annual dollar value traded to float-adjusted market cap should be 1.00 or greater. Company should trade a minimum of 250,000 shares in each of the six months leading up to the evaluation date.
+|Stock must meet minimum threshold for trading volume.
+|Securities must trade above $1 per share on May 31.
+|Measured along two dimensions: the level of stock price and a relative criterion known as Annualized Traded Value Ratio (ATVR).
+|Total market capitalization must be greater than $10 million, float shares must be greater than 
+10% of total shares, there are trading volume requirements, and a security must not have ten sequential days without trading volume. 
+|Securities must maintain at least $10 million in market capitalization as of review dates.
+|-
+! Growth criteria
+|&amp;bull; Trailing three-year earnings per share (EPS) growth.&lt;br&gt;&amp;bull; Three-year sales growth.&lt;br&gt;&amp;bull; Momentum—12-month percentage price change.
+|&amp;bull; Forward P/E ratio.&lt;br&gt;&amp;bull; Projected earnings growth.&lt;br&gt;&amp;bull; Price/book ratio.&lt;br&gt;&amp;bull; Dividend yield.&lt;br&gt;&amp;bull; Trailing revenue growth.&lt;br&gt;&amp;bull; Trailing earnings growth.
+|&amp;bull; Price/book ratio.&lt;br&gt;&amp;bull; Long-term earnings growth mean forecast by Institutional Brokers Estimate System (IBES).
+|&amp;bull; Long- and short-term projected EPS growth rates.&lt;br&gt;&amp;bull; Current internal growth rate.&lt;br&gt;&amp;bull; Long-term historical EPS growth trend.&lt;br&gt;&amp;bull; Long-term historical sales/share growth trend.
+|&amp;bull; Consensus long-term growth forecast from I/B/E/S.&lt;br&gt;&amp;bull; Consensus one-year forecast from I/B/E/S.&lt;br&gt;&amp;bull; Three-year growth in earnings per share.&lt;br&gt;&amp;bull; Three-year growth in sales per share.&lt;br&gt;&amp;bull; Current investment-to-assets ratio.&lt;br&gt;&amp;bull; Return on assets.
+|&amp;bull; Trailing three-year sales growth.&lt;br&gt;&amp;bull; Trailing three-year EPS growth.&lt;br&gt;&amp;bull; Two-year forward sales growth.&lt;br&gt;&amp;bull; Two-year forward EPS growth.&lt;br&gt;&amp;bull; Return on equity times retention ratio.
+|-
+! Value criteria
+|&amp;bull; Price/book ratio.&lt;br&gt;&amp;bull; Price/earnings ratio.&lt;br&gt;&amp;bull; Price/sales ratio.
+|&amp;bull; Forward P/E ratio.&lt;br&gt;&amp;bull; Projected earnings growth.&lt;br&gt;&amp;bull; Price/book ratio.&lt;br&gt;&amp;bull; Dividend yield.&lt;br&gt;&amp;bull; Trailing revenue growth.&lt;br&gt;&amp;bull; Trailing earnings growth.
+|&amp;bull; Price/book ratio.&lt;br&gt;&amp;bull; Long-term earnings growth mean forecast by Institutional Brokers Estimate System (IBES).
+|&amp;bull; Price/book ratio.&lt;br&gt;&amp;bull; 12-month forward EPS.&lt;br&gt;&amp;bull; Dividend yield.
+|&amp;bull; Book/price ratio.&lt;br&gt;&amp;bull; Earnings per share consensus forecast one year ahead divided by stock price.&lt;br&gt;&amp;bull; Most recent EPS divided by stock price.&lt;br&gt;&amp;bull; Dividend/price ratio.&lt;br&gt;&amp;bull; Sales/price ratio.
+|&amp;bull; Price/book ratio.&lt;br&gt;&amp;bull; Sales/price ratio.&lt;br&gt;&amp;bull; Dividend yield.&lt;br&gt;&amp;bull; Cash flow/price ratio.
+|-
+! Growth and value crossover
+|Style indexes- limited overlap between growth and value indexes. Pure style indexes- stocks placed in either growth or value index.
+|50% of stocks by float-adjusted market cap are in growth index and 50% are in value index.
+|Securities may be classified proportionately in both growth and value indexes.
+|Securities may be classified proportionately in both growth and value indexes.
+|Securities may be classified proportionately in both growth and value indexes.
+|Securities may be classified proportionately in both growth and value indexes.
+|}
+
+===Alternative methodologies===
+{{See also|Alternative indices}}
+Although most indexes use [[Market capitalization | market capitalization]] as a basis for fund selection, there are other types of indexes.
+
+==Notes==
+{{Reflist|group="note"}}
+
+==See also==
+*[[Alternative indices]]
+*[[Bond market indexing]]
+*[[Exchange-traded funds]]
+*[[Vanguard statistical data spreadsheets#Vanguard equity index funds |Vanguard statistical data spreadsheets: Vanguard equity index funds]]
+
+==References==
+{{Reflist}} 
+
+==External links==
+*[https://www.investopedia.com/terms/i/index.asp What Is an Index? Examples, How It's Used, and How to Invest], from Investopedia
+
+{{Indexing}} 
+[[Category:Indexing]]</text>
+      <sha1>57e2y7ldf9xxajack96dejpqxgykoj2</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Indexing: theory and history</title>
+    <ns>0</ns>
+    <id>2118</id>
+    <revision>
+      <id>84682</id>
+      <parentid>82465</parentid>
+      <timestamp>2025-06-19T18:39:07Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>Remove sidebar.</comment>
+      <origin>84682</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="3238" sha1="0b7x6t1xljvwajqbf73rbby7dksaw6v" xml:space="preserve">{{Expand article|further=no}}
+'''{{PAGENAME}}''' summarizes some of the background of [[indexing]].
+
+==Theory==
+
+* {{cite web| author=John Bogle| author-link=John Bogle| url=http://www.vanguard.com/bogle_site/sp2004AIMRefficientMrkts.html| title=Whether Markets are More Efficient or Less Efficient, Costs Matter| publisher=CFA magazine| date=2003| url-status=dead| archive-url=https://web.archive.org/web/20040218105241/http://www.vanguard.com/bogle_site/sp2004AIMRefficientMrkts.html| archive-date=February 18, 2004}}
+* {{cite web| author=Eugene F. Fama| author-link=Eugene F. Fama| url=http://ssrn.com/abstract=15108| title=Market Efficiency, Long-Term Returns, and Behavioral Finance| date=February 1997| doi=10.2139/ssrn.15108| accessdate=January 4, 2024}} Available at SSRN.
+* {{cite web| author=Andrew Lo| author-link=Andrew Lo| url=http://ssrn.com/abstract=991509| title=Efficient Markets Hypothesis. THE NEW PALGRAVE: A DICTIONARY OF ECONOMICS, L. Blume, S. Durlauf, eds., 2nd Edition| publisher=Palgrave Macmillan Ltd.| date=2007| accessdate=January 4, 2024}} Available at SSRN.
+
+==History==
+
+* May 26, 1896: Charles Dow and the Dow Jones Average ([http://www.djaverages.com/?go=industrial-editorial Mr. Dow's Barometer]{{dead link}}).
+* July 1933: Alfred Cowles, "[http://history.technicalanalysis.org.uk/Cowl33.pdf Can Stock Market Forecasters Forecast?]", Econometrica Volume 1, Issue 3, (July, 1933) pp. 309-324. Also, "[http://www.jstor.org/pss/1825665 Cowles Commission Indexes]", the forerunners of the S&amp;P 500 Index.
+* 1957: [[S&amp;P 500 index]] created.
+* December 31, 1969: [http://www.msci.com/resources/factsheets/index_fact_sheet/msci-eafe.pdf MSCI EAFE Index] created.
+* 1974: [[wikipedia:Wilshire 5000|Wilshire 5000]] index created.
+* 1973-1974: The first [http://finance.yahoo.com/funds/how_to_choose/article/100571/The_History_of_the_Index_Fund institutional indexes]{{dead link}} based on the S&amp;P 500 index were launched.
+* August 31, 1976: Vanguard launched the [{{Vf | 0040}} Vanguard 500 Index Fund].
+* 1984: [[wikipedia:Russell Indexes|Russell Indexes]] created.
+* January 1, 1986: [https://web.archive.org/web/20190118091032/http://www.lehman.com/fi/indices/pdf/US_Aggregate_Index.pdf Lehman Brothers US Aggregate Bond Index] was created.
+* December 11, 1986: Vanguard launched the [{{Vf | 0084}} Vanguard Total Bond Market Index Fund].
+* August 17, 1989: Vanguard created the [{{Vf | 0048}} Vanguard Small-Cap Index Fund] by converting the Naess &amp; Thomas Special Fund into an index fund based on the Russell 2000 Index.
+* March 1990: The Toronto Stock Exchange (TSX) launched the world's first [[Exchange-traded fund]] (ETF), known as TIPS (Toronto 35 Index Participation Units).
+* June 18, 1990: Vanguard launched the [{{Vf | 0079}} Vanguard European Stock Index Fund] and [{{Vf | 0072}} Vanguard Pacific Stock Index Fund].
+* April 27, 1992: Vanguard launched the [{{Vf | 0085}} Vanguard Total Stock Market Index Fund].
+* January 1993: [https://web.archive.org/web/20120801082638/http://etfguide.com/exchangetradedfunds.htm Standard &amp; Poor's Depository Receipts]{{dead link}} (SPDRS ETF) launched.
+* 1996: WEBS international ETFs launched (later to evolve into iShares).
+
+{{Indexing}}
+[[Category:Indexing]]</text>
+      <sha1>0b7x6t1xljvwajqbf73rbby7dksaw6v</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Alternative indices</title>
+    <ns>0</ns>
+    <id>2125</id>
+    <revision>
+      <id>85104</id>
+      <parentid>58005</parentid>
+      <timestamp>2025-06-25T11:04:30Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>Ref punctuation.</comment>
+      <origin>85104</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="6038" sha1="6v0gf0t2vn65z42adhcjnk4v9ixnooh" xml:space="preserve">{{Main|Stock market indexing}}
+
+'''{{PAGENAME}}''' possess an array of differing weighting schemes that are in contrast to benchmark [[Market capitalization | market capitalization]] weighted indexes. These alternative indexes include the following:
+
+*[[Dividend weighted indices | Dividend-weighted indexes]] weigh securities according to dividend weights.
+*[[Equal weighted indices | Equal-weighted indexes]] weigh its securities with equal, not market capitalization, weightings.
+*[[Fundamental indices | Fundamental indexes]] weigh securities according to valuation and dividend weights.
+*[[Inverse and leveraged indices  | Inverse and leveraged indexes]] employ derivatives or leverage to a capitalization weighted stock index.
+*[[Social responsibility indices | Social responsibility indexes]] retain market capitalization weighting methodologies, but apply ethics based screens for security selection.
+
+==Index strategy boxes==
+&lt;div style="text-align: center;"&gt;&lt;div style="float:right;margin-right:1.0em"&gt;[[File:Benchmark Index Strategy Box.png|300 px]]&lt;br&gt;Benchmark Index Strategy Box&lt;ref&gt;[https://web.archive.org/web/20111230043641/http://www.portfoliosolutions.com/f-18.html Indexing in the 21st Century: Portfolio Solutions Inc.]&lt;/ref&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+A useful tool for evaluating both benchmark and alternative indices (and the funds tracking these indices) is the Index Strategy Box. Created and developed by Richard A. Ferri, CFA of Portfolio Solutions, LLC, in late 2007,&lt;ref&gt;[http://www.etfguide.com/index_strategy_box_faqs.php ETF Guide Index Strategy Box FAQS]&lt;/ref&gt; the Index strategy box categorizes an index according to the methodology ("rules") used for investment selection. An index is categorized by its security selection and security weighting rules. The result is  a 3 x 3 grid.
+
+For example, [[Stock market indexing#Benchmark Index Strategy Box | benchmark indexes]] occupy the passively managed, market capitalization security weighted segment of the Index Strategy Box.&lt;ref&gt;[http://www.bogleheads.org/forum/viewtopic.php?p=839617#839617 Buying The Market Isn’t As Simple As It Seems], forum discussion.&lt;/ref&gt;
+
+Each alternative index page will show where the index falls in the Index Strategy Box. 
+
+Index strategy box background and category breakdown are fully described in [http://www.portfoliosolutions.com/f-18.html Indexing in the 21st Century: Portfolio Solutions Inc.]. Index strategy boxes are used extensively at etfguide&lt;ref&gt; [http://www.etfguide.com/etfwithisb.htm Organizing the ETF Universe with Index Strategy Boxes]&lt;/ref&gt; and are being used by Morningstar, where they are termed Index Strategy Maps.&lt;ref&gt;[http://www.forbes.com/2010/08/26/etfs-index-funds-strategy-maps-personal-finance-indexer-ferri.html How To Find Your Way Through The ETF Maze] ''The Indexer'', Rick Ferri, Forbes, 8/26/10. &lt;/ref&gt;
+
+__NOTOC__ &lt;!-- page is too short to have TOC --&gt;
+==Index fund characteristics==
+{{Notice|
+The popularity of index funds has caused much competition among fund providers. You should closely review if a product is a traditional index fund based on a benchmark index, rather than a product that simply follows an alternative proprietary benchmark. Please ask in the forum for advice.
+}}
+According to the CFA Institute, securities 'index' should have the following characteristics:&lt;ref&gt;[http://www.bogleheads.org/forum/viewtopic.php?p=36052#36052 Is Fundamental Indexing superior to Cap Weighted indexing?]&lt;/ref&gt;
+
+*'''Simple and objective selection criteria''': There should be a clear set of rules governing the inclusion of bonds, equities, or markets in an index, and investors should be able to forecast and agree on changes in composition of the securities in an index.
+*'''Comprehensive''': The index should include all opportunities that are realistically available to be purchased by all market participants under normal market conditions. Both new and existing securities should have frequent pricing available so the index level can be accurately measured.
+*'''Replicable''': The total returns reported for an index should be replicable by market participants. Over time, an index must represent a realistic baseline strategy that a passive investor could have followed. Accordingly, information about index composition and historical returns should be readily available. It must also be fair to investment managers who are measured against it, and to sponsors who pay fees or award management assignments based on performance relative to it.
+*'''Stability''': The index should not change composition frequently, and all changes should be easily understood and highly predictable. The index should not be subject to opinions about which bonds or equities to include on any particular day. Conversely, index composition is expected to change occasionally to ensure that it accurately reflects the structure of the market. A key virtue of an index is to provide a passive benchmark. As such, investors should not be forced to execute a significant number of transactions just to keep pace.
+*'''Relevance''': The index should be relevant to investors. At a minimum, it should track those markets and market segments of most interest to investors.
+*'''Barriers to entry''': The markets or market segments included in an index should not contain significant barriers to entry. This guideline is especially applicable to an international index in which an included country may discourage foreign ownership of its bonds or participation in its equity market.
+*'''Expenses''': In the normal course of investing, expenses related to withholding tax, safekeeping, and transactions are incurred. For a market or market segment to be included, these ancillary expenses should be well understood by market participants and should not be excessive. For example, if expenses are unpredictable or inconsistently applied, an index cannot hope to fairly measure market performance. 
+
+==References==
+{{Reflist}}
+
+==See also==
+*[[Indexing]]
+
+{{Alternative indices|state=collapsed}}
+[[Category:Indexing]]</text>
+      <sha1>6v0gf0t2vn65z42adhcjnk4v9ixnooh</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Indexing</title>
+    <ns>0</ns>
+    <id>2925</id>
+    <revision>
+      <id>87872</id>
+      <parentid>82183</parentid>
+      <timestamp>2025-10-03T12:52:16Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>/* Index fund structure */ Comprise -&gt; include.</comment>
+      <origin>87872</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="9367" sha1="jotcdkaza01wz0pnqdnpk9sdft4gzmh" xml:space="preserve">'''{{PAGENAME}}''' is an investing strategy that aims to match the performance of a market index. An index is a statistical measure of a market's value and performance, and serves as a benchmark against which an investment manager's performance is judged.&lt;ref&gt;{{cite book| author=Rick Ferri| author-link=Rick Ferri| title=All About Index Funds|pages=10-11| isbn=0-07-148492-2}}&lt;/ref&gt; Today, [[Stock market indexing | a large number of index providers]], including S&amp;P, Dow Jones, MSCI, Russell, FTSE, and Morningstar, provide a wide range of indexes covering [[Stock basics| US]] and [[Domestic/International | international]] stocks, [[Bond basics| bonds]], and [[commodities]].
+
+A well managed, low cost [[index fund]] gives you an excellent, if not optimal, investment vehicle for investing in the overall stock market, in discrete market segments, in the bond markets, and in the commodity markets.
+
+This page primarily looks at traditional market capitalization indexing. There are indexes based on alternate weighting methodologies. For more, see: [[Alternate Indexes]].
+
+==Index strategy boxes==
+[[File:Benchmark Index Strategy Box.png|thumb|Figure 1. Benchmark index strategy box&lt;ref&gt;{{cite web| url=http://www.portfoliosolutions.com/f-18.html| url-status=dead| archive-url=https://web.archive.org/web/20111230043641/http://www.portfoliosolutions.com/f-18.html| archive-date=December 30, 2011| title=Indexing in the 21st Century| publisher=Portfolio Solutions Inc.}}&lt;/ref&gt;]]
+[[Stock basics#Style boxes | Equity]] and [[Bond basics#Style boxes| fixed income]] (bond fund) style boxes give you an idea of risk versus return. The equity style box is based on [[Market Capitalization | market capitalization]], while the fixed income style box is based on investment grade quality. These investment styles are not enough to cover all the selection criteria for index funds.
+
+Instead of investment styles, index funds are categorized according to the way they select investments, using security selection and security weighting rules. Similar to the style boxes for risk vs. return, a 3&amp;nbsp;x&amp;nbsp;3 grid categorizes index fund strategies using selection vs. weighting.
+
+The only thing ''investment style'' and ''index strategy'' boxes have in common is an easy to understand 3&amp;nbsp;x&amp;nbsp;3 grid, designed to help make investment decisions. They are otherwise unrelated.
+
+For example, [[Stock market indexing#Benchmark index strategy box | benchmark indexes]] are in the passively managed, market capitalization security weighted segment of the Index Strategy Box.&lt;ref&gt;{{forum link| p=839617| title=Buying The Market Isn’t As Simple As It Seems| date=October 7, 2010}}.&lt;/ref&gt;
+
+For background on index strategy box background and category breakdown, see [https://web.archive.org/web/20111230043641/http://www.portfoliosolutions.com/f-18.html Indexing in the 21st Century], from Portfolio Solutions Inc.
+
+==Index characteristics==
+{{Warning|
+The popularity of index funds has caused considerable competition among fund providers. Be sure to closely review if a product is a true index fund, or a product that simply follows a benchmark. Please ask in the forum for advice.}}
+According to the CFA Institute, a securities 'index' should have the following characteristics:&lt;ref&gt;{{cite book| author=Rick Ferri| author-link=Rick Ferri| title=All About Index Funds| chapter=Chapter 6| isbn=0-07-148492-2}} &lt;/ref&gt;
+
+*'''Simple and objective selection criteria''': There should be a clear set of rules governing the inclusion of bonds, equities, or markets in an index, and investors should be able to forecast and agree on changes in composition of the securities in an index.
+*'''Comprehensive''': The index should include all opportunities that are realistically available to be purchased by all market participants under normal market conditions. Both new and existing securities should have frequent pricing available so the index level can be accurately measured.
+*'''Replicable''': The total returns reported for an index should be replicable by market participants. Over time, an index must represent a realistic baseline strategy that a passive investor could have followed. Accordingly, information about index composition and historical returns should be readily available. It must also be fair to investment managers who are measured against it, and to sponsors who pay fees or award management assignments based on performance relative to it.
+*'''Stability''': The index should not change composition frequently, and all changes should be easily understood and highly predictable. The index should not be subject to opinions about which bonds or equities to include on any particular day. Conversely, index composition is expected to change occasionally to ensure that it accurately reflects the structure of the market. A key virtue of an index is to provide a passive benchmark. As such, investors should not be forced to execute a significant number of transactions just to keep pace.
+*'''Relevance''': The index should be relevant to investors. At a minimum, it should track those markets and market segments of most interest to investors.
+*'''Barriers to entry''': The markets or market segments included in an index should not contain significant barriers to entry. This guideline is especially applicable to an international index in which an included country may discourage foreign ownership of its bonds or participation in its equity market.
+*'''Expenses''': In the normal course of investing, expenses related to withholding tax, safekeeping, and transactions are incurred. For a market or market segment to be included, these ancillary expenses should be well understood by market participants and should not be excessive. For example, if expenses are unpredictable or inconsistently applied, an index cannot hope to fairly measure market performance.
+
+==Index fund structure==
+{{Main|Index fund#Index fund structure}}
+An index fund manager uses several management techniques to try to capture market returns. These include replicating or sampling the ''index universe'' of securities, equitizing cash balances to remain 100 percent invested, and trading strategies that minimize transaction costs. 
+
+*'''Replication''': Index funds tracking large size and mid size companies usually buy and hold all of the stocks of the index. 
+*'''Sampling''': For indexes which include illiquid securities, funds will sample their universe of securities to avoid high costs. Sometimes this is called ''Physical replication with optimization''. The sampling attempts to match the size and valuation metrics of the index. 
+*'''Swap-based replication''' or '''synthetic ETFs''': Certain funds perform replication of the index using derivatives as opposed to owning the physical assets. 
+*'''Equitization''': The index manager reduces the tracking error of holding cash balances by buying a [[Futures | futures]] contract with the cash holdings to avoid the ''cash drag''.
+
+==See also==
+*[[Mutual fund]]
+*[[Exchange-traded funds]]
+*[[Stock market indexing]]
+*[[Bond market indexing]]
+
+==References==
+{{Reflist}}
+
+==External links==
+*[https://web.archive.org/web/20190117081117/http://www.vanguard.com/pdf/indexmyths.pdf Myths and Misconceptions About Indexing] Vanguard Investment Counseling &amp; Research (2003)
+*[http://johncbogle.com/speeches/JCB_AXA_10-01.pdf Three Challenges Of Investing: Active Management, Market Efficiency, and Selecting Managers] [[John Bogle]], AXA Rosenberg Group Client Conference, Boston, Massachusetts October 21, 2001
+*[http://www.stanford.edu/~wfsharpe/art/active/active.htm The Arithmetic of Active Management] [[Sharpe, William F.|William F. Sharpe]], Reprinted with permission from The Financial Analysts' Journal Vol. 47, No. 1, January/February 1991. pp. 7-9 Copyright, 1991
+*[http://www.stanford.edu/~wfsharpe/art/talks/indexed_investing.htm Indexed Investing: A Prosaic Way to Beat the Average Investor] [[Sharpe, William F.|William F. Sharpe]], Presented at the Spring President's Forum, Monterey Institute of International Studies, May 1, 2002
+
+===Bibliography===
+{| border="0"
+||
+*Cai, Jie and Houge, Todd, ''[http://ssrn.com/abstract=970839 Index Rebalancing and Long-Term Portfolio Performance]'' (March 2007). Available at SSRN 
+*[[ Edwin J. Elton|Elton, Edwin J]]., [[ Jeffrey A. Busse|Busse, Jeffrey A]]. and [[ Martin J. Gruber|Gruber, Martin J]]., ''[http://ssrn.com/abstract=340482 Are Investors Rational? Choices Among Index Funds]'' (June 2002). NYU Working Paper Available at SSRN.
+*[[French, Kenneth R.]], ''[http://ssrn.com/abstract=1105775 The Cost of Active Investing]'' (April 9, 2008). Available at SSRN. 
+*[[Haslem, John A.]], Baker, H. Kent and Smith, David M., ''[http://ssrn.com/abstract=1144763 Are Retail S&amp;P 500 Index Funds a Financial Commodity? Insights for Investors.]'' Financial Services Review, Vol. 15, No. 2, 2006. Available at SSRN. 
+*[[Haslem, John A.]], Baker, H. Kent and Smith, David M., ''[http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1144943 Performance and Characteristics of Retail S&amp;P 500 Index Mutual Funds]'' (April 9, 2008). Available at SSRN. 
+*Petajisto, Antti, ''[http://ssrn.com/abstract=1235604 The Index Premium and its Hidden Cost for Index Funds]'' (August 18, 2008). Available at SSRN. 
+|}
+{{Bogleheads investing start-up kit}}
+{{Indexing}}
+[[Category:Indexing]]</text>
+      <sha1>jotcdkaza01wz0pnqdnpk9sdft4gzmh</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Bloomberg US Aggregate Bond Index</title>
+    <ns>0</ns>
+    <id>3346</id>
+    <revision>
+      <id>88471</id>
+      <parentid>88464</parentid>
+      <timestamp>2025-11-14T10:06:24Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Update the index name and some fund names. Wording clarity.</comment>
+      <origin>88471</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="3618" sha1="hbtm9shu7jos7yr2e588jdox33g50uq" xml:space="preserve">The ''' Bloomberg US Aggregate Bond Index''' (ticker: LBUSTRUU), formerly known as the Lehman Aggregate Bond Index and the Barclays US Aggregate Index, was created in 1986 with backdated history going back to 1976. The index has been maintained by Bloomberg L.P. since August 24th 2016.&lt;ref&gt;{{Cite web| title=Bloomberg Completes Acquisition of Barclays Risk Analytics and Index Solutions Business| url=https://www.bloomberg.com/company/announcements/bloomberg-acquisition-barclays-brais/| publisher=Bloomberg| date=August 24, 2016| url-status=dead| archive-url=https://web.archive.org/web/20160831202728/https://www.bloomberg.com/company/announcements/bloomberg-acquisition-barclays-brais/| archive-date=August 31, 2016}}&lt;/ref&gt; The index is a primary benchmark for US bond investors, and is a benchmark index for many US index funds. 
+
+==Overview==
+The Index is a composite of four major subindices: US Government Index; US Credit Index; US Mortgage Backed Securities Index (1986); and (beginning in 1992) US Asset Backed Securities Index. The index holds investment quality bonds. The ratings are based on S&amp;P, Moody, and Fitch bond ratings. The index does not include [[High yield bonds|high yield bonds]], [[Municipal bonds |municipal bonds]], [[Treasury Inflation Protected Securities| inflation-indexed bonds]], or [[Developed market bonds |foreign currency bonds]].
+
+The index includes these bond asset classes:&lt;ref&gt;{{cite book| author=Richard Ferri| title=All About Index Funds| page=182| isbn=0-07-148492-2}}&lt;/ref&gt;
+*Government: [[Treasury bonds |Treasury bills, notes, and bonds]], [[Government agency bonds|Agency bonds]]
+*[[Corporate bonds|Credit]]: Industrial, Finance, Utility, Yankee Bonds
+*[[Mortgage-backed securities|Mortgage backed]], [[GNMA]], FNMA, FHLMC
+*[[Asset-backed securities|Asset backed]], Credit card receivables, Auto Loans, Home equity loans
+
+An asset class's relative weighting within the index changes over time as new asset classes are added to the index, as the number of bonds issued rises and falls, and as market security values fluctuate.
+
+In June 2009, as a result of the 2008 financial crisis, Barclay's announced the creation of the US Aggregate Float Adjusted Index that excludes Treasuries, agencies and MBS held in Federal Reserve accounts.&lt;ref&gt;{{cite web| url=http://www.marketwired.com/press-release/barclays-capital-announces-the-creation-of-the-us-aggregate-float-adjusted-index-1214078.htm| title=Barclays press release| date=July 30, 2009}}{{dead link}}&lt;/ref&gt;
+
+==Index funds==
+The Bloomberg US Aggregate Bond Index was formulated as a market benchmark and contains thousands of illiquid bonds. Index fund managers therefore use sampling strategies when attempting to construct index funds tracking the index. The Vanguard Bond Market ETF is a share class of the Vanguard bond market index fund. 
+
+Selected index funds tracking the Bloomberg US Aggregate Bond Index:
+* BNY Mellon Bond Market Index Fund - {{MStarFundLink|DBMIX}}
+* iShares Core US Aggregate Bond ETF - {{MStarFundLink|AGG}}
+* Infrastructure Capital Bond Income ETF - {{MStarFundLink|BNDS}}
+* T. Rowe Price QM U.S. Bond Index Fund - {{MStarFundLink|PBDIX}}
+* Nuveen Lifecycle Index Fund - {{MStarFundLink|TRILX}}
+* Vanguard Total Bond Market ETF (Float-Adjusted) - {{MStarFundLink|BND}}
+* Vanguard Total Bond Market Index Fund (Float-Adjusted) - {{MStarFundLink|VBTLX}}
+
+==References==
+{{Reflist}} 
+
+==External links==
+* [https://www.bloomberg.com/professional/products/indices/documentation/ Indices Documentation] - Bloomberg Professional Services
+
+{{Indexing}}
+[[Category:Bonds]]
+[[Category:Indexing]]</text>
+      <sha1>hbtm9shu7jos7yr2e588jdox33g50uq</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Bond market indexing</title>
+    <ns>0</ns>
+    <id>3343</id>
+    <revision>
+      <id>88498</id>
+      <parentid>85218</parentid>
+      <timestamp>2025-11-15T18:52:25Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Barclays indexed are now Bloomberg.</comment>
+      <origin>88498</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="3185" sha1="jujt6g2qz9p6sdk8kzzey90o1rm02xj" xml:space="preserve">{{Expand article|further=no}}
+
+'''{{PAGENAME}}''' started in the early 1970s as a way to measure [[Bond basics|bond]] performance. Unlike [[Stock basics|stocks]], which mostly trade on exchanges, bonds primarily trade in the over-the-counter market. Consequently, investment bankers developed the first bond [[Indexing|indexes]].
+
+In 1973, [[wikipedia:Kuhn, Loeb &amp; Co.|Kuhn, Loeb &amp; Co.]] created three U.S bond indexes, and Salomon Brothers introduced its Long-Term High-Grade Corporate Bond Index. Lehman Brothers subsequently acquired Kuhn, Loeb &amp; Co., and the indexes became the Lehman indexes; these were to become the dominant U.S index family.&lt;ref name="joi"&gt;{{cite web| url=http://www.indexuniverse.com/publications/journalofindexes/joi-articles/5714-single-vs-multidealer-fixed-income-indexes.html| title=Single- Vs. Multidealer Fixed-Income Indexes| author1=Stephan Flagel| author2=Neil Wardley| publisher=ETF.com| date=2009| url-status=dead| archive-url=https://web.archive.org/web/20190118032745/https://www.etf.com/publications/journalofindexes/joi-articles/5714-single-vs-multidealer-fixed-income-indexes.html| archive-date=January 18, 2019}}&lt;/ref&gt; Citibank subsequently absorbed [[wikipedia:Salomon Brothers|Salomon Brothers]].
+
+By the early 1990s, J.P. Morgan, Lehman Brothers, Citibank and Merrill Lynch were publishing U.S. indexes.&lt;ref name="joi" /&gt; After the collapse of Lehman Brothers in 2008, Barclays Capital acquired the Global Family of Indices as part of its acquisition of Lehman Brothers' North American Capital Markets and Research groups. All legacy Lehman Brothers benchmark indices were rebranded as Barclays Capital Indices. In 2021 they were rebranded again as Bloomberg Fixed Income Indices.&lt;ref&gt;{{cite web| url=https://www.bloomberg.com/company/press/bloomberg-completes-fixed-income-indices-rebrand/| title=Bloomberg Completes Fixed Income Indices Rebrand| publisher=Bloomberg LP| accessdate=November 15, 2025}}&lt;/ref&gt; Bank of America acquired Merrill Lynch on January 1, 2009. Index providers S&amp;P and Morningstar also provide bond indexes.
+
+In 2002, a consortium of leading European and U.S. banks launched the Euro and Sterling iBoxx indexes. The iBoxx indexes are now the primary indexes used in Europe and the U.K. both for benchmarking and as the basis for [[exchange-traded fund]]s (ETFs) and [[structured products]].&lt;ref name="joi" /&gt;
+
+Two bond market factors define US bond market indexes: credit quality; and term of maturity (short-term, intermediate-term, long term). 
+
+{| class="wikitable"
+|+ Table 1. US Bond Market Index style box
+! Credit quality
+! Short
+! Intermediate
+! Long
+|-
+! Trsy/agency
+|align="center" | ST ||align="center" |IT ||align="center" | LT
+|-
+! Inv grade corp
+|align="center" |ST ||align="center" |IT ||align="center" | LT
+|-
+! Below inv corp
+|align="center" |ST ||align="center" |IT ||align="center" | LT
+|}
+
+==See also==
+*[[Stock market indexing]]
+
+==References==
+{{Reflist}} 
+
+==External links==
+*[https://etfdb.com/indexes/bondfixed-income/ List of Bond/Fixed Income Indexes] - VettaFi
+*[https://www.wsj.com/market-data/bonds/benchmarks Tracking Bond Benchmarks] - WSJ Markets
+
+{{Indexing}}
+[[Category:Indexing]]</text>
+      <sha1>jujt6g2qz9p6sdk8kzzey90o1rm02xj</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Dividend weighted indices</title>
+    <ns>0</ns>
+    <id>3394</id>
+    <revision>
+      <id>86250</id>
+      <parentid>85090</parentid>
+      <timestamp>2025-07-15T20:47:19Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>BlackRock.</comment>
+      <origin>86250</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="6981" sha1="9uys4t499b0ptu5ezpf6ar8scbx3725" xml:space="preserve">{{Expand article|further=no}}
+
+{{Main|Alternative indices}}
+
+'''{{PAGENAME}}''' are calculated by a number of familiar index providers, including Dow Jones, MSCI, and S&amp;P. FTSE&lt;ref&gt;[http://www.ftse.com/Indices/FTSE_High_Dividend_Yield_Index/index.jsp FTSE High Dividend Yield Index] &lt;/ref&gt; and Indxis (formerly Mergent)&lt;ref&gt;[http://www.indxis.com/Indices.html Indxis Indices]&lt;/ref&gt; also create customized and proprietary dividend indices for investment management companies' products ([[Indexing|index funds]] and [[ETF]]s). Wisdom Tree creates its own proprietary dividend indices for its dividend ETFs.
+
+Dividend weighted indices usually screen and weigh their stock holdings on the basis of either yield or dividend growth. Most dividend indices occupy the '''Screened''' security selection/ '''Fundamental''' security weighting segment of the Index Strategy Box, although it is important to note that a number of indices, while screening securities according to dividend yield or dividend growth, weigh their holdings by market capitalization ('''Screened'''/'''Capitalization'''). Both of the [[Dividend weighted indices#Investment options | Vanguard dividend index funds]] are based on market capitalization indices. 
+
+&lt;center&gt;
+ {| class="wikitable" border="1"
+ |-
+ |&lt;!--column1--&gt;[[File:Dividend Weighted Index Strategy Box.png|250px]]
+ |&lt;!--column2--&gt;[[File:Social Responsibility Index Strategy Box.png|250px]]
+ |- align="center"
+ |&lt;!--column1--&gt;Index Strategy Box&lt;ref&gt;[https://web.archive.org/web/20111230043641/http://www.portfoliosolutions.com/f-18.html Indexing in the 21st Century: Portfolio Solutions Inc.]&lt;/ref&gt;
+ |&lt;!--column2--&gt;Index Strategy Box&lt;ref&gt;[https://web.archive.org/web/20111230043641/http://www.portfoliosolutions.com/f-18.html Indexing in the 21st Century: Portfolio Solutions Inc.]&lt;/ref&gt;
+ |}&lt;!--end wikitable--&gt;
+&lt;/center&gt;
+
+==History==
+The advent of dividend weighted indices occurred in the first decade of the twenty-first century. Mergent (Indxis) has provided customized indices since 2000. Dow Jones and S&amp;P began creating indices in 2003; MSCI and Wisdom Tree indices began in 2006, as did the customized FTSE index.
+
+==Characteristics==
+
+===Portfolio concentration===
+
+Screened dividend weighted indices tend to hold a smaller number of stocks than do benchmark capitalization indices. The Dow Jones Select Dividend Indices, the S&amp;P dividend indices, and the Indxis indices (tracked by Powershares) all hold 100 or fewer stocks. Wisdom Tree proprietary indices hold between 80 - 2000 stocks. The Indxis Dividend Achievers Select Index, the customized index tracked by Vanguard, holds 100 - 500 stocks. The FTSE High Dividend Yield Index (tracked by Vanguard) holds between 500 - 1500 stocks.
+
+==Investment options==
+The following table lists fund companies offering dividend index funds and ETFs. Wisdom Tree offers a wide range of US and international dividend ETFs based on a wide selection of proprietary dividend indices.
+
+{| class="wikitable"
+|+ Dividend Index Funds 
+|-
+! Fund Group
+! Funds 
+! Index
+! Strategy Box
+|-
+| BlackRock iShares
+|[https://www.ishares.com/us/products/239500/ishares-select-dividend-etf Dow Jones Select Dividend Index Fund (ETF)] 
+[https://www.ishares.com/us/products/239499/ishares-international-select-dividend-etf Dow Jones EPAC Select Dividend Index Fund ] 
+| Dow Jones U.S. Select Dividend Index 
+Dow Jones EPAC Select Dividend Index
+|[http://www.etfguide.com/advance_search_view.php?ID=145&amp;slug=iShares%20DJ%20Select%20Dividend%20Index%20Fund&amp;catview= Screened/Fundamental]
+[http://www.etfguide.com/advance_search_view.php?ID=146&amp;slug=iShares%20Dow%20Jones%20EPAC%20Select%20Dividend%20Index%20Fund&amp;catview= Screened/Fundamental]
+|-
+| Guggenheim
+|[http://www.guggenheimfunds.com/etf/fund/lvl S&amp;P Global Dividend Opportunities Index] (ETF)
+|S&amp;P Global Dividend Opportunities Index
+|[http://www.etfguide.com/advance_search_view.php?ID=332&amp;slug=Guggenheim%20S&amp;P%20Global%20Dividend%20Opportunities%20ETF&amp;catview= Screened/Fundamental]
+|-
+| Powershares
+| [http://www.invescopowershares.com/products/overview.aspx?ticker=PEY High Yield Equity Dividend Achiever Portfolio (ETF}] &lt;br&gt;
+[http://www.invescopowershares.com/products/overview.aspx?ticker=pid International Dividend Achievers Portfolio (ETF)]
+|Indxis Dividend Achiever 50 Index &lt;br&gt;
+Indxis International Dividend Achievers Index
+|[http://www.etfguide.com/advance_search_view.php?ID=278&amp;slug=PowerShares%20Dividend%20Achievers%20Portfolio%20Fund&amp;catview=  Screened/Capitalization]
+[http://www.etfguide.com/advance_search_view.php?ID=302&amp;slug=PowerShares%20International%20Dividend%20Achievers%20Fund&amp;catview= Screened/Fundamental]
+|-
+| State Street Global Advisors
+|[https://www.spdrs.com/product/fund.seam?ticker=SDY SPDR S&amp;P Dividend] (ETF)
+[https://www.spdrs.com/product/fund.seam?ticker=DWX SPDR S&amp;P International Dividend] (ETF)
+|S&amp;P High Yield Dividend Aristocrats Index
+S&amp;P International Dividend Opportunities Index
+|[http://www.etfguide.com/advance_search_view.php?ID=65&amp;slug=SPDR%20S&amp;P%20Dividend%20ETF&amp;catview= Screened/Fundamental]
+[http://www.etfguide.com/advance_search_view.php?ID=649&amp;slug=SPDR%20S&amp;P%20International%20Dividend%20ETF&amp;catview= Screened/Fundamental]
+|-
+| Vanguard
+| [{{Vf | 0602}} Dividend Appreciation Index Fund (Fund/ETF)] &lt;br&gt;
+[{{Vf | 0623}} High Dividend Yield Index Fund (Fund/ETF)]
+|Indxis Dividend Achievers Select Index &lt;br&gt;
+FTSE High Dividend Yield Index
+|[http://www.etfguide.com/advance_search_view.php?ID=17&amp;slug=Vanguard%20Dividend%20Appreciation%20ETF&amp;catview= Screened/Capitalization]
+[http://www.etfguide.com/advance_search_view.php?ID=18&amp;slug=Vanguard%20High%20Dividend%20Yield%20ETF&amp;catview= Screened/Capitalization]
+|-
+| Wisdom Tree
+|[http://www.wisdomtree.com/etfs/index.asp Wisdom Tree ETFs] 
+|[http://www.wisdomtree.com/etfs/all-indexes.asp  Wisdom Tree Indexes]
+| Screened/Fundamental
+|}
+
+==See also==
+*[[Alternative indices]]
+
+==References==
+{{Reflist}}
+
+==External links==
+
+*[http://www.etfguide.com/ etfguide.com]
+
+===Index providers===
+*[http://www.djindexes.com/selectdividend/ Dow Jones Select Dividend Indexes] 
+*[http://www.indxis.com/Indices.html Indxis Indices]
+*[http://www.mscibarra.com/products/indices/thematic_and_strategy/hdy/ MSCI High Dividend Yield Indices]
+*[http://www.standardandpoors.com/indices/strategy/en/us/?assetName=Strategy&amp;assetID=1221186708616 S&amp;P Dividend Indices]
+
+===Dividend weighted index methodologies===
+*[http://www.djindexes.com/selectdividend/?go=literature Dow Jones Select Dividend Indexes]
+*[http://www.indxis.com/DividendAchievers.html Indxis Dividend Achievers Indexes]
+*[http://www.mscibarra.com/products/indices/thematic_and_strategy/hdy/methodology.html MSCI High Dividend Yield Indices]
+*[http://www.wisdomtree.com/library/pdf/materials/WisdomTree-Fundamentally-Weighted-Indexes-ETFs-391.pdf Wisdom Tree Indexes]
+*[http://www.wisdomtree.com/library/approach.asp Wisdom Tree Methodologies]
+
+{{Alternative indices|state=collapsed}}
+
+[[Category:Indexing]]</text>
+      <sha1>9uys4t499b0ptu5ezpf6ar8scbx3725</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Equal weighted indices</title>
+    <ns>0</ns>
+    <id>3384</id>
+    <revision>
+      <id>87121</id>
+      <parentid>86120</parentid>
+      <timestamp>2025-08-20T07:01:16Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>Utilizes -&gt; use.</comment>
+      <origin>87121</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="6444" sha1="e81xmbjd217aw48evud4glllk5lyg9r" xml:space="preserve">{{Main|Alternative indices}}
+
+'''{{PAGENAME}}''' (EWI) use an alternative index strategy that weights securities equally as opposed to weighting them according to market capitalization weights. This methodology places EWI  in the ''Passive'' security selection and ''Fixed Weight'' segment of the [[Indexing#Index strategy boxes | Index Strategy Box]] (see Fig.1).
+
+[[File:Equal Weight Index Strategy Box.png |thumb|right|250px|Caption|Fig.1. Index Strategy Box&lt;ref&gt;[https://web.archive.org/web/20111230043641/http://www.portfoliosolutions.com/f-18.html Indexing in the 21st Century: Portfolio Solutions Inc.]&lt;/ref&gt;]]
+
+==History==
+S&amp;P introduced equal weight indexing on January 8, 2003 with the creation of the S&amp;P 500 Equal Weighted Index. S&amp;P subsequently created equal weighted indices for sectors of the market.&lt;ref name="S&amp;P"&gt;[http://www.standardandpoors.com/servlet/BlobServer?blobheadername3=MDT-Type&amp;blobcol=urldata&amp;blobtable=MungoBlobs&amp;blobheadervalue2=inline%3B+filename%3DEqualWeightIndexing_7YearsLater.pdf&amp;blobheadername2=Content-Disposition&amp;blobheadervalue1=application%2Fpdf&amp;blobkey=id&amp;blobheadername1=content-type&amp;blobwhere=1243738203049&amp;blobheadervalue3=UTF-8 Equal Weight Indexing Seven Years Later] Srikant Dash and Keith Loggie, S&amp;P (July, 2010)]&lt;/ref&gt;
+
+{| class="wikitable"
+|-
+|+ S&amp;P US Equal Weighted Indices&lt;ref&gt;[http://www2.standardandpoors.com/spf/pdf/index/SP_Equal_Weight_Index_Web.pdf S&amp;P Methodology]&lt;/ref&gt;
+! Index
+! Bloomberg
+! Reuters
+|-
+| S&amp;P Equal Weight Index (EWI)|| SPXEW || .SPXEW
+|-
+| S&amp;P EWI Consumer Discretionary ||S25 ||.SPXEW25
+|-
+| S&amp;P EWI Consumer Staples ||S30 ||.SPXEW30
+|-
+|S&amp;P EWI Energy || S10 ||.SPXEW10
+|-
+|S&amp;P EWI Financials || S40 ||.SPXEW40
+|-
+|S&amp;P EWI Health Care || S35 ||.SPXEW35
+|-
+|S&amp;P EWI Industrials || S20 ||.SPXEW20
+|-
+|S&amp;P EWI Information Technology || S45 ||.SPXEW45
+|-
+|S&amp;P EWI Materials || S15 ||.SPXEW15
+|-
+|S&amp;P EWI Telecommunication Services || S50 ||.SPXEW50
+|-
+|S&amp;P EWI Utilities || S55 ||.SPXEW55
+|}
+
+In September 2010, S&amp;P created an equal weighted commodity index&lt;ref name="S&amp;P"/&gt;. S&amp;P has also created equal weighted versions of the S&amp;P MidCap 400 and S&amp;P SmallCap 600 indices.
+
+==Characteristics==
+===Asset weightings===
+
+In weighting securities, an equal weighted index will usually divide a security by the total number of securities in the index (1/n). Thus each stock in the popular S&amp;P EWI comprises 1/500 or 0.20% of the index. In the S&amp;P EWI, stocks 500 to approximately 125 (in market cap size) are moderately "overweighted" and stocks approximately 125 to 1 are progressively "underweighted." The effect of equal weighting is to give smaller companies in a stock index more influence over index performance than would occur in a capitalization weighted index. There is also a tendency for equal weighting to give higher weighting to value stocks. Equal weighted indexes are also consistently less concentrated than market capitalization indexes.&lt;ref name="S&amp;P"/&gt;
+
+===Sector weightings===
+
+The sector weightings in a broad market equal weighted stock index are not determined by the fluctuating size of the companies in the sector, but by the number of companies in the sector. The result is that the EWI has a more stable sector allocation  in comparison to a corresponding market capitalization index. There is also a tendency for an EWI to overweight sectors composed of smaller stocks and underweight sectors composed of larger stocks.&lt;ref name="S&amp;P"/&gt;
+
+===Rebalancing and turnover===
+
+In order for an equal weighted index to maintain its equal weights it must be periodically rebalanced back to its target weightings. In the interim between rebalancing, security values will fluctuate away from equal weighting. The usual EWI rebalancing methodology dictates quarterly rebalancing of the index. These quarterly rebalancings result in an EWI having higher turnover rates in comparison with benchmark indices. During the 2004-2009 period, the S&amp;P EWI 500 index had turnover averaging 28.1%. This compares to turnover rates of 2.8% for the S&amp;P 500 index; 13.4% for the S&amp;P MidCap 400 Index; and 13.1% for the S&amp;P SmallCap 600 Index.&lt;ref name="S&amp;P"/&gt;
+
+==Investment options==
+Guggenheim&lt;ref&gt;[http://guggenheiminvestments.com/Products/etf/Strategies Guggenheim] &lt;/ref&gt; provides equal weighted ETFs based on the S&amp;P 500, 400, and 600 equal weight indices, as well as nine ETFs based on S&amp;P equal weight indices. In addition, Guggenheim provides three ETFs based on Russell equal weighted indices (Russell 1000, Russell mid-cap, and Russell 2000) and two ETFs based on MSCI equal weighted international indices (EAFE and Emerging Markets).
+
+==See also==
+*[[Alternative indices]]
+
+==External links==
+*[http://www.mscibarra.com/products/indices/thematic_and_strategy/equal_weighted/ MSCI Equal Weighted Indices]
+*[https://www.spglobal.com/spdji/en/indices/equity/sp-500-equal-weight-index/#overview S&amp;P 500 Equal Weight Index]
+*[https://www.spglobal.com/spdji/en/indices/equity/sp-400/#overview S&amp;P MidCap 400 Equal Weight Index]
+*[https://www.spglobal.com/spdji/en/indices/equity/sp-smallcap-600-equal-weighted-index/#overview S&amp;P SmallCap 600 Equal Weight Index]
+
+===Equal weight index methodology===
+*[http://www.mscibarra.com/products/indices/thematic_and_strategy/equal_weighted/methodology.html MSCI Equal Weighted Indices Methodology]
+*[http://www.russell.com/indexes/data/equal_weight/russell_equal_weight_indexes.asp Russell Equal Weight Indexes], select methodology
+
+===Articles===
+*[http://www.standardandpoors.com/servlet/BlobServer?blobheadername3=MDT-Type&amp;blobcol=urldata&amp;blobtable=MungoBlobs&amp;blobheadervalue2=inline%3B+filename%3DEqualWeightIndexing_7YearsLater.pdf&amp;blobheadername2=Content-Disposition&amp;blobheadervalue1=application%2Fpdf&amp;blobkey=id&amp;blobheadername1=content-type&amp;blobwhere=1243738203049&amp;blobheadervalue3=UTF-8 Equal Weight Indexing Seven Years Later] Srikant Dash and Keith Loggie, S&amp;P (July, 2010)
+*[http://www.mscibarra.com/research/articles/2010/Update_on_MSCI_Equal_Weighted_Indices_Dec_2010.pdf Update on MSCI Equal Weighted Indices]
+*[http://www.investopedia.com/articles/exchangetradedfunds/08/market-equal-weight.asp S&amp;P 500 ETFs: Market Weight Vs. Equal Weight] Investopedia
+*[http://www.investopedia.com/articles/exchangetradedfunds/08/index-debate.asp Rich White, ''Market Cap, Equal Weight And Fundamental Indexing'', Investopedia]
+
+==References==
+{{Reflist}}
+
+{{Alternative indices|state=collapsed}}
+[[Category:Indexing]]</text>
+      <sha1>e81xmbjd217aw48evud4glllk5lyg9r</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Social responsibility indices</title>
+    <ns>0</ns>
+    <id>3379</id>
+    <revision>
+      <id>86323</id>
+      <parentid>85521</parentid>
+      <timestamp>2025-07-20T11:35:10Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>His or her -&gt; their.</comment>
+      <origin>86323</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="5549" sha1="jl9dh4do95do8z3e1zkfkk1znkf6xmv" xml:space="preserve">{{US}}
+
+{{Main|Alternative indices}}
+[[File:Social Responsibility Index Strategy Box.png|thumb|right|250px| Figure 1. Index strategy box &lt;ref&gt;[https://web.archive.org/web/20111230043641/http://www.portfoliosolutions.com/f-18.html Indexing in the 21st Century: Portfolio Solutions Inc.]&lt;/ref&gt;]]
+'''{{PAGENAME}}''' follow what is designated as ''Socially Responsible Investing'' (SRI), an investment discipline that considers environmental, social and corporate governance criteria (ESG) in the hope of generating long-term competitive financial returns and positive societal impact.&lt;ref&gt;[http://www.ussif.org/sribasics SRI Basics]&lt;/ref&gt; Social Responsibility indexes fall within the '''Screened''' security selection/Market '''Capitalization''' security weighting segment of the [[:Indexing#Index strategy boxes | index strategy box]] (Figure 1).
+
+==Social responsibility screens==
+
+SRI adopts the following investment approaches to security selection and fund management:
+
+*'''Screening''': Screens can be both positive and negative. Positive screens seek companies judged to have good employer-employee relations, strong environmental practices, products that are safe and useful, and operations that respect human rights around the world. SRI funds tend to negatively screen companies whose products and business practices are judged harmful to individuals, communities, or the environment.
+*'''Shareholder advocacy''': This involves SRI funds taking an active role as shareholders. This includes talking with companies on issues of social, environmental or governance concerns as well as filing shareholder resolutions on such topics as corporate governance, climate change, political contributions, gender/racial discrimination, pollution, and problem labor practices. 
+*'''Community Investing''': Directing capital from investors and lenders to communities that are judged underserved by traditional financial services institutions. Community investing provides access to credit, equity, capital, and basic banking products that these communities might otherwise lack.&lt;ref&gt;[http://www.socialinvest.org/resources/sriguide/srifacts.cfm Social Investment Forum Socially Responsible Investing Facts]&lt;/ref&gt;
+
+Each SRI index provider tends to have differing detailed social and ethical criteria for screening companies, so an investor needs to assess each index (and SRI fund) to ensure that the ethical standards of the investment match their ethical convictions. Among the industries commonly excluded from SRI indexes are tobacco, alcohol, adult entertainment, firearms, gambling, nuclear power, and military weapons.&lt;ref&gt; Richard A. Ferri, ''All About Index Funds'', ISBN 0-07-148492-2&lt;/ref&gt; SRI indexes have been developed based on environmental and social criteria (Sustainability Indexes)&lt;ref&gt;[http://djindexes.com/sustainability/ S&amp;P Dow Jones Sustainability Indices]&lt;/ref&gt; and on religious criteria (Catholic and Islamic Indexes).
+
+The oldest SRI Index is the [http://www.kld.com/indexes/ds400index/index.html Domini 400 Social Index], which started in 1990. The [http://calvertgroup.com/sri-index-faq.html Calvert Social Index] started in 2000, and the [http://www.ftse.com/Indices/FTSE4Good_Index_Series/index.jsp FTSE4Good Indexes] date from 2005. Currently index funds and ETFs are available that track the Domini 400 Social Index, the FTSE4Good Select Index, and the MSCI US ESG Broad Market and ESG Select Social Indexes.&lt;ref group="note"&gt;SRI index funds include:
+*Domini Social Index [https://www.ishares.com/us/products/239667/ishares-msci-kld-400-social-etf I-Shares KLD 400 Social Index Fund  (DSI)] 
+*FTSE4Good Select Index [{{Vf | 0213}} Vanguard FTSE Social Index Fund  (VFTSX)]
+*MSCI USA ESG Broad Market Index [http://www.tiaa-cref.org/performance/mutual_funds/profiles/0059.html TIAA-CREF Social Choice Equity(TICRX)]
+*MSCI USA ESG Index [https://www.ishares.com/us/products/239692/ishares-msci-usa-esg-select-etf I-Shares MSCI USA ESG Select Social Index (KLD) ]&lt;/ref&gt;
+
+==See also==
+*[[Alternative indices]]
+
+==Notes==
+{{Reflist|group="note"}}
+
+==References==
+{{Reflist}}
+
+==External links==
+*[http://www.ussif.org/ The Forum for Sustainable and Responsible Investment]
+
+===Social responsibility index methodologies===
+*[http://www.ftse.com/Indices/FTSE4Good_Index_Series/Downloads/indexrules.pdf Ground Rules For The Management Of The FTSE4Good Index Series]
+*[http://www.calvertgroup.com/sri-index-faq.html The Calvert Social Index Frequently Asked Questions]
+*[http://www.msci.com/products/indices/thematic/esg/ MSCI ESG Indexes]
+
+===Bibliography===
+{| border="0"
+||
+*Ceu Cortez , Maria, Silva, Florinda and Areal, Nelson, ''[http://ssrn.com/abstract=1342469 Socially Responsible Investing in the Global Market: The Performance of US and European Funds]'', (February 13, 2009). Available at SSRN. 
+*Geczy, Christopher Charles, Stambaugh, Robert F. and Levin, David, ''[http://ssrn.com/abstract=416380 Investing in Socially Responsible Mutual Fund]'', (October 2005). Available at SSRN. 
+*Statman, Meir, ''[http://ssrn.com/abstract=705344v Socially Responsible Indexes: Composition and Performance]'', (January 2005). Available at SSRN. 
+*Ter Horst, Jenke R., Zhang, Chendi and Renneboog, Luc, ''[http://ssrn.com/abstract=985265 The Price of Ethics: Evidence from Socially Responsible Mutual Funds]'', (May 2007). ECGI - Finance Working Paper No. 168/2007; TILEC Discussion Paper No. 2007-012; CentER Discussion Paper Series No. 2007-29. Available at SSRN. 
+|}
+{{Alternative indices|state=collapsed}}
+
+[[Category:Indexing]]</text>
+      <sha1>jl9dh4do95do8z3e1zkfkk1znkf6xmv</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Fundamental indices</title>
+    <ns>0</ns>
+    <id>3383</id>
+    <revision>
+      <id>85219</id>
+      <parentid>84714</parentid>
+      <timestamp>2025-06-28T10:11:21Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Remove stale sections. Adjust page layout.</comment>
+      <origin>85219</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="7907" sha1="gjcyyhbrgao5280m37p8h6lui0zfz10" xml:space="preserve">{{Main|Alternative indices}}
+[[File:Fundamental Index Strategy Box.png|thumb|right|250px|caption| Figure 1. Index Strategy Box&lt;ref&gt;[https://web.archive.org/web/20111230043641/http://www.portfoliosolutions.com/f-18.html Indexing in the 21st Century: Portfolio Solutions Inc.]&lt;/ref&gt;]]
+
+'''{{PAGENAME}}''', developed by Research Affiliates&lt;ref&gt;[http://www.researchaffiliates.com/rafi/rafi.htm Research Affiliates RAFI Overview]&lt;/ref&gt; and calculated by FTSE, are known as Research Affiliates Fundamental Index (RAFI). RAFI indices are passively managed market cap indices that use a security weighting system that ranks stocks according to four fundamental value factors.
+Fundamental indices occupy the '''Passive''' security selection/ '''Fundamental''' security weighting segnent of the [[Indexing#Index Strategy Boxes | Index Strategy Box]] (Figure 1).
+
+RAFI indices have also been developed for the bond market, and are calculated in conjunction with Ryan ALM, Inc.&lt;ref&gt;[http://www.researchaffiliates.com/rafi/bonds.htm Research Associates: RAFI Bonds]
+&lt;/ref&gt;
+
+==Characteristics==
+Fundamental Indexing is the subject of [[Fundamental Indices#Debate | considerable debate]] among both [[Fundamental Indices#Academic Papers|investment professionals]] and [[Fundamental Indices#Forum Discussions|individual investors]].
+
+===Security selection and weighting===
+
+The construction of a RAFI index begins with the selection of a company universe (for example the FTSE All US All Cap Index, or the FTSE Developed ex US Index) and a screening process that ranks the companies according to four fundamental valuation factors: sales, cash flow, book value, and dividends (see table below). The selection and weighting process is described in detail in the quote box, ''RAFI Index Construction Rules''.
+
+{| style="margin:float; color:"Black" width="40%" border=".1px" cellpadding="2px" cellspacing="0px" &lt;!--- applies to table --&gt;
+|- align="center" bgcolor="lightgray" &lt;!------ applies to row -----&gt;
+! width="40%" | Fundamental indexing weighting factors&lt;ref&gt;[http://www.ftse.com/Indices/FTSE_RAFI_Index_Series/2008Downloads/FTSE_RAFI_Indexes_Methodology_overview.pdf FTSE RAFI Index Series Methodology Overview]&lt;/ref&gt;
+
+&lt;!--- formatting for the cells---&gt;
+|- valign="top" align="left" style="background:White; font-size: 92%;"
+|&lt;!--- 1st column ---&gt;
+*'''Sales''' = company sales averaged over the prior five years.
+*'''Cash flow''' = company cash flow averaged over the prior five years, defined as Operating Income plus Depreciation.
+* '''Book value''' = company book value at the review date.
+* '''Dividend''' = total dividend distributions averaged over the last five years, including both special and regular dividends paid in cash.
+|} 
+
+===Rebalancing and turnover===
+
+In order to preserve proper weighting of companies, fundamental indices are rebalanced once a year. The result is that fundamental indices have higher turnover than do comparable asset class market capitalization indices. In terms of implementation, ETF manager Powershares has managed its RAFI funds with much less turnover than mutual fund manager Schwab.&lt;ref&gt;[http://www.invescopowershares.com/pdf/P-PS-PRO-2.pdf Powershares US RAFI prospecus] &lt;br&gt; [http://www.invescopowershares.com/pdf/P-PS-PRO-8.pdf Powershares International RAFI prospectus]&lt;br&gt;[http://hosted.rightprospectus.com/SF/Fund.aspx?dt=P&amp;cu=808509442 Schwab annual report].&lt;/ref&gt;
+
+==Investment options==
+RAFI Index funds are available from [http://www.schwab.com/public/schwab_oldpublicsite/research_strategies/mutual_funds/funds/fundamental_index_funds Charles Schwab] (mutual funds) and [http://www.invescopowershares.com/products/ Powershares] ([[Exchange Traded Funds | as ETFs]]). In June, 2011, Powershares expanded its lineup of RAFI indices by changing the benchmarks of seven ETFs formerly tied to Intellidex Indices to RAFI fundamental indices, and by offering two new RAFI ETFs.&lt;ref&gt;[http://www.indexuniverse.com/hot-topics/9388-powershares-makes-big-rafi-related-moves-.html PowerShares Makes Big RAFI-Related Moves], indexuniverse.com. (June 16, 2011) &lt;/ref&gt; PIMCO offers four institutional enhanced RAFI index funds.
+
+==See also==
+*[[Alternative indices]]
+
+==References==
+{{Reflist}}
+
+==External links==
+*[http://www.researchaffiliates.com/rafi/rafi.htm Research Affiliates RAFI Overview]
+
+===Fundamental index methodologies===
+*[http://www.ftse.com/Indices/FTSE_RAFI_Index_Series/index.jsp FTSE RAFI Index Series]
+*[http://www.ftse.com/Indices/FTSE_RAFI_Index_Series/2008Downloads/FTSE_RAFI_Indexes_Methodology_overview.pdf FTSE RAFI Index Series Methodology Overview]
+
+===Forum discussions===
+{{Notice|
+Comparing ''fundamental'' to traditional ''capitalization weighted ("cap-weighted")'' benchmark index funds is a subject of constant debate. The following forum threads provide insight.
+}}
+*[http://www.bogleheads.org/forum/viewtopic.php?t=56090 Fundamental Indexing]
+*[http://www.bogleheads.org/forum/viewtopic.php?t=19447 'Fundamental Indexing' by Arnott]
+*[http://www.bogleheads.org/forum/viewtopic.php?t=3028 Fundamentalists at the Gates: The Trouble With Cap-Weighted]
+*[http://www.bogleheads.org/forum/viewtopic.php?p=36052 Is Fundamental Indexing superior to Cap Weighted indexing?]
+
+Please ask in the forum if you are unsure about investing in a product.
+
+===Articles===
+*[http://www.indexuniverse.com/publications/journalofindexes/joi-articles/2995.html Rob Arnott, Gus Sauter, Jeremy Siegel, ''Fundamental Indexing Smackdown'', JOI, September/October 2007]
+*[http://efficientfrontier.com/ef/0adhoc/fi.htm William Bernstein, Fundamental Indexing and the Three-Factor Model, ''Efficient Frontier'', May, 2006]
+*[http://johncbogle.com/wordpress/wp-content/uploads/2006/08/WSJ%20op-ed.pdf John C. Bogle and Burton G. Malkiel, ''Turn on a Paradigm?'', June 27, 2006]
+*[http://www.investopedia.com/articles/exchangetradedfunds/08/index-debate.asp Rich White, ''Market Cap, Equal Weight And Fundamental Indexing'', Investopedia]
+*[http://en.wikipedia.org/wiki/Fundamentally_based_indexes Wikipedia Fundamentally based indexes]
+
+===Bibliography===
+{| border="0"
+||
+* Arnott, Robert D., Hsu, Jason C. and Moore, Philip, ''[http://ssrn.com/abstract=604842 Fundamental Indexation]'', Available at SSRN.
+* Arnott, Robert D., Hsu, Jason C., Li, Feifei and Shepherd, Shane D., ''[http://ssrn.com/abstract=1263246 Applying Valuation-Indifferent Indexing to Fixed Income]'', (September 4, 2008). Available at SSRN. 
+* Blitz, David and Swinkels, Laurens A. P., ''[http://ssrn.com/abstract=1184848 Fundamental Indexation: An Active Value Strategy in Disguise]'' (July 1, 2008). Available at SSRN. 
+* Dopfel, Fred, ''[https://www2.blackrock.com/webcore/litService/search/getDocument.seam?venue=PUB_INS&amp;source=CONTENT&amp;ServiceName=PublicServiceView&amp;ContentID=1111097825 The Arithmetic of Fundamental Indexing]'', Investment Insights, 6.07. June 2007, Volume 10, Issue 3, Barclays Global Investors
+* Estrada, Javier, ''[http://ssrn.com/abstract=949162 Fundamental Indexation and International Diversification]'', (December 2006). Available at SSRN. 
+* Hsu, Jason C. and Campollo, Carmen, ''[http://ssrn.com/abstract=843384 An Examination of Fundamental Indexation]'',(November 2005). Available at SSRN. 
+* Kaplan, Paul D.,''[http://www.top1000funds.com/attachments/202_Why%20Fundamental%20Indexation%20%20Might%E2%80%94or%20Might%20Not%E2%80%94Work.pdf Why Fundamental Indexation Might—or Might Not—Work]'' FAJ, Volume 64, No.1, 2008 CFA Institute
+* Perold, Andre, F. ''[http://www.inbest.co.il/Images/flawedindex.pdf Fundamentally Flawed Indexing]'' FAJ, Volume 63, No.6, 2007 CFA Institute
+* Treynor, Jack, ''[http://www.researchaffiliates.com/ideas/pdf/indifferentIndexing.pdf Why Market-Valuation-Indifferent Indexing Works]'', Financial Analysts Journal Volume 61 • Number 5 ©2005, CFA Institute
+|}
+
+{{Alternative indices|state=collapsed}}
+[[Category:Indexing]]</text>
+      <sha1>gjcyyhbrgao5280m37p8h6lui0zfz10</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Vanguard bond ETFs</title>
+    <ns>0</ns>
+    <id>3443</id>
+    <revision>
+      <id>84961</id>
+      <parentid>84960</parentid>
+      <timestamp>2025-06-22T19:09:01Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>/* Total Bond Market */ Title caps.</comment>
+      <origin>84961</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="3094" sha1="00mfgrsdcf295yn4xp4tgd636cv9fhl" xml:space="preserve">{{US|reason=harmful}}
+
+'''{{PAGENAME}}''' contains links to fund pages from Vanguard, Morningstar, {{plain link|https://www.etf.com/ ETF.com}}, and {{plain link|https://business.nasdaq.com/discover/nasdaq-story/index.html Nasdaq}}.
+
+==Total bond market==
+
+* [{{vf|0928}} Vanguard Total Bond Market ETF] - [https://www.morningstar.com/search/us-securities?query=bnd Morningstar], [https://www.etf.com/BND ETF.com], [https://www.nasdaq.com/symbol/bnd Nasdaq]
+
+==Short term bonds==
+
+* [{{vf|0924}} Vanguard Short Term Bond ETF] - [https://www.morningstar.com/search/us-securities?query=bsv Morningstar], [https://www.etf.com/BSV ETF.com], [https://www.nasdaq.com/symbol/BSV Nasdaq]
+* [{{vf|3142}} Vanguard Short Term Government Bond ETF] - [https://www.morningstar.com/search/us-securities?query=vgsh Morningstar], [https://www.etf.com/vgsh ETF.com], [https://www.nasdaq.com/symbol/vgsh Nasdaq]
+* [{{vf|3145}} Vanguard Short Term Corporate Bond ETF] - [https://www.morningstar.com/search/us-securities?query=VCSH Morningstar], [https://www.etf.com/VCSH ETF.com], [https://www.nasdaq.com/symbol/VCSH Nasdaq]
+
+==Intermediate term bonds==
+
+* [{{vf|0925}} Vanguard Intermediate-Term Bond ETF] - [https://www.morningstar.com/search/us-securities?query=BIV Morningstar], [https://www.etf.com/BIV ETF.com], [https://www.nasdaq.com/symbol/BIV Nasdaq]
+* [{{vf|3143}} Vanguard Intermediate-Term Government Bond ETF] - [https://www.morningstar.com/search/us-securities?query=VGIT Morningstar], [https://www.etf.com/VGIT ETF.com], [https://www.nasdaq.com/symbol/VGIT Nasdaq]
+* [{{vf|3146}} Vanguard Intermediate-Term Corporate Bond ETF] - [https://www.morningstar.com/search/us-securities?query=VCIT Morningstar], [https://www.etf.com/VCIT ETF.com], [https://www.nasdaq.com/symbol/VCIT Nasdaq]
+* [{{vf|3148}} Vanguard Mortgage-Backed Securities ETF] - [https://www.morningstar.com/search/us-securities?query=VMBS Morningstar], [https://www.etf.com/VMBS ETF.com], [https://www.nasdaq.com/symbol/VMBS Nasdaq]
+
+==Long term bonds==
+
+* [{{vf|0927}} Vanguard Long-Term Bond ETF] - [https://www.morningstar.com/search/us-securities?query=BLV Morningstar], [https://www.etf.com/BLV ETF.com], [https://www.nasdaq.com/symbol/BLV Nasdaq]
+* [{{vf|3144}} Vanguard Long-Term Government Bond ETF] - [https://www.morningstar.com/search/us-securities?query=VGLT Morningstar], [https://www.etf.com/VGLT ETF.com], [https://www.nasdaq.com/symbol/VGLT Nasdaq]
+* [{{vf|3147}} Vanguard Long-Term Corporate Bond ETF] - [https://www.morningstar.com/search/us-securities?query=VCLT Morningstar], [https://www.etf.com/VCLT ETF.com], [https://www.nasdaq.com/symbol/VCLT Nasdaq]
+* [{{vf|0930}} Vanguard Extended Duration Treasury ETF], [https://www.morningstar.com/search/us-securities?query=EDV Morningstar], [https://www.etf.com/EDV ETF.com], [https://www.nasdaq.com/symbol/EDV Nasdaq]
+
+==See also==
+*[[Exchange-traded funds]]
+
+==External links==
+*[https://investor.vanguard.com/investment-products/etfs Exchange Traded Funds (ETFs)] - Vanguard
+{{Bonds}}
+
+[[Category:ETFs]]
+[[Category:Bonds]]
+[[Category:Indexing]]
+[[Category:Vanguard]]</text>
+      <sha1>00mfgrsdcf295yn4xp4tgd636cv9fhl</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Vanguard US sector ETFs</title>
+    <ns>0</ns>
+    <id>3438</id>
+    <revision>
+      <id>84963</id>
+      <parentid>84655</parentid>
+      <timestamp>2025-06-22T19:17:45Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Simpler and shorter formatting.</comment>
+      <origin>84963</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="2700" sha1="32im1cfj8kgjr3k97flrsy8vblrk5c0" xml:space="preserve">{{US|reason=harmful}}
+'''{{PAGENAME}}''' contains links to fund pages from Vanguard, Morningstar, {{plain link|https://www.etf.com/ ETF.com}}, and {{plain link|https://business.nasdaq.com/discover/nasdaq-story/index.html Nasdaq}}.
+
+==US sector ETFs==
+
+* [{{vf|0954}} Vanguard Consumer Discretionary ETF] - [https://www.morningstar.com/search/us-securities?query=VCR Morningstar], [https://www.etf.com/VCR ETF.com], [https://www.nasdaq.com/symbol/VCR Nasdaq]
+* [{{vf|0955}} Vanguard Consumer Staples ETF] - [https://www.morningstar.com/search/us-securities?query=VDC Morningstar], [https://www.etf.com/VDC ETF.com], [https://www.nasdaq.com/symbol/VDC Nasdaq]
+* [{{vf|0951}} Vanguard Energy ETF] - [https://www.morningstar.com/search/us-securities?query=VDE Morningstar], [https://www.etf.com/VDE ETF.com], [https://www.nasdaq.com/symbol/VDE Nasdaq]
+* [{{vf|0957}} Vanguard Financials ETF], [https://www.morningstar.com/search/us-securities?query=VFH Morningstar], [https://www.etf.com/VFH ETF.com], [https://www.nasdaq.com/symbol/VFH Nasdaq]
+* [{{vf|0956}} Vanguard Health Care ETF] - [https://www.morningstar.com/search/us-securities?query=VHT Morningstar], [https://www.etf.com/VHT ETF.com], [https://www.nasdaq.com/symbol/VHT Nasdaq]
+* [{{vf|0953}} Vanguard Industrials ETF], [https://www.morningstar.com/search/us-securities?query=VIS Morningstar], [https://www.etf.com/VIS ETF.com], [https://www.nasdaq.com/symbol/VIS Nasdaq]
+* [{{vf|0958}} Vanguard Information Technology ETF] - [https://www.morningstar.com/search/us-securities?query=VGT Morningstar], [https://www.etf.com/VGT ETF.com], [https://www.nasdaq.com/symbol/VGT Nasdaq]
+* [{{vf|0952}} Vanguard Materials ETF], [https://www.morningstar.com/search/us-securities?query=VAW Morningstar], [https://www.etf.com/VAW ETF.com], [https://www.nasdaq.com/symbol/VAW Nasdaq]
+* [{{vf|0986}} Vanguard REIT ETF], [https://www.morningstar.com/search/us-securities?query=VNQ Morningstar], [https://www.etf.com/VNQ ETF.com], [https://www.nasdaq.com/symbol/VNQ Nasdaq]
+* [{{vf|0959}} Vanguard Telecommunications ETF], [https://www.morningstar.com/search/us-securities?query=VOX Morningstar], [https://www.etf.com/VOX ETF.com], [https://www.nasdaq.com/symbol/VOX Nasdaq]
+* [{{vf|0960}} Vanguard Utilities ETF], [https://www.morningstar.com/search/us-securities?query=VPU Morningstar], [https://www.etf.com/VPU ETF.com], [https://www.nasdaq.com/symbol/VPU Nasdaq]
+
+==See also==
+*[[Exchange-traded funds]]
+*[[Real estate investment trust]]
+
+==External links==
+*[https://investor.vanguard.com/investment-products/etfs Exchange Traded Funds (ETFs)] - Vanguard
+
+{{US stocks}}
+[[Category:ETFs]]
+[[Category:US stocks]]
+[[Category:Indexing]]
+[[Category:Vanguard]]</text>
+      <sha1>32im1cfj8kgjr3k97flrsy8vblrk5c0</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Vanguard US stock ETFs</title>
+    <ns>0</ns>
+    <id>3447</id>
+    <revision>
+      <id>84964</id>
+      <parentid>81186</parentid>
+      <timestamp>2025-06-22T19:28:56Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Simpler and shorter formatting.</comment>
+      <origin>84964</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="3756" sha1="gbilcknvwilngz9wl8vpks61yl59pdj" xml:space="preserve">{{US|reason=harmful}}
+'''{{PAGENAME}}''' contains links to fund pages from Vanguard, Morningstar, {{plain link|https://www.etf.com/ ETF.com}}, and {{plain link|https://business.nasdaq.com/discover/nasdaq-story/index.html Nasdaq}}.
+
+==Large cap ETFs==
+{{See also|Market capitalization}}
+
+* [{{vf|0970}} Vanguard Total Market ETF] - [https://www.morningstar.com/search/us-securities?query=VTI Morningstar], [https://www.etf.com/VTI ETF.com], [https://www.nasdaq.com/symbol/VTI Nasdaq]
+* [{{vf|3137}} Vanguard Mega Cap 300 ETF] - [https://www.morningstar.com/search/us-securities?query=MGC Morningstar], [https://www.etf.com/MGC ETF.com], [https://www.nasdaq.com/symbol/MGC Nasdaq]
+* [{{vf|3138}} Vanguard Mega Growth ETF], [https://www.morningstar.com/search/us-securities?query=MGK Morningstar], [https://www.etf.com/MGK ETF.com], [https://www.nasdaq.com/symbol/MGK Nasdaq]
+* [{{vf|3139}} Vanguard Mega Cap Value ETF] - [https://www.morningstar.com/search/us-securities?query=MGV Morningstar], [https://www.etf.com/MGV ETF.com], [https://www.nasdaq.com/symbol/MGV Nasdaq]
+* [{{vf|0961}} Vanguard Large Cap ETF] - [https://www.morningstar.com/search/us-securities?query=VV Morningstar], [https://www.etf.com/VV ETF.com], [https://www.nasdaq.com/symbol/VV Nasdaq]
+* [{{vf|0967}} Vanguard Growth ETF] - [https://www.morningstar.com/search/us-securities?query=VUG Morningstar], [https://www.etf.com/VUG ETF.com], [https://www.nasdaq.com/symbol/VUG Nasdaq]
+* [{{vf|0966}} Vanguard Value ETF] - [https://www.morningstar.com/search/us-securities?query=VTV Morningstar], [https://www.etf.com/VTV ETF.com], [https://www.nasdaq.com/symbol/VTV Nasdaq]
+* [{{vf|0920}} Vanguard Dividend Appreciation ETF] - [https://www.morningstar.com/search/us-securities?query=VIG Morningstar], [https://www.etf.com/VIG ETF.com], [https://www.nasdaq.com/symbol/VIG Nasdaq]
+* [{{vf|0923}} Vanguard  High Dividend Yield ETF] - [https://www.morningstar.com/search/us-securities?query=VYM Morningstar], [https://www.etf.com/VYM ETF.com], [https://www.nasdaq.com/symbol/VYM Nasdaq]
+
+==Mid cap ETFs==
+{{See also|Mid caps}}
+
+* [{{vf|0965}} Vanguard Extended Market ETF] - [https://www.morningstar.com/search/us-securities?query=VXF Morningstar], [https://www.etf.com/VXF ETF.com], [https://www.nasdaq.com/symbol/VXF Nasdaq]
+* [{{vf|0939}} Vanguard Mid Cap ETF] - [https://www.morningstar.com/search/us-securities?query=VO Morningstar], [https://www.etf.com/VO ETF.com], [https://www.nasdaq.com/symbol/VO Nasdaq]
+* [{{vf|0932}} Vanguard Mid Cap Growth ETF] - [https://www.morningstar.com/search/us-securities?query=VOT Morningstar], [https://www.etf.com/VOT ETF.com], [https://www.nasdaq.com/symbol/VOT Nasdaq]
+* [{{vf|0935}} Vanguard Mid Cap Value ETF] - [https://www.morningstar.com/search/us-securities?query=VOE Morningstar], [https://www.etf.com/VOE ETF.com], [https://www.nasdaq.com/symbol/VOE Nasdaq]
+
+==Small cap ETFs==
+{{See also|Small caps}}
+
+* [{{vf|0969}} Vanguard Small Cap ETF] - [https://www.morningstar.com/search/us-securities?query=VB Morningstar], [https://www.etf.com/VB ETF.com], [https://www.nasdaq.com/symbol/VB Nasdaq]
+* [{{vf|0938}} Vanguard Small Growth ETF] - [https://www.morningstar.com/search/us-securities?query=VBK Morningstar], [https://www.etf.com/VBK ETF.com], [https://www.nasdaq.com/symbol/VBK Nasdaq]
+* [{{vf|0937}} Vanguard Small Value ETF] - [https://www.morningstar.com/search/us-securities?query=VBR Morningstar], [https://www.etf.com/VBR ETF.com], [https://www.nasdaq.com/symbol/VBR Nasdaq]
+
+==See also==
+*[[Exchange-traded funds]]
+
+==External links==
+*[https://investor.vanguard.com/investment-products/etfs Exchange Traded Funds (ETFs)] - Vanguard
+
+{{US stocks}}
+[[Category:ETFs]]
+[[Category:US stocks]]
+[[Category:Indexing]]
+[[Category:Vanguard]]</text>
+      <sha1>gbilcknvwilngz9wl8vpks61yl59pdj</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Vanguard international stock ETFs</title>
+    <ns>0</ns>
+    <id>3436</id>
+    <revision>
+      <id>87550</id>
+      <parentid>84962</parentid>
+      <timestamp>2025-09-06T08:04:31Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>/* See also */ Remove link to [[Vanguard fund information]].</comment>
+      <origin>87550</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="1988" sha1="lj3dn4ken8k4cebrkwpn1ite8rxfd6i" xml:space="preserve">{{US|reason=harmful}}
+'''{{PAGENAME}}''' contains links to fund pages from Vanguard, Morningstar, {{plain link|https://www.etf.com/ ETF.com}}, and {{plain link|https://business.nasdaq.com/discover/nasdaq-story/index.html Nasdaq}}.
+
+==International stock ETFs==
+
+* [{{vf|3369}} Vanguard Total International ETF] - [https://www.morningstar.com/search/us-securities?query=VXUS Morningstar], [https://www.etf.com/VXUS ETF.com], [https://www.nasdaq.com/symbol/VXUS Nasdaq]
+* [{{vf|0991}} Vanguard FTSE All World Ex US ETF] - [https://www.morningstar.com/search/us-securities?query=VEU Morningstar], [https://www.etf.com/VEU ETF.com], [https://www.nasdaq.com/symbol/VEU Nasdaq]
+* [{{vf|0936}} Vanguard FTSE Developed ETF] - [https://www.morningstar.com/search/us-securities?query=VEA Morningstar], [https://www.etf.com/VEA ETF.com], [https://www.nasdaq.com/symbol/VEA Nasdaq]
+* [{{vf|0963}} Vanguard FTSE European ETF] - [https://www.morningstar.com/search/us-securities?query=VGK Morningstar], [https://www.etf.com/VGK ETF.com], [https://www.nasdaq.com/symbol/VGK Nasdaq]
+* [{{vf|0962}} Vanguard FTSE Pacific ETF], [https://www.morningstar.com/search/us-securities?query=VPL Morningstar], [https://www.etf.com/VPL ETF.com], [https://www.nasdaq.com/symbol/VPL Nasdaq]
+* [{{vf|0964}} Vanguard FTSE Emerging Markets ETF] - [https://www.morningstar.com/search/us-securities?query=VWO Morningstar], [https://www.etf.com/VWO ETF.com], [https://www.nasdaq.com/symbol/VWO Nasdaq]
+* [{{vf|3184}} Vanguard FTSE All World Ex US Small Cap ETF], [https://www.morningstar.com/search/us-securities?query=VSS Morningstar], [https://www.etf.com/VSS ETF.com], [https://www.nasdaq.com/symbol/VSS Nasdaq]
+
+==See also==
+*[[Compare Vanguard international funds]]
+*[[Exchange-traded funds]]
+
+==External links==
+*[https://investor.vanguard.com/investment-products/etfs Exchange Traded Funds (ETFs)] - Vanguard
+
+{{Non-US stocks}}
+[[Category:ETFs]]
+[[Category:Non-US stocks]]
+[[Category:Indexing]]
+[[Category:Vanguard]]</text>
+      <sha1>lj3dn4ken8k4cebrkwpn1ite8rxfd6i</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Extended market index fund</title>
+    <ns>0</ns>
+    <id>4000</id>
+    <revision>
+      <id>87185</id>
+      <parentid>84993</parentid>
+      <timestamp>2025-08-24T22:19:59Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>/* Mid-cap growth overweight */ Remove superfluous clause.</comment>
+      <origin>87185</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="11323" sha1="h5dhvjk3khfnq7f2jyk7etr3oyk1tdg" xml:space="preserve">[[File:Extended index.png|thumb|Figure 1. S&amp;P 500 index plus S&amp;P Completion index = S&amp;P Total Market Index]]
+An '''extended market index fund''', or '''completion index fund''', is a fund that, when combined with an S&amp;P 500 fund, "completes" the composition of the US total stock market.
+
+Formally, a completion index is a sub-index of a Total U.S. Market Index which excludes the constituent stocks of the [[S&amp;P 500 index|S&amp;P 500 stock index]].&lt;ref&gt;{{cite web| url=https://www.spglobal.com/spdji/en/indices/equity/sp-completion-index-ci/#overview| title=S&amp;P Completion Index| publisher=S&amp;P Dow Jones Indices| accessdate=November 15, 2023}}&lt;/ref&gt;&lt;ref&gt;{{cite web| url=https://www.spglobal.com/spdji/en/documents/methodologies/methodology-sp-us-indices.pdf| title=S&amp;P U.S. Indices Methodology| publisher=S&amp;P Dow Jones Indices| date=October 2023| accessdate=November 15, 2023}}&lt;/ref&gt;
+
+Extended market index funds contain small-cap and mid-cap companies, but not large-cap companies listed in the S&amp;P 500 Index. These funds are designed for investors already using S&amp;P index funds.&lt;ref&gt;{{forum link| p=1918170| title=Re: total stock vs sp500 and extended market?| date=January 11, 2014}}&lt;/ref&gt;
+ 
+Vanguard offers an [{{Vf | 0098}} Vanguard Extended Market Index Fund] (VEXMX for investor shares, VEXAX for Admiral shares, VXF for the ETF). Other companies offer similar "extended market index" or "completion index" funds. These funds hold all, or most, of the stocks not included in the S&amp;P 500 index.&lt;ref group="note"&gt; The first sentence in Vanguard's description says, vaguely: "Seeks to track the performance of a benchmark index that measures the investment return of stocks from small and midsize companies," but the second sentence goes on to make things clearer: "Provides a convenient way to match the performance of virtually all regularly traded U.S. stocks except those in the S&amp;P 500 Index." &lt;br&gt; &lt;br&gt;
+
+The formal statement of strategy and policy goes on to say its goal is to "track the performance of the Standard &amp; Poor’s Completion Index [which] contains all of the U.S. common stocks regularly traded on the New York and American Stock Exchanges, and the Nasdaq over-the-counter market, except those stocks included in the Standard &amp; Poor’s 500 Index."  The composition of the index (according to Morningstar as of 2/2012), consisted of 4% large-caps, 44% mid-caps, and 49% small-caps.  &lt;br&gt; &lt;br&gt;
+
+Similarly, the Fidelity Spartan Extended Market Index tracks the "Dow Jones U.S. Completion Total Stock Market Index," which contains the phrase "total market," and which  Dow Jones calls "A subset of the Dow Jones U.S. Total Stock Market Index that excludes components of the S&amp;P 500."&lt;/ref&gt;
+
+==How to use an extended market fund==
+Vanguard's [{{Vf | vexax}} product summary] says, in part:
+{{blockquote|The fund is considered a complement to Vanguard 500 Index Fund. Together they provide exposure to the entire U.S. equity market.}}
+
+Primarily then, you should use these funds if you want to invest in the total market, and would like to use a total stock market fund, but for whatever reason, find yourself cornered into holding a separate S&amp;P 500 index fund. There is no well-known investment theory that assigns any particular virtue to "the total market except for the S&amp;P 500" as an entity in itself. If you want to depart from total market weighting and choose your own proportion of large-cap stocks, you probably want to adjust mid-cap and small-cap exposure independently too.
+
+The obvious reason why you would want the "Total Market with the S&amp;P 500 stocks removed" is that you already hold an S&amp;P 500 index fund. You might be constrained by limited choices in a 401(k) plan, or by existing holdings of an S&amp;P 500 fund in a taxable account that you cannot exchange without adverse tax consequences. Obviously, if you are not constrained to hold an S&amp;P 500 index fund, you can simply invest in a Total Stock Market index fund.
+
+If you want to [[Approximating total stock market|duplicate the total market]] portfolio using an extended market fund, you should manage your portfolio to include the S&amp;P 500 fund and an Extended Market Index fund in about an 80%/20% proportion, and you will then essentially be holding the market. 
+
+You may need to rebalance the 80%/20% ratio from time to time, and the ratio may change with the composition of the total market. You do not need to do this frequently or with scrupulous accuracy.
+
+===Overlap and other niceties===
+*Vanguard's Extended Market Index Fund tracks the Standard &amp; Poor's Completion Index, which is the S&amp;P Total Stock Market Index with the S&amp;P 500 stocks removed. So, if you add them back in the proper proportion (and rebalance as needed), the mix tracks S&amp;P Total Stock Market Index. Vanguard Total Stock Market Index Fund tracks a different index provider's Total Market index, the CRSP US Total Market Index, so in theory the results are not identical.
+*Most or all "completion indexes" complete the S&amp;P 500. So, there is no overlap, no duplicated stocks in any mix of an S&amp;P 500 fund and a completion index fund.
+*The S&amp;P 500 is mostly large-cap and often thought of as large-cap, but it is not a pure large-cap index. Therefore, a completion index is not a pure combination of mid- and small-caps. Furthermore, different index providers divide the market between between large, mid, and small in different ways. For example, this means that if you mix funds based on different index provider's indexes, there can be significant overlap between these providers' large cap index funds and an S&amp;P completion fund.&lt;ref group="note"&gt; For example, the most common MSCI index used for large cap stock index funds is the MSCI Prime market index, which is composed of the largest capitalization 750 stocks in the US market. The most commonly used Russell large cap index, the Russell 1000 index, is composed of the largest capitialization 1000 stocks in the US market.  Note that the Vanguard Total Market Index fund, based on the CRSP US Total Market Index  contains large cap, mid cap, small cap and micro cap stocks. The combination of Vanguard's Large Cap index fund and Vanguard's Small Cap fund (containing approximately 2400 market cap stocks) do not contain many micro cap stocks. The combination of an S&amp;P 500 index fund and an extended market index fund will contain large cap, mid cap, small cap, and micro cap stocks. Micro cap stocks comprise approximately 1.5% of the total market. &lt;/ref&gt;
+*These are theoretical issues. The differences involved are small, and probably of concern only to purists.
+*The extended market index is overweight in mid-cap growth. This is probably unimportant, but it does underline the fact that the extended market index is not the most suitable choice for fine control of "style box" weights in an overall portfolio.
+
+====Mid-cap growth overweight====
+[[file:Captura de pantalla 2016-08-01 a las 7.52.45 AM.png|thumb|Figure 2. Morningstar style box for VEXMX]]
+[[file:Captura de pantalla 2016-08-01 a las 7.52.16 AM.png|thumb|Figure 3. Morningstar style box for VOO, which tracks the S&amp;P 500 index]]
+The S&amp;P 500 is S&amp;P's choice of "leading companies in leading industries." In 1957 when the index was developed, it was intended to represent the whole market as seen by "normal" investors. Conventional wisdom at the time was that, in the language used by Benjamin Graham, "defensive investors" should limit themselves to "primary companies" in an industry.
+
+It was not until the eighties that the conventional wisdom began to advocate small-caps, and not until the nineties that people began to think of value and growth as numerically defined categories whose weight should be consciously chosen. The S&amp;P 500's mid-cap holdings include an underweight to mid-cap growth that easily escapes notice because it is a small imbalance within the mid-caps which comprise only 13% of the S&amp;P 500.
+
+Figure 2 and Figure 3 show Morningstar style boxes for Vanguard extended market and S&amp;P 500 funds. Notice the 11/13/21 imbalance in the first, and the deficit in mid-cap growth, 5/5/3, in the second.
+
+===Dissenting views, and constrained choices in employer provided plans===
+''Is an extended market index fund an appropriate tool for implementing a "small-cap tilt?"''
+
+The natural way to implement a "[[Slice and dice|slice-and-dice]]" portfolio (dividing total stock market allocations into segments) is to use mutual funds that focus on and isolate the style factors; that is, funds that concentrate on one of the nine Morningstar [[Stock basics#Style Boxes | style boxes]]. With regard to size alone, it seems illogical to use a fund that covers mid-cap and small-cap stocks.
+
+While index funds targeted to particular style boxes might be better in theory, [[Employer retirement plans overview|employer provided retirement plans]] frequently limit choices to actively managed funds with high expense ratios. If you want to depart from market cap weighting with regard to size alone, and you are limited by plan choices, you may find that a low cost extended market index fund is the lowest cost way to implement the strategy.
+
+Often, when the actual behavior of real-world small-cap and mid-cap funds are examined, surprises emerge. For example, over a ten year period (2002-2012), the growth charts for the Vanguard Small-Cap Index Fund (NAESX), Mid-Cap Index Fund (VIMVX), and Extended Market Fund are almost superimposed -- it hardly seems to matter which was used.&lt;ref group="note"&gt;When examining historical Vanguard index fund returns, the transition of the indexes from one index provider to another can cause complications. Here are the transitions for Vanguard's index funds:
+*Total Market Index: based on the Wilshire 5000 index (1992-2005); MSCI Broad Market Index (2005 - 2013); CRSP US Total Market Index (2013 - forward).
+*Extended Market Index: based on the the Wilshire 4500 index (1987-2005); S&amp;P Completion Index (2005 - forward).
+*Mid Cap Index: based on the S&amp;P 400 index  (1998- 2003); MSCI Mid Cap 450 (2005 - 2013); CRSP US Mid Cap Index (2013 - forward).
+*Small Cap Index: based on the Russell 2000 index (1987-2003);  MSCI US Small Cap 1750 Index (2003- 2013); CRSP US Small Cap Index (2013 - forward). 
+In addition, Vanguard currently offers the following funds that track the US mid cap and US small cap market sectors:
+*US Mid Cap: 
+:*Mid Cap Index Fund (CRSP US Mid Cap) mutual fund and ETF; 
+:*S&amp;P Mid Cap 400 ETF.
+*US Small Cap:
+:* Small Cap Index Fund (CRSP US Small Cap) mutual fund and ETF; 
+:*S&amp;P Small Cap 600 ETF and tax-managed mutual fund;
+:* Russell 2000 ETF. 
+There can be both annual and multiple year dispersion of returns between these index fund returns.
+&lt;/ref&gt; 
+
+A number of forum members feel that, regardless of theory, and regardless of the rationale behind the construction of a completion index; as a practical matter an extended market index fund can be a perfectly good way to provide a degree of small-cap tilt.&lt;ref&gt;{{forum link| t=92649| title=Now in wiki: Extended Market Index Funds}}&lt;/ref&gt;
+
+==See also==
+*[[Approximating total stock market]]
+
+==Notes==
+{{Reflist|group="note"}}
+
+==References==
+{{Reflist}}
+
+== External links ==
+*{{forum link| t=92649| title=Now in wiki: Extended Market Index Funds}}
+
+[[Category:Indexing]]
+[[Category:US stocks]]</text>
+      <sha1>h5dhvjk3khfnq7f2jyk7etr3oyk1tdg</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>S&amp;P 500 index</title>
+    <ns>0</ns>
+    <id>4083</id>
+    <revision>
+      <id>88545</id>
+      <parentid>85060</parentid>
+      <timestamp>2025-11-18T09:03:31Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>Standard and Poors -&gt; Standard &amp; Poor's.</comment>
+      <origin>88545</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="1450" sha1="21wlbp7yq40wj1ru2yx9jtv30t4l4ct" xml:space="preserve">The '''S&amp;P 500 index''' is a float-adjusted market cap weighted index of 500 U.S. [[stock]]s (actually, 504 stocks as of 2025).&lt;ref&gt;{{cite web| url=https://www.spglobal.com/spdji/en/indices/equity/sp-500/#data| title=S&amp;P 500®| publisher=S&amp;P Global| accessdate=June 24, 2025}}&lt;/ref&gt; The index dates back to 1923, when Standard &amp; Poor's introduced an index containing 233 companies. The index of 500 stocks was introduced in 1957.&lt;ref&gt;{{cite web| url=http://www.standard.com/annuities/eforms/13038.pdf| title=History of the S&amp;P 500 Index| publisher=TheStandard| url-status=dead| archive-url=https://web.archive.org/web/20101123005221/http://www.standard.com/annuities/eforms/13038.pdf| archive-date=November 23, 2010}}&lt;/ref&gt;  The S&amp;P 500 index measures returns of the large cap segment of the U.S. stock market.
+
+[[The Vanguard Group]] was the first investment company to offer an S&amp;P 500 index fund (1976).&lt;ref&gt;{{cite web| url=https://www.wsj.com/articles/SB10001424053111904583204576544681577401622| title=John C. Bogle: How the Index Fund Was Born| publisher=WSJ| author=John Bogle| author-link=John Bogle| accessdate=June 24, 2025}}&lt;/ref&gt;
+
+==See also==
+*[[Indexing]]
+*[[MSCI EAFE index]]
+*[[:Category:FTSE indexes|FTSE indexes]]
+
+==References==
+{{Reflist}}
+
+==External links==
+* [https://www.spglobal.com/spdji/en/indices/equity/sp-500/#overview S&amp;P 500®] - S&amp;P Dow Jones Indices
+* [[wikipedia:S&amp;P 500|S&amp;P 500]] - Wikipedia
+
+[[Category:Indexing]]</text>
+      <sha1>21wlbp7yq40wj1ru2yx9jtv30t4l4ct</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Free-float methodology</title>
+    <ns>0</ns>
+    <id>4719</id>
+    <revision>
+      <id>85751</id>
+      <parentid>84577</parentid>
+      <timestamp>2025-07-09T11:30:12Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Improve page layout.</comment>
+      <origin>85751</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="1022" sha1="41r8ib8d17jlepkydvskiofko6nwdsn" xml:space="preserve">{{hatnote|For a full discussion, see [https://www.investopedia.com/terms/f/freefloatmethodology.asp Free-Float Methodology and How to Calculate Market Capitalization]}}
+
+'''{{PAGENAME}}''' is a method of calculating the market capitalization of an [[Indexing|index]]'s underlying companies. Instead of using all shares outstanding, as would be the case of a full-market capitalization method, the free-float method excludes shares that are closely held, and not traded, by businesses and governments. A free-float index captures the share of the market accessible by the trading public, and more accurately measures the investment set and investment performance of investors.
+
+The method is calculated according to the following formula: 
+
+:&lt;math&gt;FFM = \text{Share price} \times (\text{number of shares outstanding} - \text{locked-in shares})&lt;/math&gt;
+
+Almost all indexes now tracked by index [[mutual fund]]s and [[exchange-traded fund]]s (ETFs) are free-float weighted indexes.
+
+[[Category:Glossary]]
+[[Category:Indexing]]</text>
+      <sha1>41r8ib8d17jlepkydvskiofko6nwdsn</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>CRSP equity indexes</title>
+    <ns>0</ns>
+    <id>4783</id>
+    <revision>
+      <id>84627</id>
+      <parentid>62692</parentid>
+      <timestamp>2025-06-17T08:50:59Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Fix multiple broken links, remove stale data sections, style fixes.</comment>
+      <origin>84627</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="10607" sha1="tgxay8someqnpa0hmyhd059kgzz1sb2" xml:space="preserve">{{Infobox financial index
+| name = CRSP equity indexes
+| image =CRSP Indexes logo.png 
+| caption =
+| foundation =
+| operator = [https://www.crsp.org/about-us/ The Center for Research in Security Prices]
+| exchanges = NYSE, NYSE MKT LLC, ARCA or NASDAQ
+| cap_level =
+| mcap = 
+| weighting = Float-adjusted market cap
+| related =
+| homepage = [https://www.crsp.org/ Center for Research in Security Prices]
+}}
+The '''Center for Research in Security Prices (CRSP) equity indexes''' are part of a series of investable indexes, announced on October 12, 2012.&lt;ref&gt;{{cite web| url=http://www.crsp.com/files/CRSP_Index_Press_Release_October_2012.pdf| title=New Investable Indexes from The Center for Research in Security Prices (CRSP)| publisher=CRSP| date=October 2012| url-status=dead| archive-url=https://web.archive.org/web/20140713085728/http://www.crsp.com/files/CRSP_Index_Press_Release_October_2012.pdf| archive-date=July 13, 2014}}&lt;/ref&gt; The CRSP indexes include U.S. capitalization indexes, U.S value and growth style indexes, and U.S. industry sector indexes.
+
+==Markets and securities==
+The CRSP indexes include stock market securities trading on the New York Stock Exchange, New York Stock Exchange Market (formerly AMEX), ARCA,&lt;ref&gt;{{cite web| url=https://www.nyse.com/markets/nyse-arca| title=Trade ETFs and Equities at NYSE Arca| publisher=NYSE| accessdate=June 17, 2025}}&lt;/ref&gt; and NASDAQ. Securities included in the index are common stocks, [[Real Estate Investment Trust|REITs]], shares of beneficial interest (unless a fund) and Berkshire Hathaway A&amp;B. The indexes are weighted according to [[Free-float methodology|free-float]] market capitalization and are recalculated quarterly. CRSP has randomized procedures as a means of reducing the risk of arbitrageurs successfully [[Indexing#Front running|front-running]] a scheduled index reconstitution.&lt;ref name="Methodology"&gt;{{cite web| url=https://www.crsp.org/indexes/crsp-market-indexes-methodology/| title=CRSP Market Indexes Methodology - Center for Research in Security Prices| publisher=CRSP| accessdate=June 17, 2025}}&lt;/ref&gt;
+
+==Investability screens==
+
+For a stock to be included in the CRSP indexes, it must be headquartered in the US or its territorial possessions, and also meet the following requirements:&lt;ref name="Methodology"/&gt;
+
+*'''Minimum total market capitalization''': The company must have more than $15 million total [[Market Capitalization|market capitalization]].
+*'''Float shares requirement''': The number of a company’s float shares must be greater than 12.5% of the total shares outstanding.
+*'''Minimum trading volume''': The average of the adjusted trading volume over the last 125 days divided by float shares on the ranking date must be at least 0.0008. 
+*'''Consecutive trading days requirement''': A security must not have a sequence of 10 consecutive non-trading days during the previous quarter. Halted or suspended securities do not count toward the consecutive trading date requirement. Inclusion of Initial Public Offerings (IPOs) require regular trading for at least 20 trading days, or at least 5 regular trading days for stocks within the breakpoint range of the CRSP U.S. Large Cap Index (the top 85% of market capitalization)
+
+==Capitalization indexes== 
+CRSP provides a total market index, along with a series of subcategories of market capitalization indexes comprising mega cap stocks, [[Mid caps|mid cap stocks]], large cap stocks (mega caps plus mid caps), [[Small caps|small cap stocks]], and micro cap stocks. The table below lists a selection of CRSP capitalization indexes, along with the NASDAQ tickers for total return and price return indexes.&lt;ref name= "Methodology"/&gt;
+
+[[File:CRSPbreakpoints.png |right|border]]
+
+{| class="wikitable"
+|+ CRSP market capitalization indexes
+|-
+! Index !! Total return !! Price return
+|-
+| CRSP US Total Market Index ||CRSPTMT|| CRSPTM1
+|-
+| CRSP US Mega Cap Index || CRSPMET || CRSPME1
+|-
+| CRSP US Large Cap Index || CRSPLCT || CRSPLC1
+|-
+| CRSP US Mid Cap Index || CRSPMIT || CRSPMI1
+|-
+| CRSP US Small Cap Index || CRSPSCT || CRSPSC1
+|-
+| CRSP US Micro Cap Index || CRSPMCT || CRSPMC1
+|-
+| CRSP US Small Cap ex-REIT Index || CRSPSXT || CRSPX1
+|}
+
+While many index providers sort segments of the U.S. stock market according to number of stocks, CRSP segments the market according to percentages. There is no limit to the number of companies that may comprise an index. Companies are sorted from largest to smallest by market capitalization. The largest index has no upper limit and the smallest index has no lower limit. On each reconstitution date, breakpoint targets are set at 70%, 85% and 98% of the cumulative market cap of the eligible universe.&lt;ref name= "Methodology"/&gt;
+
+These market capitalization breakpoints are not exact boundaries, as each market segment has a transitional band of values around the breakpoint, designed to restrict the movement of companies between indexes until a stock has significantly transitioned from one index to another. This approach attempts to balance the desire to maximize style purity while minimizing index turnover.&lt;ref name= "Methodology"/&gt; 
+
+The table below shows the percentage range of each market segment. Thus Mega cap stocks contain the top 70% of the U.S. market capitalization. Mid cap stocks comprise 15% of the market, residing in the range between 70% and 85% of market capitalization. Small cap stocks comprise 13% of the market, ranging in the 85% to 98% zone. Micro cap stocks make up the remaining 2% of market capitalization. The table below provides both the market cap range as well as the transitional band range for each CRSP market capitalization index. The figure to the right renders a graphical presentation of CRSP breakpoints and transition bands.
+
+{| class="wikitable" style="text-align:center"
+|+ CRSP index capitalization ranges
+|-
+! Index !! Cap Range !! Upper range !! Lower range
+|-
+|align=left| CRSP US Mega Cap Index || align=center| Top 70% || - || 76%
+|-
+|align=left| CRSP US Mid Cap Index || 70% - 85% || 64% || 89%
+|-
+|align=left| CRSP US Large Cap Index (Mega + Mid)|| Top 85% || - || 89%
+|-
+|align=left| CRSP US Small Cap Index || 85% - 98% || 81%|| 99.5%
+|-
+|align=left| CRSP US Micro Cap Index || 98% -100% || 96% || -
+|}
+
+==Value and growth style indexes==
+CRSP calculates value and growth indexes for the mega cap, mid cap, large cap, and small cap indexes, as displayed in the following table.&lt;ref name="Methodology"/&gt;
+
+{| class="wikitable"
+|+ CRSP value and growth style indexes
+|-
+! Index !! Total return !! Price return
+|-
+| CRSP US Mega Cap Value Index|| CRSPMEVT || CRSPMEV1
+|-
+| CRSP US Mid Cap Value Index || CRSPMIVT || CRSPMIV1
+|-
+| CRSP US Large Cap Value Index||CRSPLCVT || CRSPLCV1
+|-
+| CRSP US Small Cap Value Index || CRSPSCVT || CRSPSCV1
+|-
+| CRSP US Mega Cap Growth Index || CRSPMEGT || CRSPMEG1
+|-
+| CRSP US Mid Cap Growth Index || CRSPMIGT || CRSPMIG1
+|-
+| CRSP US Large Cap Growth Index || CRSPLCGT ||CRSPLCG1
+|-
+| CRSP US Small Cap Growth Index || CRSPSCVT|| CRSPSCG1
+|}
+
+CRSP uses six growth [[Factors (finance)|factors]] and five value factors for ranking styles. These factors are outlined in the table below. CRSP calculates value and growth ranks for each stock, blended into an Average Rank (AR). Securities are placed on a continuum from value to growth, which are than split, based on AR scores, into Value and Growth indexes.
+
+The AR score style continuum breakpoint is not well defined, so CRSP defines the middle third of the AR range as a transition zone. The transition zone helps reduce turnover of securities in the indexes.&lt;ref name="Methodology"/&gt;
+
+{| class="wikitable"
+|+ Style factors
+!Value factors !! Growth factors
+|-
+| style="vertical-align:top" |
+* Book-to-Price (BP)
+* Future-Earnings-to-Price (FEP)
+* Historical-Earnings-to-Price (HEP)
+* Dividend-to-Price (DP)
+* Sales-to-Price (SP)
+| style="vertical-align:top" |
+* Future Long-Term Growth in EPS (FLGE)
+* Future Short-Term Growth in EPS (FSGE)
+* 3-year Historical Growth in Earnings per Share (HGE)
+* 3-year Historical Growth in Sales per Share (HGS)
+* Current Investments-to-Assets Ratio (INV)
+* Return on Assets (ROA)
+|}
+
+==Industry sector indexes==
+
+CRSP provides US equity sector indexes, organized according to [[wikipedia:Industry Classification Benchmark|Industry Classification Benchmark]]s. The only capitalization constraints imposed on sector index security weightings are the regulatory limits placed on investment companies regarding concentration limits; for example, no security can comprise more than 5% of a portfolio.&lt;ref name="Methodology"/&gt;
+
+{| class="wikitable"
+|+ CRSP US sector indexes
+|-
+! Index !! ICB industry ID !! Total return !! Price return
+|-
+| CRSP US Oil and Gas Index ||align=center| 0001 || CRSPENT || CRSPEN1
+|-
+| CRSP US Materials Index ||align=center| 1000|| CRSPMTT || CRSPMT1
+|-
+| CRSP US Industrials Index ||align=center| 2000 || CRSPIDT || CRSPID1
+|-
+| CRSP US Consumer Goods Index ||align=center| 3000 || CRSPCGT || CRSPCG1
+|-
+| CRSP US Health Care Index ||align=center| 4000|| CRSPHCT || CRSPHC1
+|-
+| CRSP US Consumer Services Index ||align=center| 5000|| CRSPCST || CRSPCS1
+|-
+| CRSP US Telecom Index ||align=center| 6000 || CRSPTET || CRSPTE1
+|-
+| CRSP US Utilities Index ||align=center| 7000 || CRSPUTT || CRSPUT1
+|-
+| CRSP US Financials Index ||align=center| 8000 || CRSPFNT || CRSPFN1
+|-
+| CRSP US REIT Index ||align=center| 8670 || CRSPRET || CRSPRE1 
+|-
+| CRSP US Technology Index ||align=center| 9000 || CRSPITT || CRSPIT1
+|}
+
+==Packeting==
+
+In a further attempt to reduce index turnover, CRSP introduced a procedure termed "packeting", which is applied to stock migration across both capitalization and style dimensions. Once a stock migrates out of transition band, a packet of 50% of the security is shifted. If the security stays beyond the outer threshold in the following period, the remaining 50% is moved.&lt;ref name="Methodology"/&gt;
+
+==References==
+{{Reflist}} 
+
+==External links==
+*[https://www.crsp.org/indexes/ CRSP Market Indexes] - Center for Research in Security Prices
+*[https://www.crsp.org/indexes/crsp-market-indexes-methodology/ CRSP Market Indexes Methodology] - Center for Research in Security Prices
+*[https://www.forbes.com/sites/rickferri/2012/10/04/vanguard-does-the-crsp-shuffle/ Vanguard Does the CRSP Shuffle] - Rick Ferri, October 4, 2012
+
+===Forum discussions===
+*{{forum link| t=103727| title=CRSP and MSCI: comparing US indexes| date=October 4, 2012}}
+*{{forum link| p=1511454| title=Shifts in VG Tracking Indexes Announced| date=October 13, 2012}}
+
+{{Indexing}}
+[[Category:Indexing]]</text>
+      <sha1>tgxay8someqnpa0hmyhd059kgzz1sb2</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MSCI EAFE index</title>
+    <ns>0</ns>
+    <id>4830</id>
+    <revision>
+      <id>84762</id>
+      <parentid>65057</parentid>
+      <timestamp>2025-06-20T19:49:13Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Fix or remove stale data, fix or remove broken external links.</comment>
+      <origin>84762</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="1624" sha1="5g4ummv96v4hzh5lbxvghdqg0mmahlz" xml:space="preserve">The '''MSCI EAFE''' (Europe, Australasia and Far East) index&lt;ref group="note"&gt; Morgan Stanley Capital International (MSCI) indices are owned by MSCI, Inc. See: [https://www.msci.com/discover-msci/about-us About Us] - MSCI.&lt;/ref&gt; is a capitalization weighted index of 21 national stock markets outside the North American stock markets. The index has been calculated by MSCI Barra since December 31, 1969.
+
+The index is frequently used as a benchmark for measuring international developed stock market investment portfolios. The EAFE Index is tracked by numerous index and exchange traded funds. The MSCI EAFE represents the Standard Index, which covers all investable large and mid cap securities across the Developed Markets; the index targets approximately 85% of the market's free-float adjusted market capitalization. The index is calculated during market hours and updated every 60 seconds. The real time codes are:
+*Reuters .MSCIEA
+*Bloomberg MXEA
+
+==Index countries==
+Developed Markets countries in the MSCI EAFE Index include: Australia, Austria, Belgium, Denmark, Finland, France, Germany, Hong Kong, Ireland, Israel, Italy, Japan, the Netherlands, New Zealand, Norway, Portugal, Singapore, Spain, Sweden, Switzerland and the UK.
+
+==Notes==
+{{Reflist|group="note"}}
+
+==See also==
+*[[Indexing]]
+*[[:Category:FTSE indexes|FTSE indexes]]
+*[[CRSP equity indexes]]
+
+==External links==
+* [https://www.msci.com/indexes/index/990300 MSCI EAFE Index] - MSCI
+* [https://www.msci.com/documents/10199/822e3d18-16fb-4d23-9295-11bc9e07b8ba MSCI EAFE Index Fact Sheet] - MSCI
+
+[[Category:Non-US stocks‏‎]]
+[[Category:Indexing]]</text>
+      <sha1>5g4ummv96v4hzh5lbxvghdqg0mmahlz</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Index fund</title>
+    <ns>0</ns>
+    <id>5829</id>
+    <revision>
+      <id>87628</id>
+      <parentid>85187</parentid>
+      <timestamp>2025-09-09T19:44:35Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>Replace "basis points" with percentages.</comment>
+      <origin>87628</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="24018" sha1="3vtclxf73yi51cn9p0q4chl0bb627x1" xml:space="preserve">{{US|reason=partially_misleading|non-US_link=[[Wikipedia:Index fund]]}}
+
+An '''index fund''' pools investors' money, and uses it to invest in securities, aiming to replicate an [[indexing|index]] of a particular financial market. It is typically a [[mutual fund]] or [[exchange-traded fund]] (ETF).&lt;ref group="note"&gt; This article primarily talks about traditional market capitalization indexing. There are other indexes, based on alternate weighting methodologies. For more, see: [[Alternative indices]].&lt;/ref&gt;
+
+A well-managed index fund gives investors a simple way to invest with low costs, better tax efficiency, style consistency, and lower manager risk. However, not every index fund is low cost, and active investors can exploit some indexes. 
+
+The key measure for assessing an index fund's efficiency is how well it tracks its benchmark index. This is called the [[tracking error]] of the fund. Replicating index funds will hold all the assets of the index in the correct proportion; other funds will approximate the index by sampling its holdings.
+
+==Advantages==
+===Low costs===
+According to the [https://www.ici.org/ Investment Company Institute] the average [[Expense ratios |expense ratio]] for US stock mutual funds in 2014 was 1.33% (weighted average 0.70%), while the average expense ratio for US bond mutual funds was 0.98% (weighted average 0.57%).&lt;ref&gt;{{cite web| url=https://www.ici.org/system/files/attachments/2015_factbook.pdf| title=ICI 2015 Investment Company Fact Book| accessdate=June 3, 2023}} Chapter Five.&lt;/ref&gt; You can find index funds with expense ratios of 0.20% and lower from firms such as [[The Vanguard Group|Vanguard]], [[Fidelity]], [[Charles Schwab|Schwab]]. Also, many [[Exchange-traded funds |exchange-traded funds]] have similarly low costs. These low expenses mean that you receive more of the market returns than with higher costs, and your returns compound, rather than being paid to intermediaries. As Figure 1 shows, indexing's cost advantage builds steadily over long holding periods.&lt;ref group="note"&gt;Both funds assume an initial $10,000 investment and an identical 8% annual growth. The time period is 30 years. The low-cost fund is no-load and has expenses of 0.2% per year. The high-cost fund has an initial 5.75% sales load, expenses of 2.0% per year, and a 0.25% 12b-1 fee.&lt;/ref&gt;
+
+'''Figure 1. Investment growth of both a low-cost and high-cost fund'''
+[[Image:Highcost-lowcost.jpg|600px|border]]
+
+Also, indexing's consistent low costs mean better than average relative performance over long holding periods.&lt;ref&gt;{{cite web| url=http://www.efficientfrontier.com/ef/499/magic.htm| author=William Bernstein| author-link=William Bernstein| publisher=Efficient Frontier| title=The Magic of Percentile Compounding| date=1999| accessdate=June 3, 2023}}&lt;/ref&gt;
+
+As well as low expense ratios, stock market index funds have low transaction costs, including brokerage commission costs, [[bid/ask spread]]s, and market impact costs (institutional purchases and sales can drive the price of a security up or down before the order is filled.) 
+
+Stock market index funds reduce transaction costs:
+*'''Low fund turnover'''. There is less trading when a fund holds securities for longer periods.
+*'''Cross trading''' with other index funds. When a stock migrates from one index to another (such as a small cap stock growing into a mid cap stock) an index manager will often trade the stock directly to another index fund, virtually eliminating transaction costs.&lt;ref&gt;{{cite book| author=W. Scott Simon| title=Index Mutual Funds| pages=145-146| isbn=0-9661172-7-1}}&lt;/ref&gt;
+*'''Patient (block) trading'''. Index managers occasionally have the opportunity to offer to buy or sell a large block of thinly traded small company stocks. They can sometimes place an offer at low, or even negative, spread costs and have it filled.&lt;ref&gt;{{cite web| url=http://www.efficientfrontier.com/ef/998/indexfun.htm| author=William Bernstein| author-link=William Bernstein| title=How to Beat the Benchmark| publisher=Efficient Frontier| date=1998| accessdate=June 3, 2023}}&lt;/ref&gt;&lt;ref&gt;{{cite web| url=http://www.efficientfrontier.com/ef/900/ts.htm| author=William Bernstein| author-link=William Bernstein| title=Selection Skill, Transaction Skill| publisher=Efficient Frontier| date=2000| accessdate=June 3, 2023}}&lt;/ref&gt;
+
+===Tax efficiency===
+
+Because they trade less and have longer holding periods, stock market index funds tend to be more tax efficient than actively managed funds. This is especially true for total market index funds, large cap index funds, and large growth index funds. These funds rarely realize and distribute a capital gain (and any small capital gains distributions are usually long term gains taxed at reduced tax rates). Deferring capital gains tax liabilities means higher after tax returns.&lt;ref&gt;{{cite web| url=https://www.ifa.com/Media/Images/PDF%20files/IsYourAlphaBigEnough.pdf| author1=Robert H. Jeffrey| author2=Robert D. Arnott| title=Is Your Alpha Big Enough To Cover Its Taxes?| date=1993| publisher=First Quadrant Corporation| url-status=dead| archive-url=https://web.archive.org/web/20221102032136/https://www.ifa.com/media/images/pdf%20files/isyouralphabigenough.pdf| archive-date=November 2, 2022| accessdate=June 3, 2023}}&lt;/ref&gt;
+
+In addition, since the introduction of the tax regime for [[Qualified dividend | qualified dividends]] in 2004, well-managed total market and large cap index funds have been able to provide investors with 100% qualified dividends, taxed at lower rates.&lt;ref group="note"&gt; Mid cap and small cap index funds have not been as efficient in providing qualified dividends to investors. This may be because these indexes have a higher turnover than large cap indexes (qualified dividends have holding period requirements). Mid cap and small cap indexes also hold higher percentages of REITS, and their dividends are not qualified.&lt;/ref&gt;
+
+While total market, large cap, and large cap growth funds are very tax efficient, other size (small cap and mid cap) and style (value) indexes are much more likely to distribute taxable gains. When a small cap company grows into a mid cap or large cap company, or a value company becomes a growth company, an index manager will need to sell the stock once the stock migrates out of its current index. Usually this sale realizes a capital gain. Because of this (and for value indexes higher dividend payouts) it is [[Principles of tax-efficient fund placement | often recommended]] that you place these funds in tax deferred or tax free retirement accounts.
+
+The 2000-2002 and 2008 bear markets improved the tax efficiency of all index funds, providing sizable realized losses which funds can use to offset future realized gains.&lt;ref group="note"&gt;See [[Vanguard accounting data spreadsheets]] for tax data on Vanguard index funds.&lt;/ref&gt;
+
+===Asset class style consistency===
+Once you have written an [[Investment policy statement |investment policy statement]] and decided on your [[Asset allocation | asset allocation]], you then have to implement the plan, choosing appropriate funds for your planned allocation.
+
+As well as being low cost and tax efficient, stock market index funds make suitable building blocks for asset allocations because you can trust them to remain reliably close to their stated style. That is, a US total stock market index fund will not hold international stocks; and an international index fund will not hold US stocks. Similarly, a US intermediate investment grade bond fund will not hold low-graded bonds or international currency bonds.
+
+The tendency for funds to shift their center of style gravity is called "style drift". For example, an active large cap fund manager might invest in mid cap and small cap stocks, or add international stocks to the portfolio, or let the fund's valuation style drift from value to growth. Style drift takes your asset allocation control away from you, and into the unpredictable hands of the fund manager. Another common example of style drift is when an active small cap fund grows exceptionally large. The fund usually must buy larger stocks, so that its center of style gravitates towards a mid cap style.
+
+Many index providers have established trading bands about their size (large, mid, and small) and style (value and growth) indexes. These bands aim to help index funds reduce turnover and transaction costs, although they introduce a small amount of style drift in size and style index funds. The center of style gravity, however does not change. As a result, index funds allow you to remain in control of asset allocation.
+
+===Lower manager risk=== 
+Actively managed funds expose you to two manager risks.
+* The risk that the manager will under perform the benchmark return,
+* The risk that the manager will leave the fund. For taxable investors, selling a fund after a manager change could result in a large capital gains tax.
+
+Index funds greatly reduce these manager risks.
+* The risk of under performing a benchmark return is lower (although not eliminated, due to sampling and tracking errors.)
+* An investment team manages index funds. One fund manager leaving does not materially affect the management of the fund.
+
+===Simplicity===
+The low cost, high tax efficiency, and long term consistency of performance advantages of indexing all help to simplify how you select and monitor funds for your investment plan.
+
+==Caveats==
+===Expenses===
+An index fund's crucial advantage is its low cost. However, expense ratios on similar index funds range from less than 0.20% to over 1.00%.&lt;ref&gt;{{cite web| url=https://www.ici.org/system/files/attachments/2009_factbook.pdf| title=ICI 2009 Investment Company Fact Book| accessdate=June 3, 2023}}&lt;/ref&gt; It is therefore a good idea for you to select a low cost index fund over a similar high cost index fund.&lt;ref&gt;{{cite web| author1=Edwin J. Elton| author2=Jeffrey A. Busse| author3=Martin J. Gruber| author1-link=Edwin J. Elton| author2-link=Jeffrey A. Busse| author3-link=Martin J. Gruber| url=https://ssrn.com/abstract=340482| title=Are Investors Rational? Choices Among Index Funds| date=2002| publisher=NYU Working Paper| accessdate=June 3, 2023}} Available from SSRN.&lt;/ref&gt;
+
+===Front running===
+The economy and the stock markets are dynamic. An index of the market is not static. As companies merge with and/or acquire other companies or fall into bankruptcy, indexes must delete some stocks. Similarly, as start up companies grow and mature, indexes must add them. For discrete size and style indexes, stocks migrate between small cap, mid cap, and large cap indexes, as well as between value and growth indexes.
+
+To ensure that indexes accurately reflect the market, index providers periodically reconstitute the indexes (perhaps quarterly or annually). For index fund managers who must track an index, these events mean the fund must either purchase or sell the stocks, as they move into or out of an index.
+
+Because the index provider's index changes are rules-based and often pre-announced, active fund arbitrageurs may be able to purchase or short the stocks they believe will be added to or deleted from the indexes, knowing that the index fund managers are forced to buy or sell the stocks on the day of reconstitution. This strategy is known as index front running.
+
+In practice front running creates a market impact cost on index fund managers. Petajisto (2008) has studied this phenomenon from 1990-2005, and found that the cost of front running increased from 1990-2000, peaking in 2000, but has declined since. He conservatively estimates that over the full period the S&amp;P 500 Index cost index funds an average 0.21%-0.28% (additions/deletions) per year in front running costs. The estimated costs for the Russell 2000 index are 0.38%-0.77% (additions/deletions).&lt;ref&gt;{{cite web| author=Antii Petajisto| url=https://ssrn.com/abstract=1235604| title=The Index Premium and its Hidden Cost for Index Funds| date=August 18, 2008| accessdate=June 3, 2023}} Available from SSRN.&lt;/ref&gt;
+
+Among factors that can limit front running costs are:
+*Index providers can add trading bands to their size and style indexes, which reduces the amount of turnover in the indexes.
+*Index fund managers can use index benchmarks that do not have much indexed investment capital tied to the index.
+*An index fund manager might be given trading freedom around the replication date, so that funds can sell and purchase both before and after the replication date. This freedom comes at the expense of precisely tracking the index.&lt;ref&gt;{{cite web| url=https://www.thetradenews.com/1578| publisher=The Trade News| title=Understanding index front running| date=January 30, 2008| url-status=dead| archive-url=https://web.archive.org/web/20081023004716/http://www.thetradenews.com/1578| archive-date=October 23, 2008| accessdate=June 3, 2023}}&lt;/ref&gt;
+
+Total market index funds should not have problems with front-running, because they own everything.&lt;ref&gt;{{Forum post| p=2546109| title=Re: Bloomberg - "The Hugely Profitable, Wholly Legal Way to Game the Stock Market"}}&lt;/ref&gt;
+
+===Tracking error===
+{{Main | Indexing | Tracking error}}
+Tracking error is the ultimate measure of judging an index fund manager's performance. Because an index manager does not choose which securities an index fund holds, performance depends on the manager's transactional skill.&lt;ref&gt;{{cite web|url=http://www.efficientfrontier.com/ef/900/ts.htm| author=William Bernstein| author-link=William Bernstein| title=Selection Skill, Transaction Skill| publisher=Efficient Frontier| date=2000| accessdate=June 3, 2023}}&lt;/ref&gt; How well the manager uses index futures, cross trading, block trading, and manages trading around index reconstitution determines how closely the manager can track the index benchmark.
+
+The risk of large tracking error is greater for index funds which sample the index benchmark. This is especially true for stock index funds which track narrow market segments and single country international markets. These indexes contain a modest universe&lt;ref group="note" name="universe"&gt;A set of securities that shares a common feature such as the same market capitalization, industry or index. See: [https://www.investopedia.com/terms/u/universeofsecurities.asp Universe Of Securities], from Investopedia.&lt;/ref&gt; of securities, and it is common for a single company to dominate the index. The [https://www.investor.gov/introduction-investing/investing-basics/role-sec/laws-govern-securities-industry#invcoact1940 1940 Investment Company Act] sets diversification rules for mutual funds, and at times funds must sell these dominant stocks in an index down to the regulatory holding limit (five-percent).&lt;ref&gt;{{cite web| url=http://www.efficientfrontier.com/ef/adhoc/meaculpa.htm| author=William Bernstein| author-link=William Bernstein| title=Mea Culpa| publisher=Efficient Frontier| date=2005| accessdate=June 3, 2023}}&lt;/ref&gt; This will obviously increase a fund's tracking error, and also increase the possibility of realizing capital gains. 
+
+Bond indexes tracking corporate bonds or municipal bonds also use sampling to mirror the market. Surprise events in the markets can also create tracking error for a sampled bond index. This happened with Vanguard'sTotal Bond Index Fund in 2002. The sudden intensification of credit downgrades in mid 2002 caused the fund to produce a -2.00% tracking error in 2002.&lt;ref group="note"&gt;The fund was the [https://web.archive.org/web/20190722012104/https://www.vanguard.com/bogle_site/lib/sp19970401.html first retail bond index product] offered. Its fortunes hit a snag in 2002, when it underperformed its benchmark by a full 2.00%. The [https://www.sec.gov/Archives/edgar/data/794105/000093247103000266/bondindex02inprog.txt Vanguard Bond Index Funds' Annual Report] of December 31, 2002 discusses the situation.&lt;/ref&gt;
+
+==Index fund structure==
+Broadly speaking, there are two main structures for ETFs. Physical ETFs are “plain-vanilla” products that replicate the index by simply reconstituting the basket of physical securities underlying the index. They are the dominant form of ETF, especially in the US. A [[Synthetic ETF]] is an investment that mimics the behavior of an exchange-traded fund (ETF) by using derivatives such as swaps, rather than owning the physical assets.
+
+===Physical ETFs===
+Physical ETFs are "plain-vanilla" products that replicate the index by simply reconstituting the basket of physical securities underlying the index. They are the dominant form of ETF, especially in the US. 
+
+An index fund manager attempts to capture market returns of the index using a number of management techniques. These include replicating or sampling the ''index universe''&lt;ref group="note" name="universe" /&gt; of securities, [[#Equitization | equitizing]] cash balances to remain 100 percent invested, and using trading strategies that minimize transaction costs. 
+
+====Replication====
+Index funds tracking large size and mid size companies usually buy and hold all of the stocks comprising a large cap or mid cap index. Funds hold these stocks proportionally in the percentage weight a stock's market value has within the market value of the index.
+
+For example, if Exxon Corp. has a value representing 3% of the index, an index fund replicating the index would hold a 3% weighting of Exxon in the fund. A replicated index fund should give you a return that mirrors its index, reduced by the costs of managing the fund and the costs of asset purchases and sales.&lt;ref&gt;{{cite book| author=W. Scott Simon| title=Index Mutual Funds| page=139| isbn=0-9661172-7-1}}&lt;/ref&gt;
+
+====Sampling====
+Indexes which comprise a large number of small illiquid companies or illiquid bonds often make it very costly to fully replicate the index. Because of this, many small and micro cap index funds, as well as many bond index funds, sample their universe of securities.
+
+Sampling tries to match the size and valuation metrics of the index. Because a sampled index fund does not hold all of the securities in the underlying index, its returns may vary somewhat from those of the index. This performance variance is called "sampling error."&lt;ref&gt;{{cite book| author=W. Scott Simon| title=Index Mutual Funds| pages=139-140| isbn=0-9661172-7-1}}&lt;/ref&gt;
+
+Sometimes sampling is called '''Physical replication with optimization'''. Optimization methods are model-driven, with a computer system making the buy and sell decisions. To reduce transaction costs, an ETF manager might use the physical replication with optimization if the index the fund is tracking contains too many securities.
+
+===Synthetic ETFs or swap-based replication===
+{{main|Synthetic ETF}}
+
+Instead of owning the physical assets, some funds replicate the index using derivatives (such as swaps). These are often called synthetic ETFs. 
+
+{{Warning|
+Synthetic ETFs are an advanced investing concept and not recommended for new investors. You need to understand these risks. Please read the main article and ask in the forum for guidance.
+}}
+
+===Equitization===
+In order to reduce a funds [[tracking error]] relative to its underlying index, index fund managers try to remain fully invested. Almost all mutual funds hold a cash balance, primarily to meet potential fund redemptions by fund investors.
+
+This cash holding creates a drag&lt;ref group="note"&gt;"Cash drag" is used to describe an additional "cost" hurdle that an active manager must exceed in order to beat a benchmark return. For an index manager, cash holdings will increase tracking error relative to the index.&lt;/ref&gt; on fund returns during any period when stock returns outpace cash returns.
+
+Mutual funds hold cash because of shareholder cash flows into the fund (before the manager can purchase securities), as a holding from which to pay shareholder redemption of shares, and for active funds, a usual holding when the manager cannot find securities that appeal. Mutual funds tend to average 4% to 6% cash in their fund portfolios.&lt;ref group="note"&gt;The latest number can be found at [https://www.ici.org/research/stats/trends Monthly Trends in Mutual Fund Investing], from ICI.&lt;/ref&gt;
+
+The index manager reduces the tracking error from holding a cash balance by buying a [[Futures | futures]] contract, or sometimes an [[exchange-traded fund]] (ETF), with the cash. Because a futures contract is leveraged, an index manager can get an index return on a cash balance while waiting to efficiently invest a cash inflow directly into stocks, or to remain liquid in order to meet redemption of fund shares. Here is a simplified example.
+#The index manager has a $500,000 cash balance.
+#The index manager buys an index futures contract placing a $25,000 cash deposit for holding a $500,000 index futures position.
+#The index manager now receives the index return on the futures ($500,000 worth assuming the futures track the index) while maintaining $475,000 cash liquidity from which to meet shareholder redemption requests.
+
+This procedure is known as ''equitizing'' cash.
+
+In another example, a manager might place a $10,000 margin deposit on a futures contract valued at $450,000. The manager can then place the remaining $440,000 into a short term interest paying account yet still have full market exposure from the $450,000 futures position.&lt;ref&gt;{{cite book| author=W. Scott Simon| title=Index Mutual Funds| pages=144-145| isbn=0-9661172-7-1}}&lt;/ref&gt;
+
+==Notes==
+{{Reflist|group="note"}}
+
+==See also==
+*[[Indexing]]
+*[[Bond market indexing]]
+*[[Stock market indexing]]
+
+==References==
+{{Reflist|30em}}
+
+==External links==
+*[https://institutional.vanguard.com/VGApp/iip/site/institutional/researchcommentary/article/CaseforIndexing The Case For Indexing]{{broken link}} Vanguard Investment Counseling &amp; Research (October 2012).
+*[https://www.vanguard.com/pdf/indexmyths.pdf Myths and Misconceptions About Indexing]{{broken link}} Vanguard Investment Counseling &amp; Research (2003)
+*[https://www.vanguard.com/pdf/icrcs.pdf Building a global core-satellite portfolio]{{broken link}} Vanguard research (October, 2010)
+*[https://johncbogle.com/speeches/JCB_AXA_10-01.pdf Three Challenges Of Investing: Active Management, Market Efficiency, and Selecting Managers]. [[John Bogle]]. AXA Rosenberg Group Client Conference, Boston, Massachusetts. October 21, 2001
+*[https://www.stanford.edu/~wfsharpe/art/active/active.htm The Arithmetic of Active Management]. [[William F. Sharpe]]. Reprinted with permission from The Financial Analysts' Journal Vol. 47, No. 1, January/February 1991. pp. 7-9. Copyright 1991
+*[https://www.stanford.edu/~wfsharpe/art/talks/indexed_investing.htm Indexed Investing: A Prosaic Way to Beat the Average Investor]. [[William F. Sharpe]], Presented at the Spring President's Forum, Monterey Institute of International Studies. May 1, 2002
+
+===Bibliography===
+{| border="0"
+||
+*Jie Cai and Todd Houge, ''[https://ssrn.com/abstract=970839 Index Rebalancing and Long-Term Portfolio Performance]'' (March 2007). Available at SSRN.
+*Edwin J. Elton, Jeffrey A. Busse, and Martin J. Gruber, ''[https://ssrn.com/abstract=340482 Are Investors Rational? Choices Among Index Funds]'' (June 2002). NYU Working Paper Available at SSRN.
+*[[Kenneth R. French]], ''[https://ssrn.com/abstract=1105775 The Cost of Active Investing]'' (April 9, 2008). Available at SSRN. 
+*[[John A. Haslem]], H. Kent Baker, and David M. Smith, ''[https://ssrn.com/abstract=1144763 Are Retail S&amp;P 500 Index Funds a Financial Commodity? Insights for Investors.]'' Financial Services Review, Vol. 15, No. 2, 2006. Available at SSRN. 
+*[[John A. Haslem]], H. Kent Baker, and David M. Smith, ''[https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1144943 Performance and Characteristics of Retail S&amp;P 500 Index Mutual Funds]'' (April 9, 2008). Available at SSRN. 
+*Antii Petajisto, ''[https://ssrn.com/abstract=1235604 The Index Premium and its Hidden Cost for Index Funds]'' (August 18, 2008). Available at SSRN. 
+|}
+{{Bogleheads investing start-up kit}}
+[[Category:Indexing]]</text>
+      <sha1>3vtclxf73yi51cn9p0q4chl0bb627x1</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>FTSE Group</title>
+    <ns>0</ns>
+    <id>7443</id>
+    <revision>
+      <id>85752</id>
+      <parentid>84581</parentid>
+      <timestamp>2025-07-09T11:32:36Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Link to parallel wikipedia article. Shorten.</comment>
+      <origin>85752</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="474" sha1="6ugii9h1ufsrosj73hy0bfhrogvhymt" xml:space="preserve">{{for|a full discussion|wikipedia:FTSE Group}}
+
+'''{{PAGENAME}}''' (FTSE stands for Financial Times Stock Exchange) is a British provider of [[stock market indexing|stock market indices]] and associated data services, wholly owned by the London Stock Exchange (LSE) and operating out of premises in Canary Wharf. It operates the well known UK [[FTSE UK indexes]].
+
+==See also==
+* [[CRSP equity indexes]]
+
+[[Category:Glossary]]
+[[Category:Indexing]]
+[[Category:FTSE indexes]]</text>
+      <sha1>6ugii9h1ufsrosj73hy0bfhrogvhymt</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MSCI</title>
+    <ns>0</ns>
+    <id>7444</id>
+    <revision>
+      <id>85767</id>
+      <parentid>84761</parentid>
+      <timestamp>2025-07-09T16:06:43Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>Link to parallel wikipedia article.</comment>
+      <origin>85767</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="582" sha1="sxnymlcccjgwpm389apvwxgl6636hgv" xml:space="preserve">{{for|a full discussion|wikipedia:MSCI}}
+
+'''MSCI Inc'''. (formerly '''Morgan Stanley Capital International''' and then '''MSCI Barra'''), is a US-based provider of [[Stock market indexing|stock market indexes]] and [[Bond market indexing|fixed income indexes]]. It publishes the [https://www.msci.com/indexes/index/127300 MSCI BIC Index], [https://www.msci.com/indexes/index/990100 MSCI World Index], and [https://www.msci.com/indexes/index/990300 MSCI EAFE Index], among others.
+
+==See also==
+* [[CRSP equity indexes]]
+* [[FTSE Group]]
+
+[[Category:Glossary]]
+[[Category:Indexing]]</text>
+      <sha1>sxnymlcccjgwpm389apvwxgl6636hgv</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>SPIVA scorecards</title>
+    <ns>0</ns>
+    <id>9805</id>
+    <revision>
+      <id>85077</id>
+      <parentid>85076</parentid>
+      <timestamp>2025-06-24T23:23:39Z</timestamp>
+      <contributor>
+        <username>LadyGeek</username>
+        <id>77</id>
+      </contributor>
+      <comment>Removed template, added template, category.</comment>
+      <origin>85077</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="4311" sha1="ib5suqc6jae2xajh7c0azclo4qah134" xml:space="preserve">'''S&amp;P Indices Versus Active (SPIVA®)''' are semiannual reports published by S&amp;P Dow Jones Indices that compare the performance of active equity and fixed income mutual funds against their benchmarks over different time horizons.&lt;ref name="spiva"&gt;{{Cite web|title=SPIVA® Scorecards: An Overview|url=https://www.spglobal.com/spdji/en/education/article/spiva-scorecards-an-overview/|date=2021-06-21|access-date=2025-06-24|website=S&amp;P Dow Jones Indices}}&lt;/ref&gt;
+
+==Overview==
+Active management takes the approach that with enough skill, it’s easy to consistently outperform the market, or the benchmark. The SPIVA scorecard reports were created as a challenge to this claim.&lt;ref name = "About"&gt;{{Cite web|title=About SPIVA|url=https://www.spglobal.com/spdji/en/research-insights/spiva/about-spiva/|access-date=2025-06-24|website=S&amp;P Dow Jones Indices}}&lt;/ref&gt;
+
+Certain themes have emerged over time. One is that actively managed funds have historically tended to underperform their benchmarks over short- and long-term periods. This has tended to hold true (with exceptions) across countries and regions.&lt;ref name = "About" /&gt;
+
+Another recurring theme is that even when a majority of actively managed funds in a category have outperformed the benchmark over one time period, they have usually failed to outperform over multiple periods.&lt;ref name = "About" /&gt;
+
+Relatively few active managers are able to outperform passive managers over any given time period, either short-term or long-term.&lt;ref name = "About" /&gt;
+
+Demonstrating the ability to outperform repeatedly is the only proven way to differentiate a manager's skill from luck. The scorecards show that relatively few funds can consistently stay at the top.&lt;ref name = "About" /&gt;
+
+First published in 2002 for the US, the scorecard has been extended to Australia, Canada, Europe, India, Japan, Latin America, South Africa, and the Middle East and North Africa (MENA) regions.&lt;ref name="spiva" /&gt;
+
+==Reports==
+The SPIVA reports incorporate the following factors in measuring active fund performance.&lt;ref name="spiva" /&gt; 
+
+# '''Survivorship bias correction:''' SPIVA removes funds that were liquidated or merged during a period of study.
+# '''Apples-to-apples comparison:''' Fund returns are compared to a benchmark that is appropriate for each particular fund's style and size category.
+# '''Equal- and Asset-weighted returns:'''  SPIVA reports show both equal- and asset-weighted averages.
+# '''Style consistency:''' US and Canada SPIVA scorecards measure consistency for each style category across different time horizons.
+# '''Quartile Breakpoints:''' In each category, dispersion in fund returns across different time horizons highlight the fund selection risk that market participants face.
+# '''Data Cleaning''': SPIVA avoids double counting of multiple share classes in all count based calculations where only the share class with bigger assets is used. Index funds, leveraged and inverse funds, and other index-linked products are excluded since SPIVA is meant to be a scorecard for active managers.
+
+Reports are available for the following regions:
+
+* [https://www.spglobal.com/spdji/en/research-insights/spiva/#us United States]
+* [https://www.spglobal.com/spdji/en/research-insights/spiva/#canada Canada]
+* [https://www.spglobal.com/spdji/en/research-insights/spiva/#mexico Mexico]
+* [https://www.spglobal.com/spdji/en/research-insights/spiva/#brazil Brazil]
+* [https://www.spglobal.com/spdji/en/research-insights/spiva/#chile Chile]
+* [https://www.spglobal.com/spdji/en/research-insights/spiva/#europe Europe]
+* [https://www.spglobal.com/spdji/en/research-insights/spiva/#mena Middle East and North Africa] (MENA)
+* [https://www.spglobal.com/spdji/en/research-insights/spiva/#south-africa South Africa]
+* [https://www.spglobal.com/spdji/en/research-insights/spiva/#japan Japan]
+* [https://www.spglobal.com/spdji/en/research-insights/spiva/#australia Australia]
+
+Each region can show historical performance for 1, 3, 5, 10, or 15 years.
+
+A complete guide to the SPIVA scorecard reports, including interpretation of the report contents, can be found in [https://www.spglobal.com/spdji/en/documents/education/education-spiva-scorecards-an-overview.pdf SPIVA® Scorecards: An Overview].
+
+==References==
+{{Reflist}}
+
+{{Indexing}}
+[[Category:Indexing]]</text>
+      <sha1>ib5suqc6jae2xajh7c0azclo4qah134</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>FTSE Developed Asia Pacific All Cap Index</title>
+    <ns>0</ns>
+    <id>4907</id>
+    <revision>
+      <id>84988</id>
+      <parentid>74757</parentid>
+      <timestamp>2025-06-23T10:58:41Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Remove link to stale article. Remove stale data sections.</comment>
+      <origin>84988</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="2250" sha1="1ulq9iu8dwh3dvasg1ahpycvnpt9cca" xml:space="preserve">The '''{{PAGENAME}}''' is a [[Free-float methodology|free-float]],&lt;ref group="note"&gt; In March 2013, FTSE adopted a fundamental policy of using actual free float percentages (rounded up to the next 1%) in its indexes. The move was taken to reduce unnecessary turnover in the indexes. See [http://www.ftse.com/products/indices/index-support-guides Index Support Guides], Free Float Restrictions, for extended discussion. &lt;/ref&gt; market-capitalization weighted index representing the performance of around 2150 large, mid, and small cap companies in Australia, Hong Kong, Japan, Korea, New Zealand and Singapore. The index is derived from the FTSE Global Equity Index Series&lt;ref&gt; [http://www.ftse.com/products/indices/geis-series FTSE Global Equity Index Series]&lt;/ref&gt; and has a base date of December 31, 2012.&lt;ref&gt;[http://www.ftse.com/Vanguard/home/Indices?Region=AMERICAS FTSE Developed Asia Pacific All Cap Index], factsheet&lt;/ref&gt;
+
+The index is tracked by the Vanguard Pacific Stock index fund investor shares (VPACX) and admiral shares (VPADX); and the Vanguard FTSE Pacific ETF (VPL).&lt;ref group="note"&gt; Prior to June, 2013, the Vanguard Pacific Stock index fund investor shares (VPACX) and admiral shares (VPADX); and the Vanguard FTSE Pacific ETF (VPL) tracked the MSCI Pacific Index through March 26, 2013; FTSE Developed Asia Pacific Index thereafter &lt;/ref&gt;&lt;ref group="note"&gt; The Vanguard Pacific Stock Index Fund is also available as Institutional and (VPKIX); Institutional Plus (VPAPX) share classes. These share classes are commonly used in the corporate retirement plan market. &lt;/ref&gt;
+
+==Methodology==
+FTSE index methodology is summarized in the table: {{FTSE methodology}}
+
+==Notes==
+{{Reflist|group="note"}}
+
+==References==
+{{Reflist}}
+
+==External links==
+*[http://www.ftse.com/vanguard/Content/docs/FTSE_Global_Equity_Index_Series_Index_Rules.pdf?567 Index Ground Rules]
+*[http://www.ftse.com/products/indices/index-support-guides FTSE Index Support Guides], select Global Equity Index Series Guide to Calculation
+*[http://www.ftse.com/vanguard FTSE Vanguard Portal]
+*[https://docs.google.com/spreadsheets/d/1YdXZN6hKPUGNO3xPwEgBLdQKHXaStNwNzE5yq6u6-uM/pubhtml FTSE tickers], google spreadsheet
+
+{{FTSE indexes}}
+[[Category:FTSE indexes]]</text>
+      <sha1>1ulq9iu8dwh3dvasg1ahpycvnpt9cca</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>FTSE Global All Cap ex US Index</title>
+    <ns>0</ns>
+    <id>4902</id>
+    <revision>
+      <id>84991</id>
+      <parentid>76025</parentid>
+      <timestamp>2025-06-23T11:07:09Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Remove link to stale article. Remove stale data sections.</comment>
+      <origin>84991</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="2467" sha1="4uajf83i3e4jzj4092p11lh8roqw66n" xml:space="preserve">The '''{{PAGENAME}}''' is a [[Free-float methodology|free-float]],&lt;ref group="note"&gt; In March 2013, FTSE adopted a fundamental policy of using actual free float percentages (rounded up to the next 1%) in its indexes. The move was taken to reduce unnecessary turnover in the indexes. See [http://www.ftse.com/Indices/FTSE_Index_Standards/Free_Float.jsp Free Float Adjusted - FTSE], for extended discussion. &lt;/ref&gt; market-capitalization weighted index representing the performance of around 5350 large, mid and small cap companies in 46 developed and [[Emerging market stocks|emerging markets]] worldwide, excluding the USA. The index is derived from the FTSE Global Equity Index Series&lt;ref&gt; [http://www.ftse.com/Indices/FTSE_All_World_Index_Series/Downloads/FTSE_GEIS_Brochure_Final_Version.pdf FTSE GEIS Brochure] &lt;/ref&gt; and was launched on September 1, 2003 (base date December 31, 2002).&lt;ref&gt;[http://www.ftse.com/vanguard/Home/ftse-global-all-cap-index FTSE Global All Cap ex US Index]&lt;/ref&gt;
+
+The index is tracked by the Vanguard Total International index fund investor shares (VGTSX) and admiral shares (VTIAX); and the Vanguard Total International Stock ETF (VXUS).&lt;ref group="note"&gt; Prior to June, 2013, the Vanguard Total International index fund investor shares (VGTSX) and admiral shares ((VTIAX); and the Vanguard Total International Stock ETF (VXUS) tracked the Total International Composite Index through August 31, 2006; MSCI EAFE + Emerging Markets Index through December 15, 2010; MSCI ACWI ex USA IMI Index through June 2, 2013; &lt;/ref&gt;&lt;ref group="note"&gt; The Vanguard Total International Stock Index Fund is also available as Institutional (VTSNX); Institutional Plus (VTPSX); and Signal (VTSGX} share classes. These share classes are commonly used in the corporate retirement plan market. &lt;/ref&gt;
+
+==Methodology==
+FTSE index methodology is summarized in the table: {{FTSE methodology}}
+
+==Notes==
+{{Reflist|group="note"}}
+
+==References==
+{{Reflist}}
+
+==External links==
+*[http://www.ftse.com/vanguard/Content/docs/FTSE_Global_Equity_Index_Series_Index_Rules.pdf?567 Index Ground Rules]
+*[http://www.ftse.com/products/indices/index-support-guides FTSE Index Support Guides], select Global Equity Index Series Guide to Calculation
+*[http://www.ftse.com/vanguard FTSE Vanguard Portal]
+*[https://docs.google.com/spreadsheets/d/1YdXZN6hKPUGNO3xPwEgBLdQKHXaStNwNzE5yq6u6-uM/pubhtml FTSE tickers], google spreadsheet
+
+{{FTSE indexes}}
+[[Category:FTSE indexes]]</text>
+      <sha1>4uajf83i3e4jzj4092p11lh8roqw66n</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>FTSE Emerging Index</title>
+    <ns>0</ns>
+    <id>4903</id>
+    <revision>
+      <id>84992</id>
+      <parentid>65350</parentid>
+      <timestamp>2025-06-23T11:10:03Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Remove link to stale article. Remove stale data sections.</comment>
+      <origin>84992</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="2384" sha1="my42ynlr37rmvvgcbnu2wg1xws7s31b" xml:space="preserve">The '''{{PAGENAME}}''' is a [[Free-float methodology|free-float]],&lt;ref group="note"&gt; In March 2013, FTSE adopted a fundamental policy of using actual free float percentages (rounded up to the next 1%) in its indexes. The move was taken to reduce unnecessary turnover in the indexes. See [http://www.ftse.com/products/indices/index-support-guides Index Support Guides], Free Float Restrictions, for extended discussion. &lt;/ref&gt; market-capitalization weighted index representing the performance of around 850 large and mid cap companies in 22 [[Emerging market stocks|emerging markets]]. The index is derived from the FTSE Global Equity Index Series.&lt;ref&gt;[http://www.ftse.com/products/indices/geis-series FTSE Global Equity Index Series] &lt;/ref&gt; The index was launched on June 30, 2000 (base date December 31, 1986).&lt;ref&gt;[http://www.ftse.com/Vanguard/home/Indices?Region=AMERICAS FTSE Emerging Markets All Cap China A Inclusion Index], factsheet&lt;/ref&gt;
+The index is tracked by the Vanguard Emerging Markets index fund investor shares (VEIEX) and admiral shares (VEMAX); and the Vanguard FTSE Emerging Markets ETF (VWO).&lt;ref group="note"&gt; Vanguard Emerging Markets index fund investor shares (VEIEX) and admiral shares (VEMAX); and the Vanguard FTSE Emerging Markets ETF (VWO) tracked the Select Emerging Markets Index through August 23, 2006; MSCI Emerging Markets Index through January 9, 2013; FTSE Emerging Transition Index through June 27, 2013; and FTSE Emerging Index thereafter. &lt;/ref&gt;&lt;ref group="note"&gt; The Vanguard Emerging Markets Stock Index Fund is also available as Institutional (VEMIX) and Institutional Plus (VEMRX) share classes. These share classes are commonly used in the corporate retirement plan market. &lt;/ref&gt;
+
+==Methodology==
+FTSE index methodology is summarized in the table: {{FTSE methodology}}
+
+==Notes==
+{{Reflist|group="note"}}
+
+==References==
+{{Reflist}}
+
+==External links==
+*[http://www.ftse.com/vanguard/Content/docs/FTSE_Global_Equity_Index_Series_Index_Rules.pdf?567 Index Ground Rules]
+*[http://www.ftse.com/products/indices/index-support-guides FTSE Index Support Guides], select Global Equity Index Series Guide to Calculation
+*[http://www.ftse.com/vanguard FTSE Vanguard Portal]
+*[https://docs.google.com/spreadsheets/d/1YdXZN6hKPUGNO3xPwEgBLdQKHXaStNwNzE5yq6u6-uM/pubhtml FTSE tickers], google spreadsheet
+
+{{FTSE indexes}}
+[[Category:FTSE indexes]]</text>
+      <sha1>my42ynlr37rmvvgcbnu2wg1xws7s31b</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>FTSE Developed Europe All Cap Index</title>
+    <ns>0</ns>
+    <id>4905</id>
+    <revision>
+      <id>84989</id>
+      <parentid>74758</parentid>
+      <timestamp>2025-06-23T11:00:45Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Remove link to stale article. Remove stale data sections.</comment>
+      <origin>84989</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="2289" sha1="n4yg34p7dk96flreihf8l5yvvfbmi6o" xml:space="preserve">The '''{{PAGENAME}}''' is a [[Free-float methodology|free-float]],&lt;ref group="note"&gt; In March 2013, FTSE adopted a fundamental policy of using actual free float percentages (rounded up to the next 1%) in its indexes. The move was taken to reduce unnecessary turnover in the indexes. See [http://www.ftse.com/products/indices/index-support-guides Index Support Guides], Free Float Restrictions, for extended discussion. &lt;/ref&gt; market-capitalization weighted index representing the performance of around 1250 large, mid, and small cap companies in 16 developed European markets, including the UK. The index is derived from the FTSE Global Equity Index&lt;ref&gt;[http://www.ftse.com/products/indices/geis-series FTSE Global Equity Index Series] &lt;/ref&gt; and has a base date of December 31, 2012.&lt;ref&gt;[http://www.ftse.com/Vanguard/home/Indices?Region=AMERICAS FTSE Developed Europe All Cap Index], factsheet&lt;/ref&gt;
+
+The index is tracked by the Vanguard European Stock Markets index fund investor shares (VEURX) and admiral shares (VEUSX); and the Vanguard FTSE Europe ETF (VGK).&lt;ref group="note"&gt; Vanguard European Stock Markets Index Fund investor shares (VEURX) and admiral shares (VEMAX); and the Vanguard FTSE Europe ETF (VGK) tracked the MSCI Europe Index through March 26, 2013; FTSE Developed Europe Index from March 27, 2013 to September 31, 2015; The FTSE Developed Europe All-Cap Index thereafter. &lt;/ref&gt;&lt;ref group="note"&gt; The Vanguard European Stock Index Fund is also available as Institutional (VESPX); Institutional Plus (VEUPX); share classes. These share classes are commonly used in the corporate retirement plan market. &lt;/ref&gt;
+
+==Methodology==
+FTSE index methodology is summarized in the table: {{FTSE methodology}}
+
+==Notes==
+{{Reflist|group="note"}}
+
+==References==
+{{Reflist}}
+
+==External links==
+*[http://www.ftse.com/vanguard/Content/docs/FTSE_Global_Equity_Index_Series_Index_Rules.pdf?567 Index Ground Rules]
+*[http://www.ftse.com/products/indices/index-support-guides FTSE Index Support Guides], select Global Equity Index Series Guide to Calculation
+*[http://www.ftse.com/vanguard FTSE Vanguard Portal]
+*[https://docs.google.com/spreadsheets/d/1YdXZN6hKPUGNO3xPwEgBLdQKHXaStNwNzE5yq6u6-uM/pubhtml FTSE tickers], google spreadsheet
+
+{{FTSE indexes}}
+[[Category:FTSE indexes]]</text>
+      <sha1>n4yg34p7dk96flreihf8l5yvvfbmi6o</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>FTSE Developed All Cap ex US Index</title>
+    <ns>0</ns>
+    <id>4901</id>
+    <revision>
+      <id>84981</id>
+      <parentid>74759</parentid>
+      <timestamp>2025-06-23T10:38:14Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Remove link to stale article. Remove stale data sections.</comment>
+      <origin>84981</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="2170" sha1="bf8dprp7tzv6nvx5zqmjpvdz4jwxxgu" xml:space="preserve">The '''{{PAGENAME}}''' is a [[Free-float methodology|free-float]],&lt;ref group="note"&gt; In March 2013, FTSE adopted a fundamental policy of using actual free float percentages  (rounded up to the next 1%) in its indexes. The move was taken to reduce unnecessary turnover in the indexes. See [http://www.ftse.com/products/indices/index-support-guides Index Support Guides], Free Float Restrictions, for extended discussion. &lt;/ref&gt; market-capitalization weighted index representing the performance of around 3734 large, mid, and small cap companies in 24 developed markets, excluding the USA.The index is derived from the FTSE Global Equity Index&lt;ref&gt;[http://www.ftse.com/products/indices/geis-series FTSE Global Equity Index Series] &lt;/ref&gt; and has a base date of December 31, 2012.&lt;ref&gt;[http://www.ftse.com/Vanguard/home/Indices?Region=AMERICAS FTSE Developed All Cap ex US Index], factsheet&lt;/ref&gt;
+
+The index is tracked by the Vanguard Developed Markets index fund investor shares (VDVIX) and admiral shares (VTMGX); and the Vanguard FTSE Developed Markets ETF (VEA).&lt;ref group="note"&gt; Prior to April, 2013,  the fund, then known as the Vanguard Tax Managed International Admiral Fund (VDVIX) and the Vanguard FTSE Developed Markets ETF (VEA), tracked the [[MSCI EAFE index]] &lt;/ref&gt;&lt;ref group="note"&gt; The Vanguard Developed Market Index Fund  is also available as Institutional (VTMNX) and Institutional Plus (VDIPX) share classes. These share classes are commonly used in the corporate retirement plan market. &lt;/ref&gt;
+
+==Methodology==
+FTSE index methodology is summarized in the table: {{FTSE methodology}}
+
+==Notes==
+{{Reflist|group="note"}}
+
+==References==
+{{Reflist}}
+
+==External links==
+*[http://www.ftse.com/vanguard/Content/docs/FTSE_Global_Equity_Index_Series_Index_Rules.pdf?567 Index Ground Rules]
+*[http://www.ftse.com/products/indices/index-support-guides FTSE Index Support Guides], select Global Equity Index Series Guide to Calculation
+*[http://www.ftse.com/vanguard FTSE Vanguard Portal]
+*[https://docs.google.com/spreadsheets/d/1YdXZN6hKPUGNO3xPwEgBLdQKHXaStNwNzE5yq6u6-uM/pubhtml FTSE tickers], google spreadsheet
+{{FTSE indexes}}
+
+[[Category:FTSE indexes]]</text>
+      <sha1>bf8dprp7tzv6nvx5zqmjpvdz4jwxxgu</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>FTSE Global Small Cap ex US Index</title>
+    <ns>0</ns>
+    <id>4911</id>
+    <revision>
+      <id>84990</id>
+      <parentid>74761</parentid>
+      <timestamp>2025-06-23T11:03:04Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Remove link to stale article. Remove stale data sections.</comment>
+      <origin>84990</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="2481" sha1="nskpbl78oslyx096k2zmhaa21eutb73" xml:space="preserve">The '''{{PAGENAME}}''' is a [[Free-float methodology|free-float]],&lt;ref group="note"&gt; In March 2013, FTSE adopted a fundamental policy of using actual free float percentages (rounded up to the next 1%) in its indexes. The move was taken to reduce unnecessary turnover in the indexes. See [http://www.ftse.com/Indices/FTSE_Index_Standards/Free_Float.jsp Free Float Adjusted - FTSE], for extended discussion. &lt;/ref&gt; market-capitalization weighted index representing the performance of around 3031 small cap companies in 46 developed and [[Emerging market stocks|emerging markets]] worldwide, excluding the USA. The index is derived from the FTSE Global Equity Index Series&lt;ref&gt; [http://www.ftse.com/Indices/FTSE_All_World_Index_Series/Downloads/FTSE_GEIS_Brochure_Final_Version.pdf FTSE GEIS Brochure] &lt;/ref&gt; and was launched in September 2003 (base date December 31, 2002).&lt;ref&gt;[http://www.ftse.com/vanguard/Home/ftse-other-indexes Other FTSE benchmarks used by Vanguard], FTSE Global Small Cap ex US Index tab, Fact Sheet as of 28-June-13.&lt;/ref&gt;
+
+The index is tracked by the Vanguard FTSE All-World ex US Small Cap index fund investor shares (VFSVX) and the Vanguard FTSE All-World ex-US Small-Cap ETF (VSS).&lt;ref group="note"&gt; The FTSE All-World ex-US Small-Cap Index Fund is also available in an Institutional (VFSNX) share class. This share class is commonly used in the corporate retirement plan market. &lt;/ref&gt;
+
+==Methodology==
+The FTSE Global Small Cap ex US Index defines small cap stocks as companies ranked below the top 86%, but within the top 98%, of the index universe by full market capitalization. In order to reduce turnover, the index employs buffer zones around these defined boundaries.&lt;ref&gt; [http://www.ftse.com/vanguard/Content/docs/FTSE_Global_Equity_Index_Series_Index_Rules.pdf?567 Index Ground Rules], pp. 4, 19. &lt;/ref&gt;
+
+FTSE index methodology is summarized in the table: {{FTSE methodology}}
+
+==Notes==
+{{Reflist|group="note"}}
+
+==References==
+{{Reflist}}
+
+==External links==
+*[http://www.ftse.com/vanguard/Content/docs/FTSE_Global_Equity_Index_Series_Index_Rules.pdf?567 Index Ground Rules]
+*[http://www.ftse.com/products/indices/index-support-guides FTSE Index Support Guides], select Global Equity Index Series Guide to Calculation
+*[http://www.ftse.com/vanguard FTSE Vanguard Portal]
+*[https://docs.google.com/spreadsheets/d/1YdXZN6hKPUGNO3xPwEgBLdQKHXaStNwNzE5yq6u6-uM/pubhtml FTSE tickers], google spreadsheet
+
+{{FTSE indexes}}
+[[Category:FTSE indexes]]</text>
+      <sha1>nskpbl78oslyx096k2zmhaa21eutb73</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>FTSE UK indexes</title>
+    <ns>0</ns>
+    <id>4739</id>
+    <revision>
+      <id>84582</id>
+      <parentid>82135</parentid>
+      <timestamp>2025-06-15T09:42:32Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>Typo fix.</comment>
+      <origin>84582</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="3951" sha1="pjq06gl51gmyn8vgfarce4qqqjarvh9" xml:space="preserve">'''[[FTSE Group|FTSE]]''' (Financial Times and Stock Exchange) publishes [[Free-float methodology|free-float]] [[market capitalization]] indexes of United Kingtom (UK) stocks. FTSE created its first index, the FT Actuaries All-Share Index, in 1962.&lt;ref group="note"&gt;The FT Actuaries All-Share Index was initially a price only index, excluding dividends. FTSE later added two new sub-indexes, the FTSE 100 in January 1984 and the FTSE 250 in October 1992. In 1993 the FTSE All-Share Index began reporting returns on total return basis.&lt;/ref&gt; This index is now known as the FTSE-All-Share Index. 
+
+FTSE also publishes gilt indexes.&lt;ref group="note"&gt;Gilts are bonds issued by the British government, and generally considered to be low risk. Gilts are the UK equivalent of US Treasury securities.&lt;/ref&gt; There are two types of gilt: conventional; and inflation-linked.
+
+In December 2011, The London Stock Exchange (LSE) took complete ownership of FTSE.&lt;ref&gt;{{cite web| url=https://archive.nytimes.com/dealbook.nytimes.com/2011/12/12/london-stock-exchange-buys-remaining-stake-in-ftse/| title=L.S.E. Group to Buy Remainder of FTSE| publisher=The New York Times| accessdate=October 5, 2023}}&lt;/ref&gt;
+
+==FTSE stock market indexes==
+{{See also|Investing from the UK#Stocks|l1=Investing from the UK § Stocks}}
+
+The FTSE UK stock indexes&lt;ref&gt;{{cite web| url=https://www.ftserussell.com/products/indices/uk| title=FTSE UK Index Series | publisher=FTSE Russell| accessdate=October 5, 2023}}&lt;/ref&gt; include:
+
+* [[wikipedia:FTSE All-Share Index|FTSE All-Share Index]]&lt;br&gt;This index represents 98-99% of UK market capitalisation, FTSE All-Share is the aggregation of the FTSE 100, FTSE 250 and FTSE Small Cap indexes.
+* [[wikipedia:FTSE 100 Index|FTSE 100 Index]]&lt;br&gt;This index (inception on January 3, 1984) comprises the 100 most highly capitalised blue chip companies, representing approximately 81% of the UK market.
+* [[wikipedia:FTSE 250 Index|FTSE 250 Index]]&lt;br&gt;This index (inception on October 12, 1992) comprises mid-capitalised companies not covered by the FTSE 100, and represents approximately 15% of UK market capitalisation.
+* [[wikipedia:FTSE 350 Index|FTSE 350 Index]]&lt;br&gt;This index is a combination of the FTSE 100 and FTSE 250 indexes.
+* [[wikipedia:FTSE SmallCap Index|FTSE SmallCap Index]]&lt;br&gt;The index consists of companies outside of the FTSE 350 Index and represents approximately 2% of the UK market capitalisation.
+* [[wikipedia:FTSE Fledgling Index|FTSE Fledgling Index]]&lt;br&gt;This index is for UK companies listed on the main market of the London Stock Exchange that are too small to be included in the FTSE All-Share.
+
+Index tracker funds commonly use the FTSE All-Share, FTSE 100, and FTSE 250 indexes.
+
+==FTSE Gilt market indexes==
+{{See also|Investing from the UK#UK bonds|l1=Investing from the UK § UK bonds}}
+
+The FTSE UK Gilts indexes&lt;ref&gt;{{cite web| url=https://www.ftserussell.com/products/indices/gilts| title=FTSE Actuaries UK Gilts Index Series| publisher=FTSE Russell| accessdate=October 5, 2023}}&lt;/ref&gt; include:
+
+{|
+|
+* FTSE Actuaries UK Conventional Gilts up to 5 Years
+* FTSE Actuaries UK Conventional Gilts up to 10 Years
+* FTSE Actuaries UK Conventional Gilts 5-15 Years
+* FTSE Actuaries UK Conventional Gilts over 15 Years
+* FTSE Actuaries UK Conventional Gilts All Stocks
+* British Government Over 25 Years
+|
+* British Government -Linked All Stocks
+* British Government -Linked up to 5 years
+* British Government -Linked Over 5 Years
+* FTSE Actuaries UK -Linked Gilts up to 10 Years
+* British Government -Linked 5 - 15 years
+* British Government -Linked Over 15 Years
+|}
+
+==Notes==
+{{Reflist|group="note"}} 
+
+==References==
+{{Reflist}}
+
+==External links==
+*[https://www.londonstockexchange.com/indices FTSE Indices], London Stock Exchange
+*[https://www.dmo.gov.uk/responsibilities/gilt-market/about-gilts/ About Gilts], UK Debt Management Office
+
+{{Non-US domiciles}}
+
+[[Category:United Kingdom]]
+[[Category:FTSE indexes]]</text>
+      <sha1>pjq06gl51gmyn8vgfarce4qqqjarvh9</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>FTSE All World ex US Index</title>
+    <ns>0</ns>
+    <id>4912</id>
+    <revision>
+      <id>84987</id>
+      <parentid>64172</parentid>
+      <timestamp>2025-06-23T10:55:32Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Remove link to stale article. Remove stale data sections.</comment>
+      <origin>84987</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="2432" sha1="7mh2oxiahfwz3tcxakexodeg8d5fmty" xml:space="preserve">The '''Financial Times Stock Exchange (FTSE) All World ex US Index''' is a [[Free-float methodology|free-float]],&lt;ref group="note"&gt; In March 2013, FTSE adopted a fundamental policy of using actual free float percentages  (rounded up to the next 1%) in its indexes. The move was taken to reduce unnecessary turnover in the indexes. See [http://www.ftse.com/Indices/FTSE_Index_Standards/Free_Float.jsp Free Float Adjusted - FTSE], for extended discussion. &lt;/ref&gt; market-capitalization weighted index representing the performance of around 2200 large cap and mid cap companies in 46 developed and [[Emerging market stocks|emerging markets]] worldwide, excluding the USA. The index is derived from the [[FTSE Group|FTSE]] Global Equity Index Series.&lt;ref&gt; [http://www.ftse.com/Indices/FTSE_All_World_Index_Series/Downloads/FTSE_GEIS_Brochure_Final_Version.pdf FTSE GEIS Brochure] &lt;/ref&gt; The index was launched on June 20, 2000.&lt;ref&gt;[http://www.ftse.com/vanguard/Home/ftse-other-indexes Other FTSE benchmarks used by Vanguard], Fact Sheet as of 28-June-13. &lt;/ref&gt;
+
+The index is tracked by the Vanguard FTSE All-World ex US index fund investor shares (VFWIX) and admiral shares (VFWAX); and the Vanguard FTSE All-World ex-US ETF (VEU).&lt;ref group="note"&gt;Long-term Index performance is not publicly available. For this reason, mutual funds are often used as a proxy - which in this case is the Vanguard FTSE All-World ex-US Index Fund. This fund is also available as Institutional (VFWSX) and Institutional Plus (VFWPX) share classes. These share classes are commonly used in the corporate retirement plan market. Publicly available index information can be found here [http://www.ftse.com/products/indices/geis-series FTSE Global Equity Index Series (GEIS)] (All-World ex US).&lt;/ref&gt;
+
+==Methodology==
+
+FTSE index methodology is summarized in the table: {{FTSE methodology}}
+
+==Notes==
+{{Reflist|group="note"}}
+
+==References==
+{{Reflist}}
+
+==External links==
+*[http://www.ftse.com/vanguard/Content/docs/FTSE_Global_Equity_Index_Series_Index_Rules.pdf?567 Index Ground Rules]
+*[http://www.ftse.com/products/indices/index-support-guides FTSE Index Support Guides], select Global Equity Index Series Guide to Calculation
+*[http://www.ftse.com/vanguard FTSE Vanguard Portal]
+*[https://docs.google.com/spreadsheets/d/1YdXZN6hKPUGNO3xPwEgBLdQKHXaStNwNzE5yq6u6-uM/pubhtml FTSE tickers], google spreadsheet
+
+{{FTSE indexes}}
+[[Category:FTSE indexes]]</text>
+      <sha1>7mh2oxiahfwz3tcxakexodeg8d5fmty</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>FTSE Global All Cap Index</title>
+    <ns>0</ns>
+    <id>4913</id>
+    <revision>
+      <id>85046</id>
+      <parentid>74756</parentid>
+      <timestamp>2025-06-23T19:01:21Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Remove stale data section.</comment>
+      <origin>85046</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="2291" sha1="gkeua5k7cr062c9lvyvweikni27v46u" xml:space="preserve">The '''{{PAGENAME}}''' is a [[Free-float methodology|free-float]],&lt;ref group="note"&gt; In March 2013, FTSE adopted a fundamental policy of using actual free float percentages (rounded up to the next 1%) in its indexes. The move was taken to reduce unnecessary turnover in the indexes. See [http://www.ftse.com/Indices/FTSE_Index_Standards/Free_Float.jsp Free Float Adjusted - FTSE], for extended discussion. &lt;/ref&gt; market-capitalization weighted index representing the performance of around 7400 large, mid and small cap companies in 47 developed and [[Emerging market stocks|emerging markets]] worldwide, including the USA. The index is derived from the FTSE Global Equity Index Series&lt;ref&gt; [http://www.ftse.com/Indices/FTSE_All_World_Index_Series/Downloads/FTSE_GEIS_Brochure_Final_Version.pdf FTSE GEIS Brochure] &lt;/ref&gt; and was launched on September 22, 2003 (base date December 31, 1986).&lt;ref name="Factsheet"&gt;[http://www.ftse.com/Indices/FTSE_Global_Equity_Index_Series/Downloads/GEISLMS.pdf FTSE Global All Cap Index Factsheet], December 31, 2012&lt;/ref&gt;
+
+The index is tracked by the Vanguard Total World Stock Index Fund investor shares (VTWSX) and the Vanguard Total World Stock ETF (VT).&lt;ref group="note"&gt; The Vanguard Total World Stock Index Fund investor shares (VTWSX) and the Vanguard Total World Stock ETF (VT) tracked the FTSE All-World Index through December 18, 2011, and the FTSE Global All Cap Index thereafter. &lt;/ref&gt;&lt;ref group="note"&gt; The Vanguard Total World Stock Index Fund is also available in an Institutional (VTWIX) share class. This share class is commonly used in the corporate retirement plan market. &lt;/ref&gt;
+
+==Methodology==
+FTSE index methodology is summarized in the table: {{FTSE methodology}}
+
+==Notes==
+{{Reflist|group="note"}}
+
+==References==
+{{Reflist}}
+
+==External links==
+*[http://www.ftse.com/vanguard/Content/docs/FTSE_Global_Equity_Index_Series_Index_Rules.pdf?567 Index Ground Rules]
+*[http://www.ftse.com/products/indices/index-support-guides FTSE Index Support Guides], select Global Equity Index Series Guide to Calculation
+*[http://www.ftse.com/vanguard FTSE Vanguard Portal]
+*[https://docs.google.com/spreadsheets/d/1YdXZN6hKPUGNO3xPwEgBLdQKHXaStNwNzE5yq6u6-uM/pubhtml FTSE tickers], google spreadsheet
+
+{{FTSE indexes}}
+[[Category:FTSE indexes]]</text>
+      <sha1>gkeua5k7cr062c9lvyvweikni27v46u</sha1>
+    </revision>
+  </page>
+</mediawiki>
