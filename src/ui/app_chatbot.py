@@ -4,30 +4,17 @@ import asyncio # Used to run the async agent function
 import os
 import sys
 from pathlib import Path
-
-
-# --- FIX START ---
-# 1. Get the absolute path of the current script's directory (src/ui)
-current_dir = Path(__file__).resolve().parent 
-# 2. Get the path to the parent directory (src)
-root_src_dir = current_dir.parent 
-# 3. Add the 'src' directory to Python's search path
-sys.path.insert(0, str(root_src_dir))
-# --- FIX END ---
-
-
-# Now the import should work, because 'src' is on the path, 
-# and 'agents' is a sub-module of 'src'.
-# You may need to change the import to use the top-level package name:
-from agents.finance_q_and_a import FinanceQandAAgent
-
+from src.agents.finance_q_and_a import FinanceQandAAgent
+from src.agents.supervisor import SupervisorAgent
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 # --- GRADIO SETUP ---
 
 # 1. Initialize the Agent (This only runs once when the app starts)
 # This is equivalent to Streamlit's @st.cache_resource for long-lived objects.
 # We run this outside the main Gradio function to keep it instantiated.
-AGENT = FinanceQandAAgent()
+AGENT = SupervisorAgent()
 
 
 # 2. Gradio-facing wrapper function

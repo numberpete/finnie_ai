@@ -1,0 +1,688 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd" version="0.11" xml:lang="en">
+  <siteinfo>
+    <sitename>Bogleheads</sitename>
+    <dbname>wiki</dbname>
+    <base>https://www.bogleheads.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.43.5</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Bogleheads</namespace>
+      <namespace key="5" case="first-letter">Bogleheads talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="274" case="first-letter">Widget</namespace>
+      <namespace key="275" case="first-letter">Widget talk</namespace>
+      <namespace key="828" case="first-letter">Module</namespace>
+      <namespace key="829" case="first-letter">Module talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Tax-efficient fund placement</title>
+    <ns>0</ns>
+    <id>1552</id>
+    <revision>
+      <id>85378</id>
+      <parentid>85377</parentid>
+      <timestamp>2025-06-30T23:05:07Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>Remove link to stale category.</comment>
+      <origin>85378</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="38797" sha1="g5bx99d8uczsw9t5mz8o9utcphy6ghp" xml:space="preserve">{{US|reason=irrelevant}}
+
+'''{{PAGENAME}}''' is an issue facing investors holding assets in [[Asset allocation in multiple accounts|multiple accounts]], both tax-advantaged and taxable accounts. The tax code recognizes different sources of investment income which are taxed at different rates, or, are taxed at a later time (tax "deferred"). An asset's tax efficiency (the impact of taxes on an investment) is affected by both its expected return and the tax rate on that return.
+
+Some fund types, like total market stock index funds, are extremely tax-efficient, because they produce low dividends (that are mostly [[qualified dividend|qualified]]) and capital gains. By contrast, bond funds can be extremely tax-inefficient, because the interest they produce every year is taxed at your full marginal tax rate. Other tax-inefficient investments are REITs, small value funds, and actively managed funds that frequently churn their holdings. Put tax-inefficient funds into tax-advantaged accounts to the extent possible.
+
+All investors must pay their legally required taxes. This article describes how to minimize taxes by placing investments appropriately in tax-deferred or taxable (pay taxes now) accounts.
+{{Warning|Determining your [[Asset allocation|asset allocation]] (% stocks / % bonds), which sets your portfolio's level of [[Risk#Asset Allocation | acceptable risk]], ''is the single most influential decision you can make'' on your portfolio's performance. Only consider taxes &lt;u&gt;after&lt;/u&gt; you have configured your total portfolio.}}{{Notice|Tax regulations can be complex and contain subtle details that may escape inexperienced investors. If this article seems overly complicated, then just remember a few key points:
+*Set your asset allocation first; taxes come second. If you do not have any funds which can be put in a location to reduce your tax bill, then stop here. You have done the best you can.
+*Tax rates and brackets change frequently. What was a logical tax location one year may turn out to be a poor choice a few years later. Consider if it is worth the effort (added complexity) to take this approach.
+*Consider the [[#Criticisms_of_this_tax_placement_strategy|various criticisms]] of the suggested tax placement strategy.}}
+
+==General strategy==
+Because tax regulations are complex, and there are a lot of possible investment scenarios, the suggestions in this article do not apply to everyone. While there is no "one rule fits all" concept, the strategies here are mostly aimed at investors in the accumulation phase (saving for retirement).
+
+In considering '''asset location''' keep the following points in mind:
+
+*If your investments are &lt;u&gt;all&lt;/u&gt; in tax-advantaged accounts, fund placement will not have a large impact on your returns. ''Tax-advantaged'' accounts include tax-deferred accounts, such as traditional [[401(k)]], [[403(b)]], and [[Traditional IRA]], and the tax-free Roth versions of those accounts such as [[Roth IRA]].
+*If you have a taxable account, first consider whether it is better to move the money into a tax-advantaged account by contributing more to a tax-advantaged account.
+*If you are already contributing the maximum to every tax-advantaged account available to you, and you have additional funds to invest, you need to consider tax efficiency when choosing your funds.
+*You should always establish an [[Emergency fund | emergency fund]] first, and then fund your work-based retirement account, HSA, or IRA ''before'' your taxable accounts. Tax-advantaged accounts are the most tax-efficient accounts, and you should not overlook them.
+
+See [[Prioritizing investments]] for more on the points above.
+
+If you have both tax-advantaged (retirement) and taxable accounts, you generally want to hold less tax-efficient assets in a tax-advantaged account and more tax-efficient assets in a taxable account. You need to consider both the return and the tax rate. With higher bond yields, conventional wisdom is to hold bonds in tax-advantaged accounts. Today low yields are common, and a bond fund with an expected return of less than 1% can be more tax efficient than a stock fund with an expected return of 7% even though the bond fund's return is taxed at a higher rate. It is best to understand the basic principles and then apply them to your situation.
+
+===Advantages of taxable accounts===
+The advantages for holding stocks in a taxable account include:
+
+* Lower tax rates. In tax-advantaged accounts, all investments are taxed equally (not at all in a tax-free account, or only on withdrawal in a tax-deferred account). In taxable accounts, almost all the return on bonds are taxed at your full rate every year, but most of the return on stocks is tax-favored:
+** Increases in stock prices do not lead to any tax until the stocks are sold, which offers an additional way for you to defer taxes.
+** When you sell stocks, the tax is usually at the lower rate for long-term capital gains.
+** If the stocks pay dividends, they are taxed every year, but [[Qualified dividend|qualified dividends]] are taxed at a lower rate.
+* You can [[Tax loss harvesting | harvest losses]].
+* You can [[Donating appreciated securities | donate appreciated shares]] to charity, avoiding all taxes.
+* Estate planning; there is a potential for [[Step-up in basis|stepped-up cost basis]] upon death.
+
+For example, suppose that you hold $10,000 in a stock index fund for 30 years, and it yields 2%, all qualified dividends are taxed at 15%, while earning 6% in increased stock prices for a pre-tax return of 8%. Every year, you pay 0.30% tax on the dividend, and reinvest the other 1.7%. After 30 years, you have $92,570, with a basis of $28,230 including reinvested dividends.
+
+When you sell, you pay $9,651 tax on the $64,340 capital gain, for a final value of $82,719, an annual return of 7.30%. Despite the 15% tax rate, your returns were only 9% less than the tax-free rate because you deferred taxes on the capital gains. If you harvested losses, donated some of the stock to charity, or left some to your heirs, your return would be even higher.
+
+The advantages for holding bonds in a taxable account include:
+
+* Bonds have a lower expected return than stocks, and so sometimes a lower tax cost.
+* Switching placement when necessary does not incur a large capital gains tax. If you hold stocks in a taxable account instead, large built-up unrealized capital gains makes it very difficult for you to switch, even if switching would otherwise be beneficial.
+* Nominal [[Treasury bonds|treasury bonds]], [[TIPS]], and in-state [[Municipal bonds|muni bonds]] are not subject to the state income tax.
+* The effective tax rate on muni bonds is usually much lower than the highest marginal tax rate on ordinary income.
+* Interest from muni bonds is not included in Adjusted Gross Income (AGI), which determines eligibility for many income tax deductions and credits, whereas dividends and capital gains are included in AGI.
+
+===Tax rates===
+Tax rates are shown below:&lt;ref group="note"&gt; Mutual fund distributions and the tax consequences of selling funds are explained below:
+*Short-term capital gains distributions are realized gains on securities held for one year or less. Your short-term gains are taxed at ordinary income tax rates. Mutual fund short-term gain distributions are included in a fund's [[Ordinary dividend | ordinary dividend]] distribution; therefore, capital losses may not be subtracted from these distributions when computing taxes.
+*[[Capital gains distribution |Long-term capital gains distributions]] are realized gains on securities held for more than one year. You report these on tax Schedule D along with any other capital gains, and can offset them with capital losses.
+*[[Qualified dividend]]s are the ordinary dividends.
+
+A portion of your [[Ordinary dividend | ordinary dividend]] may be nonqualified because it can include items like these:
+*'''Taxable interest'''. When a mutual fund receives taxable interest, the income gets paid out as a dividend. It is a dividend when it goes out of the mutual fund, but it was not a dividend when it came into the mutual fund, so it cannot be a qualified dividend.
+*'''Nonqualified dividends'''. Your mutual fund may receive dividends that are nonqualified. For example, the mutual fund may sell shares just 35 days after buying them, but after receiving a dividend. The mutual fund has to hold the shares at least 61 days to have a qualified dividend. Any amount the mutual fund receives as a nonqualified dividend gets paid to you as a nonqualified dividend.
+*'''Short-term capital gain'''. When a mutual fund has a short-term capital gain, it pays this amount to the mutual fund shareholders as an ordinary dividend.
+*'''Holding mutual fund shares less than 61 days'''. Any dividend you receive on mutual fund shares held less than 61 days is a nonqualified dividend, even if the mutual fund reports that amount to you as a qualified dividend. You do not have to buy the shares 61 days before the dividend is paid, but the total amount of time you hold the shares (including time before and after the dividend) has to be at least 61 days.
+
+Almost all of the dividends distributed by [[REIT |equity REITS]] come in the form of non-qualified dividends. Non-qualified dividends are taxed at marginal income tax rates.
+
+*[[Tax loss harvesting | When you sell at a loss]] you will either offset capital gains which would have otherwise been taxed at your capital gains rate or you will offset income (up to $3,000 maximum per year) which would have otherwise been taxed at your marginal income tax rate, or both. If you offset capital gains that would have otherwise not been taxed at all (because your capital gains tax rate is 0%) then this part of the tax loss harvest may be an outright loss.
+*The [[ACA net investment income tax|Affordable Care Act]] imposes a Medicare surcharge of 3.8% on all net investment income (NII) once the taxpayer's adjusted gross income exceeds $200,000 (single) or $250,000 (married); while this tax is not part of the income tax, it has the same effect on investors as a higher tax rate.&lt;/ref&gt;
+{{trim|{{TaxRateTable}}}}
+
+== Tax efficiency of various asset classes ==
+The table below shows the ''approximate'' tax efficiency ranking of various asset class funds.
+
+Given reasonable assumptions, the "Very inefficient", "Moderately inefficient" , and "Efficient" categories separate fairly clearly. The exact ordering within the categories depends not only on future tax policy, but also on assumptions about turnover, future returns, dividend yields, and qualified dividends.
+
+A more complete discussion of bonds and bond funds, balanced funds, and stocks and stock funds follows.
+
+See {{Forum link|t=242137| title=2017 Relative Tax Efficiency}} for specific examples of several mutual funds and ETFs.
+{{Tax efficiency ranking of major asset classes}}
+
+{|style="border-collapse: collapse; border: 1px solid #a2a9b1"
+||'''Notes:'''
+*Tax exempt [[municipal bonds]] and [[Tax-managed fund comparison|Vanguard tax-managed funds]] are only suitable for taxable accounts.
+*While this article considers tax efficient fund placement, note that savings bonds ([[EE savings bonds |series EE]] and[[ I savings bonds | series I]])&lt;ref group="note"&gt; Interest from EE and I Bonds accumulates tax-deferred for up to 30 years; may be tax free for qualifying educational expenses; and when taxed, is free from state and local income tax.&lt;/ref&gt; are only available in taxable accounts.
+|}
+====Tax efficiency of bonds====
+Some investors see bonds or bond funds as tax-inefficient because almost all of the return comes from the dividend yield, which is fully taxed as ordinary income.&lt;ref group="note"&gt; Most bond funds also periodically distribute modest amounts of short term and long term gains.&lt;/ref&gt; In contrast, stocks get most of their return from price appreciation, which is not taxed until the stocks are sold and is taxed at the capital-gains tax rate. Therefore, these investors regard bonds as being less tax-efficient than stock index funds (which rarely sell stock) and hold bonds in tax-advantaged accounts when possible.
+
+However, low-yielding bonds do not have much return to be taxed, and because they do not grow as fast as other investments, an equal percentage lost from an investment is a smaller dollar loss; this makes low-yielding bonds somewhat more tax-efficient. Therefore, some other investors do just the opposite: they hold stocks with a higher expected return in tax-advantaged accounts when possible. You have to strike a balance between the expected return and the tax rate.
+
+[[Treasury bonds]] are exempt from state taxes, making them tax-inefficient for federal taxes, but they may be desirable taxable investments for investors who pay high state taxes but low federal taxes. [[TIPS]] have the same tax-efficiency as their treasury bond equivalents; however, because you need to pay taxes annually on the inflation component, and you do not receive this until the bond matures or is sold, this cash flow problem creates an additional reason to hold individual TIPS (as opposed to a fund) in a tax-advantaged account.&lt;ref&gt;{{cite web| url=https://www.projectinvested.com/investor-guides/investorsguide-to-u-s-treasury-securities/| title=Investor's Guide to U.S. Treasury Securities| publisher=project:invested| accessdate=June 5, 2023}} &lt;/ref&gt;
+
+[[Municipal bonds|Municipal bond]] funds have a hidden cost; while their interest incomes are not subject to federal tax, they usually earn less than [[Corporate bonds|corporate]] or treasury bond funds of comparable risk. (The risk may be of a different type; intermediate-term municipal bonds have more credit risk than long-term treasury bonds, but less interest-rate risk, and thus may have a similar after-tax yield.) There are special rules regarding the taxation of [[Social Security]] benefits - municipal bond interest in a taxable account may result in additional [[Taxation of Social Security benefits|Social Security benefits being taxable]].&lt;ref group="note"&gt; For a general guide to the taxation of municipal bonds, see [https://www.projectinvested.com/investor-guides/investors-guide-to-municipal-bonds/ Investor's Guide to Municipal Bonds], project:invested. Some municipal securities, including Build America Bonds, are taxable bonds. Interest income from Private activity municipal securities (and mutual funds that invest in them) is subject to the federal alternative minimum tax if the taxpayer is required to pay this tax.&lt;/ref&gt;
+
+====Tax efficiency of balanced funds====
+[[Balanced fund|Balanced funds]] (stocks and bonds) are very popular among individual investors. These funds hold a variety of asset classes in one simple fund instead of several. They have a variety of names such as balanced, [[Vanguard LifeStrategy funds|lifestyle]], or [[Target date retirement funds|target retirement funds]]. Since these funds include both stocks and bonds their tax efficiency sits somewhere between stocks and bonds.
+
+If you have a balanced fund in a taxable account, you cannot sell only the bonds (to hold bonds in a different account, or to hold fewer bonds, or to hold a different type of bonds); you have to sell the whole fund, which can result in realizing a capital gain.
+
+In a taxable account, you pay tax on the bond dividends at ordinary income rates; in addition, you lose the option to harvest losses of individual asset classes. The more efficient strategy is to own the individual asset classes in separate funds and in their most tax-efficient locations.
+
+====Tax efficiency of stocks====
+Stock funds can be tax-inefficient if they generate a lot of capital gains, particularly short-term gains. They are also less efficient if they pay high dividends (although under current tax law, if most of the dividend stream is a [[Qualified dividend | "qualified" dividend]], the tax burden is reduced.) Actively managed stock funds with high turnover sell most of their stocks with gains, generating large taxable gains. Even low-turnover active funds tend to generate more gains than index funds in the same asset class.&lt;ref&gt;{{cite web| author1=Clemens Sialm| author2=Hanjiang Zhang| url=https://ssrn.com/abstract=2368625| title=Tax Efficient Asset Management: Evidence from Equity Mutual Funds| date=December 16, 2013}} Available at SSRN. &lt;/ref&gt;
+
+[[Indexing|Index funds]] must also sell stocks which leave the index. Because both [[Small caps|small-cap]] and value stocks can migrate to a large-cap or a growth stock index when they rise in price, small-cap and value indexes tend to generate realized capital gains. [[Tax-managed fund comparison|Tax-managed funds]] (which are willing to deviate from the index to minimize taxes), [[Exchange-traded funds|ETFs]], and funds with an ETF class can eliminate many of these realized gains. Value indexes are less tax-efficient than growth or blend indexes because they have higher dividend yields; small-cap funds have lower dividend yields but fewer qualified dividends.
+
+[[Real estate investment trust|REITs]], although they trade as stocks, must distribute almost all their income, and the income is taxable at the non-qualified dividend rate except for a small portion (historically about 15%) which is non-taxable because it compensates for depreciation of the property. Under the 2018 tax law changes, some of the income from REITs is treated as qualified business income; only 80% of that income is taxed.
+
+If all else is equal, [[Domestic/International|international funds]] have a small tax advantage over US funds, because they are eligible for the [[Foreign tax credit | foreign tax credit]]. All else is not necessarily equal; if an emerging market is reclassified as developed, an emerging-markets index fund will have to sell all its stock in that country, infrequently generating a large capital gain. A fund including both developed and emerging markets such as [{{Vf | 0770}} Vanguard FTSE All-World ex-US Index Fund] or [{{Vf | 0113}} Vanguard Total International Index Fund] avoids this risk.
+
+== Assigning asset classes to different accounts==
+Treat your entire portfolio as a whole (include spouse).
+
+*Consider what you already own. It may be inadvisable to pay additional taxes just to get a more tax efficient location. Even if your current location is not ideal it may be better to stick with certain aspects of it. This could mean keeping tax inefficient investments in a taxable account. Over time you can reduce the effect of a historically imposed asset location by not automatically reinvesting taxable distributions. Take any distributions in cash and reinvest them in a tax efficient manner.
+
+=== Step 1: Categorize your portfolio's tax efficiency ===
+Understand the tax consequences of holding each of your chosen investment assets based on the tax-efficiency of each asset class.
+
+=== Step 2: Place your least tax efficient funds first ===
+Fill your ''tax-advantaged'' accounts with your least efficient funds. Exhaust these accounts before putting these funds into your taxable account; if you run out of room, consider more tax-efficient alternatives, such as a stock index fund rather than an active fund or a muni bond fund rather than a total-market bond fund. An example portfolio with three asset classes (a total market US stock market index fund; a total market international stock market index fund, and an intermediate taxable bond fund,) is shown below. ''Note that in this scenario, we assume bond interest rates have a higher tax cost than stock investments.''
+
+{|style="border-collapse: collapse; border: 1px solid #a2a9b1" &lt;!-- set border="1" to see table boundaries--&gt;
+|+'''An example using three asset classes'''
+||[[File:Slide2.JPG|center|650px]]
+|}
+
+=== Step 3: Placing international stock funds in the taxable account ===
+It is sometimes possible to get tax credit for foreign taxes paid from international stock funds, but you lose this opportunity in tax-advantaged accounts. If all else is equal, the existence of the credit may make it advantageous to prioritize these funds in the taxable account. Whether or not the foreign tax credit is enough depends on factors such as the the percentage of the fund's foreign source income component, the foreign tax rate, the percentage of the foreign dividends that are qualified, and your US marginal tax bracket.
+
+{|style="border-collapse: collapse; border: 1px solid #a2a9b1" &lt;!-- set border="1" to see table boundaries--&gt;
+|+'''(Example) Consider foreign tax credit'''
+||[[File:Slide3.JPG|center|650px]]
+|}
+
+=== Step 4: Place high growth stock funds ===
+If all else is equal (and it often is not, because you may have different options in your 401(k) and your Roth IRA), it is slightly better to have the fund with the highest expected return in your Roth account or HSA, because these accounts are free from Required Minimum Distributions (RMDs),&lt;ref group="note"&gt;Roth IRAs are not subject to the RMD when held by the original owner, or after the owner's death, when rolled over into a spousal Roth IRA. Non spousal inheritors of a Roth IRA are subject to RMD rules.&lt;/ref&gt; are not counted as income for making Social Security taxable, and probably are less subject to the risk of changing tax rates.&lt;ref group="note"&gt; For simplicity, many people manage their asset allocation without regard to taxes. When Roth IRA accounts are much smaller than tax-deferred accounts this approximation works well. But it can be noted that moving the asset with the greatest expected future value from tax-deferred to a tax-free account does increase the risk/return of the investor. A simple way to view this [[Tax-adjusted asset allocation|tax-adjusted allocation]] for an investor in the 25% tax bracket is that the government is a 25% owner of the tax-deferred account. When moving an asset increases the investor's ownership of a high risk/return asset from 75% to 100% (in a Roth IRA), the overall portfolio risk-return increases as well.&lt;/ref&gt;
+
+{|style="border-collapse: collapse; border: 1px solid #a2a9b1" &lt;!-- set border="1" to see table boundaries--&gt;
+|+'''(Example) High growth stock fund placement'''
+||[[File:Slide4.JPG|center|650px]]
+|}
+
+=== Step 5: Place tax efficient funds last ===
+Tax-efficient funds are fine in any account. It is particularly easy to regularly [[rebalancing|rebalance]] your stock/bond ratio if you have enough room in your tax-advantaged accounts to hold some of your tax-efficient stock fund, because the stocks and bonds can be exchanged without tax consequence. Rebalancing in a taxable account is often best done by investing new money so that you can avoid capital gains.
+
+{|style="border-collapse: collapse; border: 1px solid #a2a9b1" &lt;!-- set border="1" to see table boundaries--&gt;
+|+'''(Example) Tax efficient fund placement'''
+||[[File:Slide5.JPG|center|650px]]
+|}
+
+==Criticisms of this tax placement strategy==
+Because they have higher returns, equities can effectively expand your tax-advantaged space, leading to higher tax savings later on despite higher tax bills in the present. This is particularly true at low bond yields, when the tax penalty from bonds in taxable is not as high as it has been in the past.&lt;ref&gt;{{forum link| p=1866211| title=Re: Delete Wiki on Tax-Efficient Asset Location}}, direct link to relevant post.&lt;/ref&gt;
+
+The situation may change in retirement, when you withdraw the funds for income (decumulation phase). It is possible, under some combinations of lifetime investment results and lifetime individual tax situations, to be better off doing the opposite of the strategy recommended here.&lt;ref&gt;{{forum link| p=1858213| title=Re: Delete Wiki on Tax-Efficient Asset Location}}, direct link to relevant post.&lt;/ref&gt;
+
+This article may be biased towards investors who can fill tax-advantaged space and are looking to invest more. However, some investors (especially those just starting out) cannot fill all this space. This can make this strategy confusing and possibly counterproductive if, for example, someone is buying international equities in taxable space without filling tax-advantaged space just to get the foreign tax credit.&lt;ref&gt;{{forum link| p=1857006| title=Re: Delete Wiki on Tax-Efficient Asset Location}}, direct link to relevant post.&lt;/ref&gt;
+
+This article says that cash and low-yielding bonds are tax efficient, but then contradicts this somewhat by then classifying "most bonds" as tax inefficient. When interest rates are low, bonds are more tax-efficient.&lt;ref&gt;{{forum link| p=1857264| title=Re: Delete Wiki on Tax-Efficient Asset Location}}, direct link to relevant post. Also, the following post.&lt;/ref&gt; If bonds are tax-efficient now, and then yields rise to make them less tax-efficient, you can go from bonds in taxable to bonds in tax-advantaged with little, no, or negative tax cost; therefore, it is reasonable to hold bonds in a taxable account now and switch later if appropriate. In contrast, switching from stocks to bonds in taxable will result in a significant tax cost.&lt;ref&gt;{{forum link| p=1857293| title=Re: Delete Wiki on Tax-Efficient Asset Location}}, direct link to relevant post.&lt;/ref&gt;
+
+==Appendix: comparison of hypothetical tax costs ==
+For buy and hold investors, the tax cost of holding a fund depends on how much the fund generates in taxable distributions, and the tax rate on those distributions. For long-term holdings, estimation of tax costs necessarily depends on assumptions about the expected returns and future tax policy, such as that long-term gains will continue to be taxed at a lower rate than short-term gains or bond interest; or that the tax preference for[[Qualified dividend | "qualified dividends"]] will extend into the distant future. The following tax costs math helps identify high tax cost candidates for tax-advantaged accounts.
+
+Table 1 assumptions use historical data from Vanguard's index funds, which is used as a guide for qualified dividends, and the relative yields of value, small-cap, and tax-managed funds. Future capital gains are uncertain, but the table now assumes that all ETFs will avoid capital gains, as most ETFs have done so. Interest for bond funds is based on historical rates, not current rates, because the numbers are easy to measure; a bond which has a 6% yield loses 1.32% to taxes in a 22% tax bracket whether that is the current yield on a short-term bond or a long-term bond. The "tax cost" listed for municipal bonds is the hidden cost, the amount you lose in returns to avoid paying the tax; it is based on an assumption that municipal bonds yield 75% as much as taxable bonds of comparable risk.
+
+Moreover, Table 1 is based on the assumption that foreign dividend yields will remain higher than US yields, as has been true since 2008; foreign yields are assumed to be 1.5 times US stock yields (before foreign taxes are withheld). ''If foreign yields become equal to US yields, then the tax costs of foreign funds must be multiplied by 2/3. Thus, in the table, US and foreign funds are about equally tax-efficient, but if foreign yields become lower, foreign funds will be somewhat more tax-efficient.''
+
+There are two types of tax costs: the cost you pay every year, and the costs you pay when you sell. Bond funds have little or no tax cost when you sell, since almost all the return from bonds is from interest. When you sell a stock fund, you will pay capital-gains tax on the difference between the total amount you invested (including reinvested dividends) and the current value.
+
+Table 2 indicates the additional cost for the capital-gains tax when you sell, assuming that you pay taxes on the distribution and reinvest the after-tax portion of the distribution; because it is a one-time cost, the effect is annualized. For example, if you hold an investment for 30 years and lose 10% to taxes when you sell, that is equivalent to losing 0.35% every year. If you sell the fund, your cost will be the sum of the Table 1 and Table 2 costs. However, you would not pay the Table 2 cost on any stock which you either leave to your heirs or donate to charity, and so may not pay that cost on your full investment. In particular, you might estimate your total tax cost by using the low-return line in Table 2; if stock returns are high, you will have a large taxable account and will reduce the tax cost by taking longer to deplete it or by not spending it all during your lifetime.
+
+The tables use a 15% tax on qualified dividends and capital gains for an investor in the 22% bracket, and 23.8% (including the 3.8% Medicare surtax) on qualified dividends and capital gains, 40.8% on ordinary investment income, for an investor in the top 37% bracket. The final column of the second table (in the top tax bracket) assumes a tax rate of 0.46% for the tax-efficient fund, and 1.50% for the tax-inefficient fund. The [[Foreign tax credit | foreign tax credit]] is added to the dividend yield before computing taxes; for example, if a fund had $100 withheld in foreign taxes on dividends, and you pay $20 in taxes on the withheld dividends, you get a $100 credit for a net benefit of $80. Although not tabulated, keep in mind that investors in the lower tax brackets (12% or lower) pay no tax at all on qualified dividends and capital gains, and reap higher after-tax returns, outside of tax-exempt municipal bonds, in all asset classes.
+
+{| class="wikitable sortable" style="margin: 1em auto 1em auto; text-align:center"
+|+ Table 1. Hypothetical tax costs (when taxable funds are held)
+|-
+! Fund !! Dividends !! Qualified !! LT Gain !! ST Gain !! Foreign tax credit !! Cost in 22% bracket !! Cost in top bracket
+|-
+! Tax-managed large-cap or small-cap
+| 1.50%|| all || 0.00%|| 0.00%|| 0.00%|| 0.23%|| 0.36%
+|-
+! Total-market index
+| 2.00%|| all || 0.00%|| 0.00%|| 0.00%|| 0.30%|| 0.48%
+|-
+! Large-cap index
+| 2.20%|| all || 0.00%|| 0.00%|| 0.00%|| 0.33%|| 0.52%
+|-						
+! Small-cap ETF
+| 1.50%|| 75% || 0.00%|| 0.00%|| 0.00%|| 0.25%|| 0.43%
+|-
+! Total-market foreign index
+| 2.79%|| 75% || 0.00%|| 0.00%|| 0.21%|| 0.29%|| 0.64%
+|-
+! Large cap foreign index
+| 3.07%|| 75% || 0.00%|| 0.00%|| 0.23%|| 0.32%|| 0.70%
+|-
+! Emerging markets
+| 2.70%|| 50% || 0.00%|| 0.00%|| 0.30%|| 0.26%|| 0.67%
+|-
+! Small-cap foreign ETF
+| 1.86%|| 50% || 0.00%|| 0.00%|| 0.14%|| 0.23%|| 0.50%
+|-
+! Large-cap value ETF
+| 3.00%|| all || 0.00%|| 0.00%|| 0.00%|| 0.45%|| 0.71%
+|-
+! Small-cap value ETF
+| 2.00%|| 75% || 0.00%|| 0.00%|| 0.00%|| 0.34%|| 0.56%
+|-
+! Low-yielding municipal bonds or money market
+| 1.50%|| N/A || 0.00%|| 0.00%|| 0.00%|| 0.50%|| 0.50%
+|-
+! Low-yielding taxable bonds or money market
+| 2.00%|| none|| 0.00%|| 0.00%|| 0.00%|| 0.44%|| 0.82%
+|-
+! Medium-yielding municipal bonds
+| 3.00%|| N/A || 0.00%|| 0.00%|| 0.00%|| 1.00%|| 1.00%
+|-
+! Medium-yielding taxable bonds
+| 4.00%|| none|| 0.00%|| 0.00%|| 0.00%|| 0.88%|| 1.63%
+|-
+! Low-turnover active
+| 2.00%|| all || 2.00%|| 1.00%|| 0.00%|| 0.82%|| 1.36%
+|-
+! Small-cap index (no ETF)
+| 1.50%|| 75% || 3.00%|| 1.00%|| 0.00%|| 0.75%|| 1.27%
+|-
+! Small-cap active
+| 1.50%|| 50% || 3.00%|| 2.00%|| 0.00%|| 1.17%|| 2.01%
+|-
+! REIT index (50% QBI, 20% return of capital)
+| 5.00%|| none|| 0.00%|| 0.00%|| 0.00%|| 0.79%|| 1.47%
+|-
+! High-turnover active
+| 2.00%|| 75% || 3.00%|| 3.00%|| 0.00%|| 1.45%|| 2.50%
+|-
+! Taxable bonds yielding 6% (high-yield)
+| 6.00%|| none|| 0.00%|| 0.00%|| 0.00%|| 1.32%|| 2.45%
+|-						
+|}
+
+{| class="wikitable sortable" style="margin: 1em auto 1em auto; text-align:center"
+|+ Table 2. Additional hypothetical tax costs (after taxable funds are sold)
+|-
+! Fund !! Pre-tax Returns !! Distributions !! Tax Cost !! Annualized cost over 10 years !! Annualized cost over 20 years !! Annualized cost over 30 years !! 30-year cost in top bracket
+|-
+! Any bond
+| any|| all || any || 0.00% || 0.00% || 0.00%|| 0.00%
+|-
+! Tax-efficient stock, low returns
+| 5.00% || 2.00% || 0.30% || 0.36% || 0.30% || 0.25% || 0.43%
+|-
+! Tax-efficient stock, medium returns
+| 8.00% || 2.00% || 0.30% || 0.63% || 0.47% || 0.37% || 0.66%
+|-
+! Tax-efficient stock, high returns
+|11.00% || 2.00% || 0.30% || 0.84% || 0.58% || 0.43% || 0.79%
+|-
+! Tax-inefficient stock, low returns
+| 5.00% || 4.00% || 1.00% || 0.12% || 0.10% || 0.09% || 0.15%
+|-
+! Tax-inefficient stock, medium returns
+| 8.00% || 4.00% || 1.00% || 0.43% || 0.33% || 0.26% || 0.47%
+|-
+! Tax-inefficient stock, high returns
+|11.00% || 4.00% || 1.00% || 0.66% || 0.47% || 0.35% || 0.65%
+|-
+|}
+
+===Example===
+An investor in the 22% marginal tax bracket wants to compare the tax efficiency of a total-market index fund and a bond fund yielding 3% (0.66% tax cost). Because these funds are likely to be sold at some point, they can use Table 2 to project an estimate of the range (depending upon whether future returns are low or high) of the total annualized cost. The estimate shows that holding the bond fund in a tax-deferred account is likely to be slightly better over a long holding period; if the stock market returns are high, most of the stock will not be sold.
+
+{| class="wikitable" style="margin: 1em auto 1em auto; text-align:center"
+|+ Tax cost estimate: Total-market index vs. bond fund
+|-
+! Fund !! Annual tax cost !! Total annualized cost over 10 years !! Total annualized cost over 20 years !! Total annualized cost over 30 years
+|-
+! Total-market index
+| 0.30%|| 0.66% - 1.14%|| 0.60% - 0.88% || 0.55% - 0.73%
+|-
+! Bond fund
+| 0.66% || 0.66% || 0.66% || 0.66%
+|}
+
+==Notes==
+{{Reflist|group="note"}}
+
+==References==
+{{Reflist}}
+
+== See also==
+* [[Asset allocation in multiple accounts]]
+* [[Tax-adjusted asset allocation]]
+
+==External links==
+===Blog posts===
+* [https://thefinancebuff.com/tax-efficiency-relative-or-absolute.html Tax Efficiency: Relative or Absolute?], by forum member tfb.
+
+===Bibliography===
+{| border="0"
+|| '''White papers'''
+* Frank J. Ambrosio and Scott J. Donaldson (November 29 2007), [https://web.archive.org/web/20190117071032/https://www.vanguard.com/pdf/icrpc.pdf Portfolio Construction for Taxable Investors] from Vanguard Investment Counseling &amp; Research, November 29, 2007. Archived from [https://www.vanguard.com/pdf/icrpc.pdf the original] on January 17, 2019. Retrieved 5 June, 2023.
+* Robert M. Dammon, Chester S. Spatt and Harold H. Zhang, [https://www.tiaa.org/content/dam/tiaa/institute/pdf/full-report/2018-02/maximizing-long-term-wealth-accumulation-ti-rd-85-2005.pdf Maximizing Long-Term Wealth Accumulation:It's Not Just About "What" Investments To Make, But Also "Where" To Make Them], TIAA-CREF Institute, No. 86, September 2005.
+* Colleen M. Jaconetti, [https://web.archive.org/web/20190203071722/http://www.vanguard.com/pdf/s556.pdf Asset Location For Taxable Investors], Vanguard Investment Counseling &amp; Research, December 9, 2007. Archived from [http://www.vanguard.com/pdf/s556.pdf the original] on February 3, 2019. Retrieved June 5, 2023.
+* William Reichenstein, [https://web.archive.org/web/20190117071054/https://www.tiaainstitute.org/publication/tax-efficient-saving-and-investing Tax Efficient Saving and Investing], TIAA-CREF Institute, February 2006. Archived from [https://www.tiaainstitute.org/publication/tax-efficient-saving-and-investing the original] on January 17, 2019. Retrieved June 5, 2023.
+* William Reichenstein Ph.D., Baylor University and TIAA-CREF Institute Fellow, [https://web.archive.org/web/20190127003619/https://www.tiaainstitute.org/publication/tax-efficient-sequencing-accounts-tap Tax-Efficient Sequencing Of Accounts to Tap in Retirement], TIAA CREF Institute, Trends and Issues, October, 2006. Archived from [https://www.tiaainstitute.org/publication/tax-efficient-sequencing-accounts-tap the original] on January 27, 2019. Retrieved June 5, 2023.
+;Academic papers
+* Daniel Bergstresser and James M. Poterba, [https://ssrn.com/abstract=334741 Asset Allocation and Asset Location: Household Evidence from the Survey of Consumer Finances] (September 2002). AFA 2003 Washington, DC Meetings; MIT Department of Economics Working Paper No. 02-34; HBS Finance Working Paper No. 02-34. Available at SSRN.
+* Robert M. Dammon, Chester S. Spatt and Harold H. Zhang, [https://web.archive.org/web/20160603002926/http://wpweb2.tepper.cmu.edu/spatt/location.pdf Optimal Asset Location and Allocation with Taxable and Tax-Deferred Investing], Journal of Finance, June 2004. Archived from [http://wpweb2.tepper.cmu.edu/spatt/location.pdf the original] on June 3, 2016. Retrieved June 5, 2023.
+* Marcel Fischer, [https://ssrn.com/abstract=997818 Are Bonds Desirable in Tax-Deferred Accounts?] (February 7, 2008). Available at SSRN.
+* Lorenzo Garlappi and Jennifer C. Huang, [https://papers.ssrn.com/abstract_id=927362 Are Stocks Desirable in Tax-Deferred Accounts?] Journal of Public Economics, Forthcoming. Available at SSRN.
+* Jennifer C. Huang and Lorenzo Garlappi, [https://ssrn.com/abstract=540543 From Location to Allocation: Taxable and Tax-Deferred Investing with Portfolio Constraints] (May 2004). Available at SSRN.
+* Jennifer C. Huang, [https://ssrn.com/abstract=395940 Taxable and Tax-Deferred Investing: A Tax-Arbitrage Approach] (March 1, 2008). McCombs Research Paper No. FIN-03-08. Available at SSRN.
+* Ronen Israel and Tobias Moskowitz, [https://ssrn.com/abstract=2089459 How Tax Efficient are Equity Styles?] (July 1, 2011). Chicago Booth Research Paper No. 12-20. Retrieved 24 July 2012.
+* D. K. Malhotra, Rand Martin and C. Andrew Lafond, [https://academyfinancial.org/resources/Documents/Proceedings/2010/1A-Malhotra-Martin-Lafond.pdf Mutual Fund Tax Efficiency And Investment Selection], (February, 2011)
+* James M. Poterba, Clemens Sialm and John B. Shoven, [https://ssrn.com/abstract=248597 Asset Location for Retirement Savers] (November 2000). NBER Working Paper No. w7991. Available at SSRN
+* William Reichenstein, [https://web.archive.org/web/20160604092047/http://www.ifid.ca/Conference_Material/Reichenstein_paper.pdf Non-qualified Annuities in After-tax Optimizations], Ifid Conference, May 11, 2005. Archived from [http://www.ifid.ca/Conference_Material/Reichenstein_paper.pdf the original] on June 4, 2016. Retrieved June 5, 2023.
+* William Reichenstein, [http://www.efficientfrontier.com/ef/704/REICHENSTEINJWMMarkOpt.pdf Asset Allocation and Asset Location Decisions Revisited], Summer 2001.
+* John B. Shoven and Clemens Sialm, [https://ssrn.com/abstract=171588 Asset Location in Tax-Deferred and Conventional Savings Accounts] (June 1999). NBER Working Paper No. w7192. Available at SSRN.
+* John B. Shoven, [https://ssrn.com/abstract=154740 The Location and Allocation of Assets in Pension and Conventional Savings Accounts] (March 1999). NBER Working Paper No. w7007. Available at SSRN.
+|}
+
+{{Bogleheads investing start-up kit}}
+{{Tax considerations}}
+{{Managing your IRA}}
+[[Category:Tax considerations]]
+[[Category:Asset allocation]]</text>
+      <sha1>g5bx99d8uczsw9t5mz8o9utcphy6ghp</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Tax loss harvesting</title>
+    <ns>0</ns>
+    <id>1524</id>
+    <revision>
+      <id>88524</id>
+      <parentid>84308</parentid>
+      <timestamp>2025-11-15T21:11:00Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>Barclays -&gt; Bloomberg.</comment>
+      <origin>88524</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="24007" sha1="b30y7a6k5nmdjc2m2bzbmn4mh82lc8o" xml:space="preserve">{{US|reason=irrelevant}}
+{{Notice |This page was created prior to the 2018 TCJA tax law. The examples below use tax rates applicable in 2017.}}
+
+'''{{PAGENAME}}''' is a way to improve the after-tax return of your taxable investments.
+
+One advantage of taxable accounts is that you can use losses that inevitably occur in some years to lower your tax bill. This is called tax loss harvesting. There are three benefits.
+
+First, tax losses are effectively an interest-free loan which defers capital gains taxes you would otherwise owe into the distant future, and can even eliminate them entirely when you die.
+
+Second, after offsetting realized gains, you can use any remaining tax losses to deduct $3,000 from your ordinary income each year. This can mean an extra $750 or more in your pocket if you are in the 25 percent federal tax bracket.
+
+Third, you can roll over any remaining losses into later years, so that you can defer your capital gains and deduct up to $3,000 from your income, each year until you have used up your losses.
+
+== Overview ==
+Suppose that you had invested $10,000 into a [[mutual fund]] in a taxable account, but after a steep decline your holdings are now worth only $6,000. Because you plan to continue holding that fund, you might consider ignoring the losses and waiting for the fund to eventually recover.
+
+Instead, using tax loss harvesting, you would sell the fund, and then buy it back [[Wash sale|31 days later]]. In the meantime, you can either hold the cash in a [[Money markets|money market]] fund, or invest it in a similar but not substantially identical fund. This realizes a $4,000 capital loss, but putting you back in your original position 31 days later.
+
+This $4,000 capital loss is valuable in several ways.
+
+Before you pay any capital gains taxes each year, you must use your capital losses to offset any capital gains, and pay taxes only if you have more gains than losses. Short term losses first offset short term gains and long term losses first offset long term gains. If there are any losses left, short term losses offset remaining long term gains or long term losses offset remaining short term gains. If there are any losses left, you must apply up to $3,000 of your remaining capital losses against your regular income. And whatever capital losses are still left over (in this case, $1,000, which is the $4,000 in losses minus the $3,000 deduction) you must carry forward indefinitely into future years.
+
+Each year, you must first apply the carried forward losses against capital gains, and then use any remainder (up to $3,000) to reduce your ordinary income.&lt;ref group="note"&gt;Tax loss carryover to the following year is mandatory. See this {{Forum link | t= 318312 | title = If you TLH, do you have to apply it that tax year? | author = geospatial | date = June 22, 2020 }}.&lt;/ref&gt;
+
+Using tax loss harvesting to offset capital gains does not eliminate the capital gains taxes you would have paid. Instead, it defers those taxes into the future. In this example, you will owe more capital gains taxes in the future because you bought back the fund at a cost basis that is $4,000 lower.
+
+However, because future money is worth less than money today, there is a saying in public finance that "a tax deferred is a tax avoided". Using tax loss harvesting to defer capital gains taxes is like receiving an interest-free loan from the IRS.
+
+Also, if you (and your spouse) are still holding the shares when you die, your heirs will receive a stepped-up basis, and you will have had the up-front benefit from tax loss harvesting while avoiding the taxes on the back end entirely.
+
+Finally, the extra capital gains you owe in the (possibly distant) future will be at the (lower) capital gains rate, while the benefit you receive today of the $3,000 deduction is at your (higher) marginal income tax rate.
+
+==How it works==
+
+Tax loss harvesting works in several different ways. Some examples are shown below.
+
+===Investing a single sum===
+
+* '''January 2008:''' You invest $10,000 in Total Stock Market.
+* '''February 2008:''' The balance drops to $9,000. You sell it.
+* '''March 2008:''' You put $9,000 back into Total Stock Market. (Suppose that the share price is the same as in February, 2008 for simplicity.)
+* '''February 2009:''' You do your 2008 tax return. Because you have lost $1,000, you can reduce your ordinary income by $1,000, assuming you do not have any capital gains. If you are in the 25% bracket for example, you reduce your tax liability by $250. So, you invest the saving, $250, in Total Stock Market.
+
+Suppose Total Stock Market keeps growing 8% year for 10 years after February, 2008.
+
+* '''January 2018:''' $10,000, which dropped to $9,000 in 2008, becomes $19,430.32 (= $9,000 * 1.08^10). $250 becomes $499.75 (= 250 * 1.08^9). Both of these combined, you have $19,930.07. You sell all shares and pay 15% tax on long-term capital gains. You end up with:
+
+ $9,000+($19,430.32-$9,000)*85%+$250+($499.75-$250)*85% = $18,328.05
+
+What if you did not sell Total Stock Market in February, 2008? Note that you do not get $250 back in your 2008 tax return in 2009, so you end up with:
+
+ $10,000+($19,430.32-$10,000)*85% = $18,015.77
+
+Notice the $312.29 difference. This is what you get by investing $250 doing a tax loss harvesting. Obviously, the longer you hold shares you purchased with the $250 refund, the more benefit you get.
+
+In this example, you got two types of benefits; you paid less in total tax, and the tax which you did owe was paid much later. When you deducted the $1,000 loss at a 25% rate, you created an additional $1,000 in capital gains to be taxed when you sold later (2018 in this example), but only at 15%. Essentially, the IRS paid you $100 of free money, and gave you an interest-free loan of another $150 in 2009 to be paid back only when you sold the stock. You benefited both from investing the $100 for its full value, and from the interest-free loan which allowed you to invest the $150 for ten years and pay back only the original $150.
+
+In reality, things are a bit more complicated. In the above example, we completely ignored dividends from Total Stock Market. Also, the share price may change between February 2008 and March 2008.
+
+===Using a loss from one tax lot to offset the capital gains from another===
+
+Suppose the following:
+
+* '''January 2008:''' You invest $1,000,000 in Total Stock Market.
+* '''February 2008:''' You tax loss harvest after losing $100,000.
+* '''January 2010:''' You invest additional $50,000 in Total Stock Market.
+* '''January 2011:''' You retire. You sell the shares purchased in January 2010, which has grown to $60,000.
+
+In 2011, you have not used up the loss realized in February 2008 as you can only deduct $3,000/year, so you can use a part of the remaining loss to offset the capital gain realized in January 2011.
+
+If $60,000 is enough for your living expenses, you may have little or no taxable income because the gain is offset by the realized loss carryforward, and the return of capital, $50,000, is tax free. If this is the case, you might consider [http://www.fairmark.com/rothira/post.htm Post-Retirement Roth Conversion] to take advantage of the standard/itemized deduction and low tax brackets.
+
+===Donating low basis shares to a charity===
+
+Suppose the following:
+
+* '''January 2008:''' You invest $10,000 in Total Stock Market.
+* '''February 2008:''' You tax loss harvest after losing $1,000.
+* '''March 2008:''' You reinvest $9,000 in Total Stock Market.
+* '''January 2009 and on:''' You make many purchases of shares of Total Stock Market.
+* '''January 2020:''' You donate the shares purchased in March 2008 to a charity.
+
+If you donate the shares purchased in March 2008 to a charity, you do not have to pay tax on the capital gains. That is, you keep the full tax savings in 2008 and never "pay back" the savings to the IRS. See [[Donating appreciated securities]] for more details.
+
+===Stepped up cost basis upon death===
+{{Main |Step-up in basis}}
+
+Suppose the following:
+
+* '''January 2008:''' You invest $10,000 in Total Stock Market.
+* '''February 2008:''' You tax loss harvest after losing $1,000.
+* '''March 2008:''' You reinvest $9,000 in Total Stock Market.
+* '''January 2009 and on:''' You make many purchases of shares of Total Stock Market.
+* '''January 2020:''' You retire and start withdrawing from your taxable account, highest cost basis first.
+
+Perhaps do not sell shares purchased in your life time, in which case, the shares purchased in March 2008 receive stepped up cost basis upon your death. That is, you keep the full tax savings in 2008 and never "pay back" the savings to the IRS.
+
+==What if the tax rates go up in the future?==
+
+Some people speculate that the tax rates may go up in the future. Tax loss harvesting still works as long as the increase is reasonable. Specifically, you benefit from tax loss harvesting as long as the tax you pay on the $1,000 extra capital gains ($10,000 - $9,000) in the first example above is less than the after-tax amount that $250 grows to.
+
+Suppose the long-term capital gain tax rate goes up to 30%. Then you would pay $300 on the $1,000 extra capital gains. However, $250 grows to $499.75 with the after-tax amount being $424.83, so you are not losing money yet.
+
+==Fine points about tax loss harvesting==
+
+===Regulatory===
+
+* '''[[Wash sale]]'''. If you sell Total Stock Market for a loss, while still holding other shares of the same fund purchased within the past 30 days, or purchase shares of the same fund within 30 days after the sale, that would be called a wash sale, and you cannot claim the losses on your tax return. The definition of a wash sale is a bit more complicated than that. Before you tax loss harvest, be sure to familiarize yourself with the [http://www.fairmark.com/capgain/wash/ wash sale rule].
+* '''[[Qualified dividend|Qualified dividends]]'''. If you hold shares for fewer than 61 days and receive qualified dividends from those shares, you cannot take them as qualified dividends, even though the fund company may state that they are qualified. Receiving dividends that are not qualified may outweigh the benefit of tax loss harvesting.
+* '''Loss on mutual fund shares held 6 months or less'''. If you sell shares of a mutual fund at a loss, and you have held those shares for 6 months or less, special rules may alter the loss you claim. First, if those shares produced any tax-exempt interest, your loss is reduced, dollar for dollar, by that interest. Second, if you held those shares while the fund distributed (long term) capital gains, you have to treat this loss as a long term loss up to the dollar amount of the distribution those shares produced.&lt;ref name="pub550"&gt;{{cite web| url=https://www.irs.gov/publications/p550| title=Publication 550, Investment Income and Expenses| publisher=IRS| accessdate=August 29, 2023}}&lt;/ref&gt;&lt;ref&gt;{{forum link| t=173117| title=Corrections for the wiki article on TLH| date=September 2, 2015}}&lt;/ref&gt; Vanguard (and probably most other brokerages) will not adjust your IRS Form 1099-B, so you will have to correct it yourself by filing Form 8949 and changing the type of capital loss.&lt;ref&gt;{{forum link| t=273200| title=TLH holding period not met for LTCG distributions; how to report?| date=February 17, 2019}}&lt;/ref&gt;
+:Most Vanguard Tax Exempt funds (and others like them) avoid this six-month rule because of the way they accrue and pay out interest (dividends).{{#tag:ref|The six-month rule for tax exempt interest comes from 26 U.S. Code § 852(b)(4)(B), but there is an exception in 852(b)(4)(E) for funds that declare dividends daily and pay them monthly or more frequently.&lt;ref&gt;{{forum link| p=2634098| title=Re: Yield on Vanguard Int. Term Tax Exempt Fund| date=September 24, 2015}}&lt;/ref&gt;&lt;ref&gt;{{cite web| url=https://www.law.cornell.edu/uscode/text/26/852| title=26 U.S. Code § 852 - Taxation of regulated investment companies and their shareholders| publisher=Legal Information Institute| accessdate=August 29, 2023}}&lt;/ref&gt;|group=note}}
+:However, [[Exchange-traded funds | ETF]]s and the [{{Vf|vteax}} Tax-Exempt Bond Index Fund] (which is the mutual fund class of an ETF) ''are'' subject to the six-month rule, because they declare dividends monthly, not daily. To see whether a fund is exempt from the six-month rule, check its prospectus for "dividends are declared daily and paid monthly". If it says "dividends are declared monthly" (or quarterly), the six-month rule applies.
+*'''Death of taxpayer'''. Capital losses cannot be carried over after a taxpayer's death. You deduct them only on the final income tax return filed on the decedent's behalf.&lt;ref&gt;{{cite web| url=https://www.irs.gov/publications/p544| title=Publication 544 (2022), Sales and Other Dispositions of Assets| publisher=IRS| accessdate=August 29, 2023}}&lt;/ref&gt;
+
+===Operational===
+
+* '''Reinvesting dividends and capital gains'''. If you automatically reinvest dividends and capital gains, you may accidentally trigger a [[wash sale]]. If you plan to tax loss harvest, it is generally safer to take dividends and capital gain distributions in cash.
+* '''Cost basis accounting'''. Use [[Specific identification of shares]] instead of average cost basis to sell shares with losses.
+* '''Put volatile investments in your taxable account'''. For example, an international fund is more volatile because of political and currency risks. This makes it more likely you will be able to tax loss harvest.
+* '''Commissions and [[bid/ask spread]]s'''. If you are tax loss harvesting ETFs or individual stocks, you may have to pay commissions and bid/ask spreads, and these erode the tax loss harvesting benefits. Compare the amount of tax you save to trading costs, and tax loss harvest only when the trading costs are minimal compared to your tax saving.
+* '''Mutual funds'''. You do not face commissions or bid-ask spreads. However, some mutual funds have [[Redemption fee | redemptions fees]] for a certain period after the purchase. Another problem is that you could try to realize a small loss in a mutual fund position, but the loss may disappear by the time the redemption completes. Consider tax loss harvesting on a sizable loss that is unlikely to disappear in one day.
+* '''Frequent-trading restrictions'''. Vanguard does not allow you to sell most funds and buy back into the same fund electronically within 30 days.&lt;ref group="note"&gt;There are some exceptions. For details, see [https://investor.vanguard.com/investor-resources-education/online-trading/trading-violations-penalties Trading violations and penalties] from Vanguard.&lt;/ref&gt; If you plan to buy the fund back within 31 days, do one of the two transactions by mail.
+* '''Investment volatility'''. If you wait 31 days to reinvest you will usually see volatility in the investment. If the price of the investment goes up while you are in cash you lose, but if it goes down you gain. You might expect that over a long period of tax harvesting these volatility effects might wash out (if random) or perhaps, if there is a short term momentum effect, a slight advantage to tax loss harvesting over the long haul. You can however mitigate this if you immediately purchase a similar, but not substantially identical investment. However doing this makes your investing more complicated, especially if you are swapping fractional lots of the original fund.
+
+==Should I tax loss harvest before or after a distribution?==
+The general rule is to sell before and buy after a [[dividend]] and [[capital gains distribution]].
+More important is to buy after the distribution; if you sell Fund A to buy Fund B, you want to wait until after Fund B makes a large distribution, even if you receive a distribution from Fund A.
+
+The reason is that you pay tax on any distribution, but every dollar of distribution reduces the fund's NAV by one dollar, so you get a tax benefit from this dollar as a capital loss (or reduced gain) if you sell. When you are selling Fund A to tax loss harvest, you will always get the capital loss. If you buy Fund B, you do not get any benefit from the capital loss until you sell. Even if you intend to switch back immediately, if Fund B pays a [[qualified dividend]], you need to hold Fund B for 61 days rather than 31 or else the dividend loses its qualified status, and waiting 61 days increases the potential cost of switching back.
+
+You usually want to tax loss harvest before a distribution as long as you need not buy the replacement fund before its distribution, but it depends on the type of distribution.
+
+If the distribution is a capital-gains distribution, then it is exactly canceled by the capital loss, so there is no net tax effect. If the distribution is an [[ordinary dividend]] then it has increased taxes at the marginal tax rate, and the capital loss is likely to give less in tax savings. If the distribution is a qualified dividend and the capital loss offsets long-term gains, this is break-even because the qualified dividend and reduced capital gain are taxed at the same rate. If the distribution is a qualified dividend and the capital loss offsets short-term gains or ordinary income, there is a benefit for waiting. And if the distribution is a mostly qualified dividend with [[foreign tax credit]], you may pay tax at less than the long-term gains rate, and should wait for the distribution before harvesting the loss.
+
+==When not to harvest losses==
+When you sell at a loss you will either offset capital gains which would have otherwise been taxed at your capital gains rate or you will offset income (up to $3,000 maximum per year) which would have otherwise been taxed at your marginal income tax rate, or both.
+
+If you offset capital gains that would have otherwise not been taxed at all (because your capital gains tax rate is 0%) then this part of the tax loss harvest may be an outright loss. Here is why:
+
+You can think of tax loss harvesting as a loan from the IRS in the following sense. If you reinvest the funds from the the sale in the same or similar securities (after waiting 31 days if necessary to avoid a wash sale), then the transactions give you a lower basis. Ultimately, if the asset price of that security increases you will pay taxes on capital gains when you sell. As a result, the tax loss harvesting tax benefit may ultimately result in a higher capital gains tax rate in a future year than you might have otherwise faced. So, if tax loss harvesting offsets capital gains that would have been taxed at 0% but your future capital gains rate is not 0% then it has created a loss. Put simply, you get no benefit from offsetting capital gains that are not taxed anyway.
+
+Bottom line: know your tax rates before you tax loss harvest.
+
+==What if the stock is worthless?==
+If a company fails, the IRS imposes different rules.&lt;ref name="pub550" /&gt;
+
+Stocks, stock rights, and bonds (other than those held for sale by a securities dealer) that became completely worthless during the tax year are treated as though they were sold on the last day of the tax year. This affects whether your capital loss is long term or short term.
+
+Report worthless securities on IRS [https://www.irs.gov/forms-pubs/about-form-8949 Form 8949], Part I or Part II, whichever applies. You may need to file an amended return to report a stock which became worthless in a prior year.&lt;ref&gt;{{forum link| p=2058878| title=Re: How to Recognize Capital Loss| date=May 15, 2014}}&lt;/ref&gt;
+
+==Substitute funds==
+Below is a list of possible substitute ETFs and mutual funds for a given asset class which track similar, but not identical, indices as the commonly-used Vanguard fund.
+
+{| class="wikitable" style="text-align:center"
+! Asset Class
+! Vanguard ETF
+! Vanguard Mutual Fund
+! Vanguard Index
+! Substitute ETFs (Index)
+! Substitute Mutual Funds (Index)
+|-
+! rowspan="4" style="font-weight:normal" | US Stocks
+| rowspan="4" | VTI
+| rowspan="4" | VTSAX
+| rowspan="4" | CRSP US Total Market
+| ITOT (S&amp;P Total Market)
+| SWTSX (DJ U.S. Total Stock Market Index)
+|-
+| SCHB (DJ Broad US Market)
+| FSKAX (DJ U.S. Total Stock Market Index)
+|-
+| SPTM (S&amp;P Composite 1500)
+| FZROX (Fidelity U.S. Total Investable Market Index)
+|-
+| VTHR (Russell 3000)
+|
+|-
+! rowspan="5" style="font-weight:normal" | US Large-Cap Stocks
+| rowspan="5" | VOO
+| rowspan="5" | VFIAX
+| rowspan="5" | S&amp;P 500
+| VV (CRSP US Large Cap)
+| VLCAX (CRSP US Large Cap)
+|-
+| SCHX (DJ US Large-Cap)
+| SNXFX (Schwab 1000)
+|-
+| VONE (Russell 1000)
+|
+|-
+| IVV (S&amp;P 500)
+|
+|-
+| SPLG (S&amp;P 500)
+|
+|-
+! rowspan="3" style="font-weight:normal" | Foreign Stocks
+| rowspan="3" | VXUS
+| rowspan="3" | VTIAX
+| rowspan="3" | FTSE Global All Cap ex US
+| IXUS (MSCI ACWI ex USA IMI)
+| FTIHX (MSCI ACWI ex USA IMI)
+|-
+| VEU (FTSE All-World ex US Index)
+| VFWAX (FTSE All-World ex US Index)
+|-
+| CWI (MSCI ACWI ex-US)&lt;ref name="MSCI ACWI ex-US"&gt;{{cite web| url=https://www.msci.com/indexes/index/899901| title=MSCI ACWI ex-US
+| publisher=MSCI| accessdate=April 8, 2025}}&lt;/ref&gt;
+| FZILX (Fidelity Global ex U.S. Index)
+|-
+! rowspan="4" style="font-weight:normal" | Foreign Developed Markets
+| rowspan="4" | VEA
+| rowspan="4" | VTMGX
+| rowspan="4" | FTSE Developed All Cap ex US
+| IEFA (MSCI EAFE IMI)
+| SWISX (MSCI EAFE Index)
+|-
+| SCHF (FTSE Developed Markets Ex-US)
+| FSPSX (MSCI EAFE Index)
+|-
+| SPDW (S&amp;P Developed Ex-US BMI)
+|
+|-
+| IDEV (MSCI WORLD Ex-US IMI)
+|
+|-
+! rowspan="3" style="font-weight:normal" | Emerging Markets
+| rowspan="3" | VWO
+| rowspan="3" | VEMAX
+| rowspan="3" | FTSE Emerging Markets
+| IEMG (MSCI Emerging Markets IMI)
+| FPADX (MSCI Emerging Markets Index)
+|-
+| SPEM (S&amp;P Emerging BMI)
+|
+|-
+| SCHE (FTSE Emerging Index)
+|
+|-
+! style="font-weight:normal" | Global Stocks
+| VT
+| VTWSX
+| FTSE Global All Cap Index
+| ACWI (MSCI ACWI Index)&lt;ref name="MSCI ACWI"&gt;{{cite web| url=https://www.msci.com/indexes/index/892400| title=MSCI ACWI Index
+| publisher=MSCI| accessdate=April 8, 2025}}&lt;/ref&gt;
+| SPGM (MSCI ACWI IMI Index)&lt;ref name="MSCI ACWI IMI"&gt;{{cite web| url=https://www.msci.com/indexes/index/664204| title=MSCI ACWI IMI Index
+| publisher=MSCI| accessdate=April 8, 2025}}&lt;/ref&gt;
+|-
+! style="font-weight:normal" | Dividend Stocks
+| VIG
+| VDADX
+| S&amp;P U.S. Dividend Growers
+| SCHD (Dow Jones U.S. Dividend 100)
+| VHYAX/VYM (FTSE High Dividend Yield Index)
+|-
+! style="font-weight:normal" | TIPS
+| VTIP
+| VTAPX
+| Bloomberg US TIPS 0-5 Years
+| SCHP (Bloomberg US TIPS)
+| FIPDX (Bloomberg U.S. TIPS Index)
+|-
+! style="font-weight:normal" | Short Term Corporate Bond
+| VCSH
+| VSCSX
+| Bloomberg U.S. 1-5 Year Corporate Bond Index
+| SPSB (Bloomberg U.S. 1-3 Year Corporate Bond Index)&lt;ref name="SPSB"&gt;{{cite web| url=https://www.ssga.com/library-content/products/factsheets/etfs/us/factsheet-us-en-spsb.pdf| title=SPDR Portfolio Short Term Corporate Bond ETF
+| publisher=SSGA| accessdate=April 9, 2025}}&lt;/ref&gt;
+| IGSB (ICE BofA 1-5 Year U.S. Corporate Index)&lt;ref name="IGSB"&gt;{{cite web| url=https://www.ishares.com/us/products/239451/ishares-13-year-credit-bond-etf| title=iShares 1-5 Year Investment Grade Corporate Bond ETF
+| publisher=iShares| accessdate=April 9, 2025}}&lt;/ref&gt;
+|}
+
+==Notes==
+{{Reflist|group="note"}}
+
+==See also==
+*[[Approximating total international stock market]]
+*[[Approximating total stock market]]
+*[[Tax gain harvesting]]
+*[[Wash sale]]
+
+==References==
+{{Reflist}}
+
+==External links==
+*{{Forum link|t=261874 |title=PhysicianOnFire blog: "Tax Loss Harvesting with Vanguard: A Step by Step Guide"|date=Oct 20, 2018|author=Taylor Larimore}}
+*{{Forum link|p=2610557 |title=TLH for absolute dummies &lt;nowiki&gt;[Tax Loss Harvesting]&lt;/nowiki&gt;}}, Jan 18, 2016. A "How to" guide for tax loss harvesting. Step 4 of the first post in that thread contains a sample list of comparable funds.
+*{{Forum link|t=179414 |title=Real-life, real-time wash sale &amp; TLH documented}}, Dec 12, 2015. A tutorial which includes screen shots and explanations of ''allowed'' and ''disallowed'' losses.
+
+{{Bogleheads investing start-up kit}}
+{{Tax considerations}}
+
+[[Category:Tax considerations]]</text>
+      <sha1>b30y7a6k5nmdjc2m2bzbmn4mh82lc8o</sha1>
+    </revision>
+  </page>
+</mediawiki>

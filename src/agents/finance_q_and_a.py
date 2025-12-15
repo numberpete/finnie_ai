@@ -1,3 +1,5 @@
+# src/agents/finance_q_and_a.py
+
 # Imports for Agent Core
 import asyncio
 import os
@@ -12,9 +14,6 @@ from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent
 from langchain.messages import HumanMessage, AIMessage, SystemMessage
 from langchain_mcp_adapters.client import MultiServerMCPClient
-from langchain_core.runnables.history import RunnableWithMessageHistory
-from langchain_community.chat_message_histories import ChatMessageHistory
-from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.messages import BaseMessage
 
 
@@ -24,7 +23,7 @@ from langchain_core.messages import BaseMessage
 MODEL = "gpt-4o-mini"
 SUMMARY_LLM = ChatOpenAI(model=MODEL, temperature=0, streaming=True, cache=False)
 
-# Your detailed System Prompt (copied from the original file)
+# Your detailed System Prompt
 STRICT_SYSTEM_PROMPT = """
 You are a specialized financial analysis assistant. Your role is STRICTLY to answer user questions 
 by utilizing the provided tools. Your tone must be professional, clear, and easy-to-understand 
@@ -44,96 +43,228 @@ for a general audience.
 9.  **Citing Sources:** When providing a final answer based on a tool's output, you MUST clearly 
     list the source(s) at the end of your response, including the full URL(s) if the tool output 
     provides them. Structure your answer clearly with a "Sources:" section at the very end.
-10.  after the sources, identify which tools you called.
 ---
 {agent_scratchpad}
 """
 
 # Tool Loading Setup
-THIS_SCRIPT_DIR = Path(__file__).resolve().parent
-# Assuming the mcp file is at finnie_ai/mcp/finance_q_and_a_mcp.py
-SERVER_SCRIPT_PATH = THIS_SCRIPT_DIR.parent / "mcp" / "finance_q_and_a_mcp.py"
 MCP_SERVER_NAME = "finance_qanda_tool"
+MCP_SERVER_URL = "http://localhost:8001/sse"
 
 
 # --- ASYNC TOOL LOADER ---
 
-async def a_load_mcp_tools(server_script_path: str, server_name: str) -> List[Any]:
-    """Initializes the MCP client and asynchronously loads tools using STDIO."""
-    PYTHON_EXECUTABLE = sys.executable 
+async def a_load_mcp_tools(server_name: str, server_url: str = "http://localhost:8001/sse") -> tuple[List[Any], MultiServerMCPClient]:
+    """Initializes the MCP client using HTTP/SSE transport."""
     
-    stdio_config = {
+    print(f"\n{'='*70}")
+    print(f"🔌 INITIALIZING MCP CLIENT")
+    print(f"{'='*70}")
+    print(f"Server name: {server_name}")
+    print(f"Server URL: {server_url}")
+    print(f"Transport: HTTP/SSE")
+    print(f"{'='*70}\n")
+    
+    sse_config = {
         server_name: {
-            "transport": "stdio",
-            "command": PYTHON_EXECUTABLE,
-            "args": [str(server_script_path)],
-            "env": os.environ.copy() 
+            "transport": "sse",
+            "url": server_url
         }
     }
     
-    client = MultiServerMCPClient(stdio_config)
+    client = MultiServerMCPClient(sse_config)
     tools = await client.get_tools()
-    print(f"✅ Successfully loaded {len(tools)} tool(s) from STDIO process: {server_script_path}")
-    return tools
-
-
-# --- SESSION MANAGEMENT ---
-
-# Simple in-memory storage for session history
-STORE = {}
-
-def get_session_history(session_id: str) -> BaseChatMessageHistory:
-    """Retrieves or creates a session history object."""
-    if session_id not in STORE:
-        STORE[session_id] = ChatMessageHistory()
-    return STORE[session_id]
+    
+    print(f"{'='*70}")
+    print(f"✅ MCP CLIENT INITIALIZED")
+    print(f"{'='*70}")
+    print(f"Tools loaded: {len(tools)}")
+    for tool in tools:
+        print(f"   • {tool.name}: {tool.description[:60]}...")
+    print(f"{'='*70}\n")
+    
+    return tools, client
 
 
 # --- THE AGENT CLASS (The Core Logic) ---
 
 class FinanceQandAAgent:
-    """Encapsulates the entire LangChain ReAct agent and history logic."""
+    """Encapsulates the entire LangChain ReAct agent logic for financial Q&A."""
+    
+    _invocation_count = 0  # Class variable to track invocations
+    
     def __init__(self):
+        self.mcp_client: MultiServerMCPClient | None = None
+        self.tools: List[Any] = []
+        self.instance_id = id(self)  # Unique instance identifier
+
+        # Initialize MCP tools using HTTP transport
         try:
-            self.tools = asyncio.run(a_load_mcp_tools(SERVER_SCRIPT_PATH, MCP_SERVER_NAME))
+            self.tools, self.mcp_client = asyncio.run(
+                a_load_mcp_tools(MCP_SERVER_NAME, MCP_SERVER_URL)
+            )
         except Exception as e:
-            print(f"❌ FATAL ERROR: Could not start or connect to MCP server: {e}")
+            print(f"❌ FATAL ERROR: Could not connect to MCP server at {MCP_SERVER_URL}: {e}")
+            print(f"   Make sure the MCP server is running!")
             self.tools = []
 
         # Create the core ReAct agent chain
+        # Note: The supervisor will handle history, so we don't need RunnableWithMessageHistory
         self.core_agent = create_agent(
             model=SUMMARY_LLM,
             tools=self.tools,
             system_prompt=STRICT_SYSTEM_PROMPT,
-            debug=True,
+            debug=False,
         )
+        
+        print(f"✅ FinanceQandAAgent initialized with {len(self.tools)} tools (Instance ID: {self.instance_id})")
 
-        # Wrap the core agent with history management
-        self.agent_with_history = RunnableWithMessageHistory(
-            self.core_agent,
-            get_session_history,
-            input_messages_key="input"
-        )
-
-    async def run_query(self, user_input: str, session_id: str) -> str:
+    async def run_query(self, history: List[BaseMessage], session_id: str) -> str:
         """
-        Runs the agent against user input, updates history, and returns the response.
+        Runs the agent against the conversation history and returns the response.
         
-        This is the main public method the UI will call.
+        :param history: The full conversation history (including the new user message)
+        :param session_id: The session identifier (for logging/debugging)
+        :return: The agent's response as a string
         """
-
-        session_history = get_session_history(session_id)
-        session_history.add_user_message(user_input)
         
-        response = await self.agent_with_history.ainvoke(
-            {"input": user_input, "messages": session_history.messages},
-            config={"configurable": {"session_id": session_id}}
-        )
-
-        # The RunnableWithMessageHistory returns the full message list, so extract the last message
-        if isinstance(response, dict) and "messages" in response:
-            last_message: BaseMessage = response["messages"][-1]
-            return last_message.content
+        # Increment and track invocations
+        FinanceQandAAgent._invocation_count += 1
+        current_invocation = FinanceQandAAgent._invocation_count
         
-        # Fallback for unexpected response structure
-        return str(response)
+        print(f"\n{'='*70}")
+        print(f"🤖 FINANCE Q&A AGENT - Query #{current_invocation}")
+        print(f"{'='*70}")
+        print(f"🆔 Instance ID: {self.instance_id}")
+        print(f"📝 Session ID: {session_id}")
+        print(f"📊 History length: {len(history)} messages")
+        
+        # Print the last few messages for context
+        print(f"\n📜 Message History:")
+        for i, msg in enumerate(history[-3:], start=max(0, len(history)-3)):
+            msg_type = "👤 USER" if isinstance(msg, HumanMessage) else "🤖 AI"
+            content_preview = msg.content[:80] + "..." if len(msg.content) > 80 else msg.content
+            print(f"   [{i}] {msg_type}: {content_preview}")
+        
+        print(f"\n🔧 Available tools: {len(self.tools)}")
+        for tool in self.tools:
+            print(f"   • {tool.name}")
+        
+        print(f"\n{'='*70}")
+        print(f"⚙️  Invoking Agent (Call #{current_invocation})...")
+        print(f"{'='*70}\n")
+        
+        tool_call_count = 0
+        tool_call_details = []
+        
+        try:
+            # Invoke the agent with the full message history
+            response = await self.core_agent.ainvoke(
+                {"messages": history}
+            )
+            
+            print(f"\n{'='*70}")
+            print(f"📤 AGENT RESPONSE RECEIVED")
+            print(f"{'='*70}")
+
+            # Extract the last message from the response
+            if isinstance(response, dict) and "messages" in response:
+                # Analyze all messages in the response
+                print(f"📨 Total messages in response: {len(response['messages'])}")
+                print(f"\n📋 Message breakdown:")
+                
+                for i, msg in enumerate(response["messages"]):
+                    msg_type = type(msg).__name__
+                    print(f"   [{i}] {msg_type}", end="")
+                    
+                    # Check for tool calls in AIMessage
+                    if hasattr(msg, 'tool_calls') and msg.tool_calls:
+                        tool_call_count += len(msg.tool_calls)
+                        for tc in msg.tool_calls:
+                            tool_name = tc.get('name', 'unknown')
+                            tool_args = tc.get('args', {})
+                            tool_call_details.append(f"{tool_name}({tool_args})")
+                            print(f" -> Tool: {tool_name}", end="")
+                            # Show abbreviated arguments
+                            if tool_args:
+                                args_preview = str(tool_args)[:100]
+                                if len(str(tool_args)) > 100:
+                                    args_preview += "..."
+                                print(f" | Args: {args_preview}", end="")
+                    
+                    # Check for tool results in ToolMessage
+                    if msg_type == "ToolMessage":
+                        tool_name = getattr(msg, 'name', 'unknown')
+                        result_preview = str(msg.content)[:80] if hasattr(msg, 'content') else ""
+                        print(f" -> Result from: {tool_name} | {result_preview}...", end="")
+                    
+                    # Show content preview for HumanMessage and AIMessage
+                    if hasattr(msg, 'content') and msg.content and isinstance(msg.content, str) and msg_type in ["HumanMessage", "AIMessage"]:
+                        preview = msg.content[:50].replace('\n', ' ')
+                        print(f" | '{preview}...'", end="")
+                    
+                    print()  # New line
+                
+                print(f"\n🔧 Total tool calls made: {tool_call_count}")
+                if tool_call_details:
+                    print(f"\n🔨 Tool calls with arguments:")
+                    for i, detail in enumerate(tool_call_details, 1):
+                        print(f"   {i}. {detail}")
+                
+                last_message: BaseMessage = response["messages"][-1]
+                
+                # Return the content of the last message
+                if hasattr(last_message, 'content'):
+                    response_preview = last_message.content[:150] + "..." if len(last_message.content) > 150 else last_message.content
+                    print(f"\n💬 Response Preview:")
+                    print(f"   {response_preview}")
+                    print(f"\n✅ Response length: {len(last_message.content)} characters")
+                    print(f"{'='*70}\n")
+                    return last_message.content
+                else:
+                    return str(last_message)
+            
+            # Fallback for unexpected response structure
+            print(f"⚠️  Unexpected response structure: {type(response)}")
+            return str(response)
+            
+        except Exception as e:
+            error_msg = f"Error processing query: {str(e)}"
+            print(f"\n{'='*70}")
+            print(f"❌ ERROR IN AGENT")
+            print(f"{'='*70}")
+            print(f"Error: {error_msg}")
+            print(f"Tool calls before error: {tool_call_count}")
+            print(f"{'='*70}\n")
+            return f"I apologize, but I encountered an error while processing your request: {error_msg}"
+
+    async def cleanup(self):
+        """Cleanup method to properly close the MCP client connection."""
+        if self.mcp_client:
+            try:
+                # Note: Check if your MCP client has a close/cleanup method
+                # await self.mcp_client.close()
+                pass
+            except Exception as e:
+                print(f"⚠️ Error during cleanup: {e}")
+
+
+# Example of how to use this class (for testing):
+# async def main():
+#     agent = FinanceQandAAgent()
+#     
+#     # Simulate a conversation
+#     history = [HumanMessage(content="What is a 401k?")]
+#     response = await agent.run_query(history, session_id="test123")
+#     print(response)
+#     
+#     # Follow-up question
+#     history.append(AIMessage(content=response))
+#     history.append(HumanMessage(content="How much can I contribute?"))
+#     response2 = await agent.run_query(history, session_id="test123")
+#     print(response2)
+#     
+#     await agent.cleanup()
+#
+# if __name__ == "__main__":
+#     asyncio.run(main())

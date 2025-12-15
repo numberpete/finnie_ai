@@ -1,0 +1,1204 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd" version="0.11" xml:lang="en">
+  <siteinfo>
+    <sitename>Bogleheads</sitename>
+    <dbname>wiki</dbname>
+    <base>https://www.bogleheads.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.43.5</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Bogleheads</namespace>
+      <namespace key="5" case="first-letter">Bogleheads talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="274" case="first-letter">Widget</namespace>
+      <namespace key="275" case="first-letter">Widget talk</namespace>
+      <namespace key="828" case="first-letter">Module</namespace>
+      <namespace key="829" case="first-letter">Module talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Rebalancing</title>
+    <ns>0</ns>
+    <id>2103</id>
+    <revision>
+      <id>82508</id>
+      <parentid>81856</parentid>
+      <timestamp>2024-01-18T03:33:21Z</timestamp>
+      <contributor>
+        <username>The one smiley</username>
+        <id>131</id>
+      </contributor>
+      <minor/>
+      <comment>Updated URL of Optimal lazy rebalancing calculator</comment>
+      <origin>82508</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="10260" sha1="2q28kx47v2ei5pn0tvnv4a47301qn3z" xml:space="preserve">'''{{PAGENAME}}''' brings a [[portfolio]] that has deviated away from its target [[asset allocation]] back into line. The idea is that maintaining a consistent mix of [[asset class]]es (most commonly [[equities]] and [[fixed income]]) will help to keep risk at the desired level.
+
+You do this by transferring funds from higher-performing classes to lower-performing classes. Although this may seem counterintuitive, rebalancing ensures that investors "Buy Low" and "Sell High".
+
+==Example==
+* You own two funds (Fund A and Fund B). The funds could be either [[mutual fund]]s, [[index fund]]s or [[exchange-traded fund]]s (ETFs).
+* You have a $10,000 portfolio and have selected an asset allocation such that each fund represents 50% of the total ($5,000 each)
+* Over time, Fund A rises in value to $6000 while Fund B declines in value to $4,000 - you now have a 60/40 split instead of 50/50
+* To maintain your asset allocation, you would rebalance your portfolio by taking $1,000 from Fund A and transferring it to Fund B
+* After this, your asset allocation is once again 50/50
+
+==Different rebalancing approaches==
+There are several ways you can determine when it is time to rebalance:
+* At a certain point in the calendar (for example, the beginning of the year, a specific day of the year, every other year, and so on). For example, you might systematically rebalance your portfolio once a year, on your birthday.
+* When asset classes deviate from their target by a specific ''absolute percentage''. For example, if your target asset allocation is 60% equities and 40% fixed income and your (absolute) rebalancing threshold is +/-&amp;nbsp;5%, you would rebalance your portfolio when your portfolio reaches (65% equities / 35% fixed income) or (55% equities / 45% fixed income).&lt;ref group="note" name="5/25"&gt;[[Larry Swedroe]] uses a "5/25 rule" which works like this:
+*'''Absolute percentage of 5% for allocations 20% or greater:''' When asset classes deviate from their target by an ''absolute'' percentage of 5%. For example, if your target asset allocation is 60% equities and 40% fixed income, you would rebalance your portfolio when your portfolio reaches (65% equities / 35% fixed income) or (55% equities / 45% fixed income).
+*'''Relative percentage of 25% for allocations less than 20%:''' When asset classes deviate from their target by a ''relative'' percentage of 25%. For example, if your target equities asset allocation is 60%, composed of 45% Total Stock Market and 15% Total International, you would rebalance Total International if it changes by more than +/-&amp;nbsp;3.75% (25% of 15%).
+See: [https://seekingalpha.com/article/2130243-portfolio-rebalancing-the-whys-and-the-hows Portfolio Rebalancing: The Whys And The Hows], [[Larry Swedroe]]. ''Disable'' cookies to view article on single page, no subscription required.&lt;/ref&gt;
+* When asset classes deviate from their target by a certain ''relative percentage''. For example, if your target equities asset allocation is 60%, composed of 40% Total Stock Market and 20% Total International, and your (relative) rebalancing threshold is +/-&amp;nbsp;25%, you would rebalance International if it changes by more than +/- 5% (25% of 20%).&lt;ref group="note" name="5/25" /&gt;
+* When asset classes deviate from their target by a certain dollar amount. For example, if you hold $6,000 in equities and $4,000 in fixed income and your rebalancing threshold is +/-&amp;nbsp;$1,000, you would rebalance your portfolio when either of your holdings deviates from their target asset allocation of 60% equities / 40% fixed income by at least $1,000.
+* When contributing to or withdrawing from your portfolio. For example, if your target allocation is 60% equities and 40% fixed income, you hold $7,000 of equities and $3,000 of fixed income, and you wish to contribute $1,000 to your portfolio, you would simply buy $1,000 worth of fixed income assets. This would bring you to an allocation of 64% equities / 36% fixed income. This approach minimizes transaction costs, effort, and taxes. This [https://optimalrebalancing.info portfolio rebalancing calculator] can help in cases where it is not obvious how much of a new contribution or withdrawal to allocate to each asset.
+
+==Other considerations==
+* Think about transaction costs when deciding whether or not to rebalance. Because transactions often have costs associated with them, many investors choose to wait for their portfolio to pass a significant threshold of deviation (whether defined by percentage or dollars) before rebalancing.
+* Investors often find it difficult "selling winners" to "buy losers". To help remove emotions from the decision, you might choose a specific date to rebalance (for example, birthday, tax day, and so on). Investors who find the prospect daunting may want to consider [[Vanguard target retirement funds]], which automatically rebalance as necessary to maintain a consistent asset allocation.
+* The frequency with which you check your portfolio for deviations from its target has some influence on the returns gains (or losses) that rebalancing generates.&lt;ref group="note" name="frequency"&gt;Research seems to indicate that checking weekly (while actually rebalancing very infrequently, for example by using large deviation thresholds) could provide the best rebalancing bonus. Conversely, rebalancing too frequently and using low thresholds would be detrimental. See: [https://pdfs.semanticscholar.org/57f8/766d83249e5be740c6cdacc8b30f8a5277cd.pdf Opportunistic Rebalancing: A New Paradigm For Wealth Managers], Gobind Daryanani.&lt;/ref&gt;
+
+==Modified approaches==
+If you worry about rebalancing into a sustained bear market, one of these modifications to standard rebalancing methods might be useful:
+* Keep a floor level of bonds, that is, once the total amount of bonds has dropped to a fixed amount, stop rebalancing into stocks.
+* Only rebalance out of stocks, never into stocks.
+
+==Estimating changes in asset allocation==
+Normal market fluctuations do not frequently trigger rebalancing. For example, shifting the balance of a 50/50 portfolio by 1% requires a 4% change in the price of stocks relative to bonds.
+
+All other portfolios are less sensitive, with 70/30 or 30/70 requiring a 5% change, 80/20 or 20/80 a 6% change, and 90/10 or 10/90 an 11% change. For example, a $10,000 60/40 portfolio will, after a 10% stock market drop, have $6,000 * 0.9 = $5,400 in stocks and $4,000 in bonds, for a stock allocation of $5,400 / ($5,400 + $4,000) = 57.45%, a 2.55% shift.
+
+==Notes==
+{{Reflist|group="note"}}
+
+==Further reading==
+*[https://web.archive.org/web/20220422055354/https://web.stanford.edu/class/msande348/papers/PeroldSharpe.pdf Dynamic Strategies for Asset Allocation], Andre F. Perold, [[William F. Sharpe]], Financial Analysts Journal, (January/February 1988):16-27. Archived from [https://web.stanford.edu/class/msande348/papers/PeroldSharpe.pdf the original] on April 22, 2022.
+*[http://resource.fpanet.org/resource/09BBF2F9-D5B3-9B76-B02E27EB8731C337/daryanani.pdf Opportunistic Rebalancing: A New Paradigm For Wealth Managers], Gobind Daryanani, ''Journal of Financial Planning'', (January 2008).
+
+==External links==
+*{{Forum post| t=322344| title=Bogleheads blog: a new rebalancing study| author = siamond | date = August 8, 2020}}. A 3-part Bogleheads&amp;reg; blog series.
+** [https://www.bogleheads.org/blog/2020/08/08/the-elusive-rebalancing-bonus-part-1/ Part 1] explains and illustrates various rebalancing methods, then documents the data sources used in this study.
+** [https://www.bogleheads.org/blog/2020/08/08/the-elusive-rebalancing-bonus-part-2/ Part 2] analyzes if some of those methods provided a significant rebalancing bonus compared to an annual rebalancing model.
+** [https://www.bogleheads.org/blog/2020/08/08/the-elusive-rebalancing-bonus-part-3/ Part 3] explores miscellaneous topics (e.g. frequent rebalancing, less conventional asset allocations)
+*[https://web.archive.org/web/20230606014619/https://www.vanguard.ca/documents/best-practices-for-portfolio-rebalancing.pdf Best Practices for Portfolio Rebalancing] by Vanguard Institutional Research, November 2015. Archived from [https://www.vanguard.ca/documents/best-practices-for-portfolio-rebalancing.pdf the original] on June 6, 2023.
+*[https://web.archive.org/web/20220125212817/https://personal.vanguard.com/pdf/ISGGBOT.pdf Getting back on track: A guide to smart rebalancing] by Vanguard Research, April 2019. Archived from [https://personal.vanguard.com/pdf/ISGGBOT.pdf the original] on January 25, 2022.
+*[https://seekingalpha.com/article/2130243-portfolio-rebalancing-the-whys-and-the-hows Portfolio Rebalancing: The Whys And The Hows] by [[Larry Swedroe]], April 2014.
+*{{forum post|t=150267|title=How to use Vanguard Portfolio Watch for rebalancing}}.
+*[https://likelyso.com/rebalancing Rebalancing]: a tutorial which discusses several methods of rebalancing, by [https://www.able2pay.com/about.html Able to Pay], discussed in this {{Forum post|t=182926|title=Rebalancing, another study}}.
+*{{forum post|t=186203|title=Rebalancing: adaptive bands}}, discussion about idiosyncrasies of absolute percentage and relative percentage approaches, suggesting a more 'adaptive' way to define rebalancing bands.
+
+===Spreadsheets===
+*[https://docs.google.com/spreadsheets/d/18HKaSlRFVlNhB1AG_npZO_aHh9mu_6QY5zKrKzZioKY/edit?usp=sharing Rebalancing Bands Spreadsheet] illustrating how to define 5/25 absolute/relative rebalancing bands across asset classes, on Google Docs from wiki contributor [[User:Hoppy08520 |Hoppy08520]], October 2014.
+*[https://docs.google.com/spreadsheet/ccc?key=0AsVSNcUR-B6IdE4tZm0yVk9ObkxsZ2xvNmJpRTB0b0E Rebalancing spreadsheet], free download from Google Docs. Supplies three example approaches to rebalance a portfolio by allocation percentage, transfer amount, or final value; by forum member LadyGeek. To download, select File --&gt; Download As --&gt; Excel or OpenDocument.
+*[https://drive.google.com/file/d/1bg9c7kxDEvHXDzEvCni7ethZ8uHwMJyd/view?usp=sharing Boglehead rebalance.xls] on Google Drive, by forum member LeeMKE. Rebalance your portfolio across multiple accounts. Includes space to keep notes.
+
+{{Bogleheads investing start-up kit}}
+{{Portfolios}}
+[[Category:Asset allocation]]
+[[Category:Portfolios]]</text>
+      <sha1>2q28kx47v2ei5pn0tvnv4a47301qn3z</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Risk and return</title>
+    <ns>0</ns>
+    <id>4038</id>
+    <revision>
+      <id>86356</id>
+      <parentid>86332</parentid>
+      <timestamp>2025-07-21T18:07:13Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>Balance HTML math font used with native mathml. Remove orphaned formula.</comment>
+      <origin>86356</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="78927" sha1="d9hyl65jbu5mvubdcyvkawpi0oq2ocj" xml:space="preserve">The relationship between '''risk''' and '''return''' is a fundamental concept in finance theory, and is one of the most important concepts for investors to understand. A widely used definition of investment risk, both in theory and practice, is the uncertainty that an investment will earn its expected rate of return.&lt;ref&gt;Reilly (1994), p.11&lt;/ref&gt; Finance literature uses "return" and "rate of return" interchangeably.
+
+A rational investor will not take more risk without expecting a higher return. Since the early 1950s, an enormous amount of theoretical and empirical research has characterized and quantified the relationship between risk and return.
+
+[[Harry M. Markowitz|Harry Markowitz]] initially developed ''Portfolio Theory'' in the early 1950s. This was the first serious theoretical attempt to quantify the relationship between risk and return. Portfolio Theory often is referred to as ''Modern Portfolio Theory'' or MPT. Portfolio theory characterizes risk as the uncertainty of returns, and uses standard statistical techniques to quantify the relationship between risk and return. These techniques include statistical measures such as ''variance'' and [[standard deviation]] to quantify the uncertainty of returns.
+
+"Uncertainty of returns" includes not only the possibility of loss, but also the possibility of ''positive surprises'' relative to expectations. Because investors typically are more concerned about negative surprises than positive surprises, some theoretical work considers only negative deviations relative to expectations. However, risk as the uncertainty of returns, including positive as well as negative deviations from expectations, is the main risk model used in investing.
+
+[[William F. Sharpe|William Sharpe]] and others extended portfolio theory to develop asset valuation models, such as the [[CAPM - Capital Asset Pricing Model | Capital Asset Pricing Model]], or CAPM. CAPM introduced the idea of combining a risk-free asset with a portfolio of risky assets to construct a complete portfolio that resulted in an efficient trade-off between risk and return. It also gave a more straightforward way to quantify the risk of individual assets, by comparing their returns with the return of a broad market portfolio. CAPM's other important contribution was to clarify the distinction between ''systematic risk'' inherent in investing in risky assets, which cannot be eliminated, and ''unsystematic risk'' specific to individual firms, which diversification can eliminate.
+
+[[Eugene F. Fama|Eugene Fama]], [[Kenneth R. French|Kenneth French]], and others added work to develop more sophisticated models to evaluate risk and return. Although CAPM uses a single "factor" to characterize risk, Fama and French showed that a multifactor model better explains historical returns. Instead of comparing the returns of an asset or portfolio of assets only to a broad market portfolio, they also compared them to portfolios of small-cap stocks and value stocks (technically small minus big or SmB, and high book value minus low book value or HmL). This is the ''Fama-French three-factor model''.
+
+The finance theory in this article outlines some of the theoretical foundations for asset allocation and investing in index mutual funds. It evaluates expected rates of return for various asset classes and compares them to the risk of the asset classes. Investor goals and [[risk tolerance]] determine the trade-off between the expected return and risk of the portfolio. The portfolio combines various lower-risk and higher-risk asset classes to achieve an efficient risk-return trade-off.
+
+Determining risk tolerance is a critical step in designing a portfolio. Several approaches can help investors to assess their risk tolerance.
+
+Both shorter-term risk and longer-term risk are characterized by the uncertainty of returns. Shorter-term risk typically is characterized by the uncertainty of shorter-term returns; for example, monthly or annual returns. Longer-term risk is better characterized by the uncertainty of the cumulative portfolio value (terminal wealth) after many years of investing.
+
+==Risk as the uncertainty of returns==
+
+The rate of return earned on an investment in a 30-day [[Treasury bill]] (T-Bill) or short-term [[Certificate of Deposit]] (CD) has high certainty. T-Bills and CDs are among the investments referred to collectively as [[Money Markets|money market]] securities.&lt;ref&gt;Bodie, Kane, Marcus, 2008, p. 5&lt;/ref&gt; A money market fund provides a convenient way for an investor to own money market securities. The short-term return on deposits in federally-insured bank or credit union accounts is also highly certain (the term ''cash'' often is used to refer to money market securities and money in deposit accounts; [[Vanguard]] refers to these types of assets as ''short-term reserves'').
+
+The returns earned by T-Bills, CDs and money market funds fall into a relatively narrow range over longer time periods as well.
+
+[[File:Return Dispersion - T-Bills - T-Bonds - Stocks.jpg|thumb|right|351px|Figure 1. Risk vs. Return: 1928 - 2011&lt;ref&gt;{{cite web| url=http://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html| title=Annual Returns on Stock, T.Bonds and T.Bills: 1928 - Current| publisher=Damodaran Online}}&lt;/ref&gt;]]
+
+The top chart in Figure 1 is a [[Wikipedia:histogram|histogram]] showing the frequency distribution of returns for 3-month T-Bills from 1928 through 2011. The ''height'' of each bar represents the ''number of years'' in which annual returns have fallen within a given 5% range or "bin" (that is, 0% to 5%, 5% to 10%, etc.). The tallest bar shows that annual returns have been between 0% and 5% in 59 years. Returns have been between 5% and 10% in 22 years (second tallest bar), and between 10% and 15% in three years (shortest bar). 
+
+The return on [[Bond basics|bonds]] is less certain than the return on money market securities, so bonds are considered riskier than money market securities (cash). The middle chart in Figure 1 shows the frequency distribution of annual returns for 10-Year Treasury Bonds from 1928 through 2011 (the same vertical scale for number of years is used in all charts in Figure 1, and the same 5% bins are used on the horizontal axes). Notice that the range of returns is larger, from about -11% to +33%, and that the number of years in which returns fall within any given 5% bin is generally smaller. In other words, the shape of the return distribution is more "spread out" and flatter. The shape of the return distribution represents the ''dispersion of returns'', also referred to as the ''deviation of returns''.
+
+The return on [[Stock basics|stocks]] is more uncertain than the return on bonds, so stocks are considered riskier than bonds. The bottom chart in Figure 1 shows the frequency distribution of annual returns on the stocks of large US companies (the S&amp;P 500) from 1928 through 2011. Note the much larger dispersion of returns; the shape of the distribution is much flatter and more spread out, with returns ranging from about -44% to +53%, and none of the 5% bins including returns for more than 10 years (by contrast, recall that one 5% bin included the T-bill returns for 59 years).
+
+''Standard deviation'' is a measure commonly used to quantify the deviation (or dispersion) of returns. The standard deviation is listed for each chart in Figure 1. The standard deviation increases as the dispersion of returns increases (that is, as the shape of the distribution becomes flatter and more spread out). Standard deviation will be defined in more detail in subsequent sections.
+
+==Risk as the possibility of loss==
+
+The definition of risk as the uncertainty of investment return does not distinguish between loss and gain. Typically, individual investors think of risk as the possibility that their investments could lose money.&lt;ref&gt;{{cite book| author=Rick Ferri| author-link=Rick Ferri| title=All About Asset Allocation| date=2006| page=23| publisher=McGraw-Hill| isbn=978-0071429580}}&lt;/ref&gt; They are likely to be quite happy with an investment return that is greater than expected (a "positive surprise"). However, because risky assets generate positive surprises as well as negative surprises, defining risk as the ''uncertainty'' of the return seems reasonable. Mor uncertainty makes it more likely that the investment will generate gains as well as losses. 
+
+Variance and standard deviation, discussed in detail in subsequent sections, quantify the negative ''and positive'' deviation of returns around the average return (the terms ''average return'', ''mean return'', and ''expected return'' are used interchangeably, as are the terms ''deviation of returns'' and ''dispersion of returns''). Some theoretical portfolio work uses measures that consider only risk of loss; semivariance, which considers only deviations below the average, is one example.
+
+However, because deviation of returns is symmetrical, variance provides as good an indicator of downside risk as semivariance. If returns are symmetrical, the the probabilities and magnitudes of positive and negative surprises are roughly the same. It is reasonable to assume a symmetrical distribution of returns for a well diversified portfolio, and most assets have returns that are reasonably symmetrical.&lt;ref&gt;Elton et al, 2003, p. 49&lt;/ref&gt; Therefore in portfolio theory, as well as in practice, variance and standard deviation are the most commonly used measures of dispersion of returns. In other words, even though investors may be primarily concerned with negative surprises, investment risk can be adequately estimated with measures that include both positive and negative surprises.
+
+A major concern of investors is that their investment portfolios will not generate returns sufficient to meet their goals. This is "shortfall risk", and deserves serious consideration.&lt;ref&gt;{{cite web| author1=Zvi Bodie| author2=Paula H. Hogan| url=https://www.aaii.com/features/jrnl200506p16.pdf| title=For Long-Term Investors, the Focus Should Be on Risk| publisher=AAII Journal| accessdate=October 17, 2023}}&lt;/ref&gt; Nevertheless, using uncertainty of returns can be a valid approach in estimating the riskiness of long-term returns as well as short-term returns, as long as it uses the appropriate variance or standard deviation measures. 
+
+For long-term returns, it is more appropriate to estimate the ''dispersion of accumulated wealth'' (also referred to as ''terminal wealth dispersion'') rather than the deviation of returns over relatively short time periods, such as annually.&lt;ref&gt;{{cite web| author1=Gary Smith| author2=Donald Gould| url=http://economics-files.pomona.edu/GarySmith/shortfallRisk.pdf| title=Measuring and Controlling Shortfall Risk in Retirement| url-status=dead| archive-url=https://web.archive.org/web/20190118052301/http://economics-files.pomona.edu/GarySmith/shortfallRisk.pdf| archive-date=January 18, 2019}}&lt;/ref&gt; This is because relatively small differences in ''annualized'' returns can make large differences in ''cumulative'' returns over periods of many years.&lt;ref&gt;Bodie, Kane, Marcus, 2008, p. 180&lt;/ref&gt; Long-term dispersion of returns accounts for the ''magnitude'' as well as the ''probability'' of possible losses.
+
+=="Risk free" assets==
+[[File:Annual US Treasury Bill Yield and Inflation Rate.jpg|thumb|right|351px|Figure 2. Annualized T-Bill yield and inflation rate (1928 - 2011)&lt;ref group="note"&gt;T-bill data source comes from [http://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html Annual Returns on Stock, T.Bonds and T.Bills: 1928 - Current], Damodaran Online. Inflation data comes from [https://www.minneapolisfed.org/community/teaching-aids/cpi-calculator-information/consumer-price-index-and-inflation-rates-1913 Consumer Price Index 1913 -, Minnesota Federal Reserve].{{dead link}}&lt;/ref&gt;]]
+
+Money market securities are often referred to as ''risk-free assets'', especially the shorter-maturity securities such as 30-day T-Bills. This is because the short-term return is known with relative certainty at the time the investment is made. There is absolute certainty in the nominal return of a T-Bill (assuming the U.S. government does not default on its obligations), and it is unlikely that unexpected inflation will have significant impact on the real return over a short time period. 
+
+Over longer time periods, even money market securities have some risk. This is because the effect of unexpected [[Consumer price index|inflation]] on returns is uncertain over longer time periods. Although money market security rates usually respond relatively quickly to changes in inflation, this is not always the case. Figure 2 illustrates the longer-term uncertainty of real returns on 90-day T-Bills. The relative ''certainty'' of return does not mean that the ''real'' return necessarily is ''positive''. It may be known with certainty that a 90-day T-Bill will earn a ''nominal'' annualized return of 1% over its 90-day term (that is, if held to maturity). However if inflation over the 90-day term is expected to be 3% annualized, the relatively certain, expected ''real'' return is -2% annualized.
+
+Uncertainty in ''real'' returns can be eliminated by investing in inflation-indexed securities, such as [[Treasury Inflation Protected Securities]] ([[TIPS]]) and [[I Savings Bonds|Series I Savings Bonds]] ([[I Bonds]]), and holding them to maturity. Of course in return for this reduction in uncertainty, investors must accept lower expected returns. Marketable inflation-indexed securities also have other risks, such as interest rate risk (that is, prices decline when interest rates rise) and liquidity risk, as in late 2008 (September 12 - October 31) when the Vanguard Inflation-Protected Securities fund declined by almost 14%. During this same time period other U.S. treasury securities increased in value.&lt;ref&gt;{{cite web| author1=John Y. Campbell| author2=Robert J. Schiller| author3=Luis M. Viceira| date=2009| url=http://www.nber.org/programs/ag/rrc/09-20%20Campbell,%20Shiller,%20Viceira%20FINAL.pdf| title=Understanding Inflation-Indexed Bond Markets| accessdate=April 1, 2012}}{{dead link}} 
+{{quotation|We view the experience with TIPS yields after the Lehman bankruptcy as the sign of a highly abnormal market situation, where liquidity problems suddenly created severe financial anomalies.}}
+[As a further reference, this can be seen directly on a price chart like the following: http://www.google.com/finance?chdnp=0&amp;chdd=1&amp;chds=1&amp;chdv=1&amp;chvs=Logarithmic&amp;chdeh=0&amp;chfdeh=0&amp;chdet=1227301200000&amp;chddm=28599&amp;cmpto=MUTF:VFISX;MUTF:VFITX;MUTF:VUSTX&amp;cmptdms=0;0;0&amp;q=MUTF:VIPSX&amp;]{{dead link}}&lt;/ref&gt;
+
+In reality, whether or not an asset is risk free depends on the context of the investment; that is, the purpose and time horizon of the investment. For example, to meet a nominal liability at a specified future date, a zero-coupon US government bond maturing on that date is essentially risk free. 
+
+Nevertheless, short-term T-bills usually are considered to be risk-free assets in portfolio theory, and in practice investors treat a broader range of money market securities as risk free.&lt;ref&gt;Bodie, Kane, Marcus, 1996, p. 173&lt;/ref&gt;
+
+==Risk aversion and risk premiums==
+
+Why would an investor invest in a risky asset class such as stocks rather than in a relatively risk-free asset such as T-bills? If the investor is not simply gambling, there must be some financial incentive, such as the expectation of a higher rate of return. The conclusion is that an investment in a risky asset depends on the investor's expectation of a higher rate of return as well as their level of ''risk aversion''.&lt;ref&gt;Bodie, Kane, Marcus, 2008, p. 123&lt;/ref&gt;
+
+Rational investors are risk averse. That is, given the same expected return, they will choose the investment for which that return is more certain.&lt;ref&gt;Reilly, p. 14&lt;/ref&gt; Therefore, investors demand a higher expected return for riskier assets. A higher ''expected'' return does not guarantee a higher ''realized'' return. Because by definition returns on risky assets are uncertain, an investment may not earn its expected return.
+
+The amount by which a risky asset is expected to provide a higher rate of return than the ''risk-free rate'' is the asset's ''risk premium'' (the risk-free rate is the rate of return on a risk-free asset, such as a T-bill). If the risk premium of stocks is zero, a ''rational'', risk-averse investor would have no incentive to invest in them. On the other hand, a gambler might "invest" in something with a zero or even negative risk premium for entertainment value, or in the irrational expectation of hitting a jackpot.
+
+Although the charts in Figure 1 show historical (realized) returns rather than expected (future) returns, they are useful to demonstrate the relationship between risk and return, and the risk premiums of bonds and stocks relative to the relatively risk-free returns on T-bills. The mean (average) annual return increases as the dispersion of returns (uncertainty or risk) increases. 
+
+Assuming an investor selects an investment portfolio based on expected return and risk, the equation below is used to quantify the relationship between risk premium, risk aversion, A, and risk σ&lt;sup&gt;2&lt;/sup&gt;, where the risk premium is the expected return, E(r), of the risky investment minus the risk-free rate, r&lt;sub&gt;f&lt;/sub&gt;:
+
+:&lt;math&gt; \operatorname{Risk} \operatorname{Premium} = \operatorname{E}(r) - r_f = \frac12 A \sigma^2&lt;/math&gt;
+
+In this equation risk is measured by variance, σ&lt;sup&gt;2&lt;/sup&gt;, which quantifies the dispersion of an investment's returns. Variance is discussed in depth in another section. The factor of &lt;span style="font-size:100%"&gt;''&lt;sup&gt;1&lt;/sup&gt;/&lt;sub&gt;2&lt;/sub&gt;''&lt;/span&gt; is a scaling factor used by convention, and the use of this equation requires expressing all returns as decimals rather than percentages.
+
+This equation indicates that the risk premium demanded by investors will be higher for individual investors with greater risk aversion, A, and for investments with higher risk, σ&lt;sup&gt;2&lt;/sup&gt;.
+
+Studies have shown that investors' risk aversion probably is in the range of 2-4.&lt;ref&gt;Bodie, Kane, Marcus, 2008, p. 124&lt;/ref&gt; This implies that for an increase of portfolio variance of 0.01, investors will require a risk premium that is higher by 0.01-0.02 (1%-2%).
+
+==Measuring risk: historical returns==
+Historical returns often are used as a starting point in estimating expected returns and uncertainty of returns (risk).&lt;ref&gt;Ilmanen, 2011, p.7&lt;/ref&gt; Although evaluating historical returns may not enable an accurate or comprehensive estimation of risk, evaluating the dispersion of historical returns provides a convenient way to develop an understanding of commonly used risk measures.
+
+The risk of an investment is related to the uncertainty of its investment return. This was illustrated graphically in Figure 1, which showed that dispersion of returns is a way to characterize the riskiness of an investment. Many investors like to summarize return and risk with numbers that quantify the average return and the dispersion of returns around the average.&lt;ref&gt;Bodie, Kane, Marcus, 2008, p.121&lt;/ref&gt; This facilitates comparing the return and risk of different investments.&lt;ref&gt;Reilly, p.14&lt;/ref&gt; 
+
+Calculating the average of a set of historical annual returns is straightforward: simply add the annual returns and divide by the number of annual returns. The technical term for this type of average is the ''arithmetic mean'', usually referred to simply as the ''mean''. Statisticians use the term ''expected value'' to refer to the mean. In finance theory the term ''expected value of the return'', or just ''expected return'' is commonly used in referring to the average of a set of returns.&lt;ref&gt;Elton et al (2003), p.45&lt;/ref&gt;
+
+What about calculating a number to quantify the uncertainty or dispersion of returns? Basic statistics and probability theory provide two measures to quantify the dispersion of a set of numbers: ''variance'' and ''standard deviation''. Starting in the early 1950s, finance academics began using these statistical measures to quantify risk.&lt;ref&gt;Markowitz, Harry (March 1952). [http://www.math.ust.hk/~maykwok/courses/ma362/07F/markowitz_JF.pdf "Portfolio Selection"]. ''The Journal of Finance'' 7 (1): 77-91. Retrieved April 12, 2012.&lt;/ref&gt;
+
+Historical returns are commonly used as a starting point in evaluating the relative riskiness of different assets. A subset of the historical data shown graphically in Figure 1 provides a simple example to begin developing an understanding of standard deviation as a measure of risk.
+
+Consider the S&amp;P 500 stock returns for 2008-2011: 
+
+*2008: -36.55%
+*2009: +25.94%
+*2010: +14.82%
+*2011: +2.07%
+
+The mean, or expected value, E(r), of this set of returns is calculated below (for simplicity, the percent signs are dropped):
+
+: &lt;math&gt; \operatorname{E}(r) = \frac{-36.55 + 25.94 + 14.82 + 2.07}{4} = 1.57 &lt;/math&gt;
+
+The expected value of the annual return is 1.57%.
+
+An alternate way to calculate expected value is to multiply each value by the probability of that value occurring, then sum the results. This formulation will be useful when calculating the expected value of estimated future returns. When evaluating historical returns, each return is considered to have equal probability, so the calculation using this method is:
+
+: &lt;math&gt;
+ \operatorname{E}(r) = \frac 14(-36.55)+\frac{1}{4}(25.94)+\frac{1}{4}(14.82) + \frac{1}{4}(2.07) = 1.57
+ &lt;/math&gt;
+
+The average of the annual returns is useful information, but it does not indicate anything about the dispersion of returns, that is, how the returns are distributed around the mean return.
+
+It is intuitive that a useful measure of dispersion of returns around the average return would involve calculating the differences (deviations) between the individual returns and the average return, and perhaps averaging these deviations. For example the deviation for the 2009 return is 25.94 - 1.57 = 24.37, whereas the deviation for the much smaller 2011 return is only 2.07 - 1.57 = 0.50.
+
+The problem with this is that there will be both positive and negative deviations that will tend to cancel each other out, resulting in a misleading value that understates the dispersion of returns around the mean; in fact, the average of the deviations from the mean will always be zero.&lt;ref&gt;Bodie, Kane, Marcus, 2008, p. 122&lt;/ref&gt; This can be verified by calculating the average of the deviations from the mean for all four years in the example. Therefore, this value indicates nothing about dispersion.
+
+This problem is resolved by ''squaring'' the deviations from the mean (which results in all positive numbers), then calculating the average of the squared deviations. The term ''variance'' is used to describe the average of the squared deviations. Here is the calculation of the variance of the annual returns using the returns from 2008-2011:
+
+: &lt;math&gt;
+ \operatorname{Var}(r) = \sigma^2 = \frac{ (-36.55-1.57)^2+(25.94-1.57)^2+(14.82 - 1.57)^2+(2.07-1.57)^2 } {4} = 556
+ &lt;/math&gt;
+
+The symbol &amp;sigma;&lt;sup&gt;2&lt;/sup&gt; commonly represents variance, so Var(r) = &amp;sigma;&lt;sup&gt;2&lt;/sup&gt; = 556.
+
+This formula can be generalized as:
+
+:&lt;math&gt;\operatorname{Var}(r) = \sigma^2 = \frac{1}{n} \sum_{i=1}^n (r_i - \operatorname{E}(r))^2&lt;/math&gt;
+
+(When calculating the variance of a ''sample'' of the full population of values (as in the example here), statisticians often substitute &lt;span style="font-size:100%"&gt;''&lt;sup&gt;1&lt;/sup&gt;/&lt;sub&gt;(n-1)&lt;/sub&gt;''&lt;/span&gt; for &lt;span style="font-size:100%"&gt;''&lt;sup&gt;1&lt;/sup&gt;/&lt;sub&gt;n&lt;/sub&gt;''&lt;/span&gt; in the above formula. There are arguments for and against this.&lt;ref&gt;Elton et al (2003), p. 48&lt;/ref&gt; In this article this substitution will not be made.)
+
+To get a value with the same units as the rate of return (percent), the square root of the variance is calculated, resulting in the ''standard deviation'' of the annual returns:
+
+: &lt;math&gt; \operatorname{SD}(r) = \sigma = \sqrt{556} = 23.6 &lt;/math&gt;
+
+The symbol &amp;sigma; commonly represents standard deviation, so SD(r) = &amp;sigma; = 23.6 pp (technically, the units of the standard deviation of returns are percentage points (pp), but standard deviation of returns often is displayed using the % symbol, for example, 23.6%).
+
+The resulting value of 23.6 pp (or 23.6%) for the standard deviation seems somewhat reasonable as an indicator of the dispersion of returns around the mean value of 1.57%, considering that the range of values is between -36.55% and +25.94%.
+
+Standard deviation has some standard statistical interpretations for a large number of values with a normal distribution (the ubiquitous bell curve). For example, about 68% of all values fall within +/- one standard deviation, and about 95% of all values fall within +/- two standard deviations. 
+
+There are too few values in our simple example for these statistical attributes to apply, but consider the 84 annual returns for 10-Year treasury bonds represented in the second chart in Figure 1.
+
+First notice that the data somewhat resembles the bell-shape curve characteristic of a normal distribution. The mean value of the 84 annual returns for 10-Year treasury bonds is about 5%, and the standard deviation is about 8% (pp). Two standard deviations is about 2 x 8 = 16, so we expect most of the annual returns to fall within the range of about 5% +/- 16 pp or between about -11% and +21%. From the chart, this looks about right.
+
+For the third chart in Figure 1, representing 84 annual returns for the stocks in the S&amp;P 500, the mean is about 11% and the standard deviation is about 20%, so we expect most values to fall within a range of about 11% +/- 40 pp, or between about -29% and + 51%. Again, this looks about right.
+
+Rather than calculating the standard deviation of annual returns, the annualized standard deviation of ''monthly'' returns sometimes is used to characterize dispersion of returns. For example, Morningstar calculates the standard deviation of monthly returns over various time periods of one year or more (for example, three years, five years, and so on), then multiplies by the square root of twelve to generate an estimate of the annualized standard deviation.&lt;ref&gt;{{cite web| publisher=Morningstar| date=2005| url=http://corporate.morningstar.com/us/documents/MethodologyDocuments/MethodologyPapers/StandardDeviationSharpeRatio_Definition.pdf| title=Standard Deviation and Sharpe Ratio Methodology| accessdate=August 10, 2012}}{{dead link}}&lt;/ref&gt;
+
+==Expected return==
+
+Although in finance theory, ''expected return'' is a synonym for the average of a set of returns, in investing, ''expected return'' more often refers to ''future'' returns than to ''historical'' returns. From here on this will be the context in which the term is used. In this context, ''expected return'' can be thought of informally as the return investors expect to receive on an investment. Indeed, the term often is used this way by authors of investment books (as seems to be the case, for example, in ''Expected Returns'' by Ilmanen.&lt;ref&gt;Ilmanen, 2011&lt;/ref&gt;) However, in investment theory ''expected return'' has a more precise definition.
+
+An investment's expected return, &lt;span style="font-size:100%"&gt;E(''r'')&lt;/span&gt;, is calculated as follows:&lt;ref&gt;Bodie, Kane, Marcus, 2008, p. 112&lt;/ref&gt;&lt;ref&gt;Reilly, pp. 11-13&lt;/ref&gt;
+
+# Various economic scenarios, &lt;span style="font-size:100%"&gt;''s''&lt;/span&gt;, are defined.
+# Estimates are developed for the probability, &lt;span style="font-size:100%"&gt;p(''s'')&lt;/span&gt;, of each scenario occurring and the return, &lt;span style="font-size:100%"&gt;r(''s'')&lt;/span&gt;, for that scenario. 
+# The probability and return for each scenario are multiplied together: &lt;span style="font-size:100%"&gt;p(''s'')&lt;/span&gt;&lt;span style="font-size:100%"&gt;r(''s'')&lt;/span&gt;
+# The results are summed across all scenarios: &lt;span style="font-size:100%"&gt;p(''s&lt;sub&gt;1&lt;/sub&gt;'')r(''s&lt;sub&gt;1&lt;/sub&gt;'') + p(''s&lt;sub&gt;2&lt;/sub&gt;'')r(''s&lt;sub&gt;2&lt;/sub&gt;'') + &amp;hellip; + p(''s&lt;sub&gt;n&lt;/sub&gt;'')r(''s&lt;sub&gt;n&lt;/sub&gt;'')&lt;/span&gt;
+
+Or using summation notation:
+
+:&lt;math&gt;\operatorname{E}(r) = \sum_{i=1}^n \operatorname{p}(s_i)\operatorname{r}(s_i)&lt;/math&gt;
+
+Thus, expected return is the ''probability-weighted average of returns across all possible scenarios''.
+
+First consider an investment in a 1-year T-Bill. Since the nominal return is unaffected by economic factors, the nominal return is certain; that is, the probability, &lt;span style="font-size:100%"&gt;p(''s'')&lt;/span&gt; = 1, and the return, &lt;span style="font-size:100%"&gt;r(''s'')&lt;/span&gt;, is the rate of return on the bill. If the rate of return is 1%, the expected nominal return is calculated as:
+
+:&lt;math&gt; 
+\operatorname{E}(r) = \operatorname{p}(s)\operatorname{r}(s) = (1.0)(0.1) = 0.01 = 1%
+&lt;/math&gt;
+
+As a slightly more complex, but still simple, scenario analysis, consider a one-year investment in a total stock market index fund, with three possible economic scenarios for the year: recession, normal growth, and strong growth. Assume the following estimates for the three scenarios:
+
+:*Recession: probability &lt;math&gt;\operatorname{p}(s_1)=0.20&lt;/math&gt;, estimated return &lt;math&gt;\operatorname{r}(s_1)= -10%&lt;/math&gt;
+:*Normal growth: probability &lt;math&gt;\operatorname{p}(s_2) = 0.60&lt;/math&gt;, estimated return &lt;math&gt;\operatorname{r}(s_2) = 5%&lt;/math&gt;
+:*Strong growth: probability &lt;math&gt;\operatorname{p}(s_3) = 0.20&lt;/math&gt;, estimated return &lt;math&gt;\operatorname{r}(s_3) = 10%&lt;/math&gt;
+
+With these scenario estimates, the expected return,&lt;span style="font-size:100%"&gt;E(''r'')&lt;/span&gt;, is calculated as:
+
+:&lt;math&gt; 
+\operatorname{E}(r) = \operatorname{p}(s_1)\operatorname{r}(s_1) + 
+\operatorname{p}(s_2)\operatorname{r}(s_2) + 
+\operatorname{p}(s_3)\operatorname{r}(s_3) 
+&lt;/math&gt;
+
+:&lt;math&gt; 
+\operatorname{E}(r) = (0.20)(-0.10)+(0.60)(0.05)+(0.20)(0.10) = 0.03 = 3%
+&lt;/math&gt;
+
+Notice that the expected return of 3% is not equal to the most probable return of 5%.
+
+Extensive research has demonstrated that there are no good forecasters.&lt;ref&gt;Swedroe (2002), ''Rational Investing in Irrational Times'', pp. 191-200. Truman Talley Books, St. Martin's Press, New York &lt;/ref&gt; It follows that scenario analysis itself is fraught with uncertainty. To put it bluntly, expected returns are not directly observable; they can only be estimated.&lt;ref&gt;Ilmanen, p.32&lt;/ref&gt; Nevertheless, financial academics and practitioners develop and publish their estimates of expected returns.&lt;ref&gt;{{cite web| author=Rick Ferri| author-link=Rick Ferri| url=http://www.portfoliosolutions.com/f-13.html| title=The Portfolio Solutions 30-Year Market Forecast For 2012| url-status=dead| archive-url=https://web.archive.org/web/20121027031840/http://www.portfoliosolutions.com/the-portfolio-solutions-30-year-market-forecast-for-2012/| archive-date=October 27, 2012}}&lt;/ref&gt;&lt;ref group="note"&gt;Various links to GMO's latest 7-year forecast can be found by searching for "GMO 7-Year Asset Class Forecasts (February 2012)". The latest GMO ''7-Year Asset Class Return Forecasts'' is available directly on the GMO website (https://www.gmo.com/America/Research/),{{dead link}} but registration (free) is required.
+&lt;/ref&gt;&lt;ref&gt;{{cite web| author=Ed Tower| date=November 10, 2008| url=http://public.econ.duke.edu/Papers//PDF/GMO_Predictions1.pdf| title=Are GMO’s Predictions Prescient? Using them to predict Vanguard’s Mutual Fund Returns| accessdate=October 17, 2023}}&lt;/ref&gt;
+
+A concept that will be useful in subsequent sections is the ''expected return of a portfolio'', which is simply the weighted average of the expected returns for the individual assets in the portfolio. This is expressed mathematically as:
+
+:&lt;math&gt;\operatorname{E}(r_p) = \sum_{i=1}^n (w_i)\operatorname{E}(r_i)&lt;/math&gt;
+
+where ''w&lt;sub&gt;i&lt;/sub&gt;'' is the percent of the portfolio in asset ''i'', and E(''r&lt;sub&gt;i&lt;/sub&gt;'') is the expected return of asset ''i''.
+
+==Measuring risk: estimated returns==
+
+A previous section illustrated ''variance'' of returns using ''historical'' returns. The calculation of the variance of estimated ''future'' returns is similar, except that the probabilities of the returns are not equal, but are the probabilities assigned to various scenarios.
+
+Variance of estimated future returns, Var(r), is calculated as follows:
+
+# Subtract the expected return, E(r), from the estimated return, r(s), for the scenario: [r(s) - E(r)]
+# Square the result: [r(s) - E(r)]&lt;sup&gt;2&lt;/sup&gt;
+# Multiply the result by the probability, p(s), of the scenario: p(s) x [r(s) - E(r)]&lt;sup&gt;2&lt;/sup&gt;
+# Sum the resulting values across all scenarios:
+
+::&lt;math&gt; 
+\operatorname{Var}(r) = \sigma^2 = 
+\operatorname{p}(s_1)[\operatorname{r}(s_1) - \operatorname{E}(r)]^2 + 
+\operatorname{p}(s_2)[\operatorname{r}(s_2) - \operatorname{E}(r)]^2 + \cdots +
+\operatorname{p}(s_n)[\operatorname{r}(s_n) - \operatorname{E}(r)]^2
+&lt;/math&gt;
+
+Or using summation notation:
+
+::&lt;math&gt;\operatorname{Var}(r) = \sigma^2 = \sum_{i=1}^n \operatorname{p}(s_i)(r_i - \operatorname{E}(r))^2&lt;/math&gt;
+
+To deepen the intuitive understanding of the calculation of variance of estimated returns, consider the purpose of each step in the calculation. 
+
+# Step 1 yields a number that is larger for a scenario return that is further from the expected return. 
+# Step 2 eliminates negative values, so that negative values do not offset positive values; that is, the measure should increase whether a scenario return is less than or greater than the expected return. 
+# Step 3 gives a greater weight to a higher-probability scenario.
+# Step 4 adds the individual, probability-weighted, squared differences to yield a single number.
+
+The purposes of steps 1, 2 and 4 are basically the same as for the calculation of the variance of ''historical'' returns. Step 3 introduces ''probability weighting''. 
+
+As with historical returns, the ''standard deviation'' of estimated returns is calculated as the ''square root of the variance'' of the estimated returns.
+
+For the case of the nominal return on a 1-year T-Bill yielding 1%, the expected return, E(r), = 1%, and there is only one scenario, for which the nominal return is a certain (p(s) = 1). Therefore, the the variance is calculated as:
+
+:&lt;math&gt; 
+\operatorname{Var}(r) = \sigma^2 = 
+\operatorname{p}(s_1)[\operatorname{r}(s_1) - \operatorname{E}(r)]^2
+&lt;/math&gt;
+
+:&lt;math&gt; \operatorname{Var}(r) = \sigma^2 = (1.0)(0.01 - 0.01)^2 &lt;/math&gt;
+
+:&lt;math&gt; \operatorname{Var}(r) = \sigma^2 = 0 &lt;/math&gt;
+
+Since &lt;span style="font-size:100%"&gt;&amp;#8730;0 = 0&lt;/span&gt;, the standard deviation is 0 pp. Note the intuitive sense of this: a standard deviation of 0 indicates zero uncertainty in the return.
+
+Recall the three-scenario case discussed earlier:
+
+:*Recession: probability, p(s&lt;sub&gt;1&lt;/sub&gt;) = 0.20; estimated return, r(s&lt;sub&gt;1&lt;/sub&gt;) = -10%
+:*Normal growth: probability, p(s&lt;sub&gt;2&lt;/sub&gt;) = 0.60; estimated return, r(s&lt;sub&gt;2&lt;/sub&gt;) = 5%
+:*Strong growth: probability, p(s&lt;sub&gt;3&lt;/sub&gt;) = 0.20; estimated return, r(s&lt;sub&gt;3&lt;/sub&gt;) = 10%
+
+The expected return, E(r), was calculated as 3%. The variance is calculated as:
+
+:&lt;math&gt; 
+\operatorname{Var}(r) = \sigma^2 = 
+\operatorname{p}(s_1)[\operatorname{r}(s_1) - \operatorname{E}(r)]^2 + 
+\operatorname{p}(s_2)[\operatorname{r}(s_2) - \operatorname{E}(r)]^2 +
+\operatorname{p}(s_3)[\operatorname{r}(s_3) - \operatorname{E}(r)]^2
+&lt;/math&gt;
+
+:&lt;math&gt;
+\operatorname{Var}(r) = \sigma^2 = (0.20)(-0.10 - 0.03)^2 + (0.60)(0.05 - 0.03)^2 + (0.20)(0.10 - 0.03)^2
+&lt;/math&gt;
+
+:&lt;math&gt;
+\operatorname{Var}(r) = \sigma^2 = (0.20)(-0.13)^2 + (0.60)(0.02)^2 + (0.20)(0.07)^2 
+&lt;/math&gt;
+
+:&lt;math&gt; \operatorname{Var}(r) = \sigma^2 = 0.0046 &lt;/math&gt;
+
+And the standard deviation is:
+
+:&lt;math&gt; \operatorname{SD}(r) = \sigma = \sqrt{0.0046} &lt;/math&gt;
+
+:&lt;math&gt; \operatorname{SD}(r) = \sigma = 0.07 = 7% &lt;/math&gt;
+
+Although three samples is not enough to apply the statistical implications of standard deviation, two of the returns fall within E(r) +/- one standard deviation (3% +/- 7 pp), and all returns fall within E(r) +/- two standard deviations (3% +/- 14 pp). Again, standard deviation seems to provide a reasonable measure of the dispersion of returns (risk).
+
+==Managing portfolio risk==
+
+A ''portfolio'' is the investor's collection of financial assets, such as stocks, bonds and cash. Selecting investments to balance the tradeoff between risk and expected return is ''portfolio selection'', ''portfolio construction'', or ''portfolio optimization''. ''Portfolio Theory'' is the theoretical basis for portfolio selection.
+
+Portfolio selection has two main techniques for managing the risk-return tradeoff: diversification, and asset allocation. Diversification means owning enough securities in different industries to reduce or eliminate firm-specific and industry-specific risks. Asset allocation involves building an efficient portfolio, using multiple asset classes (such as stocks, bonds, and cash), that gives an appropriate risk-return tradeoff based on the investor's risk tolerance.
+
+Intuitively, portfolio risk is proportional to the amount of risky assets in the portfolio. A straightforward way to adjust the risk of the complete portfolio is to combine a portfolio of risky assets with a risk-free asset, for example combining a total stock market index fund (the risky portfolio) with T-bills or other money market securities (the risk-free asset). The risk of the complete portfolio will be proportional to the proportion of the risky portfolio included in the complete portfolio, and inversely proportional to the proportion of the risk-free asset. Of course portfolio theory posits that expected return also is proportional to portfolio risk.
+
+Although less intuitive, investors can adjust the portfolio risk-return tradeoff by combining different risky assets in various proportions. For example, they can improve the risk-return tradeoff by selecting a risky portfolio that includes US stocks, non-US stocks, and bonds. A goal of portfolio selection is to find a combination of risky assets that optimizes the ratio of expected return to risk. The ratio of expected return to risk is considered a measure of ''portfolio efficiency''.
+
+Classic portfolio selection consists of two steps:
+
+# Determine an optimal combination of risky assets (the ''risky portfolio'').
+# Construct the ''complete portfolio'' by combining the risky portfolio with a risk-free asset in proportions that achieve an appropriate ratio of expected return to risk, based on the investor's risk tolerance.
+
+The resulting portfolio is an efficient portfolio, in that any other combination of risky and risk-free assets would have either a lower expected return for a given level of risk, or more risk for a given level of expected return. Of course since expected returns and risk are not observable, but can only be estimated, portfolio efficiency cannot be known with any great certainty. The most efficient portfolio based on historical returns is unlikely to be the most efficient portfolio going forward. Nevertheless, investors often use historical returns to help estimate appropriate proportions of different risky asset classes to include in a portfolio.
+
+Because step 2 of the two-step process described above involves simpler theory, it will be covered first. 
+
+===Portfolio of risky assets combined with a risk-free asset===
+Risky assets include bonds as well as stocks, but for now assume that the risky portfolio is a total stock market index fund. As discussed in previous sections, there is no truly risk-free asset, but T-bills often are considered the risk-free asset in portfolio theory. The risk of T-bills and other money market securities is so much lower than the risk of stocks that this is a reasonable approach, especially for relatively short holding periods.
+
+Both the ''expected return'' and the ''risk'' of a portfolio must be determined to evaluate the ''risk-return trade-off'' of combining a portfolio of risky assets with a risk free asset. The following steps develop an equation that relates the expected return of a such a portfolio to its risk, where risk is measured by the standard deviation of portfolio returns.
+
+''Portfolio of risky assets combined with a risk-free asset: ''Expected return'' ''
+
+The expected return of a portfolio of assets is the the weighted average of the expected returns of the individual assets:
+
+:&lt;math&gt; \operatorname{E}(r_p) = w_1 \operatorname{E}(r_1) + w_2 \operatorname{E}(r_2)
+ + \cdots + w_n \operatorname{E}(r_n).
+&lt;/math&gt;
+
+This can be expressed more concisely using summation notation as:
+
+:&lt;math&gt; \operatorname{E}(r_p) = \sum_{i=1}^n w_i \operatorname{E}(r_i). &lt;/math&gt;
+
+The ''weight'' of an asset in a portfolio refers to the fraction of the portfolio invested in that asset. For example, if ''w&lt;sub&gt;1&lt;/sub&gt;'' = &lt;span style="font-size:100%"&gt;&amp;#188;&lt;/span&gt;, then one fourth of the portfolio is invested in asset ''1'' with expected return E(''r&lt;sub&gt;1&lt;/sub&gt;'').
+
+For ''two assets'' this reduces to:
+
+:&lt;math&gt; \operatorname{E}(r_p) = w_1 \operatorname{E}(r_1) + w_2 \operatorname{E}(r_2) &lt;/math&gt;
+:&lt;math&gt; \operatorname{E}(r_p) = w_1 \operatorname{E}(r_1) + (1 - w_1) \operatorname{E}(r_2)&lt;/math&gt;
+
+Let one asset be the risky portfolio consisting of a total stock market index fund, with expected return E(r&lt;sub&gt;s&lt;/sub&gt;) = 6%, and with the standard deviation of annual returns = 20% (these values are very close to the values for the historical returns of the Vanguard Total Stock Market Index fund from 1998 through 2011). Let the other asset be a risk-free asset with return r&lt;sub&gt;f&lt;/sub&gt; = 1% (since r&lt;sub&gt;f&lt;/sub&gt; is known with certainty, E(r&lt;sub&gt;f&lt;/sub&gt;) = r&lt;sub&gt;f&lt;/sub&gt;). The rate of return of the risk-free asset is referred to as the ''risk-free rate of return'', or simply the ''risk-free rate''. The standard deviation of the risk-free asset is 0% by definition. Applying the above equation to this portfolio:
+
+:&lt;math&gt; \operatorname{E}(r_p) = w_s \operatorname{E}(r_s) + (1 - w_s)(r_f)&lt;/math&gt;
+:&lt;math&gt; \operatorname{E}(r_p) = w_s \operatorname{E}(r_s) - w_s r_f + r_f&lt;/math&gt;
+:&lt;math&gt; \operatorname{E}(r_p) = r_f + w_s (\operatorname{E}(r_s) - r_f)&lt;/math&gt;
+
+E(''r&lt;sub&gt;s&lt;/sub&gt;'') - ''r&lt;sub&gt;f&lt;/sub&gt;'' is the ''risk premium'' of the risky portfolio. The expected risk premium of an asset is the expected return of the asset in excess of the risk-free rate. Since the risky portfolio here is a stock fund, its risk premium is referred to as the ''equity risk premium'' or ERP (''equities'' is synonymous with ''stocks'').
+
+Plugging in the risk-free rate and the expected return for the stock fund gives:
+
+:&lt;math&gt; \operatorname{E}(r_p) = 0.01 + w_s(0.06 - 0.01) &lt;/math&gt;
+:&lt;math&gt; \operatorname{E}(r_p) = 0.01 + 0.05w_s &lt;/math&gt;
+
+This is a linear equation indicating that a portfolio of any expected return between ''r&lt;sub&gt;f&lt;/sub&gt;'' = 1% and E(''r&lt;sub&gt;s&lt;/sub&gt;'') = 6% can be constructed by combining the risky portfolio and risk-free asset in the desired proportions. The risk premium of the stock fund is 0.05 = 5%.
+
+If ''w&lt;sub&gt;s&lt;/sub&gt;'' = 0, the portfolio consists only of the risk-free asset, and the expected return of the portfolio is simply the risk-free rate:
+
+:&lt;math&gt; \operatorname{E}(r_p) = 0.01 + (0.05)(0) &lt;/math&gt;
+:&lt;math&gt; \operatorname{E}(r_p) = 0.01 = 1% &lt;/math&gt;
+
+If ''w&lt;sub&gt;s&lt;/sub&gt;'' = 1, the total portfolio consists entirely of the risky portfolio, and the expected return of the total portfolio is the expected return of the risky portfolio:
+
+:&lt;math&gt; \operatorname{E}(r_p) = 0.01 + (0.05)(1) &lt;/math&gt;
+:&lt;math&gt; \operatorname{E}(r_p) = 0.06 = 6% &lt;/math&gt;
+
+If the portfolio is divided evenly between the risky portfolio and the risk-free asset, ''w&lt;sub&gt;s&lt;/sub&gt;'' = 0.5, and the expected return of the portfolio is:
+
+:&lt;math&gt; \operatorname{E}(r_p) = 0.01 + (0.05)(0.5) &lt;/math&gt;
+:&lt;math&gt; \operatorname{E}(r_p) = 0.01 + (0.025) &lt;/math&gt;
+:&lt;math&gt; \operatorname{E}(r_p) = 0.035 = 3.5% &lt;/math&gt;
+
+In the case of a portfolio evenly divided between the risky portfolio and the risk-free asset, ''w&lt;sub&gt;s&lt;/sub&gt;'' = ''w&lt;sub&gt;f&lt;/sub&gt;'' = &lt;span style="font-size:100%"&gt;&amp;#189;&lt;/span&gt;, and the expected return is simply the average of the returns of the two assets:
+
+:&lt;math&gt; \operatorname{E}(r_p) = \frac {0.01 + 0.06}{2} = 0.035 = 3.5% &lt;/math&gt;
+
+''Portfolio of risky assets combined with a risk-free asset: ''Risk'' ''
+
+Because the standard deviation of a risk-free asset is 0%, the standard deviation of a portfolio formed by combining a portfolio of risky assets with a risk-free asset is simply the standard deviation of the risky portfolio times the proportional weight of the risky portfolio:
+
+:&lt;math&gt; \operatorname{SD}(p) = \sigma_p = w_s \sigma_s &lt;/math&gt;
+
+So the risk of the total portfolio is linearly proportional to the weight of the risky portfolio. Given the standard deviation of annual returns of the risky portfolio of stocks = 20%, a portfolio can be constructed with a standard deviation between 0% and 20%. A portfolio evenly divided between the risky portfolio and the risk-free asset would have a standard deviation of 10%.
+
+''Portfolio of risky assets combined with a risk-free asset: ''expected return in terms of risk'' ''
+
+The above equations can be combined to express the expected return of the total portfolio as a function of its standard deviation, thus ''relating the expected return of the portfolio to its risk''. Rearranging the equation for the standard deviation of the total portfolio gives ''w&lt;sub&gt;s&lt;/sub&gt;'' = &lt;span style="font-size:100%"&gt;&amp;sigma;&lt;sub&gt;p&lt;/sub&gt; / &amp;sigma;&lt;sub&gt;s&lt;/sub&gt;&lt;/span&gt;. Therefore,
+
+:&lt;math&gt; \operatorname{E}(r_p) = r_f + w_s [\operatorname{E}(r_s) - r_f]&lt;/math&gt;
+:&lt;math&gt; \operatorname{E}(r_p) = r_f + \frac{\sigma_p}{\sigma_s}[\operatorname{E}(r_s) - r_f]&lt;/math&gt;
+:&lt;math&gt; \operatorname{E}(r_p) = r_f + \frac{[\operatorname{E}(r_s) - r_f]}{\sigma_s} \sigma_p&lt;/math&gt;
+
+This is a linear equation that gives portfolio expected return, &lt;math&gt;\operatorname{E}(r_p)&lt;/math&gt;, as a function of portfolio risk as measured by standard deviation, &lt;math&gt;\sigma_p&lt;/math&gt;, with intercept ''r&lt;sub&gt;f&lt;/sub&gt;'' and slope &lt;math&gt; \frac{\operatorname{E}(r_s) - r_f}{\sigma_s} &lt;/math&gt;. The line plotted from this equation is known is the ''Capital Allocation Line'' or ''CAL'', since capital can be allocated between the risky portfolio and risk-free asset to achieve any risk-return combination along the line.
+
+The slope of the CAL is the ratio of the risky portfolio's excess expected return (risk premium) to its risk (that is, its variability as measured by standard deviation). This reward-to-variability ratio is a widely used measure of portfolio efficiency (risk-adjusted return), and is commonly referred to as the ''Sharpe ratio'' (or Sharpe measure), after William Sharpe who first suggested its use.&lt;ref&gt;Bodie, Kane, Marcus, 2008, p. 137&lt;/ref&gt; The steeper the slope of the CAL, the more efficient the portfolios to choose from.
+
+Although the theory being discussed here involves expected (ex-ante) returns, the Sharpe ratio also is commonly used to evaluate the efficiency or risk-adjusted returns of portfolios (for example, mutual funds) based on historical (ex-post) returns.
+
+[[File:CAL.png|thumb|right|351px||Investment Opportunity Set of Portfolios Using a Risk-Free Asset and One Risky Asset (Capital Allocation Line)]]
+
+Substituting in the example numbers of r&lt;sub&gt;f&lt;/sub&gt; = 0.01, E(r&lt;sub&gt;s&lt;/sub&gt;) = 0.06, and σ&lt;sub&gt;s&lt;/sub&gt; = 20% = 0.20:
+
+:&lt;math&gt; \operatorname{E}(r_p) = r_f + \frac{[\operatorname{E}(r_s) - r_f]}{\sigma_s} \sigma_p&lt;/math&gt;
+:&lt;math&gt; \operatorname{E}(r_p) = 0.01 + \frac{0.06 - 0.01}{0.20} \sigma_p&lt;/math&gt;
+:&lt;math&gt; \operatorname{E}(r_p) = 0.01 + 0.25 \sigma_p&lt;/math&gt;
+
+So a portfolio of any expected return between 1% and 6% with proportional standard deviation between 0% and 20% can be constructed by combining the risk-free asset and the risky portfolio in appropriate proportions. With a CAL slope of 0.25, portfolio expected return increases by 1 percentage point for each increase of 4 percentage points in portfolio standard deviation (σ&lt;sub&gt;p&lt;/sub&gt;); that is, solving this equation for values of σ&lt;sub&gt;p&lt;/sub&gt; = 0%, 4%, 8%, 12%, 16% and 20% gives values for E(r&lt;sub&gt;p&lt;/sub&gt;) of 1%, 2%, 3%, 4%, 5% and 6%, as shown in the chart in the nearby figure.
+
+===Portfolio of two risky assets===
+
+This section develops the theory that shows the risk-return characteristics for a portfolio consisting of two risky assets. It will be extended to more than two risky assets in the following section. This is the theory that underlies the practice of combining multiple risky assets into a portfolio that has less risk than the weighted sum of the risks of the individual assets. Examples are a mutual fund that includes many individual securities, and a portfolio of mutual funds that includes different asset classes; for example, domestic stocks, foreign stocks, and bonds.
+
+In considering two risky assets, it is convenient to consider two mutual funds, but the same theory applies to any two assets; for example, two individual stocks. In the following section in which portfolios of many assets are considered, it will be more convenient to consider individual securities.
+
+The statistical measures ''covariance'' and ''correlation'' are fundamental to calculating the risk-return characteristics of a portfolio consisting of multiple risky assets. 
+
+Covariance is a measure of how the values of two dependent variables move together, or co-vary, as the value of a common independent variable changes.&lt;ref&gt;Reilly, 1994, p. 245&lt;/ref&gt; The dependent variables of interest in portfolio theory are the returns of the assets in the portfolio, and the independent variable could be a scenario (for example, the state of the economy) or a time period.
+
+Consider the product of the deviations of returns for two assets, stock fund ''s'' and bond fund ''b'', from their expected values for a particular scenario (or during a certain time period):
+
+:&lt;math&gt;
+[r_s - \operatorname{E}(r_s)][r_b - \operatorname{E}(r_b)]
+&lt;/math&gt;
+
+If the returns of the two assets are both above their expected values (both deviations are positive), or the returns of the two assets are both below their expected values (both deviations are negative), the product of the deviations will be positive. If the return of one asset is above its expected value (positive deviation), and the return of the other asset is below its expected value (negative deviation), the product of the deviations will be negative. Thus the sign of the product of the deviations indicates whether or not the returns have deviated in the same direction or opposite directions, and the magnitude of the product of the deviations indicates how much the returns have deviated from their expected values. The covariance of returns is the expected value of the products of the deviations across all scenarios:
+
+:&lt;math&gt;
+\operatorname{Cov}(r_s,r_b) = \sum_{i=1}^n p(i)[(r_s(i) - \operatorname{E}(r_s)][r_b(i) - \operatorname{E}(r_b)]
+&lt;/math&gt;
+
+where p(i) is the probability for scenario i, and r&lt;sub&gt;s&lt;/sub&gt;(i) and r&lt;sub&gt;b&lt;/sub&gt;(i) are the respective returns for the stock and bond fund for scenario i.
+
+Often a more convenient measure to work with is the ''correlation coefficient'', which is computed by dividing the covariance by the product of the standard deviations of the two assets:
+
+:&lt;math&gt;
+\rho_{s,b} = \frac{\operatorname{Cov}(r_s,r_b)}{\sigma_s \sigma_b}
+&lt;/math&gt;
+
+The correlation coefficient varies from -1 for two perfectly uncorrelated variables to 1 for perfectly correlated variables. A correlation coefficient of 0 indicates no correlation between the two variables.
+
+The variance of the rate of return of a portfolio consisting of two risky assets, in this case stock fund ''s'' and bond fund ''b'', is given by this equation:
+
+:&lt;math&gt;
+\sigma_p^2 = (w_s \sigma_s)^2 + (w_b \sigma_b)^2 + 2(w_s \sigma_s)(w_b \sigma_b)\rho_{s,b}
+&lt;/math&gt;
+
+or equivalently
+
+:&lt;math&gt;
+\sigma_p^2 = (w_s \sigma_s)^2 + (w_b \sigma_b)^2 + 2w_s w_b \operatorname{Cov}(r_s,r_b)
+&lt;/math&gt;
+
+where w&lt;sub&gt;s&lt;/sub&gt; and w&lt;sub&gt;b&lt;/sub&gt; represent the respective proportions (weights) of the portfolio invested in the stock and bond funds, and σ&lt;sub&gt;s&lt;/sub&gt; and σ&lt;sub&gt;b&lt;/sub&gt; are the respective standard deviations of the stock and bond funds.
+
+The portfolio variance depends on the weighted standard deviations of the assets ''plus'' a term that depends on the covariance (or correlation) of the assets. The smaller the correlation between the assets the lower the portfolio variance.
+
+For a correlation coefficient of 1 (perfectly correlated assets), the equation for portfolio variance is:
+
+:&lt;math&gt;
+\sigma_p^2 = (w_s \sigma_s)^2 + (w_b \sigma_b)^2 + 2(w_s \sigma_s)(w_b \sigma_b)
+&lt;/math&gt;
+which reduces to:
+:&lt;math&gt;
+\sigma_p^2 = (w_s \sigma_s + w_b \sigma_b)^2
+&lt;/math&gt;
+
+and the standard deviation is:
+
+:&lt;math&gt;
+\operatorname{SD}(p) = \sigma_p = (w_s \sigma_s + w_b \sigma_b)
+&lt;/math&gt;
+
+So for two perfectly, positively correlated assets, the portfolio standard deviation is simply the weighted average of the standard deviations of the two assets. ''Any correlation less than 1 will result in a portfolio standard deviation that is less than the weighted average of the standard deviations of the individual assets''. 
+
+Since the portfolio expected return is the weighted average of the returns of the individual assets (as shown in previous sections), but the standard deviation is less than the weighted average of the assets' standard deviations, ''a portfolio of assets that are not perfectly correlated always provides a better risk-return opportunity than the individual assets on their own.''&lt;ref&gt;Bodie, Kane, Marcus, 1996, p. 197&lt;/ref&gt;
+
+As a simple illustration of this important concept, consider a portfolio of two assets that have the same expected value and standard deviation, but that are not perfectly correlated (correlation coefficient less than 1). The expected value of the portfolio will be the same as the expected value of each asset, but the variance (and standard deviation) of the portfolio will be less than the variance (and standard deviation) of each asset (this can be verified with the above equations). This demonstrates how combining risky assets can result in a portfolio that is less risky than either asset on its own.
+
+[[File:TwoRiskyAssets.png|thumb|right|351px||Investment Opportunity Set of Portfolios Formed by Combining Two Risky Assets in Various Proportions]]
+
+To graphically illustrate the diversification benefit of a portfolio consisting of two risky, imperfectly correlated assets, assume estimates of expected returns of 7% and 8% respectively for a total US stock fund and a total international stock fund, respective standard deviations of 18% and 20%, and a correlation coefficient of 0.8. The nearby figure shows a graph of expected return vs. standard deviation for portfolios consisting of various proportions of each fund.
+
+The lower left point represents the return and standard deviation of the US stock fund, and the upper right point represents return and standard deviation of the international stock fund. Every other point represents a portfolio consisting of both funds. Each point represents a 10 percentage point change in the proportions of each fund. The expected return and standard deviations for each point are calculated using the above equations.
+
+Notice that a portfolio consisting of 60% US stocks and 40% international stocks provides a higher expected return (about 7.4%) with a lower standard deviation (about 17.9%) than a portfolio consisting of 100% US stocks. This is because the correlation coefficient, 0.8, is less than 1. If the correlation coefficient were 1, the investment opportunity set would consist of a straight line between the lower left point and the upper right point. The degree to which the investment opportunity set curve bulges to the left of a straight line connecting the endpoints represents the diversification benefit due to imperfect correlation.
+
+Of course expected returns, standard deviations, and correlation coefficients cannot be known in advance, so the diversification benefit of combining two risky assets is only as good as your estimates of these values. It is common to use historical values as a starting point in estimating the inputs required to construct an efficient portfolio. 
+
+For example, based on their analysis of historical returns, Vanguard's research group as concluded that it is reasonable for US investors to allocate between 20% and 40% of the stock portion of their portfolios to international stocks.&lt;ref&gt;{{cite web| publisher=Vanguard Investment Counseling &amp; Research| date=2006| url=https://institutional.vanguard.com/iwe/pdf/FASIECR_112006.pdf| title=International Equity: Considerations and Recommendations| accessdate=August 10, 2012}}{{dead link}}&lt;/ref&gt; Vanguard currently allocates 30% to international stocks in the stock portions of their balanced index funds, such as the Target Retirement and LifeStrategy funds.
+
+===Portfolio of many risky assets===
+
+The general equation for the variance of a portfolio of risky assets is:
+
+:&lt;math&gt; \sigma_p^2 = \sum_{i=1}^n w_i^2 \sigma_{i}^2 
+ + \sum_{i=1}^n \sum_{j=1,j \neq i}^n w_i w_j \sigma_i \sigma_j \rho_{ij}, 
+&lt;/math&gt;
+
+Recalling that &lt;math&gt;\operatorname{Cov}(i,j) = \sigma_i \sigma_j \rho_{ij} &lt;/math&gt;, the equation can be rewritten more succinctly as:
+
+:&lt;math&gt; \sigma_p^2 = \sum_{i=1}^n w_i^2 \sigma_{i}^2 
+ + \sum_{i=1}^n \sum_{j=1 j \neq i}^n w_i w_j \operatorname{Cov}(i,j). 
+&lt;/math&gt;
+
+The terms summed on the left are the ''variances of the individual assets'' multiplied by the squared portfolio weights of the assets. The double summation on the right represents the summation across all assets of the ''covariance of each pair of assets'' multiplied by the portfolio weights of the assets in each pair. 
+
+The condition &lt;span style="font-size:100%"&gt;''j &amp;#8800; i''&lt;/span&gt; indicates that the covariance of an asset with itself is not included in the double summation. The covariance of an asset with itself is the asset's variance — that is, &lt;math&gt;\operatorname{Cov}(i,i) = \sigma_i^2&lt;/math&gt; — and the assets' variances already are included in the summation on the left. To clarify this point, the equation can be rewritten as:
+
+:&lt;math&gt; \sigma_p^2 = \sum_{i=1}^n \sum_{j=1}^n w_i w_j \operatorname{Cov}(i,j). 
+&lt;/math&gt;
+
+When ''i'' = ''j'', the term included in the sum is:
+
+:&lt;math&gt;w_i w_i \operatorname{Cov}(i,i) = w_i^2 \sigma_i^2&lt;/math&gt;,
+
+which represents term ''i'' in the first summation in the equation as previously written. So factoring out the sum of terms where ''i'' = ''j'' gives the equation as previously written.
+
+Expanding this equation for a portfolio of two risky assets gives:
+
+:&lt;math&gt;
+\sigma_p^2 = (w_1 \sigma_1)^2 + (w_2 \sigma_2)^2 
+ + w_1 w_2 \operatorname{Cov}(1,2)
+ + w_2 w_1 \operatorname{Cov}(2,1).
+&lt;/math&gt;
+
+There are two variance terms and two covariance terms. Since &lt;math&gt;\operatorname{Cov}(1,2) = \operatorname{Cov}(2,1)&lt;/math&gt;, the equation can be simplified to:
+
+:&lt;math&gt;
+\sigma_p^2 = (w_1 \sigma_1)^2 + (w_2 \sigma_2)^2 
+ + 2 w_1 w_2 \operatorname{Cov}(1,2).
+&lt;/math&gt;
+
+So although there two covariance terms before simplifying, only one covariance term must be calculated. This is the equation used in the previous section. 
+
+For three risky assets the equation expands to:
+
+:&lt;math&gt;
+\sigma_p^2 = (w_1 \sigma_1)^2 + (w_2 \sigma_2)^2 
+ + 2 w_1 w_2 \operatorname{Cov}(1,2)
+ + 2 w_1 w_3 \operatorname{Cov}(1,3)
+ + 2 w_2 w_3 \operatorname{Cov}(2,3).
+&lt;/math&gt;
+
+There are three variance terms and six original covariance terms, three of which must be calculated after simplifying the equation as written. As more assets are added to the portfolio, the number of covariance terms becomes much larger than the number of variance terms. Specifically, there are ''n'' variance terms and n(n-1) covariance terms (but only n(n-1)/2 covariance terms that must be calculated). It is intuitive that for a large number of assets the covariance terms will dominate the result; that is, ''the covariance between asset pairs will have much more impact on overall portfolio variance than the variances of the individual assets''.
+
+For asset pairs with given expected returns, lower covariance (correlation) between asset pairs in the portfolio results in lower portfolio variance and a more efficient portfolio. Portfolio efficiency is the ratio of expected excess portfolio return to portfolio variance. This demonstrates the diversification benefit of building a portfolio of many assets with less than perfect correlation.
+
+To further illustrate the benefit of diversification, consider the case in which a portfolio is constructed of many assets held in equal proportions. In this case w&lt;sub&gt;i&lt;/sub&gt; = &lt;sup&gt;1&lt;/sup&gt;/&lt;sub&gt;n&lt;/sub&gt; for each asset, and the equation for portfolio variance becomes:
+
+:&lt;math&gt; \sigma_p^2 = 
+ \sum_{i=1}^n (\frac1n)^2 \sigma_{i}^2 
+ + \sum_{i=1}^n \sum_{j=1 j \neq i}^n (\frac1n)(\frac1n) \operatorname{Cov}(i,j).
+&lt;/math&gt;
+
+With appropriate factoring, this equation can be rewritten as:
+
+:&lt;math&gt; \sigma_p^2 = 
+ \frac1n \sum_{i=1}^n \frac1n \sigma_{i}^2 
+ + \frac{n-1}{n} \sum_{i=1}^n \sum_{j=1 j \neq i}^n \frac {\operatorname{Cov}(i,j)}{n(n-1)}.
+&lt;/math&gt;
+
+The summation of terms on the left is the average variance of the assets. As n becomes large ''1/n'' approaches 0, so the term on the left approaches 0. This term represents the ''nonsystematic risk'' of the individual assets that can be diversified away by including a sufficiently large number of assets in the portfolio. In other words, in a portfolio of many assets, the variances of the individual assets have little impact on the variance of the portfolio.
+
+The double summation of terms on the right is the average covariance of the assets. As n becomes large, ''(n-1)/n'' approaches 1, so the term on the right approaches the average covariance. This term represents the ''systematic risk'' of the portfolio that cannot be diversified away. 
+
+This further demonstrates that it is the covariance between the assets in a portfolio of many assets that dominates the overall portfolio risk, and that the variances of the individual assets have little impact on the overall portfolio risk.
+
+The sources of systematic risk are the economic factors that affect the the overall market. For example, the level of economic growth affects all companies to some extent, and therefore affects the returns of all stocks to some extent.
+
+The portion of an asset's return variation that is ''not'' related to the market portfolio is referred to as ''unsystematic risk'' or ''nonsystematic risk''. The sources of unsystematic risk are the ''firm-specific risks'' of individual companies, as opposed to the broader economic factors that have some effect on all companies.
+
+As shown above, unsystematic risks can be eliminated, or "diversified away", by owning a portfolio of many assets that are not perfectly correlated. So one way to manage risk is to reduce or eliminate unsystematic risk by holding a large number of such securities--ultimately by holding all securities in the market. This is the theoretical foundation for owning a total market mutual fund, such as a total stock market or total bond market index fund.
+
+Determining the expected return and variance of a portfolio using the equations developed so far requires estimating ''n'' expected returns, ''n'' variances, and ''n(n-1)/2'' covariances. For a portfolio of many assets, the number of covariances that must be estimated becomes problematic. Index models provide a solution to this problem. An index model is an implementation of a factor model. The Capital Asset Pricing Model, or CAPM, provides the theoretical foundation for a single-factor model.
+
+===CAPM and single factor models===
+
+Given a simplifying set of assumptions, CAPM provides an equation that relates the excess expected return of asset ''i'' to its expected covariance with the expected excess return of the market portfolio ''M'':
+
+:&lt;math&gt; \operatorname{E}(r_i)- r_f = \frac {\operatorname{Cov}(i,M)}{\sigma_M^2} (r_M - r_f)&lt;/math&gt;.
+
+Excess expected return is the expected return of the asset or market portfolio minus the risk-free rate r&lt;sub&gt;f&lt;/sub&gt;. The market portfolio is a theoretical portfolio consisting of all marketable, risky assets; for example, stocks, bonds, real estate, commodities, collectibles, and so on. 
+
+Isolating the expected return of asset ''i'' on the left hand side of the equation gives:
+
+:&lt;math&gt; \operatorname{E}(r_i) = r_f + \frac {\operatorname{Cov}(i,M)}{\sigma_M^2} (r_M - r_f)&lt;/math&gt;.
+
+Defining the term &lt;math&gt;\frac {\operatorname{Cov}(i,M)}{\sigma_M^2}&lt;/math&gt; as beta (&lt;math&gt;\beta_i&lt;/math&gt;), the equation can be rewritten as:
+
+:&lt;math&gt; \operatorname{E}(r_i) = r_f + \beta_i (r_M - r_f)&lt;/math&gt;.
+
+Beta standardizes the measure of systematic risk by dividing the covariance of the asset with the market portfolio, &lt;math&gt;{\operatorname{Cov}(i,M)}&lt;/math&gt;, by the variance of the market portfolio, &lt;math&gt;{\sigma_M^2}&lt;/math&gt;. Since the covariance of an asset with itself is the variance of the asset, this results in a beta of 1 for the market portfolio. The ''expected return-beta'' equation above is the formulation of CAPM most widely used by investment professionals.&lt;ref&gt;Bodie, Kane, Marcus, 1996, p 244&lt;/ref&gt;
+
+The CAPM model relates expected return to expected risk, and involves a theoretical market portfolio consisting of all risky assets. Since expected returns are not observable, and in practice the market portfolio is not observable, factor models and index models were developed to enable investment professionals to put the theory behind CAPM into practice.
+
+In a ''single-factor model'' it is assumed that all unexpected macroeconomic events affecting the asset returns in a market can be summarized by one common factor, and that all remaining uncertainty in asset returns is firm specific.&lt;ref&gt;Bodie, Kane, Marcus, 1996, p. 267&lt;/ref&gt; Recognizing that each firm will have a different sensitivity to macroeconomic events, the following equation relates the return on security ''i'' to the common macroeconomic factor ''F'':
+
+:&lt;math&gt; r_i = \operatorname{E}(r_i) + \beta_i F + e_i &lt;/math&gt;,
+
+where &lt;math&gt;\operatorname{E}(r_i)&lt;/math&gt; is the expected return on security ''i'' at the beginning of the holding period, &lt;math&gt;\beta_i&lt;/math&gt; is the sensitivity of security ''i'' to macroeconomic factor ''F'', and ''e&lt;sub&gt;i&lt;/sub&gt;'' is component of return due to the impact of unanticipated firm-specific events.
+
+A ''single-index model'' uses the excess return on a market index, such as the S&amp;P 500, as a proxy for the common macroeconomic factor. Broader proxies for the market portfolio can be used; for example, all US stocks, all global stocks, or all global stocks and bonds. A single-index model equation for the excess holding period return on security ''i'' is:
+
+:&lt;math&gt; r_i - r_f = \alpha_i + \beta_i (r_M - r_f) + e_i \,&lt;/math&gt;,
+
+where &lt;math&gt;\alpha_i&lt;/math&gt; is the security's expected return if the excess market return is 0%, &lt;math&gt;r_M&lt;/math&gt; is the market index return, &lt;math&gt;\beta_i&lt;/math&gt; is the sensitivity of security ''i'' to the market index, and ''e&lt;sub&gt;i&lt;/sub&gt;'' is the component of return due to unexpected firm-specific events.
+
+Some authors express the single-index model in terms of total returns rather than excess returns.&lt;ref&gt;Elton et. al., 2003, pp. 132-133&lt;/ref&gt;
+
+Using capital ''R'' to represent excess return, the equation can be written more simply as:
+
+:&lt;math&gt; R_i = \alpha_i + \beta_i R_M + e_i \,&lt;/math&gt;.
+
+In this equation &lt;span style="font-size:100%"&gt;''&amp;beta;&lt;sub&gt;i&lt;/sub&gt;R&lt;sub&gt;M&lt;/sub&gt;''&lt;/span&gt; represents a source of ''systematic risk'' based on the security's sensitivity to the market index (a proxy for macroeconomic factors), and &lt;span style="font-size:120%"&gt;''e&lt;sub&gt;i&lt;/sub&gt;''&lt;/span&gt; represents a source of ''unsystematic risk'' based on firm-specific events.
+
+Since expected returns are not observable, beta typically is calculated using periodic historical returns over a specified time period; for example, weekly or monthly returns over the previous three to five years. For example, Morningstar calculates beta based on monthly returns over the previous 36 months.&lt;ref&gt;{{cite web| publisher=Morningstar| date=2005| url=http://corporate.morningstar.com/us/documents/MethodologyDocuments/MethodologyPapers/MorningstarMPTStatistics_Methodology.pdf| title=Morningstar MPT Statistics Methodology| accessdate=August 10, 2012}}{{dead link}}&lt;/ref&gt; The above equation is used as the basis of a linear regression analysis in which the dependent variable is the excess return of the individual asset, R&lt;sub&gt;i&lt;/sub&gt;, the independent variable is the excess return of the market index, R&lt;sub&gt;M&lt;/sub&gt;, and beta is the regression coefficient (slope of the line). 
+
+This can be represented graphically as follows. A scatter plot of R&lt;sub&gt;i&lt;/sub&gt; vs. R&lt;sub&gt;M&lt;/sub&gt; is generated in which the vertical axis measures the excess returns of the individual asset, and the horizontal axis measures the excess returns of the market index. Each point in the scatter plot represents a pair of excess returns for one period (week or month). A best-fit line is drawn through the points. The slope of the line is beta, and the vertical intercept is alpha. The vertical distance from the line of each point for period ''i'' is e&lt;sub&gt;i&lt;/sub&gt;, the deviation from the regression line.
+
+The variance of the excess return on security ''i'' can be written as:
+
+:&lt;math&gt; \operatorname{Var}(R_i) = \sigma_i^2 = \beta_i^2 \sigma_M^2 + \sigma^2(e_i) &lt;/math&gt;.
+
+On the right hand side of the equation, the first term is the variance due to uncertainty in the common macroeconomic factors (as represented by the market index), and the second term is the variance due to firm-specific uncertainty.
+
+The covariance between the excess rates of return on any two securities is:
+
+:&lt;math&gt;\operatorname{Cov}(R_i,R_j) = \operatorname{Cov}(\beta_i R_M, \beta_j R_M) = \beta_i \beta_j \sigma_M^2
+&lt;/math&gt;.
+
+From these equations it can be determined that (3''n'' + 1) estimates are required to evaluate the portfolio variance for ''n'' securities. This is many fewer estimates than the 2''n'' + ''n''(''n'' - 1)/2 estimates required using variances and covariances directly.
+
+=== Multifactor models ===
+
+Although CAPM and the related single-factor model have had significant impact on finance theory and practice, empirical studies have shown significant discrepancies between historical data and predictions of the CAPM-based single factor model. This may not be surprising considering the simplification of assuming that only a single factor affects the systematic variation in security prices. Theoretical work has been done attempting to use more than one factor to explain the systematic risk of securities.
+
+Two of the discrepancies mentioned above are the long-term returns of small company stocks and stocks with high ratios of book value to market value (value stocks), which are higher than predicted by CAPM. Motivated by these anomalies, Fama and French conducted research that resulted in what is commonly referred to as the [[Fama and French three-factor model | Fama-French three-factor model]].
+
+One of the three factors is the market portfolio (more specifically, an index representing the market), as in CAPM. The other two factors are SmB (Small minus Big) and HmL (High minus Low). SmB is a theoretical portfolio represented by the returns of small-cap stocks minus the returns of large-cap stocks (hence, Small minus Big or SmB). HmL is a theoretical portfolio represented by the returns of high book-to-market stocks minus the returns of low book-to-market stocks (hence, High minus Low or HmL).
+
+Fama and French's research indicated that regressing the empirical data against the three factors explained the returns of stock portfolios much better than did the CAPM-based single-factor model. The equation used to perform the regressions is:
+
+:&lt;math&gt; 
+r_i - r_f = \alpha_i + \beta_M (r_M - r_f) + \beta_h r_{HmL} + \beta_s r_{SmB} + e_i 
+\,&lt;/math&gt;.
+
+Each of the betas in the equation represent the sensitivity of a stock or portfolio of stocks to the corresponding factor. The empirically derived beta values can be considered as explaining how much of a portfolio's return can be explained by exposure to the respective factors. A portfolio more heavily weighted toward small-cap and value stocks would be expected to have higher values of &lt;span style="font-size:100%"&gt;''&amp;beta;&lt;sub&gt;s&lt;/sub&gt;''&lt;/span&gt; and &lt;span style="font-size:100%"&gt;''&amp;beta;&lt;sub&gt;h&lt;/sub&gt;''&lt;/span&gt;.
+
+This result is based on empirical research, not a theory related to specific risk factors. Therefore, one conclusion is that SmB and HmL may be ''proxies'' for exposure to sources of systematic risk not captured by the single CAPM factor of overall market risk.
+
+Investors who believe that SmB and HmL are valid proxies for systematic risk factors may decide to increase their allocations to small-cap stocks and value stocks. This is informally referred to as ''tilting'' toward small and value.
+
+==Assessing risk tolerance==
+{{Main|Assessing risk tolerance}}
+
+Assessing risk tolerance is a critical step in determining the appropriate trade off between the risk and expected return of a portfolio. Selecting a mix of risky and risk-free assets (or higher-risk and lower-risk assets) is one of the most important decisions in designing a portfolio. The investor must develop a rational assessment of risk tolerance to make rational decisions about this asset allocation during portfolio design.
+
+=== Criteria ===
+Most approaches to assessing risk tolerance consider attitude toward risk and investment time horizon in one way or another. Other factors that affect ability to compensate for investment losses include net worth, stability of income, future liabilities, and flexibility of goals.
+
+*The [[Bogleheads' Guide To Investing]] explores four areas: Goals, Time frame, Risk tolerance, Personal financial situation. Tools are recommended to help factor risk into your asset allocation. Various sample portfolios are presented based on these "stages in life". 
+*Bogleheads author [[Larry Swedroe]] suggests that investors evaluate their risk tolerance by considering their ''ability, willingness and need'' to take risk.
+*Bogleheads author [[William Bernstein]] discusses determining appropriate risk exposure in the context of deciding on your allocation between stocks and bonds based on age and risk tolerance (attitude toward risk), at least as a starting point.
+*Bogleheads author [[Rick Ferri]] suggests using a modified version of the age in bonds rule of thumb to help decide on the split between higher-risk and lower-risk assets, and presents asset allocation decisions in terms of a life-cycle investing framework.
+*Daniel R. Solin in his book ''The Smartest Money Book You'll Ever Read'', has a full chapter titles ''Assessing Your Risk Capacity'' where he presents five major factors for assessing risk capacity.
+*The CFA Institute discusses Investors and Objectives, Investor constraints (Liquidity, Investment Horizon, Regulations, Tax Considerations, Unique Needs.
+
+=== Self-assessment questionnaires ===
+Various advisory services offer self-assessment questionnaires to help determine your risk tolerance and define an initial asset allocation. Such tools are useful with caveats.
+
+==Managing financial risk==
+
+Investment risk, or financial-asset risk, is only one type of financial risk facing households. Other major categories of risk are:&lt;ref&gt;Bodie, Merton, 2000, p. 259&lt;/ref&gt;
+
+* Sickness, disability, and death.
+* Unemployment risk.
+* Consumer-durable asset risk: for example, the risk of loss from fire, theft or obsolescence related to owning a car, house, or other consumer-durable asset. 
+* Liability risk: for example, the possibility of being sued.
+
+Managing these types of risks, as well as managing investment risk, from a broader financial planning perspective is the topic of this section.
+
+==Short term risk vs. long term risk==
+Mentioned in "Risk as the possibility of loss" section, perhaps here we go into more detail on terminal wealth dispersion, how small differences in annualized return can result in large differences in terminal wealth, stocks ''are'' risky in the long run, and so on. This is covered in Bodie, Kane, Marcus, 2008.
+
+See Bernstein's [http://www.efficientfrontier.com/ef/900/15st.htm "The 15 Stock Myth"] for more on terminal wealth dispersion, but there he focuses on the danger of a portfolio with only a small number of stocks. He does emphasize that such portfolios, although they may have low standard deviation of monthly returns, also have a large dispersion of terminal wealth.
+
+==Notes==
+{{Reflist|group="note"}}
+
+==See also==
+*[[Bogleheads' Guide To Investing]]
+*[[Capitulation]]
+*[[Risk and return: an introduction]]
+*[[Risk and return: application]]
+
+==References==
+{{Reflist}}
+
+==Reading==
+*Reilly, Frank K. (1994). ''Investment Analysis and Portoflio Management''. The Dryden Press, Harcourt Brace College Publishers, Fourth Edition. ISBN 978-0030970528.
+*Bodie, Zvi; Kane, Alex; Marcus, Alan J. (2008). ''Essentials of Investments''. McGraw-Hill. ISBN 978-0071263245.
+*Elton, Gruber, Brown, Goetzmann (2003). ''Modern Portfolio Theory and Investment Analysis''. Wiley. ISBN 978-0471238546.
+*Ilmanen (2011). ''Expected Returns''. Wiley. ISBN 978-1-119-99072-7.
+*Bodie, Merton (2000). ''Finance''. Prentice-Hall. ISBN 978-0133108972.
+*Bernstein (2010), ''The Investor's Manifesto''. John Wiley &amp; Sons, Inc. ISBN 978-0470505144.
+*Bodie, Zvi; Kane, Alex; Marcus, Alan J. (1996). ''Investments''. McGraw-Hill. ISBN 978-0256146387.
+
+==External links==
+*Part of an online finance course that provides more in-depth coverage of much of the material in this Wiki article: [https://web.archive.org/web/20200227140918/http://ci.columbia.edu/ci/premba_test/c0332/s6/index.html Risk and Return]. ''PreMBA Finance'', Columbia University. (Archive copy.)
+*The file used to generate the Figures is available as a free download from Google Docs: [https://docs.google.com/open?id=0B8VSNcUR-B6Idk9welFiMDhRX3UybzZxdjdseDVwdw Risk - Historical Performance of Bonds and Stocks.xlsx].
+
+===Bibliography===
+* Bodie, Zvi (December 1994). [http://papers.ssrn.com/sol3/papers.cfm?abstract_id=5771 "On The Risk of Stocks in the Long Run"]. Harvard Business School Working Paper No 95-013. Retrieved 30 March 2012.
+* Bodie, Zvi; Truessard, Jonathan and Willen, Paul (May 2007). [http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1002388 "The Theory of Life-Cycle Saving and Investing"]. FRB of Boston Public Policy Discussion Paper No. 07-3. Retrieved 30 March 2012.
+* Dimson, Elroy; Marsh, Paul and Staunton, Mike (February 2002). [http://ssrn.com/abstract=299335 "Long-Run Global Capital Market Returns and Risk Premia"]. London Business School Accounting Subject Area No. 035. Retrieved 30 March 2012.
+*Dimson, Elroy; Marsh, Paul and Staunton, Mike (December 2003). [http://ssrn.com/abstract=476981 "Irrrational Optimism"]. LBS Institute of Finance and Accounting (Working Paper No. IFA397). Retrieved 3 April 2012.
+
+{{Risk navbox}}
+[[Category:Portfolio risk management]]</text>
+      <sha1>d9hyl65jbu5mvubdcyvkawpi0oq2ocj</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Dollar-cost averaging</title>
+    <ns>0</ns>
+    <id>2788</id>
+    <revision>
+      <id>83658</id>
+      <parentid>83636</parentid>
+      <timestamp>2025-01-20T00:24:42Z</timestamp>
+      <contributor>
+        <username>Peculiar Investor</username>
+        <id>151</id>
+      </contributor>
+      <minor/>
+      <comment>remove duplicate citations (same source)</comment>
+      <origin>83658</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="14047" sha1="gfhtb55pvp65dqi0fdqzax4o1t8zic8" xml:space="preserve">'''{{PAGENAME}}''' (DCA) means dividing an available investment lump sum into equal parts, and then periodically investing each part.&lt;ref group="note"&gt;The origin of the term '''Dollar cost averaging''' (DCA) is the distinction between a practice of buying a fixed number of shares every period and a practice of investing a fixed dollar amount every period. Over time the meaning has been extended.&lt;/ref&gt; DCA is an alternative to lump sum investing, which is to make the entire investment immediately. It is a technique to overcome fear in investing by mitigating the risk of loss over the short term. 
+
+For any sequence of constant-dollar purchases&lt;ref group="note"&gt;Equal parts means that the amount (dollars) is constant, hence the term "constant-dollar".&lt;/ref&gt; of an asset whose price fluctuates, you would purchase more shares when prices are lower than when prices are high.&lt;ref&gt;{{cite web| url=https://www.investopedia.com/terms/d/dollarcostaveraging.asp| title=Dollar-Cost Averaging (DCA) Explained With Examples and Considerations| publisher=Investopedia| date=April 26, 2023| accessdate=August 12, 2023}}&lt;/ref&gt; As a result, the average cost per share will be lower than the average price per share over the same period.
+
+This consequence of DCA provides an argument to persuade investors to make systematic, periodic fixed dollar amount investments regardless of market prices. 
+
+The term DCA is also encompasses similar investment concepts such as [[#Automatic investment|periodic automatic investment]] (used almost universally by individual investors to fund retirement accounts out of earned income).
+
+A variant on the idea of DCA is "[[#Reverse dollar cost averaging|reverse dollar-cost averaging]]", which relates to periodic automatic withdrawals made during retirement.&lt;ref name="Hebeler"&gt;{{cite web| url=http://www.analyzenow.com/Articles/Investments/Investment%20Articles/ReverseDollarCostAvg1-1-01.pdf| title=Reverse Dollar Cost Averaging| author=Henry K. Hebeler| date=January 2, 2001| accessdate=August 12, 2023}}&lt;/ref&gt; Also, [[value averaging]] closely resembles dollar-cost averaging but differs in that the investor selects a target growth rate or amount on their asset base or portfolio each period, and then adjusts the next period's contribution according to the relative gain or shortfall made on the original asset base.&lt;ref&gt;{{cite web| url=https://www.investopedia.com/terms/v/value_averaging.asp| title=Value Averaging: What it Means, Examples| publisher=Investopedia| date=May 5, 2022| accessdate=August 12, 2023}}&lt;/ref&gt;
+
+==Dollar-cost averaging versus lump sum==
+When you are ready to invest money, a common question is whether you should invest it as a '''lump sum''' or '''dollar-cost average (DCA)''' by splitting your investment across several payments. The answer depends on the degree to which you are willing to accept lower expected returns in exchange for lower potential losses (aversion to possible loss).
+
+In most cases, you are moving your money from cash (or the equivalent, a low-yielding [[Money markets | money market]]) to some mix of [[Stock basics | stocks]] and [[Bond basics | bonds]]. The expected return of both stocks and bonds is higher than cash. However, their volatility is higher as well. The risk is that just after making your investment, the market could crash, causing your investment to quickly lose value due to the unfortunate timing of your purchase. 
+
+Of course, according to [[Bogleheads® investment philosophy | Bogleheads investment philosophy]], you should only be investing in the first place into a diversified asset allocation. Also, you should only be holding volatile funds like stocks and bonds if your investing horizon is long enough to ride out their volatility.
+
+Lump sum investing will always carry a higher expected return, because it immediately moves your funds from asset classes with lower expected returns to ones with higher expected returns. Note that higher ''expected'' returns do not guarantee that your ''actual'' returns will be higher. A Vanguard study&lt;ref name=":0"&gt; {{cite web| url=https://pressroom.vanguard.com/nonindexed/7.23.2012_Dollar-cost_Averaging.pdf| title=Dollar-cost averaging just means taking risk later| publisher=Vanguard| date=July 23, 2012| url-status=dead| archive-url=https://web.archive.org/web/20121107195530/https://pressroom.vanguard.com/nonindexed/7.23.2012_Dollar-cost_Averaging.pdf| archive-date=November 7, 2012}}&lt;/ref&gt; concluded that lump sum investing has historically produced higher returns two thirds of the time when the DCA plan was implemented over 12 months. Lump sum was also more favorable when the analysis used risk-adjusted returns.&lt;ref name=":0" /&gt; DCA plans with longer timelines have worse results. A related Vanguard publication notes that if a DCA plan was implemented over 36 months, lump sum investing produced higher returns approximately 92% of the time. In addition, over a 12-month period, the maximum downside potential of DCA was higher than the maximum upside potential.&lt;ref name=":1"&gt;{{Cite web|last=Berkowitz|first=Daniel B.|date=2016|title=Invest now or temporarily hold your cash?|url=https://www.optimizedportfolio.com/wp-content/uploads/2021/03/vanguard-invest-now-or-temporarily-hold-your-cash.pdf|publisher=Vanguard}}&lt;/ref&gt;
+
+Some investors are willing to sacrifice some expected return in order to reduce their potential loss, knowing that higher expected return come with higher potential loss. For those investors, dollar-cost averaging is superior because it reduces the chances of investing all the money just prior to a market drop. Instead, as the price fluctuates each month, you will buy more shares when the price is low and less when it is high. In such volatile markets your actual return can be higher than the return of the lumpsum which will match the return of the assets. 
+
+Many new investors are more interested in minimizing their potential loss, and it is important that an ill-timed market drop does not scare them off from investing in the future. Many experienced investors are more interested in maximizing their expected returns. You can also decide to split the difference, where you invest half immediately and the other half over 6 or so months.
+
+=== Costs===
+
+Most no-load mutual funds allow small, regular investments with no fees. However, most investors pay a commission to purchase a load-fund or an [[Exchange-traded fund]] (ETF). Depending on the size of the commission and the investment, dollar-cost averaging into a load-fund or an ETF could be far more expensive than purchasing as a lump sum. For ETFs, the [[bid/ask spread]] is the same between DCA and lump sum.
+
+==Automatic investment==
+
+Most investors make regular contributions through their [[401(k)]] plans or by having a set amount auto-deducted from their bank account into an [[IRA]] or taxable account. When this money is automatically invested, it has the same benefit of dollar-cost averaging that you buy more shares when prices are low and less when they are high. However, this form of investing is not dollar-cost averaging. It is called '''periodic investing'''. The difference is that periodic investing is maximizing expected return, because you are investing the money as soon as you have it. DCA applies when you have the money to invest, but delay doing so.
+
+===Switching to a more conservative portfolio===
+
+Some investors who are new to a [[Bogleheads® investment philosophy | Bogleheads investment philosophy]] may find their portfolios contain too much equity. Even worse, some investors have a large portion of their net worth held in a single stock, such as through an employee purchase plan. They generally want to sell some of their equities and buy bonds. In these cases where an investor wants to move from high risk and volatility assets to lower risk and volatility assets, a lump sum transaction makes more sense than DCA. That is because lump sum both immediately moves to the expected return and volatility the investor wants, while also minimizing potential regret.
+
+==Reverse dollar-cost averaging==
+
+Investors who regularly add to their investment portfolios with '''periodic investing''' purchase more shares when prices are low and less shares when prices are high. Author Henry K. Hebeler&lt;ref&gt;{{cite book| author=Henry K. Hebeler |title=Getting Started in A Financially Secure Retirement| publisher=John Wiley &amp; Sons| date=April 27, 2007| isbn=978-0-470-11778-1}}&lt;/ref&gt; points out that investors ''' periodically distributing''' retirement income from their portfolios experience the reverse action, redeeming more shares when prices are low and less shares when prices are high. Hebeler terms this process, "reverse dollar-cost averaging" with results that should, on average, reduce expected returns.
+
+Examining rolling 20 year investment periods from 1927 to 1995 for a portfolio consisting of 50% large cap stocks ([[S&amp;P 500 index|S&amp;P 500]]); 40% long term [[Corporate bonds|corporate bonds]]; and 10% [[Treasury bill|treasury bills]], with expense loadings of 1.50% for stocks; 0.50% for bonds; and 0.30% for cash), Hebeler provides average real returns for four scenarios: the portfolio; the accumulating investor (saving for retirement); the distributing investor (withdrawal during retirement); as well as the results of 80% percentile returns (reflecting desires for portfolio survivability for retirement distributions). Indexing the portfolios would add 0.70% to each portfolio's returns simply due to reduced costs.&lt;ref name="Hebeler" /&gt; 
+
+{| class="wikitable"
+|-
+|+Average real returns (rolling 20 years) 1927-1995
+!
+!Portfolio return &lt;br&gt; 50% stock/40% bond/10% cash
+! Accumulating investor
+!Distributing investor
+|-
+|Portfolio
+| align="center" |2.9%
+| align="center" |3.2%
+| align="center" |2.6%
+|-
+|80 percentile
+| align="center" |1.2%
+| align="center" |0.8%
+| align="center" |0.3%
+|}
+
+==Notes ==
+{{Reflist|group="note"}}
+
+==See also==
+*[[Value averaging]]
+*[[Lump sum vs pension]]
+
+==References==
+{{Reflist|}}
+
+==External links==
+*[https://www.researchgate.net/publication/283358689_A_behavioral_framework_for_dollar-cost_averaging_Dollar-cost_averaging_may_not_be_rational_behavior_but_it_is_perfectly_normal_behavior A behavioral framework for dollar-cost averaging: Dollar-cost averaging may not be rational behavior, but it is perfectly normal behavior], Meir Statman, Journal of Portfolio Management Volume 22, pages 70-78, January 1995.
+*[https://blog.wealthfront.com/dollar-cost-averaging-behavioral-view/ Dollar Cost Averaging: A Behavioral View], Meir Statman, Wealthfront Blog, June 18, 2015.
+*[http://www.dimensional.com/famafrench/2009/06/dollar-cost-averaging.html Dollar Cost Averaging],{{dead link}} Fama/French Forum video.
+*[http://www.moneychimp.com/features/dollar_cost.htm Does Dollar Cost Averaging Really Work], DCA calculator, moneychimp.
+*[http://www.efficientfrontier.com/ef/997/dca.htm Do Not Dollar-Cost-Average for More than Twelve Months], Bill Jones, Efficient Frontier, October 1997.
+*[https://web.archive.org/web/20210812193032/http://www.sigmainvesting.com/advanced-investing-topics/dollar-cost-averaging Dollar Cost Averaging], detailed examination by Sigma Investing.
+*{{Forum link| t=83767| title=Finally! Can we lay DCA to rest and ban this topic forever?| date=October 7, 2011}}.
+*[https://web.archive.org/web/20170215161450/https://personal.vanguard.com/pdf/ISGDCA.pdf Invest now or temporarily hold your cash?], 2016 Vanguard paper comparing DCA to lump sum investing.
+*[http://www.cbsnews.com/news/take-plunge-or-drip-by-drip/ Take the plunge, or drip by drip?], CBS MoneyWatch article by [[Larry Swedroe]], January 3, 2014.
+*[https://www.forbes.com/sites/rickferri/2015/09/08/6-things-to-consider-when-investing-a-lump-sum/ 6 Things To Consider When Investing a Lump Sum], [[:Rick Ferri]], Forbes, September 8, 2015.
+*[https://awealthofcommonsense.com/2014/02/worlds-worst-market-timer/ What if You Only Invested at Market Peaks?], by Ben Carlson on [https://awealthofcommonsense.com awealthofcommonsense.com].
+
+===Bibliography===
+{| border="0"
+||
+* Constantinides, George M., ''[https://web.archive.org/web/20190412180131/http://faculty.chicagobooth.edu/george.constantinides/documents/JFQA_1979.pdf A Note on the Suboptimality of Dollar-Cost Averaging as an Investment Policy]'', Journal of Financial and Quantitative Analysis 14 (June 1979), 443-49.
+*Fang, Wei, ''[https://web.archive.org/web/20140123220801/http://www.valueaveraging.ca:80/docs/DCA%20Investigation%20Study.pdf Dollar-cost Averaging: An Investigation]'', The University of Nottingham, 2007
+*Hayley, Simon, ''[https://ssrn.com/abstract=1606347 Value Averaging and the Automated Bias of Performance Measures]'', (March 11, 2011). Available at SSRN.
+*Johnson,Kim and Kruegar, Tom, ''[https://www.valueaveraging.ca/docs/Analysis_Dollar_Cost_Averaging.pdf Market Timing versus Dollar-Cost Averaging: Evidence based on Two Decades of Standard &amp; Poor’s 500 Index Values]''
+*Knight, John K., and Marshall, Lewis, ''[https://web.archive.org/web/20140924161913/http://www.valueaveraging.ca/docs/Nobody%20Gains%20from%20DCA.pdf Nobody Gains from DCA], Financial Services Review, 2(1): 51-61.''
+*Leggio, Karyl B, and Lien, Donald, ''[https://web.archive.org/web/20140916164735/http://valueaveraging.ca/docs/DCA%20Losses.pdf Does loss aversion explain dollar cost averaging?]'', Financial Services Review, 10(2001): 117-127.
+*Marshall, Paul S., ''[https://web.archive.org/web/20110814011724/http://www.studyfinance.com/jfsd/pdffiles/v13n1/marshall.pdf A Statistical Comparison Of Value Averaging vs. Dollar Cost Averaging and Random Investment Techniques]'', Journal of Financial and Strategic Decisions Volume 13, Number 1, Spring 2000.
+* Trainor, William J., Jr. ''[http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.392.2893&amp;rep=rep1&amp;type=pdf Within-horizon exposure to loss for dollar cost averaging and lump sum investing]'', Financial Services Review 14 (2005) 319–330.
+|}
+
+{{Portfolios}}
+
+[[Category:Portfolios]]</text>
+      <sha1>gfhtb55pvp65dqi0fdqzax4o1t8zic8</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Glide paths</title>
+    <ns>0</ns>
+    <id>3003</id>
+    <revision>
+      <id>88548</id>
+      <parentid>88543</parentid>
+      <timestamp>2025-11-18T09:07:09Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>/* External links */ Standard &amp; Poors -&gt; Standard &amp; Poor's.</comment>
+      <origin>88548</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="23429" sha1="reutl214a6705o6dfspn3pzbsj25m09" xml:space="preserve">{{US|reason=partially_irrelevant}}
+
+In the investment world, the term '''glide path''' refers to the process by which a target date fund changes its [[Asset allocation|asset allocation]] among risky assets (which can include [[Stock basics | stocks]], [[Domestic/International | international stocks]], [[Real estate investment trust |REITs]] and [[Commodities | commodities]]) and lower risk assets such as  [[Bond basics | bonds]], [[Treasury Inflation Protected Securities | inflation indexed bonds]] and [[Money markets | money market funds]] over a time horizon. Target date funds include [[Target Retirement Funds | target retirement funds]] in the retirement plan market, as well as [[529 plans#529 Plan Investment Programs | age-adjusted portfolios]] in the college savings plan market. The glide path of a target fund shifts from high risky equity allocations at inception to ever higher fixed income investments as the target date approaches.
+
+==Target retirement funds glide paths==
+
+Target retirement funds almost universally begin with high equity allocations for young investors. However each fund group establishes a glide path for its series of target funds, and these glide paths vary considerably. In general, however, a fund's glide path will follow one of three methods: straight line, stepped, or rolldown.
+
+:1. '''Straight Line''':  A straight line glide path takes a steady, linear approach that gradually reduces the equity weighting of the portfolio over time. [[The Vanguard Group |Vanguard]] and [[TIAA-CREF]] take this approach.&lt;ref&gt;Vanguard outlines their approach and reasoning to glide paths [https://personal.vanguard.com/pdf/icrtdf.pdf Vanguard’s approach to target-date funds] &lt;/ref&gt;
+
+&lt;!-- to remove border, replace style="border:1px solid darkgray;" with "border="0" --&gt;
+{| align="center" cellpadding="2" style="border:1px solid darkgray;" &lt;!-- thin gray border, center table on page--&gt;
+| align = "center"|[[Image:Vanguard Glide Path.gif]]    &lt;!-- figure --&gt;
+|-
+| align = "center"| Figure 1: Vanguard Target Fund Glide Path     &lt;!-- center text within table, figure caption here --&gt;
+|}   &lt;!-- end of table --&gt;
+
+
+:2. '''Stepped''':  With a stepped glide path the equity allocation is held steady until periodically adjusted. ING takes this approach. In their stepped glide path, during the first three decades the adjustment is made every ten years; subsequent adjustments are made in five year intervals. 
+
+&lt;!-- to remove border, replace style="border:1px solid darkgray;" with "border="0" --&gt;
+{| align="center" cellpadding="2" style="border:1px solid darkgray;" &lt;!-- thin gray border, center table on page--&gt;
+| align = "center"|[[Image:ING glide path.jpg]]    &lt;!-- figure --&gt;
+|-
+| align = "center"| Figure 2: ING Target Fund Glide Path     &lt;!-- center text within table, figure caption here --&gt;
+|}   &lt;!-- end of table --&gt;
+
+
+:3. '''Rolldown''': This glide path method holds high levels of equity allocations until approximately twenty years before the retirement date, when a sharp reduction in the equity allocation begins, extending through the decumulation stage. [[Fidelity]] takes this approach.&lt;ref&gt; [http://corporate.morningstar.com/US/documents/MethodologyDocuments/ResearchPapers/TargetDateFundSeries_IndustrySurvey.pdf Target-Date Series Research Paper: 2009 Industry Survey,] p.10&lt;/ref&gt;
+
+&lt;!-- to remove border, replace style="border:1px solid darkgray;" with "border="0" --&gt;
+{| align="center" cellpadding="2" style="border:1px solid darkgray;" &lt;!-- thin gray border, center table on page--&gt;
+| align = "center"|[[Image:Fidelity Target Funds Glide Path.gif]]    &lt;!-- figure --&gt;
+|-
+| align = "center"| Figure 3: Fidelity Target Fund Glide Path     &lt;!-- center text within table, figure caption here --&gt;
+|}   &lt;!-- end of table --&gt;
+
+
+Target retirement fund managers justify high equity allocations for young investors on the grounds that a long time horizon allows the investor plenty of time to recover from the down cycles of markets and  that the large amount of human capital (future lifetime earnings)  the young investor possesses provides the investor ample opportunities for increasing the personal savings rate when the markets decline. In the meantime the investor can garner a greater percentage of the expected equity return premium over an investment career by holding the higher equity allocation. While a target date's glide path will slowly reduce the equity allocation over the lifetime of the investor, target date funds ordinarily hold a considerable allocation to equity investments as an investor approaches retirement age. These allocations are attributable to the fact that most target retirement funds are designed to be held through the planned retirement date and held over the entire period of the investor's retirement phase. Firms with high post retirement  equity allocations base their asset allocation decision on the expected increased longevity of post retirement accounts. The lengthened time horizon allows time for recovery from market down cycles during the early stage of retirement, and, assuming a realization of an expected equity return premium, the portfolio will have a higher value to help mitigate the risk of having reduced income at the end of a long life.&lt;ref&gt;[https://www2.troweprice.com/rms/rps/Sponsors/DefaultContent/StaticAssets/Revisiting_TRP_Asset_Alloc_GP_Strategy.pdf Revisiting T. Rowe Price’s Asset Allocation Glide-Path Strategy]&lt;/ref&gt; 
+
+The dispersion of equity allocations in the universe of target retirement funds is a narrow 2.5% in the 2055 series of target date funds. This dispersion of equity allocations widens to 40%-50% as the target series approaches the retirement years. For example, the range of equity allocation in 2010 target date funds falls between a low 26% allocation in the Wells Fargo Advantage 2010 fund and a high 72% allocation in the Alliance Bernstein 2010 fund. Figure 4. illustrates the diversity of glide path allocations.&lt;ref&gt;[http://corporate.morningstar.com/US/documents/MethodologyDocuments/ResearchPapers/TargetDateFundSeries_IndustrySurvey.pdf Target-Date Series Research Paper: 2009 Industry Survey,] pp.7-8&lt;/ref&gt;
+
+
+&lt;!-- to remove border, replace style="border:1px solid darkgray;" with "border="0" --&gt;
+{| align="center" cellpadding="2" style="border:1px solid darkgray;" &lt;!-- thin gray border, center table on page--&gt;
+| align = "center"|[[Image:Glide Path.jpg]]    &lt;!-- figure --&gt;
+|-
+| align = "center"| Figure 4: Diversity of glide paths expands as investors near retirement ''[source: Morningstar]''&lt;ref&gt;[http://corporate.morningstar.com/US/documents/MethodologyDocuments/ResearchPapers/TargetDateFundSeries_IndustrySurvey.pdf Target-Date Series Research Paper: 2009 Industry Survey]&lt;/ref&gt; &lt;!-- center text within table, figure caption here --&gt;
+|}   &lt;!-- end of table --&gt;
+
+
+The divergence in asset allocation resulted in a wide dispersion of returns in the 2008 market collapse. Losses in the 2010 target fund series ranged from -9% to -41%.&lt;ref&gt;[http://advisor.morningstar.com/articles/article.asp?s=0&amp;docId=17632&amp;pgNo=1 Five Concerns About Target-Date Funds], John Rackenthaler, Morningstar Advisor, 10-31-2009 &lt;/ref&gt; Clearly, two funds bearing the same target date can have markedly different portfolio allocations, risk exposures, and returns. These performance disparities have drawn the attention of the SEC&lt;ref&gt; [http://www.sec.gov/news/press/2009/2009-138.htm SEC, DOL Announce Panelists, Agenda for Joint Hearing on Target Date Funds]&lt;/ref&gt; and the Congress.&lt;ref&gt; [http://aging.senate.gov/hearing_detail.cfm?id=319426&amp; Default Nation: Are 401(k) Target Date Funds Missing The Mark?]&lt;/ref&gt;
+
+==Target retirement fund indexes==
+[[File:Morningstarglidepaths.png|thumb|right|451px]]
+Index providers Dow Jones, Standard &amp; Poor's, and Morningstar have developed indexes for benchmarking target retirement fund portfolios.  Dow Jones and Morningstar employ risk based metrics in devising the index glide path.  S&amp;P attempts to mirror the glide paths used by the actual target funds comprising the market.The Index glide path methodologies are outlined below:
+
+:*'''Dow Jones Target Date Indexes ''': Glide path follows a monthly equity risk exposure reduction formula, from 90% to 20% of the total equity risk.&lt;ref name="Methodologies"&gt;[http://corporate.morningstar.com/us/documents/Indexes/TargetDateIndexComparison.pdf Target Date Index Comparison Grid]&lt;/ref&gt;
+:*'''S&amp;P Target Date Indexes''': Glide path is a scrubbed average of nearly all active Target Date fund equity allocations – consensus glide path is the objective.&lt;ref name="Methodologies"&gt;&lt;/ref&gt;
+:*'''Morningstar Target Date Indexes''': Modern Portfolio Theory-based asset allocation, optimized to human capital asset assumptions. Liability-driven investment (LDI) approach using investor balance sheet construct for surplus optimization. Indexes are provided for three risk profiles: conservative, moderate, and aggressive.&lt;ref name="Methodologies"&gt;&lt;/ref&gt; 
+
+The following table provides the Index equity targets for selective ages: a youthful starting date; a date ten years prior to a common retirement date; a common retirement age; and a date five years after retirement. The glide paths of the seven largest mutual fund managers is also provided in the table. The benchmark indexes can help investors gauge the relative riskiness of a given target retirement fund's guide path strategy. 
+
+{| {{table}}
+|+ Target Date Indexes
+| align="center" style="background:#f0f0f0;"|'''Index'''
+| align="center" style="background:#f0f0f0;"|'''Age 20'''
+| align="center" style="background:#f0f0f0;"|'''Age 55'''
+| align="center" style="background:#f0f0f0;"|'''Age 65'''
+| align="center" style="background:#f0f0f0;"|'''Age70'''
+|-
+|[http://www.djindexes.com/mdsidx/portfolio/index.cfm?event=showPortfolioUSTargetDate Dow Jones Target] ||89.4%||60.8%||25.3%||18.3%
+|-
+|[https://us.spindices.com/documents/methodologies/methodology-sp-target-date.pdf S&amp;P Target] ||88.55%||68.91%||49.09%|| 37.82% 
+|-
+|[http://corporate.morningstar.com/US/documents/MarketingOneSheets/AssetAllocationsSummary.pdf Morningstar Aggressive Target]||93%||80%||61%||54%
+|-
+|[http://corporate.morningstar.com/US/documents/MarketingOneSheets/AssetAllocationsSummary.pdf Morningstar Moderate Target]|| 89%||62%||45%||39%
+|-
+|[http://corporate.morningstar.com/US/documents/MarketingOneSheets/AssetAllocationsSummary.pdf Morningstar Conservative Target]|| 81%||41%||29%||24%
+|-
+|+ Fund Group Target Fund Stock Allocations
+| align="center" style="background:#f0f0f0;"|'''Fund Group'''
+| align="center" style="background:#f0f0f0;"|'''Age 20'''
+| align="center" style="background:#f0f0f0;"|'''Age 55'''
+| align="center" style="background:#f0f0f0;"|'''Age 65'''
+| align="center" style="background:#f0f0f0;"|'''Age70'''
+|-
+|[https://personal.vanguard.com/us/funds/vanguard/TargetRetirementList#targetAnchor Vanguard] ||90%||67%||50%||36%
+|-
+|[https://www.americanfunds.com/funds/details.htm?fundGroupNumber=69&amp;fundClassNumber=0 American Funds&lt;ref group="note"&gt;American Fund Target funds include a Balanced Fund. A 5%-13% increase in bond allocations has been added as an accommodation. &lt;/ref&gt;]||90%||70%||52%||47%
+|-
+|[http://personal.fidelity.com/products/funds/content/DesignYourPortfolio/freedomfunds.shtml. Fidelity] ||90%||65%||50%||45%
+|-
+|[http://www.tsp.gov/ Barclays Federal Thrift Savings] ||85%||50%||20%||20%
+|-
+|[https://www.franklintempleton.com/retail/jsp_app/products/fund_facts.jsp?fundNumber=451 Franklin Templeton]||99%||67%||43%||43%
+|-
+|[http://www.pimco-funds.com/Overview.aspx PIMCO]&lt;ref group="note"&gt;PIMCO stock allocations include an allocation to Real Assets (REITS and Commodities Futures) ranging from 16% to 19% of allocations. See [http://media.pimco-global.com/pdfs/pdf/VP001-050107%20Better%20Glidepath.pdf Creating the Next Generation Glidepaths for Defined Contribution Plans] &lt;/ref&gt;||82%||53%||45%||45%
+|-
+|[http://individual.troweprice.com/public/Retail/Mutual-Funds/Retirement-Funds?v_linkcomp=link&amp;v_linkplmt=TN&amp;v_link=Retirement%20Funds TRowe Price] ||90%||72%||56%||46%
+|}
+
+==College savings plans glide paths==
+The time horizon for a child's college savings is bounded by the assumed ages of college enrollment (18-22). The glide paths of 529 Savings Plan age-adjusted portfolios are therefore usually much more conservative than those used in the retirement plan market. Many plans transition portfolios to hold 100% cash or 100% cash/fixed income portfolios at age 18+. However, as in the retirement plan market, there is a wide variance in the range of stock allocations for the 18-22 age period. Many 529 savings plans offer risk-based portfolios (Conservative, Moderate, and Aggressive) and the equity allocations for the 18+ age group in many aggressive portfolios range from 10% equity to 65% equity.&lt;ref name="study"&gt;[http://www.savingforcollege.com/articles/savingforcollegecoms-age-based-allocation-study-nov-2008 Savingforcollege.com’s age-based allocation study (Nov 2008)]&lt;/ref&gt;
+
+The following table shows the glide path allocations for the three largest 529 Plan vendors in the direct market 529 plan universe, Vanguard, TIAA-CREF, and Fidelity. The allocations are provided for equity investments, fixed income investments, and money market fund investments.
+
+{{Notice | The Vanguard table entries will be outdated as of October 30, 2020 -- Vanguard has announced  [https://www.vanguard.com/pdf/529rogp.pdf plans to transition to a target-enrollment approach].}}
+
+{| {{table}}
+|+ 529 Savings Plan Glide Paths (equity / fixed income / cash)
+| align="center" style="background:#f0f0f0;"|'''Age-Based Plan'''
+| align="center" style="background:#f0f0f0;"|'''0 to 5'''
+| align="center" style="background:#f0f0f0;"|'''6 to 10'''
+| align="center" style="background:#f0f0f0;"|'''11 to 15'''
+| align="center" style="background:#f0f0f0;"|'''16 to 18'''
+| align="center" style="background:#f0f0f0;"|'''19+'''
+| align="center" style="background:#f0f0f0;"|
+| align="center" style="background:#f0f0f0;"|
+| align="center" style="background:#f0f0f0;"|
+|-
+|[https://personal.vanguard.com/us/content/Funds/Funds529AgeBasedJSP.jsp Vanguard Conservative]||50/50/0||25/75/0||0/75/25||0/75/25||0/0/100||||||
+|-
+|[https://personal.vanguard.com/us/content/Funds/Funds529AgeBasedJSP.jsp Vanguard Moderate]||75/25/0||50/50/0||25/75/0||0/75/25||0/75/25||||||
+|-
+|[https://personal.vanguard.com/us/content/Funds/Funds529AgeBasedJSP.jsp Vanguard Aggressive]||100/0/0||75/25/0||50/50/0||25/75/0||0/75/25||||||
+|-
+| align="center" style="background:#f0f0f0;"|'''Age-Based Plan'''
+| align="center" style="background:#f0f0f0;"|'''0 to 3'''
+| align="center" style="background:#f0f0f0;"|'''4 to 7'''
+| align="center" style="background:#f0f0f0;"|'''8 to 11'''
+| align="center" style="background:#f0f0f0;"|'''12 to 14'''
+| align="center" style="background:#f0f0f0;"|'''15 to 17'''
+| align="center" style="background:#f0f0f0;"|'''18+'''
+| align="center" style="background:#f0f0f0;"|
+| align="center" style="background:#f0f0f0;"|
+|-
+| [http://www.misaves.com/ourplan/invest_options.html#conservative TIAA-CREF Conservative]||65/35/0||50/50/0||40/60/0||25/50/25||15/40/45||10/40/50||||
+|-
+| [http://www.misaves.com/ourplan/invest_options.html#moderate TIAA-CREF Moderate]||80/20/0||65/35/0||50/50/0||45/55/0||30/50/20||20/35/45||||
+|-
+| [http://www.misaves.com/ourplan/invest_options.html#aggressive TIAA-CREF Aggressive]||100/0/0||85/15/0||70/30/0||60/40/0||50/50/0||30/45/25||||
+|-
+| align="center" style="background:#f0f0f0;"|'''Age-Based Plan'''
+| align="center" style="background:#f0f0f0;"|'''0 to 2'''
+| align="center" style="background:#f0f0f0;"|'''3 to 5'''
+| align="center" style="background:#f0f0f0;"|'''6 to 8'''
+| align="center" style="background:#f0f0f0;"|'''9 to 11'''
+| align="center" style="background:#f0f0f0;"|'''12 to 14'''
+| align="center" style="background:#f0f0f0;"|'''15 to 17'''
+| align="center" style="background:#f0f0f0;"|'''18 to 21'''
+| align="center" style="background:#f0f0f0;"|'''21+'''
+|-
+| [http://personal.fidelity.com/planning/college/content/investment_options.shtml.cvsr?banner=scholar&amp;refpr=colSchsh04 Fidelity]||88/12/0||82/18/0||71/28/1||58/36/7||44/42/14||33/45/23||23/30/46||20/40/40
+|}
+
+Many Vanguard 529 plans follow the glide path illustrated in the table. However some states (Illinois and Indiana) hold a 10% equity allocation in the 18+ age band. Iowa, Missouri, Nebraska, and North Carolina supply a 20% equity allocation in the aggressive allocation portfolios. Utah's option 3, the most aggressive allocation in that state's plan, holds a 65% equity allocation at age 18.&lt;ref name="study"&gt;&lt;/ref&gt;
+
+==Individual retirement portfolios and glide paths==
+
+As mentioned  in [[Withdrawal methods#Constant-dollar (age in bonds)|bond percentage equal to your age]], many people prefer not to keep a static stock/bond allocation throughout their retirement, but to gradually have their portfolio become more conservative by reducing the stock allocation and increasing the bond allocation as they age. However, the rule-of-thumb method where your bond percentage is equal to your age is sometimes seen as a bit too conservative. Another method, similar to the allocations used by some retirement-date funds is to follow a ''glide-path'' allocation change that isn't necessarily directly linear, as is the bonds=age method. Often, a glide-path method will add bonds to the portfolio mix more slowly in the early years before retirement, thus allowing the portfolio more possibility for growth before retirement. Then, after retirement, the glide-path may transition more quickly to a bond-heavy allocation, thus shielding the portfolio from stock market volatility during later retirement years.
+Figure 4 shows a graph comparing the ''(100-age)'' stock allocation and the ''Log(100-age)-1'' glide-path allocation. The blue (100-age) line is linear, changing the allocation by 1% each year. The glide-path allocation changes more slowly in the earlier years, presumably allowing for more portfolio growth during the accumulation years, and then turns quicker towards a more conservative allocation during the retirement years, eventually becoming more conservative and following a 100% bond allocation for age 90 and later.
+
+&lt;!-- to remove border, replace style="border:1px solid darkgray;" with "border="0" --&gt;
+{| align="center" cellpadding="2" style="border:0px solid darkgray;" &lt;!-- thin gray border, center table on page--&gt;
+| align = "center"| [[Image:Logglidepath.jpg|600px]]    &lt;!-- figure --&gt;
+|-
+| align = "center"| Figure 5: Graph of the standard ''(100-age)'' stock allocation versus a glide-path ''Log(100-age)-1'' stock allocation.     &lt;!-- center text within table, figure caption here --&gt;
+|}   &lt;!-- end of table --&gt;
+
+As with the similar [[Withdrawal methods##Constant-dollar (age in bonds)|''bond percentage equal to your age'']] method, following a glide-path stock/bond allocation allows the overall portfolio to become more conservative each year. The results, shown in Figure 6, are similar to the ''bonds equal age ''method, but in the time-period shown in the graph, the slower transition to bonds allowed the overall portfolio to grow a bit more, resulting in slightly more money being withdrawn from the portfolio, while retaining a similar volatility.
+
+&lt;!-- to remove border, replace style="border:1px solid darkgray;" with "border="0" --&gt;
+{| align="center" cellpadding="2" style="border:0px solid darkgray;" &lt;!-- thin gray border, center table on page--&gt;
+| align = "center"|[[Image:Log4percent.jpg|600px]]    &lt;!-- figure --&gt;
+|-
+| align = "center"| Figure 6: Graph of constant-percentage yearly withdrawals and remaining portfolio value. Stock percentage decreased each year according to a ''Log(100-age)-1'' glide-path.     &lt;!-- center text within table, figure caption here --&gt;
+|}   &lt;!-- end of table --&gt;
+
+==Notes==
+&lt;references group="note"/&gt;
+
+==See also==
+*[[Withdrawal methods]]
+*[[Target date retirement funds]]
+*[[Vanguard funds: life strategy funds vs target retirement funds]]
+*[[Vanguard target retirement funds]]
+
+==References==
+{{Reflist}}
+
+==External links==
+
+===Index methodology statements===
+*[http://www.djindexes.com/mdsidx/downloads/meth_info/Dow_Jones_Target_Date_Indexes_Methodology.pdf Dow Jones Target Date Methodology]
+*[http://corporate.morningstar.com/US/documents/Indexes/TgtMaturityMeth.pdf Morningstar Target Maturity Methodology]
+*[http://www.standardandpoors.com/servlet/BlobServer?blobheadername3=MDT-Type&amp;blobcol=urldata&amp;blobtable=MungoBlobs&amp;blobheadervalue2=inline%3B+filename%3DMethodology_SP_Target_Date_Web.pdf&amp;blobheadername2=Content-Disposition&amp;blobheadervalue1=application%2Fpdf&amp;blobkey=id&amp;blobheadername1=content-type&amp;blobwhere=1244017954712&amp;blobheadervalue3=UTF-8 Standard &amp; Poor's Target Date Methodology]
+*[http://www.fa-mag.com/component/content/article/1827.html?magazineID=1&amp;issue=89&amp;Itemid=73 A Better Mousetrap], Craig L. Israelsen, Financial Advisor Magazine (February 2008)
+
+===Forum conversations===
+*[http://www.bogleheads.org/forum/viewtopic.php?t=38766 Target Retirement Funds Allocation]
+*[http://www.bogleheads.org/forum/viewtopic.php?t=41450 "Fixing" Target Retirement Funds]
+*[http://www.bogleheads.org/forum/viewtopic.php?t=40390  Bogle on Target Date Funds]
+*[http://www.google.com/custom?hl=en&amp;client=pub-2083198561269508&amp;cof=FORID%3A13%3BAH%3Aleft%3BCX%3ABogleheads%2520Forum%3BL%3Ahttp%3A%2F%2Fwww.google.com%2Fintl%2Fen%2Fimages%2Flogos%2Fcustom_search_logo_sm.gif%3BLH%3A30%3BLP%3A1%3BVLC%3A%23551a8b%3BDIV%3A%23cccccc%3B&amp;adkw=AELymgUUussmieL12mg6vHopTAJNWkXq2iU6jNQyE70K4PTQc_Bvr9Je9rqrlKiuROEbUkQxICbiAWEl-0uUUCf-E2cC2iLwo2D9OfQ_LyvJHDYXwwiiXu8&amp;boostcse=0&amp;q=Target+date+fund+glide+paths&amp;btnG=Search&amp;cx=017634903679063353230%3Afet0jaawee8=N Google Forum Search:Target date fund glide paths]
+
+===Research reports===
+*[http://corporate.morningstar.com/US/documents/MethodologyDocuments/ResearchPapers/TargetDateFundSeries_IndustrySurvey.pdf Target-Date Series Research Paper: 2009 Industry Survey]
+*[http://corporate.morningstar.com/us/documents/Indexes/TargetDateIndexComparison.pdf Target Date Indexes–Comparison Grid]
+*[http://www.savingforcollege.com/articles/savingforcollegecoms-age-based-allocation-study-nov-2008 Savingforcollege.com’s age-based allocation study (Nov 2008)]
+
+===Industry sites and reports===
+*[http://personal.fidelity.com/products/funds/content/DesignYourPortfolio/target_timelinefunds_freedom.shtml.cvsr How Fidelity Freedom Funds Work]
+*[http://media.pimco-global.com/pdfs/pdf/VP001-050107%20Better%20Glidepath.pdf PIMCO: Creating the Next-Generation Glidepaths for Defined Contribution Plans]
+*[https://www2.troweprice.com/rms/rps/Sponsors/DefaultContent/StaticAssets/Revisiting_TRP_Asset_Alloc_GP_Strategy.pdf Revisiting T. Rowe Price’s Asset Allocation Glide-Path Strategy]
+*[https://personal.vanguard.com/pdf/icrtdf.pdf Vanguard’s approach to target-date funds]
+
+===Bibliography===
+{| border="0"
+||
+*Bodie, Zvi and Treussard, Jonathan, ''[http://ssrn.com/abstract=900005 Making Investment Choices as Simple as Possible: An Analysis of Target Date Retirement Funds]'', (January 21, 2007). Available at SSRN. 
+*Basu, Anup K., Byrne, Alistair and Drew, Michael E., ''[http://ssrn.com/abstract=1302586 Dynamic Lifecycle Strategies for Target Date Retirement Funds]'', (February 6, 2009). Available at SSRN. 
+|}
+{{Balanced funds}}
+[[Category:Balanced funds]]
+[[Category:529 plans]]</text>
+      <sha1>reutl214a6705o6dfspn3pzbsj25m09</sha1>
+    </revision>
+  </page>
+</mediawiki>

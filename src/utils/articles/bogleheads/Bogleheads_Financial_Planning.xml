@@ -1,0 +1,887 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd" version="0.11" xml:lang="en">
+  <siteinfo>
+    <sitename>Bogleheads</sitename>
+    <dbname>wiki</dbname>
+    <base>https://www.bogleheads.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.43.5</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Bogleheads</namespace>
+      <namespace key="5" case="first-letter">Bogleheads talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="274" case="first-letter">Widget</namespace>
+      <namespace key="275" case="first-letter">Widget talk</namespace>
+      <namespace key="828" case="first-letter">Module</namespace>
+      <namespace key="829" case="first-letter">Module talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Managing a windfall</title>
+    <ns>0</ns>
+    <id>4421</id>
+    <revision>
+      <id>88655</id>
+      <parentid>87516</parentid>
+      <timestamp>2025-11-28T00:34:59Z</timestamp>
+      <contributor>
+        <username>Grabiner</username>
+        <id>8</id>
+      </contributor>
+      <minor/>
+      <comment>/* Size of a windfall */ updated estate tax thresholds</comment>
+      <origin>88655</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="43420" sha1="4t85gm9j510iy2wv58ck0t9xamlkzb1" xml:space="preserve">{{US|reason=partially_irrelevant}}
+
+A '''windfall''' is a significant amount of money that you receive unexpectedly. Windfalls range from small additions to wealth to large fortunes. Because they can mean huge changes in a recipient's life, psychological and emotional factors&lt;ref group="note"&gt;A wide range of responses can accompany a financial windfall. People who have received windfalls report experiencing a selection of the following emotions as they adjusted to their new circumstances.
+
+{| class="wikitable"
+|+ Emotional reactions to windfalls
+| style="width: 33%; vertical-align: top;" |
+*Elation 
+*Fear of loss of money
+*Fear of a change in relationships with others
+*Anxiety
+*Paralysis
+*Inability to see the money as a gift or an advantage
+*Not knowing what to do with the money
+|style="width: 33%; vertical-align: top;"|
+*Depression
+*Resistance
+*Anger
+*Grief
+*Distrust
+*Numbness
+*Isolation
+|style="width: 34%; vertical-align: top;"|
+*Feelings of unworthiness
+*Resentment
+*Lack of confidence
+*Guilt
+*Desire to give it all away
+*Intimidated
+*Lack of identify
+*Sense of loss
+|}
+&lt;/ref&gt;&lt;ref name="NEFE"&gt;{{cite web| url=http://www.huver.com/Misc_Resources/Windfall%20Nefe.pdf| title=Financial Windfall| publisher=NEFE| date=2002| url-status=dead| archive-url=https://web.archive.org/web/20201112023229/http://www.huver.com/Misc_Resources/Windfall%20Nefe.pdf| archive-date=November 12, 2020}}&lt;/ref&gt; are often the most important determinants of outcome.
+
+The National Endowment for Financial Education advises windfall recipients to do the following:&lt;ref name="NEFE" /&gt;
+
+Stay calm, and do not make any hasty decisions. Set aside one year's living expenses and place the rest of the windfall into low risk investments (FDIC insured accounts, money market funds, treasury bills) for one year. As it may take as long as five years for you to adjust to a new life, this pause provides space for emotions to cool, helps avoid impulsive behavior, and, if warranted, allows you time to put together a team of professional advisers. Then, create a detailed plan to meet your highest priority financial goals, and track your progress over the years. 
+
+{{Notice|"Most financial practitioners agree that well over 50 percent [of windfalls] are lost in a relatively short period of time. NBC News reported that more than 70 percent of lottery winners exhaust their fortunes within three years." - {{cite book| title=The Bogleheads' Guide To Investing| title-link=Bogleheads' Guide To Investing| chapter=Chapter 15. How to Manage a Windfall Successfully| page=180| publisher=Wiley| isbn=978-0-471-73033-0}}}}
+
+==Common sources of windfalls==
+Windfalls come in many forms. Here are some common types:
+
+* '''Legal settlements''': Settlements include personal injury settlements, settlements involving workers compensation and settlements of employment discrimination. Settlements may be a lump sum, or a structured settlement of annuity payments.
+* '''Inheritances''': These often include retirement accounts and assets held in trust.
+* '''Gifts''': These can range from annual gift exclusions up to the lifetime estate tax credit limit.
+* '''Lottery winnings''': Taken as a series of payments; or as the sales value of payments exchanged for a lump sum.
+* '''Insurance settlements''': These can be death benefits received as either a lump sum or annuity; as pre-death cash surrender values; or as life settlements, the sale of a life insurance policy by the owner to a third party in exchange for a lump sum.
+* '''Retirement lump sums''': Usually taken in lieu of a lifetime series of annuity payments
+* '''Sudden increases in income''': These can be bonus payments; stock options; or cashing shares in an IPO.
+
+Other common sources of large lump sums include:&lt;ref name="Guide"&gt;{{cite book| title=The Bogleheads' Guide To Investing| title-link=Bogleheads' Guide To Investing| chapter=Chapter 15. How to Manage a Windfall Successfully| page=180| publisher=Wiley| isbn=978-0-471-73033-0}}&lt;/ref&gt;
+* A real estate sale
+* The sale of a business
+* Widowhood and divorce
+
+Selling businesses or real estate converts an illiquid asset into large sums of cash. Death and divorce not only cause dislocation and trauma, but often suddenly thrust someone with little or no interest or no experience in investing, into having to manage family wealth.
+
+==Size of a windfall==
+
+Windfall sizes vary dramatically. A small windfall might bring you a step closer to your financial goals, a bigger one may make you financially independent, and an enormous windfall might be more money than you ever imagined spending. Windfall size is somewhat relative to your income and assets; what would be a life-changing amount of money for one person might only accelerate someone else's mortgage payoff by a few years. Some thresholds are more absolute, such as the Federal [[estate and inheritance tax|estate tax]] exemption ($15&amp;nbsp;million for singles and $30&amp;nbsp;million for married couples as of 2026&lt;ref&gt;{{cite web|url=https://www.irs.gov/pub/irs-drop/n-25-67.pdf|title=Notice 2025-67|publisher=IRS|accessdate=27 November 2025}}&lt;/ref&gt;); financial planners generally agree that you need additional planning with assets above this level.
+
+This wiki article aims to offer guidance for windfalls that are ''relatively'' large compared to your income and assets, enough to entail significant lifestyle changes and the need for additional planning. It applies to a wide variety of windfall types, sources, and absolute sizes. Use the guidance that is most relevant to your individual situation.
+
+==Common pitfalls==
+
+Common errors of commission made by windfall recipients include:&lt;ref&gt; {{cite web| url=https://www.stephenlnelson.com/WindfallFinancialPlanning.htm| title=Financial Planning for a Windfall in Wealth: Lotteries, Stock Options, Inheritances and Other Surprises| author=Stephen L. Nelson| accessdate=August 11, 2023}}&lt;/ref&gt;
+
+* quitting your job prematurely
+* buying extravagantly priced automobiles or properties, or other expensive consumption spending
+* feeling overconfident about your business or investing acumen, jumping into new high risk investments (such as hedge funds) or as an "angel" investor in start-up companies
+* falling prey to overcomplicated estate and investment management schemes. Watch out for people who might try to exploit you or take advantage of your new wealth. You can be a target for all kinds of financial schemes. 
+* by being too generous to family, friends, and charities
+
+Common errors of omission include failing to:
+
+* pay the legally required taxes
+* choose risk-appropriate investments and earn a reasonable return on invested capital
+* use appropriate accounts such as retirement plans
+* engage with the right professionals
+* set up the appropriate plans, including estate plans
+
+==Preparing==
+
+These initial steps will help position you to manage a life-changing amount of money: 
+
+===Take your time===
+
+Avoid immediate impulse decisions. This is key to prudent windfall management. Among recommendations for this period are:
+* Tell as few people as possible. Unfortunately, even those close to you may become resentful or solicit you for gifts when they hear about your windfall. You can always tell people later on when you have had time to consider the effect it may have on your relationships. 
+* Set aside six months to one year's worth of expenses in an accessible account, such as your checking account. Place the remaining windfall assets in separate accounts holding secure low-risk savings vehicles, such as FDIC guaranteed bank accounts and [[Certificate of Deposit|CD]]s, [[Money Markets|money market funds]], and [[Treasury bill|treasury bills]].
+* Use this time to begin resolving emotional, family, and social issues. Different sources of windfall, such as the death of a loved one, may have powerful emotional consequences that you should focus on addressing, while spending minimal time worrying about finances. Coming to terms with your emotions will allow you to make better financial decisions.&lt;ref group="note"&gt; The emotional and social issues surrounding windfalls are explored in greater detail in the following links:
+* [https://web.archive.org/web/20170111112709/http://amydomini.com/howview How You View Yourself], Amy Domini, Sharon Rich, and Dennis Pearne: Excerpt from ''The Challenges of Wealth'' (Homewood, Ill.: Dow Jones Irwin, 1988), a book on the psychology of wealth.
+* [https://web.archive.org/web/20161207071725/http://www.bankrate.com/finance/personal-finance/4-steps-to-profit-from-a-windfall-1.aspx 4 steps to profit from a financial windfall] examines emotional issues involving individual behavior, family dynamics, and inheritance.
+* [https://web.archive.org/web/20201112023229/http://www.huver.com/Misc_Resources/Windfall%20Nefe.pdf Financial Psychology and Lifechanging Events] is a good general guide.
+* [https://web.archive.org/web/20160804092625/http://www8.gsb.columbia.edu/rtfiles/entrepreneurship/CSPB_entre_mech%20v12.pdf Entrepreneurs: Life after Exit] examines issues involved in selling businesses.&lt;/ref&gt; 
+* Hire a competent and unbiased tax professional, such as Certified Public Accountant (CPA), if you do not already have one. You may need to file estimated taxes. Complex tax issues may surround distributions from retirement plans, inheritances, and lottery winnings, as well as the exercise of stock options. If you are not sure if your windfall has tax consequences, many tax professionals will be willing to give you a free consultation. Prefer someone who does not sell investment products.
+* If you have more complex finance issues that should not wait at least 6-12 months, skip ahead to the ''[[#Get_help|Get help]]'' step and pay a fair hourly rate for consultation from a fiduciary financial advisor, preferably one with a CFP or CFA certification. Urgent financial issues include having to decide whether to receive a lump sum or annuity stream; having a large amount of high-interest debt; or facing imminent eviction, foreclosure, or collection action due to delinquent debts. The focus of the consultation should just be resolving your urgent issues, not necessarily developing a complete financial plan or investing capital. The goal is not to begin putting your money to work, but rather to reduce stress and distractions by stabilizing your financial situation. Only make the minimum payments that will allow you to focus on the future, and do not redirect payments from paid-off debts to more spending.
+
+====Lump sum vs. annuity====
+{{Main|Lump sum vs pension}}
+
+Choosing between a lump sum or a stream of payments can be complex. Factors include your financial goals, expected investment performance, taxes, inflation protection, life expectancy, estate planning goals, financial health of the annuity provider, and others. If you are at all unsure of the best course of action, a consultation with a fee-only fiduciary financial advisor would be extremely valuable. However, most windfall recipients should lean strongly toward choosing the annuity, for these reasons:
+
+* You are less likely to squander the windfall. You can lose a lump sum with just one bad financial decision, whereas squandering an annuity requires a series of many bad choices, and not learning from prior mistakes.
+* The most common reason to choose a lump sum is expecting a higher rate of return than the effective rate of return of the annuity. However, most windfall recipients are investment novices who are less likely to reliably generate high returns from their investments. This makes the protection of principal plus guaranteed return of the annuity more attractive in comparison.
+* You have less ''need'' to earn a high return, so the guaranteed return of the annuity is more likely to be adequate to support a comfortable and prosperous lifestyle.
+
+This reasoning is very similar to why windfall recipients should [[#Debts|pay off existing debts and avoid taking on new ones]]. These as well as any more general reasons that may apply, such as tax savings.
+
+===Think about goals===
+
+Begin to think about your long term goals, with more focus on the life you would like to create and (for now) less focus about how to achieve it. Some ideas for goals that may be meaningful:
+
+* Retiring, either in the short or long term
+* Cutting back hours at work, or dropping less desirable shifts or jobs
+* Changing jobs
+* Starting a business
+* Going back to school, either to pursue a new career or just for enjoyment
+* Saving money for benefit of a loved one ([[529 plan]] for education, trust fund, helping pay for a wedding or house down payment, etc.)
+* Moving to another city, or country
+* Paying off debts
+* Certain consumer purchases
+* Purchasing real estate
+* Traveling
+* Taking up a new hobby
+* Growing your family
+* Donating to charity
+* Volunteering your time
+
+Even a very large windfall will probably not be enough to fully fund all or even most of these goals, so it is important to prioritize your goals, both by overall priority, and by the time it will take you to reach them. Many financial novices are surprised how ''little'' of a windfall they are actually able to spend immediately. For example, a $1&amp;nbsp;million windfall will only generate about $30-40,000 per year of investment income over the long run, so you will need to limit your initial spending so that the windfall can provide a lasting improvement in lifestyle. You can then formalize your specific goals, and allocation of money toward them, later in a written financial plan.
+
+===Get educated===
+
+Like it or not, you now have a new job (in addition to any other jobs you may already have) - learning how to manage money. Whether or not you are inclined to "do-it-yourself", you will need at least the knowledge necessary to evaluate financial professionals. Learning about personal finance and investing will likely be, by far, the most money you will ever "earn" per hour, if it makes the difference between lifelong prosperity and a fortune squandered within a few years. 
+
+* Read some [[Book recommendations and reviews|recommended books]] on personal finance and investing. Reading at least three, that cover the topics of personal finance and investing, would be a good start.
+* Browse the rest of the [[Main Page|Bogleheads wiki]]. Many articles are written to be accessible to readers with little or no investing experience.
+
+===Get help===
+
+Unless you are already an experienced investor, it may be beneficial to hire a professional, at least for some initial guidance. If you decide to use an adviser, in chapter 16 of ''[[Bogleheads' Guide To Investing|The Bogleheads' Guide To Investing]]'' the authors recommend choosing an adviser who has earned a CFA (Chartered Financial Analyst) or a CFP (Certified Financial Planner) designation; uses a fee-only payment arrangement; and advocates an index fund investing approach. Fee-only compensation minimizes the advisor's conflicts of interest with your own financial success. A good financial advisor should be able to do the following:
+
+* Calculate whether it is better to receive a lump sum or annuity stream of payments from a settlement, lottery winning, or retirement package
+* Strategize about how to minimize taxes owed
+* Recommend an investment strategy
+* Recommend any additional types of insurance you may need, or what current types of insurance you hold may no longer be needed
+* Determine whether you need to enlist an estate planning attorney&lt;ref group="note"&gt; The authors of ''[[Bogleheads' Guide To Investing|The Bogleheads' Guide To Investing]]'' recommend [https://www.martindale.com/ Martindale-Hubbell] for checking out the credentials of an attorney. &lt;/ref&gt; 
+You can get free portfolio reviews and answers to personal finance questions on the [https://www.bogleheads.org/forum/index.php Bogleheads forums]. Most forum members are not finance professionals, but are nonetheless experienced investors, and as a whole have managed an enormous range of income and assets.
+
+Whether you should retain a [https://www.bogleheads.org/wiki/Financial_planner financial planner] for a long time, or do your own investing using the [[Bogleheads® investment philosophy|Bogleheads investment philosophy]] or similar, is a personal choice. When you have time, consider the "[[Getting_started|getting started]]" wiki article (and the rest of this one). The more you learn, the better you will be able to judge whether an advisor is worth the cost to you.
+
+==Creating a plan==
+
+{{Quotation|Once you begin to become comfortable in your new financial reality, you may be ready for the successive phases, which include reviewing your situation and deciding how the money will be used. This is the fun part, when you'll choose -- with the help of... a solid financial plan -- whether to retire, buy a vacation home, donate to charities or set up trust funds for your children. The ultimate goal of all these steps is to create a sensible plan for handling your windfall that also allows you to come out with your relationships and sanity intact.|Susan Bradley|[https://web.archive.org/web/20161207071725/http://www.bankrate.com/finance/personal-finance/4-steps-to-profit-from-a-windfall-1.aspx 4 steps to profit from a financial windfall]}}
+
+[[Financial planning|Financial planning]] is a ''long-term'' process&lt;ref group="note"&gt;Sound financial planning incorporates these steps: 
+#Establish a relationship with a CFP professional
+#Gather your data and develop your financial goals
+#Analyze and evaluate your financial status
+#Review your CFP professional’s recommendations
+#Set your course
+#Benchmark your progress against the financial goals you established
+Source: [https://www.letsmakeaplan.org/other-resources/financial-planning-process Financial Planning Process], by the [https://www.letsmakeaplan.org Certified Financial Planner Board of Standards, Inc.]&lt;/ref&gt; of managing your finances so you can achieve your goals and dreams, while at the same time negotiating the financial barriers that inevitably arise in every stage of life. Fundamentally, the process for financial planning after receiving a windfall is the same as in any other situation. The only differences are:
+
+* Larger amounts of money increase the relative importance of certain aspects of financial planning, such as tax planning and [[Tax-efficient fund placement|tax-efficient investing]], [[Index fund|minimizing investment costs]], [[Asset protection|asset protection]], and [[Estate planning|estate planning]].
+* Windfall recipients are often thrust into a situation where they need to manage a large amount of money without having the necessary skills, knowledge, and experience. 
+* Serious emotional impacts often surround windfalls, which you must deal with at the same time as financial planning.
+* The consequences of financial mistakes are higher, in terms of absolute dollars, with larger amounts of money.
+
+The core of financial planning is matching your goals, and the financial resources they will likely require, with your available resources. These can be your present resources, but also future investment proceeds and any future earnings. Matching requires knowing the costs of your goals (both up-front and ongoing), how much of your available funds will need to go to taxes, and expected returns on various types of investments. Prioritize your goals, and then weight these priorities by the financial resources needed to meet them. The result is a detailed financial plan that lists your goals, describes ''when'' and ''how'' you expect to meet them, and that is robust to factors beyond your control, such as job loss, unexpected expenses, and market swings. A complete financial plan should address all of the following areas:
+
+===Work, income, and education===
+
+If you are currently working, plan how long you will continue to work. If retirement is a high priority, and your windfall allows you to live off investment income with a [[Safe withdrawal rates|safe withdrawal rate]] (typically 3-4%), then you may be able to retire immediately. If you continue to work, include your expected future income in your financial plan.
+
+The windfall may allow you to change jobs, start your own business, or get additional training that would enable a new career, so consider whether these options are desirable.
+
+===Location===
+
+Decide where you would like to live, and include in your plan costs with moving and living there. Typically the largest financial factors connected to location are available jobs, cost of living (particularly housing), state and local taxes, and proximity to family (which can affect travel and childcare costs). 
+
+Your plan should include a location while working (if appropriate), and while retired. Differences in income tax rates can affect [[Traditional versus Roth|traditional versus Roth]] decisions.
+
+===Spending===
+
+Create a [[Household budgeting|written budget]] that includes allocations for meaningful categories of expense (food, transportation, and so on), and has some cushion for unexpected changes. Everyone needs a budget, no matter how much money they have. 
+
+Include any immediate or planned future purchases, such as replacing an aging car immediately, or when it will reach the end of its life, and include saving for future purchases in the plan.
+
+Consider both the up-front and ongoing costs of purchases. For example, windfall recipients often ignore the ongoing costs associated with expensive properties (property tax, maintenance, utilities, cleaning) or vehicles (fuel, insurance, maintenance, storage for the winter, and so on), which can be substantial.
+
+Resist the temptation to spend a significant portion of a windfall on short-term consumption spending. The enjoyment you will get from investing and spending the windfall over a long period of time, and the comfort from having financial security, will likely far outweigh that from any consumer purchases.
+
+===Accounts===
+
+Understand the different types of tax-advantaged accounts available to you ([[401(k)]], [[IRA]], [[HSA]], [[529 plan]], [[Defined benefit pension plan]], and so on) and plan on using those that give you the greatest advantage. 
+
+[[Variable Annuity|Variable annuities (VAs)]] are usually high-fee products marketed by commissioned salespeople, which are inferior to tax-advantaged accounts and [[Taxable account|taxable accounts]] and are best avoided. However, ''low-cost'' VAs can make sense for some windfall recipients. If you receive a large lump sum windfall that cannot be [[IRA rollovers and transfers|rolled over]] into an [[IRA]], and you intend to invest in [[Tax-efficient fund placement|tax-inefficient investments]], a low-cost VA will allow you to defer taxes on interest, dividends, and capital gains. The tax deferral ''may'' offset the VA fees, which are around 0.25%/year for a good low-cost VA, such as from [https://www.fidelity.com/annuities/FPRA-variable-annuity/overview Fidelity]. If you think a low-cost VA may be appropriate, consult with a third party fee-only financial advisor, who can help make sure the VA you are considering is well-suited for you and not fee-laden. See also: [[Non-deductible_traditional_IRA#Comparison_between_non-deductible_tIRA_and_taxable_accounts|performance comparison between non-deductible IRAs and taxable accounts]] (non-deductible IRAs have the same tax structure as VAs). 
+
+Make sure any withdrawal restrictions (for example, penalties for non-qualified withdrawals from a 401(k) or IRA before age 59½) fit into your overall financial plan.
+
+===Investments===
+{{Notice|For further help on creating an investment portfolio, see:
+*[[Bogleheads® investment philosophy]]: Explains the basic principles advocated by this site.
+*[[Asset allocation]]: Explains the process of dividing an investment portfolio among different asset categories depending on need, ability and willingness to take risk.
+*[[Three-fund portfolio]]: Explains a simple portfolio popular with many of this site's members.
+*[[Lazy portfolios]]: Contains a number of widely diversified example portfolios.}}
+
+Investing capital, and earning a good rate of return for an appropriate level of risk, is an essential part of almost all financial plans. Which investments are appropriate depends strongly on the time horizon of the goal you are saving for. For example:
+* Short-term goals, within the next 3 years. Save using low-risk and low-volatility investments, such as savings accounts, [[Money markets|money market]] accounts or funds, [[Certificate of deposit|certificates of deposit (CDs)]], or short-term bonds. 
+* Medium-term goals, in the 3-10 year range. Save with slightly more volatile investments, such as intermediate-term [[Bond basics|bonds]], and could include a small percentage of [[Stock basics|stocks]].
+* Long-term goals, 10 or more years away. These can contain a large percentage of higher-volatility higher-return investments like [[Stock basics|stocks]] and real estate. 
+
+Other key factors for choosing investments are need and willingness to take risk, and the consequences of falling short. See [[Asset allocation|asset allocation]] for a more detailed discussion.
+
+You should generally purchase stock and bond investments through [[Index fund|low-cost passive mutual funds]] for [[Diversification|diversification]], [[Expense ratios|reduced costs]], and higher [[Tax-efficient fund placement|tax efficiency in a taxable account]]. Avoid purchasing individual stocks, due to the high volatility and risk of permanent loss.
+
+You should be especially cautious with high-risk investments (for example, private equity, and startup companies) that have a significant possibility of a total loss. Most windfall recipients do not have the necessary experience to properly evaluate high-risk investments, and also do not have the need for higher than market returns. Windfall recipients are also often the targets of bad investments or scams; to reduce this risk, limit investments to diversified funds from respectable institutions.
+
+Once you have made your investment decisions you should formalize them in an [[Investment policy statement]] (IPS) or [[Investment Policy Statement#Investing plan | investment plan]].
+
+===Debts===
+{{Main|Prioritizing investments}}
+
+All financial plans should include a list of all current debts and a plan to pay them off. Quickly pay off medium- and high-interest debts, such as credit card debts. See also: [[Paying down loans versus investing]].
+
+You should probably prioritize eliminating all debts, even low-interest ones, because the balance versus investing favors paying down debts more strongly than for more normal investors, for these reasons:
+* Money put toward debt cannot later be inappropriately spent, or lost to bad investments or [[Asset protection|civil judgments]]. Historically, these have been common ways windfall recipients have squandered their fortunes.
+* Once a debt is paid off, cash flow improves as a required monthly payment is eliminated. This is especially valuable when the windfall is a lump sum.
+* The most common reason to invest instead of paying down a debt is the possibility for a higher return than the debt's interest cost. However, most windfall recipients are investment novices who are less likely to reliably generate high returns from their investments. This makes the protection of principal plus guaranteed "return" of paying down a debt more attractive in comparison.
+* Windfall recipients have less ''need'' to earn a high return, so the guaranteed "return" of paying off debts is more likely to be adequate.
+
+Similarly, you should avoid taking on new debts (for example, a large mortgage on an expensive new home), because servicing that debt will require good financial behavior over a much longer period of time, with many more opportunities for mistakes.
+
+===Taxes===
+{{Main|Tax basics}}
+
+Because the US income tax code is [[Progressive tax|progressive]], taxes become a more important element of financial planning with larger income and assets. You will generally be able to reduce lifetime taxes with some basic tax planning. Common legal methods of reducing taxes include:
+* Optimally timing the exercise of incentive stock options, sale of stock, etc. 
+* If applicable, appropriate choice of a lump-sum or periodic payment
+* Maximizing use of tax-advantaged accounts
+* Appropriate choice of [[Traditional versus Roth|traditional versus Roth]] tax structures
+* Investing in [[Municipal bonds|municipal bonds]] and/or [[Tax-managed fund comparison|tax-managed funds]] if the expected after-tax return is higher than standard investments
+* Taking advantage of [[Step-up in basis|step-up in basis]] and [[Donating appreciated securities|donating appreciated shares to charity]]
+* [[Tax loss harvesting]] and, if appropriate [[Tax gain harvesting|tax gain harvesting]]
+* [[Tax-efficient fund placement]]
+* Appropriately-timed [[Roth IRA conversion|Roth conversions]]
+* Relocating to a low-tax or tax-free state, especially when withdrawing from tax-deferred accounts.
+
+Avoid tax evasion schemes, including IRS listed transactions and offshore tax shelters, because these have a high risk of legal problems and IRS levies. Many scams are marketed as tax shelters too. You should not need to take on these high risks in order to meet your financial goals. 
+
+===Insurance===
+{{Main|Insurance}}
+
+As your assets increase, most financial experts recommend that you increase your liability insurance limits. Large assets, especially if others know or can find out, make you a more attractive target for lawsuits, so more protection is warranted. High limits on the liability portions of renters', homeowner's, and auto policies are the best place to start. For more coverage, [[Umbrella insurance|umbrella insurance]] provides millions of dollars of additional liability coverage, which stacks on top of other policies. 
+
+More assets mean that insurance deductibles can be raised. There is no need to pay higher premiums on a $250 or $500 deductible when a large reserve of assets can cover a $1,000 or $2,500 payment. 
+
+Reconsider the need for life insurance and disability insurance. If your heirs would be able to sustain an acceptable standard of living on the assets you have, you do not need life insurance. Likewise, if you could maintain a decent standard of living for yourself and your family on your assets with no income, you do not need disability insurance. Canceling these policies will save premium costs.
+
+[[Long-term care insurance]] is not necessary if the windfall allows you to self-insure against the risk.
+
+Permanent life insurance (including whole life, cash value life, indexed universal life, and others) is a hybrid insurance/investing financial product often marketed to high net worth individuals. In reality, the products have high fees and low liquidity, and are not ideal for either life insurance or investing; they are only appropriate for very rare situations. It is probably best to simply avoid permanent life insurance, but if you think it would be appropriate, get a second opinion from a third party fee-only financial advisor (preferably a fiduciary CFP or CFA advisor), and shop around from several insurance companies to make sure you get the best deal.
+
+If you have put off buying any essential insurance (health and liability, and [[Homeowner's insurance|homeowner's]], [[Professional insurance|professional/malpractice]], life or disability if appropriate), take this opportunity to fix this part of your financial picture.
+
+===Emergency funds===
+{{Main|Emergency fund}}
+
+Once you get out of debt, you should create an emergency fund that covers about 6 months of living expenses.&lt;ref&gt;{{cite web| author=Miriam Caldwell| date=February 1, 2019| 
+ url=https://www.thebalance.com/what-should-i-do-with-a-sudden-windfall-2385942|title=What to Do With a Sudden Windfall?| publisher=the balance| access-date=May 30, 2020}}&lt;/ref&gt;
+
+The [[Deposit insurance|Federal Deposit Insurance Corporation (FDIC)]] insures bank accounts up to $250,000. If you are going to keep more than this amount in a bank account, consider dividing it among several accounts to keep your balance under this limit.
+
+===Asset protection===
+{{Main|Asset protection}}
+
+Asset protection seeks to protect assets from potential creditor claims. For the majority of high net worth individuals, simple and inexpensive asset protection techniques and good financial behaviors in general will provide more than adequate protection:
+* Keep comprehensive liability insurance with high limits
+* Maximize use of tax-advantaged accounts
+* Pay off debts, and especially your mortgage if home equity is protected from creditors in your state
+* Avoid activities likely to create liability (risky driving habits, keeping dangerous dog breeds, letting your teenager's friends borrow your boat, and so on)
+* Minimize spending on flashy, expensive items that advertise your wealth
+* [[Asset titling in the United States|Title joint assets]] as Tenants of the Entirety (in states where allowed)
+* Keep potentially liability-generating assets, such as rental properties, inside a Limited Liability Corporation (LLC)
+* Divorce is the most common cause of loss of assets, so choose a spouse that shares your values, and invest the time and energy into the relationship necessary to keep it healthy. Consider whether a pre-nuptial or post-nuptial agreement is appropriate for your situation; they often are when there is a significant disparity in assets, or when a spouse has children from a prior relationship.
+
+More complex and expensive asset protection techniques, such as offshore trusts, cost tens of thousands of dollars to set up, and thousands of dollars per year to maintain. They are also far from iron-clad, and even their proponents concede that they are intended to only dissuade potential lawsuits rather than provide reliable protection. The cost/benefit trade-off is not favorable for most people.
+
+===Giving===
+
+Charitable giving can be a meaningful part of a financial plan. Especially if your windfall is large enough to at least cover your basic needs for the rest of your life, strongly consider at least some charitable giving for these reasons:
+* It can enrich your life and be incredibly rewarding to help those less fortunate than you
+* Giving can change your perspective on your new wealth for the better, and even help teach good financial management behaviors that will make your windfall last much longer. For example, rather than viewing money as something to be hoarded or spent on fleeting pleasures, you can grow to view it as a powerful force that can be applied to create good in your and your family's life, and in your community. Adopting a ''stewardship'' perspective on your windfall will create a positive experience when you give to promote your values, and will also encourage you to preserve and manage your windfall to last a lifetime. 
+* Charitable gifts are tax-deductible, so charitable giving can be significantly (although not completely) offset by tax savings.
+
+Consider giving money to family or friends (to whom you would leave assets in your will) during your lifetime, rather than after you die. With life expectancies what they are today, your children could easily be in their 60s or 70s by the time you pass away, many decades past when they would be able to put a gift to the best use. Giving during your lifetime also lets you enjoy seeing the positive effects of those gifts.
+
+While giving to family, friends, and charities can be immensely rewarding, take care of yourself first. While your windfall may seem like more money than you will ever need, progressive tax rates and the need for a low [[Safe withdrawal rates|safe withdrawal rate]] may mean you have far less money available on an ongoing basis than you first imagined. It is okay to give, but prioritize this against other goals and include it in a comprehensive plan.
+
+Carefully consider the effect any gifts or loans to family or friends could have on your relationships. Experience indicates that loans to family and friends often strain relationships, creating stress and resentment on both sides, especially if the loan is not paid back exactly in accordance to the agreement. Giving, rather than lending, is usually a better way to help that minimizes the impact to the relationship, and will also limit your outlay to what you can afford to lose. 
+
+Giving can also damage relationships, especially when the recipient is merely a friend or acquaintance as opposed to close family. After receiving a large gift, the recipient may feel pressure to behave a certain way (for example, spending time with you when it is inconvenient for them), and you may also wonder whether their friendship is predicated on the expectation of gifts, whether it actually is or not.
+
+Be extremely cautious giving or lending money to anyone with severe financial trouble, including close family and friends. Most likely, behavioral finance problems were the dominant cause of the trouble. Unless and until those problems are fixed, they will quickly be back in similar trouble, and any money you gave would likely be wasted on high-interest debts and unnecessary spending. Look for other ways to help, such as hiring them a [[#Get_help|good fee-only financial planner]] or even providing some financial advice yourself using your newly acquired knowledge, if you feel comfortable. Not everyone would be receptive to this type of help, and some people's behavioral finance problems are irreparable, so be prepared to disengage with them on financial topics and provide support in other ways.
+
+===Estate planning===
+{{Main|Estate planning}}
+
+Estate planning deals with preparing for your own death and the associated distribution of assets, and also planning for your own incapacity. Although certain elements of estate planning are appropriate for almost every adult, as a general rule estate planning becomes more important with higher levels of assets. For example:
+
+* When you die and leave a large amount of assets to your heirs, you should think carefully about whether they will be able to manage that money without help, and whether they will spend it in a way you would approve of. [[Trusts]] are common in estate planning with higher levels of assets, and allow you to exercise some control over the money you leave to others after you are gone (among many other uses). Trusts can ensure money is professionally managed, only spent for expenses that align with your values, is dolled out in smaller amounts over time, gets more [[Asset protection|protection]] from heirs' potential creditors, and is kept out of heirs' eventual estate for estate taxes. Trusts are almost always appropriate when leaving money to minors or [[Trusts#Spendthrift_trusts|spendthrift]] heirs. Trusts can be written with almost any terms, and should be tailored to your individual situation. 
+* If your assets are above the federal [[Estate and inheritance tax|estate tax]] exemption (as of 2025, $13.99&amp;nbsp;million for an individual and $27.98&amp;nbsp;million for a married couple, scheduled to increase to $15/30&amp;nbsp;million in 2026), additional planning is necessary. The federal estate tax is 40% of all assets above the exemption, so can be many millions of dollars for a large estate. Some states also have [[Estate_and_inheritance_tax#State_estate_and_inheritance_taxes|state estate tax]], and the exemption can be as low as $1&amp;nbsp;million. Estate tax planning has two goals: minimize the amount of taxes owed, and streamline the process for paying those taxes. See: [[Estate_planning#Estate_tax_planning_and_avoidance|Estate tax planning and avoidance]] for details.
+* Avoiding [[probate]] generally becomes more valuable with higher levels of assets, as probate can have expenses that scale with the size of the estate. It also creates a public record of your assets, which is generally less desirable with higher levels of wealth. The costs and difficulty of probate are state-specific and vary greatly between states. A good estate planning attorney in your state can help you determine wither the benefits for avoiding probate (for example, with a [[Trusts#Revocable_Living_Trusts_(RLTs)|Revocable Living Trust]]) outweigh the downsides for your situation.
+* Higher levels of assets increase the importance of having [[Estate_planning#Power_of_Attorney|Powers of Attorney]] in place, as the consequences for having your finances un-managed if you are incapacitated increase. 
+* Charitable [[#Giving|giving]] often becomes more important with higher levels of assets. Charitable bequests are not subject to estate taxes.
+
+Estate laws are state-specific, so consult an attorney in your state who specializes in estate planning. A good estate planning attorney will work with you to determine your needs in all these different areas, and create the documents and trusts you need to execute your estate plan.
+
+==Monitor progress and make necessary adjustments==
+
+At least once per year, check your your progress toward your goals, and consider the following checks and adjustments:
+* Check your actual spending against your planned budget. The tendency to gradually increase your spending is known as ''lifestyle creep''. If you find your actual spending significantly exceeds your plan, evaluate the reasons why, and either reduce spending on the items that provide the least value, or adjust your financial plan to include higher spending. Raising your spending could delay or prevent you from reaching certain financial goals.
+* Monitor the performance of your investments and [[Rebalancing|rebalance]] as necessary. Avoid any temptation to panic-sell either at market highs or lows. [[Bogleheads®_investment_philosophy#Stay_the_course|Stay the course]].
+* Stay up-to-date on changes in tax laws, and change tax strategy if necessary.
+* Reevaluate your insurance needs, and shop around with other insurance companies to make sure you are getting the lowest rates on policies, especially if your situation has changed significantly. 
+* Reevaluate your estate plan. Beneficiaries may need to be changed, new trusts may need to be created, or old trusts may no longer be necessary. Estate tax laws also change frequently, so changes may be needed to avoid taxes.
+
+Avoid the temptation to tinker with your plan and investments unnecessarily. Hot new investments often get covered by the press and on social media, usually after their price has been run up on speculation. Buying into the top of a bubble usually means you will lose a lot of money when the bubble bursts. If you think your investment plan needs a change, it is probably worth a consultation with a fee-only financial advisor.
+
+==Notes==
+{{Reflist|group="note"}}
+
+==See also==
+*[[Financial planning]]
+*[[Financial planner]]
+*[[Investment adviser]]
+*[[Inheriting an IRA]]
+*[[Inheriting a Roth IRA]]
+
+==References==
+{{Reflist}}
+
+==External links==
+* Vanguard [https://personal.vanguard.com/us/insights/article/yil-managing-windfalls-042014?&amp;Link=home_banner1&amp;LinkLocation=HomepageOverviewContent Your Investing Life: Managing Financial Windfalls]{{dead link}}
+* {{Forum link| t=316411| title=Proposed update to Managing a Windfall wiki page| author=fyre4ce| date=June 1, 2020}}
+
+{{Bogleheads investing start-up kit}}
+[[Category:Personal finance]]
+[[Category:Pages requiring annual tax updates]]</text>
+      <sha1>4t85gm9j510iy2wv58ck0t9xamlkzb1</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Emergency fund</title>
+    <ns>0</ns>
+    <id>2687</id>
+    <revision>
+      <id>88267</id>
+      <parentid>81938</parentid>
+      <timestamp>2025-10-31T10:17:28Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>/* Multi-tiered emergency fund */ Fix apostrophised plural.</comment>
+      <origin>88267</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="10848" sha1="irpii2v4a807lwsnp8zkn5ulnrlm2ap" xml:space="preserve">{{US|reason=partially_irrelevant}}
+
+An '''emergency fund''' is a cash reserve to cover unanticipated needs for cash, such as medical bills, car or home repair, or job loss. It is usually specified as a multiple of monthly expenses, for example, three months to one year's worth of expenses.&lt;ref&gt;{{cite book| author1=Larry E. Swedroe| author1-link=Larry Swedroe| author2=Kevin Grogan| author3=Tiya Lim| title=The Only Guide You'll Ever Need for the Right Financial Plan: Managing Your Wealth, Risk, and Investments| publisher=Bloomberg Press| edition=1| date=August 2, 2010| page=18| isbn=978-1-57660-366-6}}&lt;/ref&gt; 
+
+An emergency fund aims to give you a cushion of [http://www.investopedia.com/terms/l/liquidity.asp liquidity] to cover unexpected expenses or becoming unemployed and losing your regular income. Keep your emergency funds in a highly liquid, low risk vehicle; for example, a [[money market]] fund or a bank savings account.&lt;ref group="note"&gt;See: {{cite journal| author1=Johnson, D. P.| author2=Widdows, R.| date=1985| title=Emergency fund levels of households| editor=K. P. Schnittgrund| journal=Proceedings of the 31st Annual Conference of the American Council of Consumer Interests| pages=235-241}} &lt;br&gt; In this paper, the authors define emergency funds as "financial holdings which are available to cover spending in the event of an emergency (income disruption) without drastically adjusting the household’s current level of living." &lt;/ref&gt;
+
+Ideally you build your emergency fund at the same time as taking any employer match to an [[Employer retirement plans overview|employer retirement plan]] (for example, [[401(k)]] or [[403(b)|403b]]) and paying down high-interest-rate debt (such as [[Credit cards|credit card]] debt). Investing for longer range goals, such as retirement, college expenses or a home down payment, comes later. 
+
+== Placement of emergency funds ==
+Keep your emergency funds in a highly liquid, easy to access, low risk vehicle with guarantee on the capital. Examples include:
+* Checking account
+* Money market fund
+* (High yield) (insured) savings account
+* Reward checking account (RCA), which offers somewhat higher return, if you are willing to put in the effort to set one up.
+
+It might be useful to keep some real cash available for any emergencies where you do not have access to bank accounts.
+
+== Multi-tiered emergency fund ==
+
+By far the most common emergency that would require you to use your emergency fund is the loss of a job. Because you will not need all the funds at once in this case, you might have multiple tiers of emergency fund so that you can place funds not needed for several months in short-term bonds (including [[CD]]s) to earn higher yield.
+
+Those investment products include very short-term [[Treasury bill|treasury bills]], as well as [[CD]]s, which often have an option allowing you to cash them in at any time for a small penalty. You can cash in [[I savings bonds | I bonds]] at no cost after a period, so these can also form a part of a second tier of emergency fund.
+
+For instance, a multi-tiered emergency fund could consist of:
+* Three months of expenses in cash (bank account or money market fund)
+* The next three months of expenses in CDs with the option to cash them in for three months of interest
+* The next three months of expenses in a short-term Treasury bond fund. Selling these would [[Bonds: advanced topics#Duration| risk incurring some loss of principal]] due to interest rate changes, but because the odds of needing to rely on your emergency fund for more than six months are slim, you might consider this an acceptable compromise.&lt;ref group="note"&gt; Johnson &amp; Widdows define three levels of potential emergency fund assets:
+#''Quick'' — assets held in savings, checking and money market accounts.
+#''Intermediate'' — quick assets plus CDs and savings certificates.
+#''Comprehensive'' — intermediate assets plus the value of stocks and bonds.&lt;/ref&gt;
+
+==A note on unemployment benefits==
+
+The most common emergency is job loss. In the United States, many workers who are laid off are eligible for unemployment insurance payments. Eligibility and the size of the benefit vary by state. An important part of your planning should be to find out the rules in your state, and try to determine if you would be eligible, and what the size of the benefit would be.
+
+As a rough guide, unemployment benefit could be about 50% of salary, up to a maximum of about $500 per week, for a maximum of six months. This implies that for many people, unemployment insurance could serve as part as an "emergency fund," with a value of over $10,000.
+
+== Cash emergency fund vs line of credit ==
+
+Some people view various forms of credit, particularly a [[Wikipedia:Home equity line of credit|Home equity line of credit]] (HELOC), as suitable for emergency funds; others strongly disagree. You can often withdraw credit lines with little or no notice, and some emergencies which require you to draw on the emergency fund may also cause a creditor to question your ability to repay.
+
+==Roth IRA as an emergency fund==
+{{Main|Roth IRA as an emergency fund}}
+In some situations, you can use a [[Roth IRA]] as an emergency fund. You can withdraw contributions (that is, the money that you put into your Roth) at any time, and without taxes and penalties. This is not true of &lt;u&gt;earnings&lt;/u&gt; on your contributions, which are subject to more complex rules.
+
+You can also withdraw penalty-free (but not tax-free) from a traditional IRA for certain excepted emergencies and major life events.&lt;ref group="note"&gt;For more, see [https://www.irs.gov/forms-pubs/about-publication-590-b IRS Publication 590-B]. For an easy-to-understand guide of the IRS's Roth IRA withdrawal regulations, see: [http://www.obliviousinvestor.com/roth-ira-withdrawal-rules/ Roth IRA Withdrawal Rules], by forum member ObliviousInvestor. and the [http://www.irs.gov/pub/irs-pdf/i5329.pdf Instructions for Form 5329].&lt;/ref&gt;
+
+A Roth IRA is designed for retirement, not to store emergency funds. You should consider the effect using it as an emergency fund might have on your portfolio asset allocations, and also any custodial costs. There are also behavioral considerations.
+
+If you need to make a choice between funding a Roth IRA and an emergency fund, you can use a Roth IRA as an emergency fund, but only ''in the appropriate situation''.&lt;ref&gt;For details, see {{forum link| t=45554| title=Should an Emergency Fund be in a Roth}}. If unsure, please ask for guidance - this is use of a retirement account for a different purpose.&lt;/ref&gt;
+
+Also, remember that funds in investment accounts (Roth IRA) are not immediately available. Check with the fund provider, as you may need several days to complete the fund transfer process.
+
+==Health savings account as an emergency fund==
+You can use a [[Health savings account|Health Savings Account]] (HSA) to pay for unexpected medical expenses tax-free, as long as they are qualified.&lt;ref&gt;{{cite web| url=https://www.irs.gov/pub/irs-pdf/p969.pdf| title=IRS Publication 969, Health Savings Accounts and Other Tax-Favored Health Plans| publisher=IRS| accessdate=June 6, 2023}}&lt;/ref&gt; Normally, non-medical (and unqualified medical) distributions from an HSA would be taxed as income and assessed an additional 20% penalty.
+
+However, if medical expenses are qualified, incurred since the establishment of the HSA, paid out of pocket, and appropriately documented, they can be reimbursed in a future year. So you can keep a running tally of reimbursable expenses, allowing tax-free withdrawals along the same lines as Roth IRA contributions.&lt;ref group="note"&gt;This article's [[Talk:Emergency fund#Reader feedback: Use of an HSA as an emergency fund|Talk tab]] contains the complete details - including the relevant text from IRS Revenue Bulletin 2004-33 which states:
+:"...a distribution from an HSA in the current year can be used to pay or reimburse expenses incurred in any prior year as long as the expenses were incurred after the HSA was established."&lt;/ref&gt;
+
+Notice however that this strategy puts the shorter-term need for liquid, low-risk emergency funds in opposition to the longer-term tax savings of appreciated assets in the HSA. If you consider only part of the HSA to be emergency fund, the two parts (emergency fund and long-term growth) of the HSA should have different asset allocations, and you should track them carefully.
+
+As with using Roth IRA contributions for emergencies, any withdrawals would permanently reduce your tax-advantaged 'space'. For that reason, and because HSA funds might not be available as quickly as bank accounts, you should probably consider HSA funds a 'later tier' of the total emergency fund. 
+
+===Additional considerations===
+If you are applying for financial aid for college or grad school, the FAFSA® (Free Application for Federal Student Aid) form excludes HSAs from income.&lt;ref group="note"&gt;The balance in the account does not count as an asset, nor would distributions from it count as untaxed income when you use them for qualified medical expenses. Distributions not used for qualified expenses are subject to income tax (and a possible penalty) and will count as adjusted gross income. Source: {{cite web| url=https://fsapartners.ed.gov/knowledge-center/fsa-handbook/2023-2024/application-and-verification-guide/ch2-filling-out-fafsa| title=2023-2024 Federal Student Aid Handbook| publisher=Federal Student Aid (US Department of Education)| date=December 7, 2022| accessdate=February 18, 2023| series=Chapter 2 - Filling Out the FAFSA}}&lt;/ref&gt;
+
+==Notes==
+{{Reflist|group="note"}}
+
+==See also==
+*[[Placing cash needs in a tax-advantaged account]]
+*[[Taxable account]]
+
+==References==
+{{Reflist}}
+
+==External links==
+*finiki: [[finiki:Emergency fund|Emergency fund]] [[File:Canada flag.png|20px|link=]]
+*[https://www.irs.gov/forms-pubs/about-publication-590-a Publication 590-A, Contributions to Individual Retirement Arrangements (IRAs)], from the IRS
+*[https://www.irs.gov/forms-pubs/about-publication-590-b Publication 590-B, Distributions from Individual Retirement Arrangements (IRAs)], from the IRS
+*[https://www.obliviousinvestor.com/roth-ira-withdrawal-rules/ Roth IRA Withdrawal Rules], by Mike Piper (forum member ObliviousInvestor)
+*[https://thefinancebuff.com/your-traditional-ira-is-life-insurance-and-an-emergency-fund.html Your Traditional IRA is Life Insurance and an Emergency Fund], by [[The Finance Buff]]
+
+===Forum discussions===
+*{{Forum link| t=50198| title=How do you determine the emergency fund size?}}
+*{{Forum link| t=51387| title=Managing emergency dollars}}
+*{{Forum link| t=45554| title=Should an Emergency Fund be in a Roth}}
+*{{Forum link| t=283388| title=For the wiki: HSA as an emergency fund}}
+
+{{Bogleheads personal finance planning start-up kit}}
+[[Category: Personal finance]]</text>
+      <sha1>irpii2v4a807lwsnp8zkn5ulnrlm2ap</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Investment policy statement</title>
+    <ns>0</ns>
+    <id>1863</id>
+    <revision>
+      <id>82634</id>
+      <parentid>81909</parentid>
+      <timestamp>2024-04-23T19:01:28Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>/* Real-world IPS */ Fix broken external link.</comment>
+      <origin>82634</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="14150" sha1="f6nwviz9sxqavu6tplwpp33zy8d7x39" xml:space="preserve">An '''{{PAGENAME}} (IPS)''' is a statement that defines your general investment goals and objectives. It describes the strategies that you will use to meet these objectives, and contains specific information on subjects such as [[asset allocation]], [[risk]] tolerance, and liquidity requirements.&lt;ref group="note"&gt;For an interactive course on creating an investment policy statement, see: {{cite web| url=https://classroom.morningstar.com/classroom/investing/collection/portfolios/level/100/course/MORN-C870425758?page=1| title=Creating Your Investment Policy Statement| publisher=Morningstar's Investing Classroom| accessdate=June 5, 2023}}&lt;/ref&gt;
+
+Alternatively, you could consider using a simpler ''investing plan'' (see [[#Investing plan |below]]):
+*If you find creating a full Investment Policy Statement too complex
+*If your investment objectives do not justify the effort needed to create an Investment Policy Statement
+
+== Benefits of using an IPS ==
+Every investor could potentially benefit from having an investment policy statement. It provides the foundation for all your future investment decisions. It serves as a guidepost, identifies goals and creates a systematic review process. The IPS aims to keep you focused on your objectives during short-term swings in the market, and gives you a baseline from which to monitor investment performance of your overall portfolio, as well as the performance of individual fund managers.
+
+If you are using some sort of financial advisor, an IPS outlines the ground rules of the relationship between you and that advisor. And you can use the IPS as a reference to see whether or not your portfolio is achieving your stated goals and objectives. You can also use your IPS to evaluate and review any proposed changes to your investments against your overall objectives.
+
+A properly constructed Investment Policy Statement supports following a well-conceived, long-term investment discipline, rather than one that is based on false overconfidence or panic in reaction to short-term market fluctuations.
+
+== Drawbacks of not using an IPS ==
+Someone without a written policy often bases decisions on day-to-day events, which regularly leads to chasing short-term performance that may hinder them in reaching long-term goals. Having a policy encourages you to maintain focus on the long-term nature of investing, especially during turbulent or exuberant times.
+
+== Basic sections of an IPS ==
+=== Financial account information ===
+This area includes:
+* Where are your financial assets located?
+* How much is in tax-advantaged accounts ([[IRA]], [[Roth IRA]], [[401(k)]], etc) versus taxable accounts?
+* How much will you be contributing to these accounts?
+
+=== Investment objectives, time horizon, and risk tolerance ===
+Here you list the following:
+* Your short-term financial goals and liquidity needs
+* Your long-term financial goals and retirement
+** Your time-frame for funding these goals
+** The length of time for which you will need these assets
+** Amount of assets required
+
+=== Asset classes to use and those to avoid ===
+For example:
+* [[Asset class]]es you decide that you must include in your overall investment portfolio
+** U.S. Stocks
+** International Stocks
+** U.S. Bonds
+* Asset classes you would rather avoid due to excessive risk, high expenses, or large tax liabilities, and so on. For example:
+** Hedge funds
+** Actively-managed funds with high taxable turnover or distributions
+** Consider under-weighting tech sector due to my employment there
+
+=== Asset allocation targets and rebalancing ranges ===
+This area lists the following:
+* Your target allocation between [[stock]]s and [[bond]]s
+* Your target allocation for international investments
+* Any time-frame for altering these allocations
+* The minimum and maximum deviations from these targets that will trigger portfolio [[rebalancing]]
+
+=== Monitoring and control procedures ===
+Here you list:
+* Your frequency of monitoring
+* Your benchmark for comparison of portfolio returns
+* The acceptable deviation from benchmark (amount and time)
+* Any concrete procedures for future changes to IPS, for example:
+** Financial reasons for changing IPS
+** Lifestyle reasons for changing IPS
+** Any reasons ''not'' to change IPS (for example, short-term market performance)
+
+== Example IPS ==
+
+{| class="wikitable"
+|+ Example IPS
+|- 
+! style="text-align:left;" | Investment objectives:
+|These are my main objectives for my investment program. I have developed them after a review of my financial resources, financial goals, asset allocation, risk tolerance and time horizon.
+* Objective 1: To retire at the age of 57
+* Objective 2: To have an annual income from my investments of at least $45,000 after taxes and in today’s dollars (inflation assumed to be 3.0 percent yearly)
+* Objective 3: To leave a meaningful inheritance for my children
+* Objective 4: To minimize potential tax liabilities
+* Objective 5: To monitor portfolio allocation against holding limits, to benchmark returns against expectations, and to consider revisions to portfolio as personal situation may dictate
+|-
+! style="text-align:left;" | Risk tolerance:
+|My ability to tolerate the uncertainties, complexities and volatility inherent in the investment markets has been considered in the development of this investment program. The main factors that have influenced my risk tolerance and asset allocation are: age, present financial condition, specific financial goals, discretionary income and its variability, past investment experience.
+|-
+! style="text-align:left;" | Holding limits:
+|My portfolio was developed subject to certain holding limitations. These are limitations on the minimum and maximum percentage investment in each asset class:
+* Large Cap U.S. Equities (15-30 percent)
+* Mid Cap U.S. Equities (10-25 percent) 
+* Small Cap U.S. Equities (5-15 percent)
+* Foreign Equities (5-15 percent)
+* REITs (0-15 percent)
+* Inter-Term Govt Bonds (10-25 percent)
+* Corporate Bonds (0-10 percent)
+* Cash and Cash Equivalents (5-20 percent)
+|-
+! style="text-align:left;" | Target allocation:
+|Based on my financial resources, financial goals, time horizon, tax status, holding limitations, risk tolerance and [[Historical and Expected Returns| expected investment performance]] a recommended portfolio was determined. The portfolio balances risk and reward and attempts to achieve the stated objectives of the investment program. The initial asset allocation is:
+* Large Cap U.S. Equities (25 percent)
+* Mid Cap U.S. Equities (10 percent)
+* Small Cap U.S. Equities (5 percent)
+* Foreign Equities (15 percent)
+* REITs (10 percent)
+* Inter-Term Govt Bonds (25 percent)
+* Corporate Bonds (5 percent)
+* Cash Equivalents (5 percent)
+|-
+! style="text-align:left;" | Selection criteria:
+|Investment portfolios used to implement the investment program shall be subject to specified selection criteria and shall be monitored for adherence to my investment policy guidelines, major changes in the portfolios and comparative performance with similar investments. The [[Expense ratios |expense ratio]] and overall cost of funds shall be a major point in the selection criteria. To minimize style drift, index funds are preferred, if available, for all asset class.
+|-
+! style="text-align:left;" | Review process:
+|My investment performance will be monitored and reported on a quarterly basis and will be compared against the appropriate benchmarks. The investment program will be reviewed at least annually to make sure that it continues to achieve his stated objectives. Since this investment program is long-term in nature, the periodic adjustments made to his investment program should be small.
+|-
+! style="text-align:left;" | Rebalancing:
+|The percentage weighting to each asset class within the investment portfolio will vary. The percentage weighting within each asset class will be allowed to vary within a reasonable range of plus or minus an absolute 5 percent or 25 percent of the original allocation amount; whichever is triggered first. To minimize taxable events when rebalancing is required, dividends and net cash inflows will be used to meet the strategic asset allocation targets. If cash flow is not sufficient to meet the target allocation for an asset class, I will decide whether to effect transactions in order to rebalance the asset allocation.
+|}
+
+== Real-world IPS ==
+Fellow Boglehead [https://www.bogleheads.org/forum/memberlist.php?mode=viewprofile&amp;u=681 Sunny] was one of the first to post a popular IPS. It may not cover all of the topics necessary for someone with a complicated financial situation, but his IPS is brilliant in its elegance and compactness.&lt;ref&gt;{{cite web| url=https://socialize.morningstar.com/NewSocialize/asp/FullConv.asp?forumId=F100000015&amp;convId=183427| title=Diehard Sunny Sarkar's beautiful IPS| author=Taylor Larimore| author-link=Taylor Larimore| date=September 18, 2006| url-status=dead| archive-url=https://web.archive.org/web/20220621234414/https://socialize.morningstar.com/NewSocialize/asp/FullConv.asp?forumId=F100000015&amp;convId=183427| archive-date=June 21, 2022}}&lt;/ref&gt;
+
+{| class="wikitable"
+|+ Sunny's IPS
+|- 
+! style="text-align:left;" | Investment philosophy:
+|''"Buy-and-hold, long-term, all-market-index strategies, implemented at rock-bottom cost, are the surest of all routes to the accumulation of wealth"'' - John C. Bogle
+|-
+! style="text-align:left;" | Asset allocation:
+|Maintain overall 60% stock + 40% fixed-income allocation until home purchase to accommodate both short-term and long-term requirements. Assets should be diversified across major asset classes including domestic equity, international equity (20-25% of equities), conventional bonds of short to intermediate term, and TIPS (50% of fixed).
+|-
+! style="text-align:left;" | Funds and accounts:
+|Use low cost mutual funds - index funds preferably - which do not overlap and provide maximum diversification across asset classes. Try to assume only market risk as far as possible. Try to shelter tax-inefficient funds in tax-advantaged accounts to reduce tax drag.
+|-
+! style="text-align:left;" | Target allocation:
+|
+* VTSMX - Total Stock Market Fund 45% - Taxable account
+* VGTSX - Total Int'l Market Fund 15% - Roth IRA
+* VIPSX - TIPS Fund 20% - Traditional IRA
+* IIBAX - Intermediate Bond Fund 20% - 401k
+* VMMXX - Money Market fund (6 months' expenses) - Taxable account 
+|-
+! style="text-align:left;" | Other considerations:
+|Automate future contributions wherever possible. Rebalance yearly. No market timing. Exact sub-allocations are not as important as maintaining the overall 60/40 stock/fixed allocation - no need to make things complex in order to meet sub-allocation targets.
+|}
+
+===Other real-world examples===
+*{{Forum link| p=852539| title=Investing Personal Statement for EmergDoc and Ms EmergDoc}}
+*{{Forum link| p=852327| title= Peter Foley's Investment Policy Statement}}
+*{{Forum link| p=854864| title= DaleMaley's Outline}}
+
+==Investing plan==
+In some cases, a ''formal'' investing policy statement may seem too complicated or inconvenient. In that case, you could develop an informal ''investing plan'' (also referred to as an ''investment plan'') instead. Whether it is called a policy or a plan, the idea is that you have a clear understanding of managing your investment goals and objectives.&lt;ref&gt;{{Forum link| t=69802| title=EmergDoc's Investing Plan Thread}}&lt;/ref&gt;
+
+The Bogleheads forum often gets questions such as "I have $50K saved up and I need to know which funds to put it in!". Setting up an investing plan will help answer these questions.
+
+An investing plan can be as easy as following these simple steps:
+*''Step 1'' - Formulate your goals. Be as specific as possible, realizing that you will make changes as the years go by.
+*''Step 2'' - Set up a plan for each goal. The plan consists of identifying what type of account you will use to save the money, choosing the amount you will put toward the goal each year, working out an asset allocation likely to reach the goal with the minimum risk necessary, and identifying a plan B for the goal in case the returns you are planning on do not materialize.
+*''Step 3'' - Select the best (usually lowest cost) investments to fulfill your desired asset allocation. Using all or mostly index funds further simplifies the process.
+
+Some typical goals that can benefit from an investing plan:
+*I want $40,000 for home downpayment by June 30, 2030
+*I want to have enough money to pay the tuition at my alma mater in 13 years when my 5 year old turns 18
+*I want to have $2&amp;nbsp;million saved for retirement by Jan 1 2050
+
+For a detailed discussion on how to achieve those goals, see {{Forum link| t=69802| title=EmergDoc's Investing Plan Thread}}.
+
+== Notes ==
+{{Reflist|group="note"}}
+
+== See also ==
+* [[Retirement policy statement]], a similar document intended for retirement planning
+
+== References ==
+{{Reflist}}
+
+==Further reading==
+* {{forum link| t=7353| title=Collective thoughts}}, approach and methodology for investment policies. 
+* {{forum link| t=50886| title=Forum Poll: Do you have a written investment plan?}}, ''recommended reading''.
+* {{forum link| t=61915| title=Post your Investment Policy Statement IPS here}}, additional examples.
+* {{forum link| t=69802| title=White Coat Investor's Investing Plan Thread}}
+
+==External links==
+*[https://money.cnn.com/2001/04/02/strategies/q_mstar_policy_wg/ Creating Your Investment Policy Statement], Sue Stevens, CNN Money, April 2, 2001.
+*[https://web.archive.org/web/20200927092403/https://www.morningstar.com/articles/808692/article How to Create an Investment Policy Statement], Christine Benz, Morningstar, June 8, 2017. Archived from [https://www.morningstar.com/articles/808692/article the original] on September 27, 2020. Includes a downloadable [https://web.archive.org/web/20221201174901/http://news.morningstar.com/pdfs/investment-policy_apr2016.pdf investment policy template] for creating your own statement.
+
+{{Bogleheads investing start-up kit}}
+{{Portfolios}}
+{{Managing your IRA}}
+
+[[Category:Asset allocation]]
+[[Category:Portfolios]]
+[[Category:Investment management]]</text>
+      <sha1>f6nwviz9sxqavu6tplwpp33zy8d7x39</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Paying down loans versus investing</title>
+    <ns>0</ns>
+    <id>1658</id>
+    <revision>
+      <id>88140</id>
+      <parentid>87195</parentid>
+      <timestamp>2025-10-24T14:15:25Z</timestamp>
+      <contributor>
+        <username>Pizzaisgood</username>
+        <id>398</id>
+      </contributor>
+      <minor/>
+      <comment>Fixed typo</comment>
+      <origin>88140</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="17864" sha1="r2et2fdovas8dnxrmatv5f3mv92tzvr" xml:space="preserve">{{POV}}
+'''Paying down loans versus investing''' is an investment choice you may have if you have money available but you also have an outstanding loan. This article looks at the choice of how to deploy the money and the pros and cons to be considered.
+
+==Viewing it as an investment choice==
+If you have money that you could invest, but you also have a loan, you have the option of using the money to pay down the loan instead. Paying down the loan will give you a guaranteed return by reducing your future loan balance, and eventually eliminating future loan payments or giving you more money when the loan is paid off. This is the same benefit that you get from a fixed-income investment such as a [[Bond basics | bond]] or [[certificate of deposit]] (CD), which also gives you fixed amounts of money at specified future times. 
+
+Therefore, it makes sense to treat paying down a loan like a bond investment, and compare this option to your other investment options.
+
+'''Example''': You have a credit card with a $5,000 balance and an APR of 10%. Your current net worth is $20,000. You have received $1,000 in cash (which is included in the $20,000). You are deciding what to do with the cash.
+
+* If you do nothing with that cash, the credit card's interest will make your net worth $19,500 in one year's time ($20,000 - 10% &amp;times; $5,000).
+* If you use the $1,000 to pay down the credit card, your net worth will be $20,000 - $4,000 &amp;times; 10% = $19,600
+* If you invest the $1,000 in a bond paying 5% (''after taxes''), your net worth will be $19,500 + $1,000 &amp;times; 5% = $19,550.
+* If you invest the $1,000 in a bond paying 10% (''after taxes''), your net worth will be $19,500 + $1,000 &amp;times; 10% = $19,600.
+
+As can be seen, paying down the credit card affects your net worth equivalently to investing in a risk-free asset with an after-tax return equal to the credit card's interest rate. Note the use of ''after-tax'' and ''risk-free'', as those are important considerations.
+
+== Loan considerations ==
+Be certain of your loan's payment terms and conditions. You may not be entitled to skip payments, or the interest due may not be what you expect. Read the contract. In addition, check your tax records to see whether you are actually deducting the loan interest; many homeowners take the standard deduction and thus get no tax deduction from the interest payment.
+
+=== Calculating interest ===
+Because there are several ways of calculating interest on loans (including how leap year is considered), the exact details may differ by small amounts. Bank and auto finance loans are probably very similar, but may not be identical.&lt;ref name="BH"&gt;{{forum link| t=87988| title=Paying loans early - differences between types of loans| author=dm200| date=January 1, 2012}}.&lt;/ref&gt;
+
+As an example, take a $10,000.00 credit union loan at 6.00% interest rate for 48 months issued January 15, with the first payment due on February 15, and then on the 15th of succeeding months. The monthly payment would be $234.86 per month for 47 payments and a final payment of $234.71 and an approximate total interest of $1,273.13. The exact amount of interest depends on the exact amount paid and which day the payment is credited. Such consumer loans charge interest on the number of days and the outstanding balance each day.
+
+On this loan, suppose you paid the $234.86 on the 10th of every month (five days early). Because this would slightly reduce the balance each month on the principal, overall interest would be less, resulting in a final (48th) payment of 224.31 - a savings of about $10.
+
+As another example, suppose you chose to pay a little extra each month on the 15th. Say you paid $250.00 each month on the 15th. You would then pay off the loan with 44 payments of $250.00 and a 45th and final payment of $185.43. Total interest would be $1,185.43.
+
+=== Loan prepayment ===
+If you pay extra, do you still need to make the full monthly payment the next month? If you read all the fine print in the loan agreement, almost certainly the full payment is required each month. However, most credit unions - to some degree - allow paying early or extra to then allow skipping a month's payment. So, for example, if you make three payments in July, can you then skip August, September and October? Maybe or maybe not - all depends on the policies and practices of that credit union. Some credit unions will allow one, two or three months prepayment where you can then skip.&lt;ref name="BH" /&gt;
+
+While mortgage loans could operate the same way, almost none do. Mortgages operate with somewhat different rules, practices and customs. Mortgages are almost always sold by the issuing credit union (or bank) or, if not actually sold, structured in a way where they could be sold. In almost all cases, interest is collected based on the amortization schedule - not actual days. So, for example, my mortgage payment is due the 1st of the month. BUT - whether I pay my January 1 due payment on December 25 (early) or January 10 (late, but within the grace period) - the interest paid is the same. For mortgages, if you want to pay extra to save interest, that must be specifically identified and credited according to the rules of the lender/servicer. When you pay extra and/or early to save interest, you still owe the full payment in succeeding months. One reason for mortgage loans being treated like this is that it better allows transfers and sale of mortgages from one institution to another that have very different data processing and crediting systems in place.
+
+==Non-mathematical considerations==
+
+=== Peace of mind ===
+For many investors, the peace of mind from not having a loan is valuable. If you are in that situation, it may be worth paying off a loan at a small additional cost so that the loan will be gone. 
+
+=== Simplicity ===
+
+Once a loan is paid off, your life is simplified. The money budgeted for this loan can now be used elsewhere, such as investing.
+
+===Liquidity===
+If you use money to pay off a loan and then need money later, you cannot get it back without taking a new loan, probably at a higher interest rate (such as a home-equity loan rather than a first mortgage). Therefore, it is best to build a significant [[Emergency fund | emergency fund]] before paying down a mortgage, and not to use money for paying down the mortgage that you might need to spend on something else other than buying a new house. (However, if you add money to your [[Traditional IRA]] or [[401(k)]] rather than paying down the mortgage, you do not normally gain any liquidity advantage, since you generally cannot withdraw from the Traditional IRA or 401(k) without a penalty until you reach the appropriate age.&lt;ref group="note"&gt;Withdrawals from a Traditional IRA will be subject to income tax. Early withdrawals are generally amounts distributed from your Traditional IRA account before you are age 59 1/2. You must pay a 10% additional tax on the distribution of any assets from your Traditional IRA before you are age 59 1/2.
+
+:'''Exceptions to the penalty apply if the early withdrawal is:'''
+:* made to a beneficiary or estate on account of the IRA owner's death,
+:* made on account of disability,
+:* made as part of a series of [[SEPP:Substantially_Equal_Periodic_Payments|substantially equal periodic payments]] over your life or life expectancy,
+:* made to pay for a qualified first–time home purchase,
+:* not above your qualified higher education expenses,
+:* not above certain medical insurance premiums paid while unemployed,
+:* not above your unreimbursed medical expenses that are more than a certain percentage of your adjusted gross income, or
+:* due to an IRS levy.
+
+For a Roth IRA, withdrawals of contributions can be withdrawn tax free, under the [[Roth IRA#Distributions |ordering rules]]. If the Roth IRA has passed the five year holding requirement, withdrawals of qualified earnings will be tax free for the following exceptions:
+:* you become disabled, distributions attributable to your disability,
+:* qualified first-time homebuyer distributions,
+:* made to a beneficiary or estate on account of the IRA owner's death.
+
+Penalty free and/or tax free early withdrawals from IRAs cannot be reinvested back into the IRA.
+&lt;/ref&gt;)
+
+To preserve liquidity, you might create a dedicated "loan payment" fund, invested in [[Municipal bonds |municipal]] or [[Treasury bonds|treasury]] bonds which always has enough money for you to pay down the loan.
+
+=== Discipline ===
+
+It requires financial discipline to direct money to savings, investment, or early loan payments instead of fun things.
+
+Once you pay off the loan, if you redirect the freed-up loan payment cash flow to increased consumption, you will have no additional savings in the end.
+
+=== Special considerations ===
+
+If you have a student loan and might work for an employer which will forgive the loan (such as a federal or state government), do not pay it down early unless the rate is very high, as you will forfeit that benefit.
+
+In addition, there are estate-planning considerations when deciding whether to pay off a loan. For example, credit cards are typically subject to collection after death, and yet federal student loans are discharged after death. As such, if you are planning an estate, it might not be useful to use assets to pay off federal student loans, as they would be discharged upon death (and ''not'' considered cancellation nor issued a 1099-C), and you would be better off investing those assets.
+
+== Prerequisites ==
+
+Before deciding to pay extra to retire debt early you should make sure you understand your financial situation. Is your [[Household budgeting|household budget]] in order? Do you have an [[emergency fund]] established, and enough extra cash flow to make a difference in your loans?
+
+==Guidelines for making the choice==
+Usually, you should pay down the loan if the after-tax interest rate on the loan is significantly higher than the after-tax rate you can earn on a comparable bond investment (a low-risk bond investment with duration equal to the time until you will pay off the loan), and you can pay the loan down without any liquidity problems.
+
+Here is the most likely order of priority for investments versus paying off loans; it does depend on the rates, so these examples are based on typical rates which may not be accurate at any specific time.
+
+*Invest in 401(k) to get maximum employer match (rate may be over 100% in the first year)
+*Pay down credit cards (rate 10-30+%)
+*Pay down non-deductible auto or student loans, or other medium-rate loans (rate 5-8%)
+*Invest in [[Roth IRA]], deductible IRA or decent 401(k) (rate 5% on Treasury bonds)
+*Pay down deductible mortgage or student loans (rate 4% after tax)
+*Invest in taxable account (rate 4% on municipal bonds)
+*Do not pay down subsidized loans as long as subsidy lasts (rate 0-3%)
+
+===Why use bond returns for comparison?===
+While you may have a higher expected return by investing in stocks, or in a mixed stock/bond allocation, rather than in bonds, that return comes with a higher risk. Unless your investments are 100% in stocks, you can choose to take a higher risk whether or not you pay down your loan, because you can sell bonds and buy stock. Therefore, a fair comparison is between paying down the loan and a bond investment with the same risk. 
+
+One way to look at the comparison is to consider the following choices.
+
+# Invest the money with your preferred allocation.
+# Invest the money in bonds.
+# Pay down the loan and move an equal amount of money from bonds to your preferred allocation.
+# Pay down the loan and leave the investments unchanged.
+
+The choice between 3 and 4, while difficult, is one you have already made; you decided how much risk you were willing to take, and chose your stock/bond allocation. And the choice between 1 and 3, or between 2 and 4, is much simpler; if you pay a higher interest rate on the loan than you would by investing in bonds, you will come out ahead by paying down the loan. If you prefer 3 to 1 (higher rate on the loan), then you prefer 4 to 1 also and should pay down the loan. If you prefer 2 to 4 (higher rate on bonds), then you should invest the money according to whichever of 1 or 2 you prefer.
+
+===What type of bonds are comparable?===
+Paying down a fixed-rate loan gives you a guaranteed, zero-risk return, since it reduces an existing liability. Therefore, it should be compared to a bond with no credit risk. If you would be investing the money in an IRA or 401(k), the best comparison is a Treasury bond; if you would be investing in a taxable account, the best comparison is a high-quality municipal bond, which has almost no risk and usually has better after-tax returns. 
+Note that you are generally best off putting stocks in your taxable account and bonds in tax-deferred accounts -- see [[Principles of tax-efficient fund placement]] for more information.
+
+If your loan is at a fixed rate, the proper comparison is to a bond with duration equal to the time it will take you to pay off the loan, because that is how long it will take you to realize the benefit. For example, if you pay an extra $1,000 on your 6% mortgage, the reduced mortgage balance will decrease by 6% a year, compounded annually (but all the gains are taxable). If there are ten years left on your mortgage, you will reduce your final payment by $1,791, so your prepayment is effectively a ten-year bond. If there are more than ten years left but you sell the house in ten years, you will get an extra $1,791 after the loan is paid off, so it is again a ten-year bond.
+
+If your loan is at a variable rate, the proper comparison is to a short-term bond even if it will take you a long time to pay off the loan, because you will be effectively reinvesting your savings every year at rates tied to short-term rates. For example, if your mortgage rate is 1% above the one-year Treasury bill rate, and you pay off the mortgage in ten years, your pre-tax gain will be 10.5% more than the rate of one-year Treasury bills reinvested for ten years because of compounding, no matter what happens to Treasury rates during the next ten years.
+
+While paying down the loan gives a zero-risk return, you will still face risk from the potential change in value of an asset (such as a house) you purchased with the proceeds of the loan -- but that risk would still exist if you had purchased the asset with cash.
+
+===What is the effective rate?===
+If your loan interest is tax-deductible, the after-tax rate to use for comparison is the actual rate, reduced by a percentage equal to your tax bracket. For example, if your mortgage is at 6% and you are in a 30% tax bracket, the after-tax rate is 4.2% = 6% - (30% &amp;times; 6%); paying down $10,000 and reducing the interest by $600 would increase your tax bill by $180. (Even if you would lose the opportunity to itemize deductions if you paid off the whole loan, treat any partial payment as a fully taxable investment, because you have to eliminate the deductible interest first before you can pay off enough to eliminate non-deductible interest.)
+
+As another example, the first $2,500 you pay in interest on a student loan is tax-deductible up to a certain income level. Suppose you have a $60,000 student loan at 5% interest, so that you will owe $3,000 of interest next year; you deduct $2,500 of interest, reducing your tax bill by $375 if you are in a 15% tax bracket ($375 = ($3,000 &amp;times; 15%) - ($3,000 - $2,500) &amp;times; 15%). If you pay down $10,000, you reduce the interest to $2,500, and you still get the full deduction, so your benefit is the full $500 for an effective rate of 5%. But if you pay down yet another $10,000, you reduce the interest to $2000, and you lose a $500 deduction, increasing your tax bill by $75. Thus, the second $10,000 payment earns you only $425, for an effective rate of 4.25% on this payment.&lt;ref group="note"&gt;The ''effective rate'' is the annual rate of interest when compounding occurs more than once per year. See: [http://www.investopedia.com/terms/e/effectiveinterest.asp Effective Annual Interest Rate], from Investopedia.&lt;/ref&gt;
+
+===If the decision is close===
+If, by the sheer numbers, the decision is close, it may be better to keep the loan.&lt;ref name="Close Decision"&gt;{{forum link| t=113520| title=Decision on wiki: Paying Loans vs. Investing| author=assumer| date=March 26, 2013}}.&lt;/ref&gt;
+
+The benefits of paying off the loan would be:
+* [[Paying_down_loans_versus_investing#Peace_of_Mind|Psychological benefits]]
+* Reduced minimum monthly payments, which could be useful in an emergency situation.
+* Tax-free return.
+
+The benefits of keeping the loan and investing in bonds would be:
+* [[Paying_down_loans_versus_investing#Liquidity|Liquidity]] (you can likely choose to sell the bonds and pay the loan off at any time)
+* If interest rates fall, you can likely refinance the loan at a lower rate.
+* Fixed-rate loans (for example, mortgages) can offer inflation protection (if inflation rises, you are still only paying the same nominal amount per month).
+* If the choice is between investing in tax-advantage accounts (for example, a 401(k) or IRA) and paying down the loan, investing in the 401(k) or IRA will give you more tax-deferred investments, which will remain valuable even after you have paid off the loan, and these accounts have annual contribution limits.
+
+==Notes==
+{{Reflist|group="note"}}
+
+==See also==
+*[[Mortgage as a negative bond]]
+
+==References==
+{{Reflist}}
+
+== External links ==
+*{{Forum link | t = 113520 | title = Decision on wiki: Paying Loans vs. Investing | author = assumer | date = Mar 26, 2013 }}
+*{{Forum link | t = 87988 | title = Paying loans early - differences between types of loans | author = dm200 | date = Jan 01, 2012}}
+
+{{Bogleheads personal finance planning start-up kit}}
+[[Category:Personal finance]]</text>
+      <sha1>r2et2fdovas8dnxrmatv5f3mv92tzvr</sha1>
+    </revision>
+  </page>
+</mediawiki>

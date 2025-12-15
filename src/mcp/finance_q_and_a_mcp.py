@@ -30,6 +30,14 @@ advanced_vector = FAISS.load_local(
     allow_dangerous_deserialization=True
 )
 
+categories = set()
+categories.add("Investing")
+categories.add("Financial Planning")
+categories.add("Retirement")
+categories.add("Tax")
+categories.add("Behavioral Finance")
+categories.add("Glossary")
+
 @mcp.tool()
 def list_categories() -> List[str]:
     """
@@ -38,15 +46,6 @@ def list_categories() -> List[str]:
     Returns:
         A list of unique category names.
     """
-    categories = set()
-    categories.add('Investing')  
-    categories.add('Financial Planning')  
-    categories.add('Retirement Planning')  
-
-    for doc in basic_vector.get_all_documents():
-        category = doc.metadata.get('category')
-        if category:
-            categories.add(category)
 
     return list(categories)
 
@@ -80,22 +79,22 @@ def basic_query(query: str, categories: Optional[List[str]] = None) -> str:
         Formatted search results with sources
     """
     search_kwargs={
-        "k": 3,      # The final number of documents to return
-        "fetch_k": 20, # Number of *initial* documents to fetch for re-ranking 
-        "lambda_mult": 0.7 # Trade-off between relevance (1.0) and diversity (0.0)
+        "k": 3#,      # The final number of documents to return
+        #"fetch_k": 20, # Number of *initial* documents to fetch for re-ranking 
+        #"lambda_mult": 0.7 # Trade-off between relevance (1.0) and diversity (0.0)
     }
 
     if categories and len(categories) > 0:
         if len(categories) == 1:
             # Simple Filter: {"primary_category": "Retirement"}
-            search_kwargs["filter"] = {"primary_category": categories[0]}
+            search_kwargs["filter"] = {"category": categories[0]}
         else:
             # OR Filter: {"$or": [condition1, condition2, ...]}
-            or_conditions = [{"primary_category": cat} for cat in categories]
+            or_conditions = [{"category": cat} for cat in categories]
             search_kwargs["filter"] = {"$or": or_conditions}
     
     retriever = basic_vector.as_retriever(
-        search_type="mmr", 
+        search_type="similarity", 
         search_kwargs=search_kwargs
     )
 
@@ -177,5 +176,5 @@ def advanced_query(query: str, categories: Optional[List[str]] = None) -> str:
     return "\n---\n".join(formatted_results)
 
 if __name__ == "__main__":
-    mcp.run()
+    mcp.run(transport="sse", port=8001)
 

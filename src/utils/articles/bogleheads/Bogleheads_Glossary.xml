@@ -1,0 +1,885 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd" version="0.11" xml:lang="en">
+  <siteinfo>
+    <sitename>Bogleheads</sitename>
+    <dbname>wiki</dbname>
+    <base>https://www.bogleheads.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.43.5</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Bogleheads</namespace>
+      <namespace key="5" case="first-letter">Bogleheads talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="274" case="first-letter">Widget</namespace>
+      <namespace key="275" case="first-letter">Widget talk</namespace>
+      <namespace key="828" case="first-letter">Module</namespace>
+      <namespace key="829" case="first-letter">Module talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Mutual fund</title>
+    <ns>0</ns>
+    <id>2736</id>
+    <revision>
+      <id>87155</id>
+      <parentid>85709</parentid>
+      <timestamp>2025-08-22T08:52:49Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>Fix apostrophised plurals.</comment>
+      <origin>87155</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="36783" sha1="kktl795urk5zqwd9gttts8tww6lr4qx" xml:space="preserve">{{US|reason=partially_irrelevant|non-US_link=[[Wikipedia:Mutual fund]], [[Wikipedia:SICAV]], and [[Wikipedia:Open-ended investment company]]}}
+
+'''{{PAGENAME}}s''' are registered investment companies that pool investors' capital to invest in securities.&lt;ref&gt;{{cite web| url=https://investor.gov/investing-basics/investment-products/mutual-funds| title=Mutual Funds| publisher=Investor.gov (SEC)| accessdate=June 5, 2023}} &lt;/ref&gt; Professional money managers manage mutual funds, and the corporate contributory retirement system in the U.S. uses them extensively. As of 2025, a total of 8,355 U.S. mutual funds held over 28.5 trillion dollars of assets, owned by fifty-six percent of American households and an estimated 126.8 million individuals.&lt;ref&gt;{{cite web| url=https://www.icifactbook.org/pdf/2025-factbook.pdf| title=2025 ICI Fact Book| publisher=Investment Company Institute| accessdate=July 7, 2025}}&lt;/ref&gt;
+
+Mutual funds offer you diversification, professional management, liquidity, and convenience. These advantages are offset by factors such as costs, fund turnover, and the consequences of organizational structure. You can buy mutual funds through [[broker]]s with commissions, or through firms that sell directly to investors without commissions. Funds may be actively managed, or they may use passive indexing. Funds give you access to [[money markets]], [[Developed market bonds|domestic and international bonds]], and [[Domestic/International|domestic and international stocks]]. 
+
+==Mutual fund advantages==
+
+Mutual funds have a number of compelling advantages.
+
+*'''Diversification'''. The first principle of mutual fund investing is broad diversification of securities. Diversification greatly reduces and can even eliminate the risks of owning just a few individual stocks and bonds. Before the advent of mutual funds it was impossible for ordinary investors to own enough securities to minimize non-market risk. Now, even a beginning investor with $1,000 can invest in a mutual fund holding thousands of individual securities, so that the decline or bankruptcy of a single security will have almost no influence on their portfolio.&lt;ref name="bogle_on_mutual_funds"&gt;{{cite book| title=Bogle on Mutual Funds: New Perspectives for the Intelligent Investor| publisher=McGraw-Hill| date=1993| isbn=1-55623-860-6| author=John Bogle| author-link=John Bogle| pages=52-54}}&lt;/ref&gt;
+*'''Professional management'''. Managing and holding an investment portfolio means selecting and supervising the fund's holdings. Managers must do this based on the fund's objectives and policies. Index fund managers aim to mimic their benchmark index, and make no attempt to select "winning" securities. By contrast, active fund managers try to add value by selecting securities they think will perform above the average, within the fund's objectives.&lt;ref name="bogle_on_mutual_funds" /&gt;
+*'''Liquidity'''. Many securities (hedge funds, limited partnerships, real estate, CDs, etc.) cannot be sold quickly and without penalty. However, you can acquire or sell most mutual fund shares at a moment's notice, at the fund's next determined [[net asset value]] per share. Also, you can easily convert mutual funds into cash at a fraction of the cost (a few funds have redemption fees) that you would pay to sell individual stocks or bonds. This is also true when exchanging mutual funds.&lt;ref name="bogle_on_mutual_funds" /&gt;
+*'''Convenience'''. Mutual fund prices and performance are readily available in newspapers, magazines, internet and research organizations such as Morningstar. You can purchase them through brokers or directly with fund companies. Mutual fund companies provide automatic reinvestment of dividends and capital gains distributions, tax reporting, programs for regular additional investments and for systematic withdrawals, check writing on money market funds, telephone exchanges among different funds within the same family, and on-line account management.&lt;ref name="bogle_on_mutual_funds" /&gt;
+
+==Mutual fund criticism==
+{{Main|Mutual funds and fees}}
+{{Quote
+|quote = '''Invest in nonprofit index funds'''. Swensen says individuals should invest in nonprofit funds that track market segments, such as the [[S&amp;P 500 index|S&amp;P 500]]. There are a range of index funds that track the U.S. domestic stock market, international markets, emerging markets and the real-estate market. Swensen says mutual funds that are organized on a not-for-profit basis don't have the same conflict of interest as for-profit funds, and they charge lower fees. The fees are even lower with nonprofit index funds, because you're not paying money managers to research stocks and buy and sell them. The fund simply holds all the stocks listed in that index. And because well-structured index funds have low churn (turnover), they are remarkably tax efficient.
+|source = &amp;nbsp;&amp;nbsp;—{{cite web| url=https://www.npr.org/templates/story/story.php?storyId=6203264| author=David Swenson| publisher=NPR| title=Yale's Money Guru Shares Wisdom with Masses| date=October 5, 2006}} 
+}}
+According to critics, high costs, and conflicts of interest between the managers of the funds and the investor, often negate the advantages of mutual funds.
+
+*'''Costs'''. Experts such as [[John Bogle]]&lt;ref&gt;{{cite web| url=https://boglecenter.net/wp-content/uploads/FAJ-Relentless-Rules-11-05.pdf| title=The Relentless Rules of Humble Arithmetic| author=John Bogle| author-link=John Bogle| publisher=Financial Analysts Journal| date=2005| accessdate=June 5, 2023}}&lt;/ref&gt; and David Swenson&lt;ref&gt;{{cite web| url=https://www.npr.org/templates/story/story.php?storyId=6203264| author=David Swenson| publisher=NPR| title=Yale's Money Guru Shares Wisdom with Masses| date=October 5, 2006}}&lt;/ref&gt; criticise the costs of mutual fund investing. According to the [https://www.ici.org/ Investment Company Institute], the average [[Expense ratios |expense ratio]] for US stock mutual funds in 2014 was 1.33% (weighted average 0.70%), while the average expense ratio for US bond mutual funds was 0.98% (weighted average 0.57%).&lt;ref name="ici2015_ch5"&gt;{{cite web| url=https://www.ici.org/pdf/2015_factbook.pdf| title=ICI 2015 Mutual Fund Fact Book (chapter five)| publisher=Investment Company Institute| accessdate=June 5, 2023}}&lt;/ref&gt; According to John Bogle, while mutual fund assets rose 1,600-fold from 1950-2004, mutual fund expenses rose 2,400 fold.&lt;ref name="bogle_battle"&gt;{{cite book| author=John Bogle| author-link=John Bogle| date=2005| title=The Battle for the Soul of Capitalism| publisher=Yale University Press| pages=154,184| isbn=0-300-10990-3}}&lt;/ref&gt; These costs directly reduce investor returns. The expense ratio does not include sales loads or fund [[Mutual funds: additional costs#Transaction Costs |transaction costs]]. 
+*'''Turnover'''. John Bogle points out that from 1945 to 1965, stock mutual funds maintained an average turnover of 17 percent (an average holding period of six years). Since 1965, turnover has increased to a present day average of 100 percent (average holding period of one year).&lt;ref name="bogle_battle" /&gt; Increased turnover to these levels creates greater frictional transaction costs for a fund, and also increases the likelihood of realized taxable gains.&lt;ref&gt;{{cite web| url=https://boglecenter.net/wp-content/uploads/JCB_AAII0505.pdf| title=The Arithmetic of Mutual Fund Investing is More Important Than Ever| author=John Bogle| author-link=John Bogle| publisher=American Association of Individual Investor, Philadelphia Chapter| date=May 24, 2005| accessdate=June 5, 2023}}&lt;/ref&gt;
+*'''Organizational structure'''. According to critics, the [[Mutual fund structure | basic structure]] of the mutual fund, where an external management company owns the mutual fund is inherently riddled with conflicts of interest. The external management company's profits to its shareholders must come from mutual fund shareholders. In 2006, the top thirty mutual fund management companies had a corporate structure breakdown that consisted of nineteen large conglomerates; seven publicly owned firms; and four privately held firms. In addition, fund acquisitions and mergers have produced little realized value for fund shareholders. Luo and Qiao (2013) find that "acquiring families keep most of the acquired funds intact, and merge a small fraction of the acquired funds with a few of their incumbent funds. Most involved funds, including the acquired funds and the incumbent funds that remain intact, have a performance deterioration. There is little evidence that fund expenses decrease or fund liquidity increases."&lt;ref&gt;{{cite web| author1=Jiang Luo| author2=Zheng Qiao| url=https://ssrn.com/abstract=2251726| title=On the Mergers and Acquisitions of Mutual Fund Families: The Determinants and Subsequent Impact on Fund Performance| date=April 9, 2013}}{{dead link}} Available at SSRN.&lt;/ref&gt; 
+
+{| class="wikitable" style="text-align:center"
+|+Mutual fund corporate structure and performance&lt;ref&gt;{{cite web| url=https://boglecenter.net/wp-content/uploads/JCB_BSAS0206.pdf| title=Mutual Funds: How a Profession with Elements of a Business Became a Business with Elements of a Profession| author=John Bogle| author-link=John Bogle| publisher=Boston Security Analysts Society Boston, Massachusetts| date=February 24, 2006| accessdate=June 5, 2023}}&lt;/ref&gt;
+! width=33% | Ownership structure
+! width=33% | Number of firms
+! width=33% | Average relative performance (10 year returns)
+|-
+| Private|| 4 firms || 29% quartile
+|-
+| Public|| 7 firms || 40% quartile
+|-
+| Conglomerate || 19 firms || 55% quartile
+|-
+|}
+
+==Types of mutual funds==
+Mutual funds give you access to diversified portfolios of the major asset classes: [[Money markets|money markets]], [[Bond basics|bonds]], and [[Stock basics|stocks]], as well as access to discrete market segments of each market.
+
+Funds may be actively managed, where the investment manager tries to outperform a benchmark index, or indexed, where the investment manager aims to match a benchmark index return. Mutual funds may or may not have a sales commission.
+
+===Load funds===
+{{Main|Mutual funds and fees}}
+Mutual funds sold by full service brokerages, banks, and commissioned advisors usually impose a sales charge on investors known as a "sales load". You might pay the sales load upfront upon purchase, or deferred until you sell fund shares; this deferred charge is often called a "contingent deferred sales charge (CDSC)". These sales charges are on top of the fund's expense ratio, and any other transaction charges the fund may impose. Different share classes usually indicate sales charges, as follows:
+
+*'''A-shares'''. A-shares have a front end charge on initial investment. A fund issuing A-shares might have a 5% load upon purchase, so that if you commit $10,000 to the fund, you would actually invest $9,500 in the fund, with $500 going to the sales agent as a commissioned load. A-shares may also have an additional 0.25% annual charge (known as a 12b-1 fee).
+*'''B-shares'''. B-shares do not charge an upfront load. Instead the shares impose a back end redemption fee combined with a 1% annual charge (12b-1 fee). The redemption fee usually declines each year until it eventually reaches zero. The combination of the annual charge and the redemption fee assures that the full load is eventually paid. The fund's prospectus will show the exact rate at which these fees will decline. Ordinarily, B-shares convert to A-shares (and reduced 12b-1 charges) once the CDSC reaches zero.
+*'''C-shares'''. C-shares do not charge an upfront load. C-shares are sold with a 1% CDSC for the first year, plus a 1% 12b-1 fee. The redemption fee is eliminated during year two. Unlike B-shares, C-shares never convert to A-shares; holders pay the added 1% 12b-1 fee for as long as they hold the fund.&lt;ref&gt;{{cite web| url=https://www.sec.gov/about/reports-publications/investor-publications/introduction-mutual-funds | title=Mutual Funds and Exchange-Traded Funds (ETFs) – A Guide for Investors| publisher=SEC| accessdate=June 5, 2023}}&lt;/ref&gt;
+
+===No-load funds===
+
+A no-load mutual fund distributes its fund shares directly with an investor. Thus a no-load mutual fund does not employ the sales charge fees that load funds impose on shareholders. This is a distinct advantage for the do-it-yourself investor. 
+
+However a no-load fund may impose the following fees, on top of the expense ratio that all funds have:
+*'''Transaction fees'''. Mutual funds incur costs buying and selling securities for the fund; for more, see: [[Mutual funds: additional costs]]. Some funds cover the costs associated with an individual investor’s transactions by charging [[Purchase fee|purchase fees]] and [[Redemption fee |redemption fees]] directly to the investor at the time of the transactions to cover these costs. Unlike sales charges, these fees are usually paid back into the fund. Funds may also charge a redemption fee to deter short term market timing selling of the fund.
+*'''Maintenance fees'''. Some funds may charge a separate maintenance fee for low balance fund accounts.
+* '''12b-1 fees'''. A no-load fund is permitted to charge a maximum 0.25% 12b-1 fee and still remain classified as a no-load fund. The main reason that a fund might impose a 0.25% is for purchasing access to a brokerage firm's "fund supermarket". The fee allows the brokerage to offer the fund as a "No Transaction Fee" fund in the supermarket.
+
+===Mutual fund categories===
+====Money market funds====
+{{Main|Money markets}}
+{{Quote
+|quote = Money funds are regulated under [https://www.law.uc.edu/CCL/InvCoRls/rule2a-7.html Rule 2a-7] of the [[wikipedia:Investment Company Act of 1940|Investment Company Act of 1940]]. Key provisions of the regulations require the following:
+
+* '''Maturity'''. Money funds can only invest in money market instruments maturing under 12 months, and must maintain a weighted average maturity of 60 days or less.
+* '''Diversification'''. With the exception of federal government securities, money funds may not invest more than 5 percent of their assets in a single issuer.
+* '''Credit Quality'''. Money funds must limit their investments to securities that are rated in one of the two highest short-term rating categories by a nationally recognized statistical rating organization (NRSRO). Investment in second-tier securities is limited to 3% of total fund assets, with a limit of 0.5% for any single issuer. Investment in second tier securities is restricted to maturities of 45 days or less.
+
+Under the 2014 [https://www.federalregister.gov/articles/2014/08/14/2014-17747/money-market-fund-reform-amendments-to-form-pf#h-186 SEC final rules], money funds are divided into three classes: institutional, retail, and government. Institutional money funds must have a floating NAV based on market values. The rules also provide for liquidity (redemption) fees and gates (suspended redemption) during periods of market distress. In summary:
+
+* A fund may impose a fee of up to 2% on redemptions if the fund's weekly liquid assets fall below 30% of its total assets.
+* A fund must impose a 1% fee on redemptions (with the option of imposing a fee of up to 2%) if the fund's weekly liquid assets fall below 10% of its total assets—unless the fund's board determines a fee would not be in the fund's best interest.
+* A fund may impose a gate—that is, suspend redemptions—for up to 10 business days in a 90-day period.
+* The fees and gates rules only apply to retail and institutional funds, although government funds may voluntarily adopt them if the fees and gates are previously disclosed to investors.
+|source = 
+}}
+Money market funds are mutual funds that invest in short term (less than one year) money market instruments. [[Money markets#Marketable money market instruments|Money market fund investments]] include treasury bills, commercial paper, bank CDs and banker's acceptances. By design, they are meant to maintain stable net asset valuations of 1.00 dollar per share, and provide investors with interest dividends. They are therefore suitable investments for savings and other short term needs.
+
+Although money market funds are low risk, they are not zero-risk. If some of the underlying investments default, the fund may not be able to maintain a [[Net asset value|net asset value]] of $1.00/share; this failure is colloquially known as ''breaking the buck''. As of November, 2009, there have been only a [[The 2008 money market crisis |few cases]] when this has actually happened. Most notably, two money-market funds of The Reserve Funds ''broke the buck'' in September, 2008, after Lehman went bankrupt.
+
+Money funds are characterized by the underlying investments comprising the portfolio. This specialization allows funds to differentiate by risk and tax characteristics. Money funds include:
+
+* '''General (Prime) money funds'''. These funds invest in a large range of money fund instruments: [[Treasury bill|treasury bills]], CDs, Yankee CDs, Eurodollar CDs, [[Commercial paper|commercial paper]], and [[Banker's acceptance|banker's acceptances]]. These funds are usually heavily weighted towards the non-treasury instruments. Since these instruments are exposed to credit risks, they provide higher interest coupons than treasuries (this excess interest can be called the default risk premium). The non-treasury component of a General money market fund is taxable income at both federal and state levels.
+* '''Treasury money funds'''. Treasury money funds invest 100% in "full faith and credit" treasury bills and agency instruments. As a result, they are not subject to credit risk (because the treasury has monopoly power to print fiat currency). Treasury interest is exempt from state income taxation.
+* '''Tax-exempt funds'''. These funds invest in municipal money market instruments. The interest is generally exempt from federal taxation (although some interest may be subject to the [https://www.investopedia.com/terms/a/alternativeminimumtax.asp alternative minimum tax]). State specific tax exempt funds invest in municipal securities of an individual state and so provide federal, state, and sometimes local tax exempt interest for state residents. Tax exempt funds are subject to credit risk as well as the risk of tax law change to their exemption status.
+
+If you hold these in a taxable account, you need to compare the after tax yields of a given money fund to determine whether the fund will yield the highest after tax income. For more, see: [[Money markets#After-tax yields |After-tax yields]].
+
+Costs are an important factor in money market fund selection. Because the total return of a money market fund is the income payment, the lower the expense ratio of the fund, the higher your net return. A low cost money fund can hold the highest quality money market instruments and still provide competitive yields.
+
+====Bond funds====
+{{Main|Bond basics}}
+Bond mutual funds invest in fixed income securities with maturities ranging from one year to thirty (or more) years. Bond funds may hold the following [[Bond basics#Types of bonds |types of bonds]]:
+*Government bonds
+*Corporate bonds
+*Asset-backed securities
+*Foreign bonds
+*Tax-exempt bonds
+Each of these general bond categories contain discrete segments of the bond market. Bond funds may hold an aggregate of the taxable or tax exempt bond markets, or they may hold just a specific segment of the market. The following table outlines the segments of the bond market.
+
+{| class=wikitable style="width:100%; text-align:center;"
+|+ Bond funds - market sectors (US investor)
+! colspan="4" |Taxable || |Tax-exempt
+|-
+!width=20% |Government bonds
+!width=20% |Corporate bonds
+!width=20% |Asset-backed securities
+!width=20% |Foreign bonds
+!width=20% |Tax-exempt bonds
+
+|-valign="top"
+| align="left"|
+* [[Treasury bonds]]
+* [[Treasury Inflation Protected Securities]]
+* [[Zero-coupon bond]]
+* [[GNMA]]
+* [[Government agency bonds]]
+| align="left"|
+* [[Corporate bonds]]
+* [[Floating rate bonds]]
+* [[High yield bonds]]
+* [[Convertible bonds]]
+| align="left"|
+* [[Asset-backed securities]]
+* [[Mortgage-backed security]]
+* [[Wikipedia:Collateralized debt obligation|Collateralized debt obligation]]
+| align="left"|
+* [[Developed market bonds]]
+* [[Emerging market bonds]]
+| align="left"|
+* [[Municipal bonds]]
+|-
+|}
+
+Bond funds distinguish by the types of bonds held in the portfolio, the [[Wikipedia:Bond credit rating|credit quality]] of the bonds, and by the [[Bonds: advanced topics#Duration | average maturity]] of the bond portfolio. As a general rule, lower quality and longer maturity bonds provide higher interest coupons, to compensate for the added [[Bond basics#risks |risk]]. Treasury securities have the highest credit quality. Corporate, asset-backed, and tax-exempt bonds are subject to various default and other risks and are rated by rating agencies for credit worthiness. Ratings range from investment grade (the highest rating) to bonds in default.
+
+[[File:Morningstarfixedstylebox.GIF|200px|thumb|Figure 1. Morningstar Fixed Income Style Box. Maturity along x-axis; credit quality on y-axis.]]
+Typically, a bond fund in any given segment of the market will be a part of a series of funds providing short, intermediate, and long term maturities. These tiered maturity portfolios allow you to match a bond fund to an expected holding period, and to maintain your portfolio's exposure to interest rate risk. You can usually find bond funds with the following maturities:
+
+*'''Short term bond funds'''. Maturities between 1 year and 5 years.
+*'''Intermediate term bond funds'''. Maturities between 5 years and 10 years.
+*'''Long term bond funds'''. Maturities greater than 10 years.
+
+A fund will have an average maturity based on the proportion of fund assets represented by each bond held in the portfolio.
+
+The two main risk characteristics of a bond fund, credit quality and maturity, are often graphically presented in a Morningstar style box. See Figure 1 for an example.
+
+Because bond funds distribute income, taxable bonds are often candidates for placement in tax advantaged accounts (see [[Tax-efficient fund placement]]). For taxable accounts, some bonds have tax preferences. Treasury securities are generally exempt from state income tax. Tax exempt bonds are generally exempt from federal taxation and, to the extent that the bond is issued by your state of residence, may also be exempt from state and local taxation (although some interest may be subject to the [https://www.investopedia.com/terms/a/alternativeminimumtax.asp alternative minimum tax]). These tax preferences often result in lower yields for treasury and municipal bonds in comparison to corporate and other non-preference bonds. You need to compare the after tax yields of a given fund to determine whether the fund will yield the highest after tax income (see: [[Money markets#After-tax yields |After-tax yields]]).
+
+Costs are a critical factor in long term bond fund performance. A low cost bond fund can hold higher quality, less risky bonds and still provide higher long term returns than many higher cost funds holding lower quality bonds.
+
+====Stock funds====
+{{Main|Stock basics}}
+Stock mutual funds are extremely diverse. There are funds that invest in the American stock markets, funds that invest in [[Domestic/International |international markets]], and funds that invest [[S&amp;P Global Broad Market Index |globally]]. Within each market, there are funds that invest in the entire market, funds that invest in specific segments of the market, and funds that specialize in [[Stock basics#Sector | specific industry sectors]] of the market.
+
+Stocks funds are often classified by the average size of the companies they hold as investments. This is most commonly done by looking at the market capitalization of a firm. [[Market capitalization]] is simply a measurement found by taking a stock's current share price and multiplying it by the number of stock shares outstanding.
+
+[[File:Morningstarequitystylebox.GIF|200px|thumb|Figure 2. Morningstar Equity Style Box. Style along x-axis; Market Capitalization along y-axis.]]
+Exact market cap ranges will vary among different financial and rating institutions, but there are three common terms that describe stocks by their general size. 
+
+*'''Large capitalization stocks''':&lt;br&gt;Large cap stocks have a market cap over $10 billion dollars.
+*'''Mid capitalization stocks''':&lt;br&gt;Mid cap stocks have a market cap between $2 billion and $10 billion dollars.
+*'''Small capitalization stocks''':&lt;br&gt;Small cap stocks have a market cap between $300 million and $2 billion dollars.
+
+While these are the most common market cap references, there are also some less common ones: mega cap (greater than $200 billion); micro cap (between $50 million and $300 million); and nano cap (below $50 million). Market cap terms are relative and change constantly as companies get bigger and smaller.
+
+Stock funds may also be classified by "style," either Growth, Value, or Blend. Growth stock funds invest in companies that are growing their profits at a very fast rate and are expected to continue to grow at an increasing rate. Value stock funds hold stocks that tend to trade at deep discount relative to their intrinsic value (as defined by profits, book value and other measures). Blend funds tend to hold a mixture of growth and value stocks.
+
+The combination of size and style metrics allows a fund to be classified in a Morningstar Equity style box (see Figure 2).
+
+As well as size and style classifications, some international stock funds are specialized by regions. The most common regional fund classifications are:
+*European
+*Pacific
+*Emerging markets
+
+International Developed Market funds usually combine the European and Pacific regions.
+
+====Balanced funds====
+{{Main|Balanced fund}}
+Balanced funds (sometimes also referred to as hybrid funds) invest in a portfolio that includes stocks and bonds, and sometimes cash and commodities. Usually these type funds have a fixed asset allocation mix, generally with moderate (60 percent stock/40 percent bond) or conservative (40 percent stock/60 percent bond) equity allocations. Balanced funds also include the following types of funds:
+
+*'''Asset allocation funds'''. These funds can be designed to hold a fixed asset allocation of asset classes, but are commonly funds which allow a fund manager to shift allocations according to a [[tactical asset allocation]] strategy.
+*'''Life cycle funds'''. These funds usually offer portfolios that hold a static asset allocation, usually labeled as growth, moderate, conservative, and income portfolios. They are often designed as fund of funds (see [[#Fund of funds|below]]).
+*'''Target retirement funds'''. These funds are designed primarily for retirement plans. They are usually designed as fund of funds (see [[#Fund of funds|below]]).
+
+Balanced funds offer the advantage of a simplified investment program. The portfolios include multiple asset classes and are self-balancing. However, investors whose portfolios are divided between taxable accounts and tax deferred/tax free accounts often deliberately avoid balanced funds in favor of separate asset class funds, allocated across accounts using [[tax-efficient fund placement]].
+
+====Fund of funds====
+{{Main|Fund of funds}}
+A fund of funds differs from most mutual funds, in that the fund invests in mutual funds rather than individual securities. Fund of funds are primarily designed for [[:Category:Retirement planning | retirement plans]] and [[:Category:Education savings | education savings plans]]. Fund of funds have two basic forms:
+*'''Static portfolios'''. These portfolios hold a steady predetermined allocation mix of stock funds, bond funds, or a balanced mix of stock and bond funds. A variation on this type fund allows a manager to shift the stock/bond/cash allocation according to a [[tactical asset allocation]] strategy.
+*'''Target date portfolios'''. These fund of funds hold a targeted asset allocation that [[Glide paths | grows more heavily weighted towards bonds]] as the target date (for retirement or entry into college) approaches. These [[Target date retirement funds | funds]] are commonly used in [[Employer retirement plans overview | corporate retirement plans]] and in the [[529 plans | 529 plan]] market.
+
+Fund of funds may use funds from the same advisory firm, or the fund manager (usually with an added management fee) may select funds from different advisors.
+
+Fund of funds have what is known as an [[Acquired fund fees and expenses | ''acquired fund fee'']], a measure which includes the weighted expense ratio of the underlying funds as well as any additional expense ratio imposed by the investment manager.
+
+====Index funds====
+{{Main|Indexing}}
+Indexing is an investment management strategy that aims to replicate the investment performance of a market index. An index is a statistical measure of a market's value and performance and serves as a benchmark against which an investment manager's performance is judged.&lt;ref&gt;{{cite book| author=Rick Ferri| author-link=Rick Ferri| title=All About Index Funds: The Easy Way to Get Started| isbn=978-0-07-148492-3| pages=10-11}}&lt;/ref&gt; Today, a large number of [[Stock market indexing |index providers]], including S&amp;P, Dow Jones, MSCI, Russell, FTSE, CRSP and Morningstar, provide a wide range of indexes covering [[Stock basics| US]] and [[Domestic/International | international]] stocks, [[Bond basics| bonds]], and [[commodities]]. A well managed, low cost index fund is an excellent, if not optimal, investment vehicle for investing in the overall stock market, in discrete market segments, in the bond markets, and in the commodity markets.
+
+Advantages:
+[[Image:Highcost-lowcost.jpg|thumb|Figure 3. Investment growth of both a low-cost and high-cost fund&lt;ref group="note"&gt;
+Both funds assume an initial $10,000 investment and an identical 8% annual growth. The time period is 30 years.
+The low-cost fund is no-load and has expenses of 0.2% per year.
+The high-cost fund has an initial 5.75% sales load, expenses of 2.0% per year, and a 0.25% 12b-1 fee.&lt;/ref&gt;]]
+
+*'''Low costs'''. According to the [https://www.ici.org/ Investment Company Institute], the average expense ratio for US stock mutual funds in 2014 was 1.33% (weighted average 0.70%), while the average expense ratio for US bond mutual funds was 0.98% (weighted average 0.57%).&lt;ref name="ici2015_ch5" /&gt; Index funds are available to investors for expense ratios of 0.20% and lower from firms such as [[Vanguard]], [[Fidelity]], [[Schwab]], and many [[Exchange-traded funds|exchange-traded funds]]. These low expenses mean that a greater portion of market returns accrue to the mutual fund shareholder where they can continue to compound, as opposed to being siphoned off through intermediaries. As Figure 3 demonstrates, indexing's cost advantage builds steadily over long holding periods. In addition to low expense ratios, index funds can provide low transaction costs, which include brokerage commission costs, [[bid/ask spread]]s, and market impact costs (institutional purchases and sales can drive the price of a security up or down before the order is filled.) 
+*'''Tax efficiency'''. Because of lower fund turnover and longer holding periods, stock index funds tend to be more tax efficient than actively managed stock funds. This is especially true for total market index funds, large cap index funds, and large growth index funds. These funds rarely realize and distribute a capital gain (and any small capital gains distributions are usually long term gains taxed at reduced tax rates.) Deferring capital gains tax liabilities means higher after tax returns.&lt;ref&gt;{{cite web| url=https://www.ifa.com/Media/Images/PDF%20files/IsYourAlphaBigEnough.pdf| author1=Robert H. Jeffrey| author2=Robert D. Arnott| title=Is Your Alpha Big Enough To Cover Its Taxes?| date=1993| publisher=First Quadrant Corporation| url-status=dead| archive-url=https://web.archive.org/web/20221102032136/https://www.ifa.com/media/images/pdf%20files/isyouralphabigenough.pdf| archive-date=November 2, 2022| accessdate=June 3, 2023}}&lt;/ref&gt; In addition, since the introduction of the tax regime for [[Qualified dividend | qualified dividends]] in 2004, well-managed total market and large cap indexes have been able to provide investors with 100% qualified dividends, taxed at lower tax rates
+*'''Asset class style consistency'''. Index funds are designed to provide the returns of the asset class they are tracking. This allows an investor to control the asset allocation decision.
+*'''Reduced manager risk'''. Actively managed funds expose investors to two manager risks.
+** The risk that the manager will under perform the benchmark return,
+** The risk that the manager will leave the fund. For taxable investors, selling a fund after a manager change could result in a large capital gains tax.
+*Index funds greatly reduce these manager risks.
+** The risk of under performing a benchmark return is lower (although not eliminated, due to sampling and tracking errors.)
+** An investment team manages index funds. One fund manager leaving does not materially affect the management of the fund.
+*'''Simplicity'''. The low cost, high tax efficiency, and long term consistency of performance advantages of indexing all help to simplify how you select and monitor funds for your investment plan.
+
+==Notes==
+{{Reflist|group="note"}}
+
+==See also==
+*[[Closed-end funds]]
+*[[Exchange-traded funds]]
+*[[Mutual fund history]]
+*[[Mutual fund share split]]
+*[[Mutual fund structure]]
+*[[Unit investment trusts]]
+
+==References==
+{{Reflist}} 
+
+==External links==
+*[https://www.sec.gov/about/reports-publications/investor-publications/introduction-mutual-funds Mutual Funds and Exchange-Traded Funds (ETFs) – A Guide for Investors], from SEC
+*[https://www.investopedia.com/mutual-funds-4427787 Overview Of The Mutual Fund Industry Guide to Mutual Funds], from Investopedia
+*{{forum link| t=82277| title=Explain A, B, C share classes of load funds, please}}, tutorial on the various share classes
+
+===Mutual fund rating services===
+*[https://lipperalpha.refinitiv.com/ Lipper]
+*[https://www.morningstar.com/ Morningstar]
+
+===Mutual fund information sources===
+*[https://www.ici.org/ Investment Company Institute]
+*[https://www.sec.gov/edgar/search-and-access EDGAR search] for mutual fund company filings
+
+===Investment Company Institute fact books===
+
+PDF documents, by year:
+* {{Hlist
+|{{plain link| url=https://www.icifactbook.org/pdf/2025-factbook.pdf| name=2025}}
+|{{plain link| url=https://www.ici.org/system/files/2024-05/2024-factbook.pdf| name=2024}}
+|{{plain link| url=https://www.ici.org/system/files/2023-05/2023-factbook.pdf| name=2023}}
+|{{plain link| url=https://www.ici.org/pdf/2022_factbook.pdf| name=2022}}
+|{{plain link| url=https://www.ici.org/pdf/2021_factbook.pdf| name=2021}}
+|{{plain link| url=https://www.ici.org/pdf/2020_factbook.pdf| name=2020}}
+|{{plain link| url=https://www.ici.org/pdf/2019_factbook.pdf| name=2019}}
+|{{plain link| url=https://www.ici.org/pdf/2018_factbook.pdf| name=2018}}
+|{{plain link| url=https://www.ici.org/pdf/2017_factbook.pdf| name=2017}}
+|{{plain link| url=https://www.ici.org/pdf/2016_factbook.pdf| name=2016}}
+|{{plain link| url=https://www.ici.org/pdf/2015_factbook.pdf| name=2015}}
+|{{plain link| url=https://www.ici.org/pdf/2014_factbook.pdf| name=2014}}
+|{{plain link| url=https://www.ici.org/pdf/2013_factbook.pdf| name=2013}}
+|{{plain link| url=https://www.ici.org/pdf/2012_factbook.pdf| name=2012}}
+|{{plain link| url=https://www.ici.org/pdf/2011_factbook.pdf| name=2011}}
+|{{plain link| url=https://www.ici.org/pdf/2010_factbook.pdf| name=2010}}
+|{{plain link| url=https://www.ici.org/pdf/2009_factbook.pdf| name=2009}}
+|{{plain link| url=https://www.ici.org/pdf/2008_factbook.pdf| name=2008}}
+|{{plain link| url=https://www.ici.org/pdf/2007_factbook.pdf| name=2007}}
+|{{plain link| url=https://www.ici.org/pdf/2006_factbook.pdf| name=2006}}
+|{{plain link| url=https://www.ici.org/pdf/2005_factbook.pdf| name=2005}}
+|{{plain link| url=https://www.ici.org/pdf/2004_factbook.pdf| name=2004}}
+|{{plain link| url=https://www.ici.org/pdf/2003_factbook.pdf| name=2003}}
+|{{plain link| url=https://www.ici.org/pdf/2002_factbook.pdf| name=2002}}
+|{{plain link| url=https://www.ici.org/pdf/2001_factbook.pdf| name=2001}}
+|{{plain link| url=https://www.ici.org/pdf/2000_factbook.pdf| name=2000}}
+|{{plain link| url=https://www.ici.org/pdf/1999_factbook.pdf| name=1999}}
+|{{plain link| url=https://www.ici.org/pdf/1998_factbook.pdf| name=1998}}
+|{{plain link| url=https://www.ici.org/pdf/1997_factbook.pdf| name=1997}}
+}}
+
+{{Bogleheads investing start-up kit}}
+{{Mutual funds}}
+[[Category:Mutual funds]]</text>
+      <sha1>kktl795urk5zqwd9gttts8tww6lr4qx</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Exchange-traded fund</title>
+    <ns>0</ns>
+    <id>1551</id>
+    <revision>
+      <id>87553</id>
+      <parentid>85376</parentid>
+      <timestamp>2025-09-06T08:08:07Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <comment>Remove link to [[Vanguard fund information]].</comment>
+      <origin>87553</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="23808" sha1="3g2q1lp6ag9hloi8tbhmw2wafysz80t" xml:space="preserve">{{US|reason=partially_irrelevant|non-US_link=[[Wikipedia:Exchange-traded fund]]}}
+An '''exchange-traded fund''', or '''ETF''', is a registered investment company. An ETF is a fund that holds a collection of assets and is traded on the market, and investors buy or sell from another shareholder on the stock exchange. ETFs have a creation and redemption procedure that generally makes the difference between price and [[Net asset value |NAV]] very small. 
+
+Besides ETFs, other forms of the registered investment company include [[Mutual fund | mutual funds]], [[Closed End Funds | closed-end funds]], and [[Unit investment trusts | unit investment trusts]]. Legally, an ETF is classified as an open end company or unit investment trust,&lt;ref&gt;{{cite web| url=https://www.investor.gov/introduction-investing/investing-basics/glossary/exchange-traded-fund-etf| title=Exchange-Traded Fund (ETF)| publisher=Investor.gov| accessdate=August 13, 2023}}&lt;/ref&gt; but in the U.S. a number of other exchange traded products which are not regulated investment companies are often grouped under the exchange traded fund banner. These products include exchange traded grantor trusts, exchange traded notes (ETNs), and certain exchange traded partnerships ([[Master limited partnership|MLPs]]).&lt;ref name="ETFGUide"&gt;{{cite web| url=http://www.etfguide.com:80/exchangetradedfunds.htm| title=ETF Guide: ETF History| publisher=etfguide| date=2013| url-status=dead| archive-url=https://web.archive.org/web/20130308040157/http://www.etfguide.com:80/exchangetradedfunds.htm| archive-date=March 8, 2013}}&lt;/ref&gt;
+
+ETFs are like mutual funds in that they hold a collection of assets, usually [[Stock basics|stocks]], [[Bond basics|bonds]] or other securities. Like closed-ended funds, ETFs trade on the market at a premium or discount from their [[net asset value]] (NAV). However, unlike closed-end funds, which often trade at large discounts or premiums to NAV, a special procedure for creating or redeeming shares allows institutional investors to perform arbitrage by swapping blocks of securities for ETF shares. This creation/redemption procedure, implemented by [[authorized participants]], generally makes the difference between price and NAV very small. 
+
+At year end 2015, ETFs in the U.S. totaled 1,597 funds holding 2.1 trillion dollars in net assets.{{#tag:ref|'''Number of ETFs and total net assets (billions of dollars)'''&lt;ref&gt;{{cite web| url=https://www.ici.org/publications| title=Investment Company Institute Factbooks| publisher=ICI}}&lt;/ref&gt;
+{{#widget:Google Spreadsheet
+|key=0Ao_KSkmSuU2rdHM3b285OTVXelA3ZUt3NFgtdEhHVnc
+|width=600
+|height=450
+}} &lt;br&gt; {{spreadsheet|key=0Ao_KSkmSuU2rdHM3b285OTVXelA3ZUt3NFgtdEhHVnc}}
+|group="note"}}
+By 2022, globally there were 8,754 ETFs,&lt;ref&gt;{{cite web| url=https://www.statista.com/statistics/278249/global-number-of-etfs/| title=Number of exchange traded funds (ETFs) worldwide from 2003 to 2022| publisher=Statista| accessdate=August 13, 2023}}&lt;/ref&gt; holding almost 10 trillion U.S. dollars.&lt;ref&gt;{{cite web| url=https://www.statista.com/statistics/224579/worldwide-etf-assets-under-management-since-1997/| title=Development of assets of global exchange traded funds (ETFs) from 2003 to 2022| publisher=Statista| accessdate=August 13, 2023}}&lt;/ref&gt;
+
+==Structure==
+{{Quote
+|quote = &lt;u&gt;SEC: Distinguishing Features of ETFs&lt;/u&gt;
+*ETFs do not sell individual shares directly to investors and only issue their shares in large blocks (blocks of 50,000 shares, for example) that are known as "Creation Units."
+*Investors generally do not purchase Creation Units with cash. Instead, they buy Creation Units with a basket of securities that generally mirrors the ETF’s portfolio. Those who purchase Creation Units are frequently institutions.
+*After purchasing a Creation Unit, an investor often splits it up and sells the individual shares on a secondary market. This permits other investors to purchase individual shares (instead of Creation Units).
+*Investors who want to sell their ETF shares have two options: (1) they can sell individual shares to other investors on the secondary market, or (2) they can sell the Creation Units back to the ETF. In addition, ETFs generally redeem Creation Units by giving investors the securities that comprise the portfolio instead of cash. So, for example, an ETF invested in the stocks contained in the Dow Jones Industrial Average (DJIA) would give a redeeming shareholder the actual securities that constitute the DJIA instead of cash. Because of the limited redeemability of ETF shares, ETFs are not considered to be—and may not call themselves—mutual funds.
+|source = -- ''[http://www.sec.gov/answers/etf.htm SEC: Exchange Traded Funds]''
+}}
+ETFs investing in stocks and bonds are usually structured as open-end funds or unit investment trusts. Commodities and currencies are usually structured as either grantor trusts, Exchange Traded Notes (ETNs) or as Master Limited Partnerships (MLPs). The following chart allows you to more easily visualize the four major ETF product structures. 
+
+[[File:ETPs.jpg|center|thumb|400px|Image courtesy of [[Rick Ferri]]&lt;ref&gt;{{cite web| url=http://www.rickferri.com/blog/investments/etfs-explained-part-1-products/| title=ETFs Explained (Part 1 – Products)| author=Rick Ferri| author-link=Rick Ferri| date=May 9, 2011| url-status=dead| archive-url=https://web.archive.org/web/20150923024546/http://www.rickferri.com/blog/investments/etfs-explained-part-1-products/| archive-date=September 23, 2015}}&lt;/ref&gt;]]
+
+===Open end fund=== 
+The most flexible and most common form of ETF structure is the open end fund, which is registered under the [[wikipedia:Investment Company Act of 1940|Investment Company Act of 1940]]. This structure has the following characteristics:
+# The fund has a board of directors.
+# The fund can replicate or sample an index.
+# The fund can invest in derivatives.
+# The fund can engage in security lending. Some ETF providers (including Vanguard) allocate all security lending income to the ETF; other ETF providers (among them iShares) divide security lending income between the ETF and the management company.
+# Dividends are immediately reinvested and paid to shareholders (monthly or quarterly).
+# Tax reporting is done with an IRS 1099 document.&lt;ref name="ETFGUide" /&gt;
+
+===Unit investment trust=== 
+Unit investment trusts (UITs) are registered under the [[wikipedia:Investment Company Act of 1940|Investment Company Act of 1940]]. While most ETF providers use the open end structure, a number of large ETFs used the UIT structure, for example SPDRs&lt;ref group="note"&gt;SPDR stands for Standard and Poor’s Depositary Receipts. It is a unit of an ETF that holds shares of all the companies in the Standard &amp; Poor’s 500 Composite Stock Price Index ([[S&amp;P 500 index]]). See also: [http://www.sec.gov/answers/spiders.htm Spiders (SPDRs)], from the SEC&lt;/ref&gt; and QQQs.&lt;ref group="note"&gt;QQQ is based on the NASDAQ-100 Index. See also: [https://www.invesco.com/qqq-etf/en/about.html About QQQ], from Invesco&lt;/ref&gt; Characteristics include:
+# As a trust, the fund has no board of directors. The trust must be periodically renewed.
+# The fund can only replicate an index.
+# The fund cannot invest in derivatives.
+# The fund cannot lend its securities.
+# Dividends are not reinvested in the fund, but are held until paid to shareholders quarterly or annually. The ETF can suffer cash drag.
+# Tax reporting is done with an IRS 1099 document.&lt;ref name="ETFGUide" /&gt;
+
+===Grantor trust=== 
+Grantor trusts&lt;ref name="ETFGUide" /&gt; are registered under the [[wikipedia:Securities Act of 1933|Securities Act of 1933]]. This structure is used for currency and commodity exchange traded vehicles. Characteristics include:
+# The trust invests in a customized basket of securities that remains fixed (for HOLDRS stocks can be removed via merger and acquisition).
+# The investor is considered as directly owning the underlying assets in the trust. Thus, the shareholder receives all company annual and semiannual reports, and all company proxies.
+# Dividends are distributed directly to shareholders and are not reinvested.
+# Tax reporting is done through a Grantor Trust Letter.
+# Tax reporting can be complicated. Gold bullion and silver bullion ETFs are taxed as collectibles, subject to long term capital gains tax rates up to 28%, and the small sales of bullion used to pay trust expenses are considered taxable sales for shareholders that must be reported each year. In some instances, commodity ETFs using futures contracts must mark to market the futures positions at year end and investors are taxed each year on any gains, even if you do not sell the ETF. Capital gains on future contracts, regardless of holding period, are currently taxed at a hybrid rate of 60% long-term and 40% short-term gains.&lt;ref&gt;{{cite web| url= http://etfguide.com/etfproductstructure.htm| title=ETF Product Structures| publisher=etfguide.com |url-status=dead| archive-url=https://web.archive.org/web/20130202063950/http://etfguide.com/etfproductstructure.htm| archive-date=February 2, 2013}}&lt;/ref&gt; Etfguide.com states: "For investors in the highest tax bracket, this 60/40 split creates a maximum blended capital gains tax rate of 23%. The tax burden is reduced for investors in lower income brackets."&lt;ref&gt;{{cite web| url=http://etfguide.com/etfcommodity.htm| title=The Case for Commodities| publisher=etfguide.com| url-status=dead| archive-url=https://web.archive.org/web/20130202063937/http://etfguide.com/etfcommodity.htm| archive-date=February 2, 2013}}&lt;/ref&gt;
+
+===Exchange traded note===
+{{Notice|The FINRA has released an investor alert about the risks involved when investing in Exchange traded notes (ETNs). See: [{{{url|https://web.archive.org/web/20181009094627/http://www.finra.org/investors/alerts/exchange-traded-notes-avoid-surprises}}} Exchange-Traded Notes - Avoid Unpleasant Surprises]&lt;ref&gt;{{cite web| url=http://www.finra.org/investors/alerts/exchange-traded-notes-avoid-surprises| title=Exchange-Traded Notes - Avoid Unpleasant Surprises| publisher=Financial Industry Regulatory Authority| date=July 10, 2012| url-status=dead| archive-url=https://web.archive.org/web/20181009094627/http://www.finra.org/investors/alerts/exchange-traded-notes-avoid-surprises| archive-date=October 9, 2018}}&lt;/ref&gt;}}
+Exchange traded notes (ETNs) are registered under the [[wikipedia:Securities Act of 1933|Securities Act of 1933]]. ETNs track a wide assortment of asset classes: stocks, bonds, currencies, commodities. Characteristics include:
+# ETNs are senior, unsecured, unsubordinated debt securities issued by banks. They are subject to both investment risk and credit risk. In 2008, the failure of Lehman Brothers resulted in the delisting of the firm's three ETNs.
+# ETNs track a benchmark index. At maturity an investor receives a cash payment equaling the performance of the benchmark, less fees. The most representative fee is 0.75% per year (range 0.30% - 0.89%).
+# ETNs, as debt instruments, do not have a net asset value. However, current intrinsic value is expressed by an Intraday Indicative Value (IIV) computation.
+# Most ETNs are considered by sponsors to be prepaid contracts, with tax liability deferred until maturity, liquidation, or sale by the investor. This tax status is subject to change at the discretion of the IRS; in 2007 the IRS ruled that currency note interest would be taxed as current income regardless of the fact that the payment of interest would not occur until maturity.&lt;ref&gt;{{cite web| url=https://www.irs.gov/irb/2008-02_IRB/ar08.html| title=Internal Revenue Bulletin: 2008-2| publisher=IRS| date=January 14, 2008| accessdate=August 13, 2023}}&lt;/ref&gt;&lt;ref name="ETFGUide" /&gt;
+
+==Investing with ETFs==
+{{Quote
+|quote =&lt;u&gt;General information about ETFs&lt;/u&gt;
+
+*[https://www.ici.org/research/stats Research and Statistics] (Monthly Exchange-Traded Fund Assets), from the [http://www.ici.org/ Investment Company Institute]. The ICI's monthly statistical collection also includes the value of shares issued and redeemed by exchange-traded funds.
+*[https://web.archive.org/web/20121202150414/http://finance.yahoo.com/etf/education/05 ETF Liquidity Myth Dispelled], from Yahoo Finance, archived.
+*[https://web.archive.org/web/20210328154335/https://am.jpmorgan.com/blob-gim/1383272223898/83456/1323416812894_Debunking-myths-about-ETF-liquidity.pdf Debunking myths about ETF liquidity], from AM JPmorgan, archived.
+
+&lt;u&gt;Tutorials&lt;/u&gt;
+*[https://www.etf.com/etf-education-ce.html ETF Education Center], a series of articles from [https://www.etf.com/about-us.html ETF.com]
+*[https://www.ici.org/pdf/bro_g2etf_p.pdf A Guide to Exchange-Traded Funds], from the [https://www.ici.org/ Investment Company Institute]
+*[https://web.archive.org/web/20121202150140/http://finance.yahoo.com/etf/education/01 How ETFs work], from Yahoo Finance, archived.
+*[https://www.investopedia.com/articles/mutualfund/05/062705.asp An Inside Look At ETF Construction], from Investopedia
+
+&lt;u&gt;Forum discussions&lt;/u&gt;
+*{{Forum link| p=767441| title=Where is the big advantage in ETFs?}}. A concise list of the pros and cons between ETFs and mutual funds.
+*{{Forum link| t=10522| title=To ETF or Not to ETF}}, by [[Rick Ferri]]
+*{{Forum link| t=54576| title=VBS offers free VG ETF trades, qualify for Voyager with 50k}}
+|source = 
+}}
+===Costs===
+ETFs are subject to the costs of managing the portfolio as well as transaction costs when buying and selling the stock. Here is a breakdown of the costs you will incur:
+
+*''[[Expense Ratios | Expense ratio]]'': the annual management fee for a mutual fund or ETF expressed as a percentage. It is charged directly to the fund/ETF.
+*''Commission'': the up-front charge by your [[broker]] to buy or sell a stock or ETF.
+*''[[Bid/ask spread]]'': the price difference between what a seller asks and what a buyer offers for a stock or ETF.
+*''Premium and discount'': the difference between the trading price and the NAV of an ETF.
+
+When buying or selling ETFs, consider using a [[Orders#Exchange Traded Funds | limit order]] to obtain the best price.
+
+[https://www.nyse.com/listings_directory/etf The New York Stock Exchange] lists the daily closing bid-ask and premium-discount information for many popular ETFs. Select the ETF to view the latest quote.
+
+===Taxes===
+The ETF structure is likely to make stock ETFs more tax-efficient than stock mutual funds. 
+
+When a mutual fund or ETF sells a stock, it has a taxable capital gain (or loss) equal to the difference between what it received and what it paid. When an institutional investor converts shares of an ETF to stock, the ETF provider can give away the shares of stock with the lowest purchase price; these are the shares which would have the highest gain if sold. Because of this, ETFs can often reduce the capital gains they must distribute. The ETF redemption process does not reduce dividends; therefore, taxable bond and REIT ETFs, asset classes with total returns comprised primarily of [[Non-qualified dividends | non-qualified dividend]] income, still have a high tax cost.
+
+The redemption process is more effective at reducing capital gains when the ETF has purchased shares at a wide range of prices. As a result, many ETFs distributed capital gains in their first year or two of operations, but not subsequently; see the individual providers in the [[#ETF providers|ETF providers]] section for distribution information on individual ETFs.
+
+A potential tax disadvantage to the creation-redemption process is that ETFs may redeem stocks which have paid a dividend before meeting the 61-day holding requirement for [[qualified dividend]]s. As a result, some ETFs have fewer qualified dividends than similar mutual funds.&lt;ref&gt;{{forum link| t=40143| title=Gus Sauter comments on Vanguard ETF structure}}, including quotes from Vanguard.&lt;/ref&gt;
+ 
+Most Vanguard ETFs have no tax advantage over the corresponding Vanguard index funds, because in most cases the ETF is a share class of the index fund and thus the mutual fund shares the tax benefits of the ETF. 
+
+Many of Vanguard's ETFs were added as share classes to existing mutual funds and were able to avoid the first-year effect of distributing capital gains. FTSE All-World Ex US Small-Cap, which was created simultaneously as a fund and an ETF, distributed small gains in its first two years (2009 and 2010), and Consumer Staples Index also distributed a gain in its first year (2004). 
+
+Only a few other Vanguard ETFs have distributed gains. REIT Index, which added an ETF class to an existing fund which generates a lot of gains, distributed gains in 2004-2008, 2016, and 2017. International Dividend Achievers Index, which changed indexes in 2021, distributed a 6% capital gain that year, half short-term.
+
+===Risks===
+With the global increase in the number of ETFs and the complexity of some of them (as is the case with [[Synthetic ETF]]s), three international bodies have expressed worries about them. See [http://www.economist.com/node/18864254 Too Much of a Good Thing, The risks created by Complicating a Simple Idea] in The Economist, June 23, 2011.
+
+==How to convert mutual funds to ETFs at Vanguard==
+{{See also|Vanguard Bond ETFs|Vanguard Domestic Sector ETFs|Vanguard Domestic Stock ETFs|Vanguard International ETFs}}
+
+It is possible to convert conventional mutual fund shares to ETFs without any tax consequences. This is free at Vanguard, and is possible at other brokers which may charge a fee. To do this at Vanguard, you need to first open a Vanguard Brokerage Account to hold the ETF shares, then call Vanguard Brokerage to do the conversion over the phone.
+{{Notice|
+When converting from a mutual fund to an ETF, do not sell the fund if it has a gain or a taxable event will occur. Contact Vanguard and request a conversion, which will be done at NAV as an exchange from one type of share class to another.&lt;ref&gt;{{forum link| t=54843| title=Free ETFs at VG. But why ETFs?}}&lt;/ref&gt;
+}}
+Redemption fees are not charged when you convert mutual fund shares to ETFs (or to Admiral shares). 
+
+The conversion rate is determined by the closing NAV of the ETF (not market price) and the closing NAV of the mutual fund using the below formula. If this formula does not produce a whole number, you receive fractional ETF shares for the remainder. 
+
+:Number of ETF shares = (number of mutual fund shares) &amp;times; (mutual fund NAV / ETF closing NAV)
+
+Notice that the ETF market price is not in the equation. 
+
+If you convert on a premium day, you will see a small uplift; if you convert on a discount day, you will see a small loss. But either way, conversion is based on the underlying NAVs, so everything evens out once the premium or discount changes. You are not actually selling and buying, so it should not make a difference in the long run.&lt;ref&gt;{{forum link| t=54920| title=Conversion of mutual funds to corresponding ETF question}}&lt;/ref&gt; 
+
+Here is the timeline from a user's experience of converting Vanguard funds held in a Vanguard IRA mutual fund account:&lt;ref&gt;{{forum link| p=732364| title=WellsTrade can convert Vanguard funds to ETFs for free}}&lt;/ref&gt;
+{{blockquote|
+* Tuesday afternoon applied for VG brokerage accounts online
+* Wednesday afternoon/evening sign some exchange agreements online to open the brokerage account.
+* Thursday morning called Vanguard at 866-499-8473 to do the conversion of REIT and FTSE ex-US small index funds. 
+* Friday AM the mutual fund shares disappeared (be prepared as you see a huge drop in your account balance)
+* Saturday AM the ETF shares appeared, using above formula numbers were correct using Thursday's closing NAVs.
+}}
+
+==Notes==
+{{Reflist|group="note"}}
+
+== See also ==
+*[[List of American exchange traded funds]]
+*[[:Orders]]
+*[[:Investing FAQ for the Bogleheads Forum#Should I use mutual funds or ETFs? | FAQ: Should I use mutual funds or ETFs?]]
+*[[ETFs versus mutual funds]]
+
+==References==
+{{Reflist}}
+
+==External links==
+* [http://www.londonstockexchange.com/exchange/prices-and-news/ETFs/ETFs.html Exchange Traded Funds (ETF)] London Stock Exchange (LSE)
+* [http://www.nasdaq.com/investing/etfs/ Exchange Traded Funds (ETFs) &amp; Index Funds] NASDAQ Stock Market
+* [https://www.nyse.com/listings_directory/etf NYSE ETF Directory] New York Stock Exchange
+* [https://www.euronext.com/en/etf/trading/issuers List of ETF Issuers], Euronext
+* [https://app.tmxmoney.com/etp/ Exchange Traded Funds (ETF)] Toronto Stock Exchange (TSX)
+* [http://www.etfsverige.se Exchange Traded Funds (ETFs) listed on Xetra or on Nasdaq OMX Nordic] ETFSverige.se information web site
+
+===ETF providers===
+Here are links to the five major ETF providers ETF websites:
+*[https://www.ishares.com/us BlackRock]
+*[https://investor.vanguard.com/investment-products/etfs Vanguard]
+*[https://www.ssgafunds.com/ State Street Global Advisors]
+*[https://www.invesco.com/ Invesco]
+*[https://www.schwab.com/public/schwab/investing/accounts_products/investment/etfs/schwab_etfs Charles Schwab]
+
+The following banks are major issuers of Exchange Traded Notes:
+*[https://www.elementsetn.com/ElementsETNUI/PartnersPage.aspx Elements], Credit Suisse, Deutsche Bank AG, HSBC USA Inc., Swedish Export Credit Corporation (SEK)
+*[https://www.ipathetn.com/ ipath], Barclays Bank
+
+A complete list of ETF providers can be found at [https://www.etf.com/etfanalytics/etf-finder ETF.com].
+
+====Vanguard ETF resources====
+*[https://personal.vanguard.com/us/faces/JSP/Funds/Tools/FundsToolsEtfCostSelectionContent.jsp?etfId=0 Calculate and compare costs for Vanguard ETFs and mutual funds]
+*[https://personal.vanguard.com/us/whatweoffer/etfs/mutual-fund-vs-etf Vanguard exchange-traded funds—another way to index]
+
+===Historical background===
+*[http://web.archive.org/web/20130308040157/http://www.etfguide.com:80/exchangetradedfunds.htm The History of Exchange-Traded Funds], by [http://www.etf.com/ ETF.com] (archived, site renamed)
+*[https://web.archive.org/web/20190117104054/https://www.ifa.com/articles/Exchange_Traded_Funds_A_White_Paper/ Exchange Traded Funds: A White Paper], by Index Funds Advisors. Covers how SEC regulations were modified to create ETFs and introduction of SPDR - the first successful ETF. (archived, Feb 24, 2000)
+
+===Articles===
+*Jim Wiandt, [https://web.archive.org/web/20190117104040/https://www.ifa.com/articles/How_ETFs_Manage_a_Tax-Efficiency_Edge_over_Traditional_Mutual_Funds/ "How ETFs Manage a Tax-Efficiency Edge over Traditional Mutual Funds"]
+*William J. Bernstein, [http://www.efficientfrontier.com/ef/901/shootout.htm "The ETF vs. Open-End Index-Fund Shootout"]
+*[http://www.indexuniverse.com/docs/110411IU_ETF_Taxation_v5A_%20j9.pdf The Complete Guide to ETF Taxation], indexuniverse.com, (November, 2011)
+
+===Bibliography===
+{| border="0"
+||
+* Ali, Paul Usman and Gold, Martin L., ''[http://ssrn.com/abstract=275593 The New Model Index Fund]'' (undated). MFAS Investment Advisors Research Paper. Available at SSRN. 
+* Hill, Joanne M. and Nadig, Dave and Hougan, Matthew, ''[http://ssrn.com/abstract=2616223 A Comprehensive Guide to Exchange Traded Funds]'' (May 1, 2015). CFA Institute Research Foundation. Available at SSRN. 
+* Huang, Jennifer C. and Guedj, Ilan, ''[http://ssrn.com/abstract=1108728 Are ETFs Replacing Index Mutual Funds?]'' (March 31, 2008). Available at SSRN. 
+* LaBarge, Karin Peterson Ph.D., CFP®, ''[https://web.archive.org/web/20190502041513/https://personal.vanguard.com/pdf/icrsl.pdf Securities Lending:still no free lunch]'' (July 2011). 
+* Poterba, James M. and Shoven, John B., ''[http://ssrn.com/abstract=302889 Exchange Traded Funds: A New Investment Option for Taxable Investors]'' (January 2002). MIT Department of Economics Working Paper No. 02-07. Available at SSRN
+|}
+
+{{Mutual funds|state=collapsed}}
+{{Business organizations|state=collapsed}}
+
+[[Category:ETFs]]</text>
+      <sha1>3g2q1lp6ag9hloi8tbhmw2wafysz80t</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Bond basics</title>
+    <ns>0</ns>
+    <id>1530</id>
+    <revision>
+      <id>87866</id>
+      <parentid>85717</parentid>
+      <timestamp>2025-10-03T08:31:32Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>Fix apostrophised plurals.</comment>
+      <origin>87866</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="29622" sha1="kjas3urbmlkk2iwyotpqqfec35xn59w" xml:space="preserve">{{US|reason=partially_irrelevant|non-US_link=[[Bond basics for non-US investors]] and [[wikipedia:Bond (finance)]]}}
+
+A '''bond''' is a debt investment. Investors loan money to corporations or governments for a set term and interest rate. After they have been issued, bonds trade on the over-the-counter market, where their principal value fluctuates according to changes in interest rates and any changes in the bond's credit quality.&lt;ref&gt;{{cite web| url=https://www.investinginbonds.com/learnmore.asp?catid=3&amp;id=383| publisher=Securities Industry and Financial Markets Association| title=Risks of Investing in Bonds| url-status=dead| archive-url=https://web.archive.org/web/20220331004748/https://www.investinginbonds.com/learnmore.asp?catid=3&amp;id=383| archive-date=March 31, 2022}}&lt;/ref&gt; Newly issued [[Corporate bonds | corporate bonds]] are syndicated by investment banks who initially buy an offering for resale to investors. Government bonds are offered by auction, where investors tender bids for the issue.&lt;ref&gt;[[Wikipedia:Bond (finance)| Bond (finance)]], from Wikipedia&lt;/ref&gt; Investors typically use bonds to stabilize the value of a portfolio, or to produce a stream of income, or both.
+
+For a very basic introduction to stocks, start with the [[#Tutorial | tutorial]] at the bottom of this page.
+
+==Features==
+
+[[File:Bonddiagram.gif|frame|400px|right| Advanced Bond Concepts:Bond Type Specifics, Investopedia&lt;ref&gt;{{cite web| url=https://www.investopedia.com/articles/investing/022516/understanding-different-types-bond-yields.asp| title=Understanding the Different Types of Bond Yields| publisher=Investopedia| date=September 30, 2022| accessdate=August 13, 2023}}&lt;/ref&gt;]]
+
+Bonds have some distinctive features. These include:
+*'''Coupon rate''': the interest rate paid by the bond. The rate may be fixed, floating, or inflation indexed, depending on the specific issue. The coupon date gives the frequency of interest payments, usually biannually for US bonds. Bonds which pay a fixed coupon rate based upon the principal (face amount) are called [[Nominal bond |''nominal'' bonds]].
+*'''Maturity date''': the date at which the bond principal will be repaid. Bonds are usually issued with maturities [[Money markets | ranging from 1 year]] to thirty years.
+*'''Options''': the most common option involving bonds is a '''call feature'''. This gives the issuer the right to repay the bond before the maturity date. Because an issuer will call bonds when the interest rate is lower than the coupon rate, it is not advantageous to the buyer of the bond, who must then reinvest the proceeds of the redeemed bond in a lower interest rate environment. Because of this, a callable bond usually offers a higher coupon than an uncallable bond, to compensate for the risk of early redemption. Some callable bonds also add a small sum to the par value of a redeemed bond. Alternatively, some bonds are issued with a '''put feature''' which gives the bond holder the right to force the issuer to repay the bond before the maturity date, usually on predefined put dates.
+*'''Sinking funds''' provide a means of repaying a bond issue. The issuer makes periodic payments to a trustee who retires part of the issue by purchasing the bonds in the open market. Sinking funds tend to reduce the risk of default, which lets the issuer of a bond to pay a lower interest rate on the bond. 
+*'''Senior debt''' and '''Subordinated debt''': [[Wikipedia:Senior debt|Senior debt]] has priority over other debt in case of default; [[Wikipedia:Subordinated debt|Subordinated debt]] is unsecured and, in a default, is [[Wikipedia:Bond (finance)| repayable]] after other debts have been paid.
+
+==Types of bonds==
+
+There are three main issuers of bonds in the U.S.: the Treasury; corporations; and municipalities.&lt;ref&gt;{{cite book| author=Annette Thau| title=The Bond Book| publisher=McGraw-Hill| date=2001| pages=29-36| isbn=0-07-135862-5}}&lt;/ref&gt;
+
+===Treasury bonds===
+'''[[Treasury Bonds]]''' are issued by the US treasury in groups of three maturity ranges
+*Bills have a range up to one year;
+*Notes have a range between one year and ten years;
+*Bonds have a range greater than ten years. 
+
+Treasury bonds are usually not callable. Treasuries also carry the full faith and credit backing of the U.S. government. The interest income is exempt from state tax. You can purchase Treasuries through brokerages and banks as well as through an individual account at [https://www.treasurydirect.gov/marketable-securities/treasury-bills/ Treasury Direct]. Government agencies also issue debt, some of which is backed by the full faith and credit of the government, and some which is not.
+
+'''[[Treasury Inflation Protected Securities]]''' (TIPS) give you both inflation indexed income and inflation protection for the bond's principal. The bond pays a fixed real interest rate based on a principal value indexed to the CPI-U inflation measure. Like all treasury bonds, inflation indexed treasuries have the "full faith and credit" backing of the Treasury and interest income and inflation adjusted accruals are exempt from state taxation. However, you must pay federal tax annually on the inflation adjusted accruals. This tax on "phantom income" means that you should try to hold these bonds in tax-advantaged accounts.
+
+===Corporate bonds===
+'''[[Corporate bonds]]''' are issued by corporations and are often callable. Because a corporation can default on its debts, corporate bonds have credit risk, and so usually pay higher coupon interest rates over comparable term treasury maturities as compensation for this risk. Corporate bonds are taxable, both for federal and for state income tax. 
+
+===Municipal bonds===
+'''[[Municipal bonds]]''' are issued by states and localities. These bonds have credit risk. Many municipal bonds are also callable. The bonds are generally exempt from federal tax, although some private revenue municipal bonds are subject to the federal alternative minimum tax. A tax exempt bond is also usually state tax exempt for residents of the state issuing the bond. Because of these tax preferences, municipal bonds usually offer lower coupon interest rates than do comparable term treasuries and corporate bonds. 
+
+===Other types of bonds===
+
+====Zero-coupon bonds====
+'''[[Zero-coupon bond |Zero Coupon bonds]]''' are accrual bonds and do not pay current coupon interest. They are issued at a deep discount from par value and compound continuously at the coupon rate. Holders receive the full principal amount as well as the value that has accrued from interest on the redemption date. Financial institutions can create zero coupon bonds from fixed rate bonds by "stripping off" the coupons. In other words, the coupons and the final principal payment of the bond are separate, and trade independently. Holders pay tax on the annual accrual of income, although they receive no current interest payment.
+
+====Asset-backed securities====
+'''[[Asset-backed securities]]''' are bonds whose interest and principal payments are backed by underlying cash flows from other assets. Examples of asset-backed securities are [[Mortgage-backed security|mortgage-backed securities]] (MBSs), which include GNMA securities backed by the full faith and credit of the US treasury, collateralized mortgage obligations (CMOs) and collateralized debt obligations (CDOs), whose underlying securities are often assets such as auto loans or credit card receivables.
+
+====High yield bonds====
+'''[[High yield bonds]]''' are corporate bonds with lower credit quality than top credits. These companies are at much greater risk of default than higher quality credits and, as a result, pay higher coupon interest rates than comparable high quality corporate bonds.
+
+==Sources of return==
+
+There are three sources of return for a bond:
+# Return of principal
+# Interest (coupon payments)
+# Interest-on-interest (reinvested coupon payments)
+
+According to [[Frank J. Fabozzi]] in the ''The Handbook of Fixed Income Securities'' (1991, page 97):&lt;ref&gt;{{cite book| author=Frank J. Fabozzi| author-link=Frank J. Fabozzi| title=The Handbook of Fixed Income Securities| date=2005| publisher=McGraw-Hill| isbn=978-0071440998}}&lt;/ref&gt;
+{{blockquote|In high interest rate environments, the interest-on-interest component for long-term bonds may be as high as 70 percent of the bond's potential total dollar return.}}
+In low interest rate environments, the principal is likely the largest source of value of all but the longest bonds. The figure below illustrates the three sources of bond return:
+
+[[File:Sources_of_bond_return.png|800px]]
+
+==Risks==
+
+Each of the following risks of bonds carries some premium as compensation for bearing these risks. The amount of that premium varies according to the market's assessment of the likelihood of the adverse event occurring.
+
+===Interest rate risk===
+
+Interest rate risk, also called price risk, is that the value of a bond fluctuates depending on the interest rate. Also known as "market risk." The amount of interest rate risk assumed is measured primarily by the [[Bonds: advanced topics#Duration | duration]], and secondarily by [[Bonds: advanced topics#Convexity | convexity]]. See [[#Bonds on the secondary_market | below]] for more information on how bond prices react to interest rate changes.
+
+Interest rate risk is in some sense an artifact of the traditional framework which looks at short-term returns. Over longer periods, longer duration bonds will have a more certain return than short-term bonds, as a quote from John Campbell and Luis Viceira's academic text, ''Strategic Asset Allocation'' (pages 86-87), makes clear:
+{{blockquote|If one uses conventional mean-variance analysis, it is hard to explain why any investors hold large positions in bonds. Mean-variance analysis treats cash as the riskless asset and bonds as merely another risky asset like stocks. Bonds are valued only for their potential contribution to the short-run excess return, relative to risk, of a diversified risky portfolio. ... A long-horizon analysis treats bonds very differently, and assigns them a much more important role in the optimal portfolio. For long-term investors, money market investments are not riskless because they must be rolled over at uncertain future interest rates.}}
+
+Because unexpected inflation changes that picture somewhat, the reduced risk of longer-term bonds is primarily true when discussing inflation-protected bonds in real dollars (or nominal bonds with nominal liabilities).
+
+===Credit risk===
+
+Credit risk is a risk that the issuer of a bond may default. Also known as "default risk." 
+
+The major ratings agencies (Moody's, S&amp;P, and Fitch) assess credit risk.&lt;ref group="note"&gt;Moody's Investors Service, Fitch, and Standard &amp; Poor's Ratings Services are three of several credit rating agencies the SEC categorizes as a [http://www.sec.gov/answers/nrsro.htm Nationally Recognized Statistical Rating Organization (NRSRO)]. The SEC's Office of Credit Ratings maintains a list here: [http://www.sec.gov/ocr/ratingagency.html Nationally Recognized Statistical Rating Organizations ("NRSROs")]&lt;/ref&gt; Each [[#Credit ratings | credit rating]] has an expected rate of default, which increases substantially in lower tiers. For a given credit rating, the default rate has historically been lower for municipal bonds than for corporate bonds. Wikipedia has [[wikipedia:Bond credit rating | tables]]] of how the ratings compare between ratings firms and of historical default rates.
+
+===Call risk===
+
+Call risk is a risk that the issuer may call the bond, terminating a stream of income for investors. This risk is often called prepayment risk for [[Mortgage Backed Securities | mortgage backed securities]]. Call options embedded in a bond lead to negative [[convexity]].
+
+===Reinvestment risk===
+
+Reinvestment risk is a risk that when a bond matures or is called, an investor may have to reinvest the proceeds in a bond yielding a lower interest.
+
+===Inflation risk===
+
+Inflation risk is a risk that the interest from a bond may not keep up with inflation. [[Treasury_Inflation_Protected_Securities|TIPS]] are inflation-adjusted and therefore largely immune to inflation risk. Also known as "purchasing power risk."
+
+===Liquidity risk===
+
+Liquidity risk is the risk that you may not be able to extract the remaining value from your bond in the timeframe needed without losing a disproportionate amount of value. Thinly-traded issues (such as most corporate, municipal, and TIPS issues) have liquidity risk. The liquidity premium is expected to rise in times of crisis. Also known as "marketability risk."
+
+Liquidity risk can be seen most clearly in "off-the-run" Treasury bonds, where an older but otherwise identical bond trades at a reduced price (or higher yield) simply because it is less liquid.
+
+=== Other risks ===
+
+These risks are either not important for individual investors or are generally wrapped into the risks above (for example, credit risk commonly encompasses event risk). They are included here for completeness.
+
+* '''Yield curve or maturity risk''': Generally only important in hedging situations.
+* '''Exchange rate or currency risk''': Only relevant for non-dollar-denominated bonds. [[John Bogle]] does not recommend these.
+* '''Volatility risk''': Volatility affects bonds with embedded options (commonly a corporate bond with a call option), because an option's value depends on volatility. If the price of an issue is highly volatile, the likelihood of a random fluctuation straying above the strike price is much greater.
+* '''Political or legal risk''': Tax-code changes and regulatory decisions can all affect the value of a bond. 
+* '''Event risk''': A type of credit risk which affects many firms due to a single event (and therefore event risk cannot be fully diversified away).
+* '''Sector risk''': A type of credit risk which affects all or many firms in a single sector.
+
+==Credit ratings==
+
+Three major ratings agencies assess the likelihood of a bond defaulting and assign that bond ratings according to a standardized scale.
+
+{| class=wikitable style="text-align:center" width=400px
+|+ Bond ratings&lt;ref&gt;{{cite web| url=https://www.investopedia.com/articles/03/102203.asp| title=Understanding Bond Ratings| publisher=Investopedia| date=August 6, 2023| accessdate=August 13, 2023}}&lt;/ref&gt;
+! Grade !! Risk !! Moody’s !! S&amp;P/Fitch
+|-
+| Investment||Quality Highest||Aaa||AAA
+|-
+| Investment||High Quality||AA||Aa
+|-
+| Investment||Strong||A||A
+|-
+| Investment||Medium Grade||Baa||BBB
+|-
+| Junk||Speculative||Ba.B||BB,B
+|-
+| Junk||Highly Speculative||Caa/Ca/C||CCC/CC/C
+|-
+| Junk||In Default||C||D
+|}
+
+For a given credit rating, the default rate has historically been lower for municipal bonds than for corporate bonds.
+
+==Factors affecting bond prices==
+{{main|Bond pricing}}
+See [[Bond pricing]] for definitions of bond pricing terminology. (This is an advanced topic.)
+
+===New issues===
+Two major factors primarily set the coupon of a newly issued bond: the credit quality of the bond, and the maturity of the bond. Investors taking on higher risks expect higher return. Because of this, the US Treasury can pay a lower coupon on its debt than corporate borrowers, who are subject to default risk. Three credit rating agencies trade non treasury debt. The table above describes the ratings.
+
+The longer the maturity of a bond, the greater the risk to the bondholder. Longer time horizons increase the likelihood that a bond issuer will become a greater credit risk through bad management decisions, the deterioration of economic conditions, or the company engaging in future merger and acquisition activity which changes the leverage of a company's balance sheet. Longer horizons also increase the likelihood that a bond's coupon income will be eroded by higher than expected inflation.
+
+Finance economics defines a bond's expected return as comprising three basic building blocks:&lt;ref&gt;{{cite book| author1=Elroy Dimson| author1-link=Elroy Dimson| author2=Paul R. Marsh| author3=Mike Staunton| title=Triumph of the Optimists: 101 Years of Global Investment Return| publisher=Princeton University Press| date=2002| pages=89-90| isbn=0-691-09194-3}}&lt;/ref&gt;
+* '''Default risk premium''': the risk-free rate as defined by the current yield of a treasury bill
+* '''Time horizon premium''': a time horizon premium to compensate investors for the risks of longer maturities
+* '''T-bill rate''': and a default risk premium to compensate investors for bearing credit risk.
+
+===Bonds on the secondary market===
+
+Once a bond is issued, it trades on the secondary market, and fluctuates in price until it matures. A bond will change in price for two main reasons:
+* The bond's credit rating has changed (either upgraded or downgraded).
+* Interest rates have changed.
+
+Unless a bond is falling into or out of default, price movements associated with changes in credit rating are usually infrequent, although during periods of economic distress and economic recovery credit rating changes can be significant price factors. The ever present driver of changes in a bond's market value comes from fluctuations in current market interest rates.
+
+An example can illustrate how bond pricing works. Suppose you purchase, at issue, a $1,000 ten year bond yielding a 5% coupon. This entitles you to $50 of annual income. Then, suppose that one year later, interest rates have risen to 6% and you wish to liquidate the bond. No rational investor will pay you $1,000 for $50 of income, when they can receive $60 annually for the same $1,000 dollar investment. In this scenario, your 5% bond will have to decrease in market value until its current yield approximately produces a 6% return.
+
+A similar, yet opposite price movement occurs if interest rates fall. Suppose instead that interest rates fall to 4 percent during the year after your purchase. Your $1,000 bond produces $50 of annual income in an environment where investors can only receive $40 of annual income from a newly issued bond. Your bond will therefore rise in price until it provides a purchaser with a 4% return.
+
+This is the basic rule of bond price movements in the open market.&lt;ref&gt;{{cite book| author=Annette Thau| title=The Bond Book| publisher=McGraw-Hill| date=2001| page=30| isbn=0-07-135862-5}}&lt;/ref&gt;
+
+{| class=wikitable style="text-align:center" width=400px
+| align="center" style="background:#f0f0f0;"|'''When'''
+| align="center" style="background:#f0f0f0;"|'''Then'''
+|-
+| interest rates rise||bond prices fall
+|-
+| interest rates fall||bond prices rise
+|}
+
+To calculate how much prices will rise or fall, please see [[Bonds:_Advanced_Topics#Duration | Duration]].
+
+A corollary to this is that, all other things being equal, price fluctuations are greater for long maturities than for shorter maturities.&lt;ref&gt;{{cite book| author=Annette Thau| title=The Bond Book| publisher=McGraw-Hill| date=2001| page=73| isbn=0-07-135862-5}}&lt;/ref&gt; At any given time in the secondary market you are likely to find any number of bonds selling at a discount over par value, or at a premium to par value.
+
+==Role in a portfolio==
+Investors typically use bonds to stabilize the value of a portfolio, or to produce a stream of income, or both. For more see [[Asking bond questions]] for tips on how to ask about bonds on the [http://www.bogleheads.org/forum/index.php Forum].
+
+===Long- vs. short-term===
+
+Boglehead and financial expert [[William Bernstein]] recommends limiting bond holdings to short-term funds,&lt;ref&gt;{{cite web| author=William Bernstein| date=December 30, 2009| url=https://archive.nytimes.com/bucks.blogs.nytimes.com/2009/12/30/pascal-and-the-long-term-bond-dilemma/ |title=Pascal and the long-term bond dilemma| publisher=New York Times| accessdate=August 13, 2023}}&lt;/ref&gt; because of their relative immunity to the risk of unexpected inflation.
+
+However, an article by Vanguard&lt;ref&gt;{{cite web| url=https://personal.vanguard.com/us/insights/article/duration-diversification-052015| title=The long and short of finding bond balance| date=June 12, 2015| publisher=Vanguard| accessdate=March 21, 2016}}{{dead link}}&lt;/ref&gt; argues that when the yield curve is particularly steep, running to short-term bonds for safety can result in losses if the yield curve flattens.
+
+A common recommendation of other experts is intermediate-term funds. Long-term bonds have historically returned no more than intermediate-term bonds, but with far greater volatility--in other words, their risk has not been rewarded. Yale endowment manager David Swensen recommends long-term Treasuries, however, as part of a portfolio dominated by equities, as they will provide the biggest counterweight to the collapse of other asset classes during a deflationary crisis.
+
+Even proponents of short-term bonds such as Dr. Bernstein are comfortable with longer-term holdings in inflation-protected securities such as [[Treasury_Inflation_Protected_Securities | TIPS]], as they no longer carry any risk of unexpected inflation, leaving them vulnerable only to a real rate rise (which if held to the duration incurs only an opportunity cost).
+
+While you should always keep the [[Bonds:_Advanced_Topics#Duration | duration]] less than or equal to your investment horizon, unless you have a specific funding need to be met at a specific date (in which case a [[Zero-coupon bond]] is the risk-free solution), you should choose between short-term and intermediate-term funds. The former is lower risk but the latter has historically given investors higher overall returns.
+
+===Credit quality===
+
+The ''[[Bogleheads' Guide To Investing]]'' authors recommend Vanguard's Total Bond Market, which contains investment-grade [[Corporate bonds |corporate bonds]]. [[John Bogle]] also recommends Total Bond Market, although he seems to prefer Vanguard's Intermediate-Term Index Fund for its lack of [[MBS]]s.&lt;ref&gt;{{cite web| date=June 15, 2007| url=https://johncbogle.com/wordpress/2007/06/15/john-bogle-responds-to-ask-jack-questions-2/| title=John Bogle responds to "Ask Jack" questions| publisher= The Bogle Eblog}}&lt;/ref&gt;
+
+By contrast, Boglehead and bond expert [[Larry Swedroe]] recommends only the very highest quality investments for bonds (and specifically recommends against Total Bond Market because of its negative [[Bonds:_Advanced_Topics#Convexity | convexity]]), citing evidence in which the risk of corporate bonds has not historically rewarded investors. Yale endowment manager David Swensen also recommends only Treasuries.
+
+Finally, Boglehead and financial expert Rick Ferri advocates for not only the inclusion of investment-grade corporate bonds but also [[High yield bonds | high yield bonds]], on the basis of their diversification benefits.
+
+Perhaps the best conclusion that can be drawn from the highly respected but conflicting advice is to:
+* Ensure that your bond holdings are built around a core of Treasuries.
+* If you choose to include corporate bonds, understand the risks you are taking (moderate in relation to stock investing but nevertheless quite real), and do not include too high a proportion. A good benchmark would be the market portfolio represented by Vanguard's Total Bond Market fund.
+* If you choose to include high-yield bonds which incorporate considerable default and call risk, you take the funds from the equity portion of your asset allocation rather than the bond portion.
+
+===Taxes===
+
+Almost all of the return on a bond or bond fund comes from the dividend yield, which is fully taxed; in contrast, stocks get most of their return from price appreciation, which is not taxed until the stocks are sold and is taxed at the capital-gains tax rate. Therefore, when bond interest rates are relatively high, bonds are widely regarded as being [[Principles_of_Tax-Efficient_Fund_Placement | less tax-efficient than stock index funds]] (which rarely sell stock) and should be held in tax-deferred accounts when possible.
+
+If you are in a high tax bracket and without sufficient taxable space, [[Municipal bonds]] are likely the preferred solution; these bonds are not taxed but there is a cost in lower yield. If you are in low tax brackets, you should calculate your after-tax return on taxable bonds in taxable accounts to determine whether or not to use municipal bonds.
+
+==Style boxes==
+"Style boxes" are 3&amp;nbsp;x&amp;nbsp;3 grids that categorize securities. Different investment styles have various levels of risk which leads to differences in returns. This visualization allows investors to compare securities using an easy-to-understand standardized format.
+
+Fixed income funds (bonds) classify risk as levels of [[#Credit risk | credit risk]] (credit quality) on the vertical axis, and [[#Interest rate risk | interest rate risk]] (term risk) on the horizontal axis.
+
+There are a number of ways to characterize interest rate risk, such as [[:Bonds: Advanced Topics#Duration | duration]] (sensitivity to changes in interest rates) and various maturity measures. In either case, the objective is to categorize interest rate risk into short-term, intermediate-term, and long-term periods of time.
+
+Morningstar (interest rate sensitivity) and Vanguard (maturity) provide fixed income fund ''style boxes''. Either format can be used to compare funds, but compare using the same methodology. When comparing ''only'' Vanguard funds, Vanguard's style box is valid. Otherwise, if no Vanguard style box is available, use Morningstar's style box for all funds. Vanguard funds will be shown on Morningstar's site using the Morningstar style box.&lt;ref&gt;{{Forum link| p=948589| title=9-style box - Vanguard vs M*t}}&lt;/ref&gt;
+
+{|border="0" cellspacing="0" cellpadding="4"
+|+'''Bond fund style box comparison'''
+|
+{|border="1" cellspacing="0" cellpadding="4"
+|+'''Morningstar Style Box&amp;trade;'''&lt;ref&gt;{{cite web| url=http://news.morningstar.com/pdfs/FactSheet_StyleBox_Final.pdf| title=Fact Sheet: The New Morningstar Style Box&amp;trade; Methodology| publisher=Morningstar| url-status=dead| archive-url=https://web.archive.org/web/20220822012855/http://news.morningstar.com/pdfs/FactSheet_StyleBox_Final.pdf| archive-date=August 22, 2022}}&lt;/ref&gt;
+|-
+|align = "center" colspan = "3"|'''Interest rate sensitivity'''&lt;br&gt;'''(duration)'''
+|rowspan = "2"|'''Credit quality'''&lt;br&gt;'''(rating)'''
+|-
+|align = "center"|Limited
+|align = "center"|Moderate
+|align = "center"|Extensive
+|-
+|align = "center" bgcolor = "Gold"|&amp;nbsp;
+|bgcolor = "Gold"|&amp;nbsp;
+|align = "center" bgcolor = "Gold"|&amp;nbsp;
+|High (AA- or higher)
+|-
+|align = "center" bgcolor = "Gold"|&amp;nbsp;
+|bgcolor = "Gold"|&amp;nbsp;
+|align = "center" bgcolor = "Gold"|&amp;nbsp;
+|Medium (BBB- to less than AA-)
+|-
+|align = "center" bgcolor = "Gold"|&amp;nbsp;
+|bgcolor = "Gold"|&amp;nbsp;
+|align = "center" bgcolor = "Gold"|&amp;nbsp;
+|Low (less than BBB-)
+|}
+|
+{|border="1" cellspacing="0" cellpadding="4"
+|+'''Vanguard domestic bond fund style box'''&lt;ref&gt;{{cite web| url=https://personal.vanguard.com/us/FundsStyleBox| title=Vanguard Funds by Style Box| publisher=Vanguard| accessdate=August 13, 2023}}&lt;/ref&gt;
+|-
+|align = "center" colspan = "3"|&lt;br&gt;'''Average weighted maturity'''
+|rowspan = "2"|'''Credit quality'''&lt;br&gt;'''(grade)'''
+|-
+|align = "center"|Short
+|align = "center"|Intermediate
+|align = "center"|Long
+|-
+|align = "center" bgcolor = "Gold"|&amp;nbsp;
+|align = "center" bgcolor = "Gold"|&amp;nbsp;
+|align = "center" bgcolor = "Gold"|&amp;nbsp;
+|Treasury / Agency
+|-
+|align = "center" bgcolor = "Gold"|&amp;nbsp;
+|align = "center" bgcolor = "Gold"|&amp;nbsp;
+|align = "center" bgcolor = "Gold"|&amp;nbsp;
+|Investment Grade
+|-
+|align = "center" bgcolor = "Gold"|&amp;nbsp;
+|align = "center" bgcolor = "Gold"|&amp;nbsp;
+|align = "center" bgcolor = "Gold"|&amp;nbsp;
+|Below Investment Grade
+|}
+|}
+
+[[Stock Basics#Style Boxes | Equity style boxes]] (stock funds) and fixed income style boxes (bond funds) represent two-dimensional (horizontal and vertical axis) views of risk versus return. However, the background behind these boxes is based on very different concepts. '''Only compare stocks-to-stocks and bonds-to-bonds.'''
+
+Both equity and fixed income style boxes are a way to visualize how diversified your portfolio is with respect to the main characteristic of each asset class - size and value for equities; credit risk and term risk for fixed income.&lt;ref&gt;{{Forum link| p=757434| title=Style boxes - Why the differences? Some questions}}&lt;/ref&gt;
+
+For example, you are interested in Vanguard's balanced funds&lt;ref&gt;[https://personal.vanguard.com/us/funds/tools/stylebox?View=Fund&amp;Cat=Domestic_Balanced_Balanced Vanguard balanced funds], Vanguard, style boxes&lt;/ref&gt; which contain both stock and bond funds. The style boxes show you a simple collection of colored boxes, and this can make asset allocation decisions easier.
+
+==Notes==
+{{Reflist|group="note"}}
+
+==See also==
+* [[Video: Why bother with bonds?]]
+* [[Bond pricing]]
+* [[Bonds: advanced topics]]
+* [[Individual bonds vs a bond fund]]
+
+==References==
+{{Reflist}}
+
+==External links==
+*{{Forum post|t=56339|title=Style boxes - Why the differences? Some question}}
+*{{Forum post|t=68058|title=9-style box - Vanguard vs M*}}
+*[https://web.archive.org/web/20211206053410/http://www2.investinginbonds.com/learnmore.asp?catid=2&amp;id=62 Investing in Bonds: Overview], Securities Industry and Financial Markets Association
+
+===Tutorial===
+Easy to understand, fundamental information about bonds. From [http://www.investopedia.com/ Investopedia]:
+*[https://www.investopedia.com/financial-edge/0312/the-basics-of-bonds.aspx The Basics Of Bonds], Investopedia (updated July 31, 2022)
+
+{{Bogleheads investing start-up kit}}
+{{Bonds}}
+[[Category:Asset allocation]]
+[[Category:Bonds]]</text>
+      <sha1>kjas3urbmlkk2iwyotpqqfec35xn59w</sha1>
+    </revision>
+  </page>
+</mediawiki>

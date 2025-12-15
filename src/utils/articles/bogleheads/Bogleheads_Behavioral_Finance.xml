@@ -1,0 +1,183 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd" version="0.11" xml:lang="en">
+  <siteinfo>
+    <sitename>Bogleheads</sitename>
+    <dbname>wiki</dbname>
+    <base>https://www.bogleheads.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.43.5</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Bogleheads</namespace>
+      <namespace key="5" case="first-letter">Bogleheads talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="274" case="first-letter">Widget</namespace>
+      <namespace key="275" case="first-letter">Widget talk</namespace>
+      <namespace key="828" case="first-letter">Module</namespace>
+      <namespace key="829" case="first-letter">Module talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Behavioral pitfalls</title>
+    <ns>0</ns>
+    <id>2107</id>
+    <revision>
+      <id>87955</id>
+      <parentid>83372</parentid>
+      <timestamp>2025-10-09T14:21:28Z</timestamp>
+      <contributor>
+        <username>TedSwippet</username>
+        <id>116</id>
+      </contributor>
+      <minor/>
+      <comment>/* Loss aversion */ Missing word.</comment>
+      <origin>87955</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="22603" sha1="onkq6w87cchjvwo8qpko9u81momtmgb" xml:space="preserve">{{Quotation|When it’s time to make investing decisions, ''check your emotions at the door''.|[[Bogleheads' Guide To Investing]]}}
+
+Understanding and avoiding '''behavioral pitfalls''' has a greater final impact on your investing success than any other factor. Because emotions and subsequent behavioral pitfalls often lead to miscalculating [[risk tolerance]] and [[Asset allocation|asset allocation]], you need to be aware of behavioral pitfalls before making asset allocation decisions. 
+
+{{Quotation|"Your investing brain does not just add and multiply and estimate and evaluate," says Jason Zweig in his book, ''Your Money and Your Brain''.&lt;ref name="Zwieg"&gt;{{cite book| title=Your Money and Your Brain: How the New Science of Neuroeconomics Can Help Make You Rich| publisher=Simon &amp; Schuster| date=August 1, 2007| isbn=978-0-7432-7668-9}}&lt;/ref&gt; "When you win, lose, or risk money, you stir up some of the most profound emotions a human being can ever feel."|Jason Zweig}}
+
+{{Quotation|"Financial decision-making," says psychologist [[Daniel Kahneman]] in Zweig’s book, "is not necessarily about money. It’s also about intangible motives like avoiding regret or achieving pride."|Daniel Kahneman}}
+
+==Common behavioral  pitfalls==
+===Anchoring===
+Basing decisions on a past value or event (the "anchor"), even though the value or event has no relevance to the decision. For example, we tend to hang on to losing investments by waiting for the investment to break even at the price at which we bought it. As a result, we anchor the value of our investment to the value it once had, and instead of selling it to realize the loss, we increase risk by holding it and hoping it will go back up to its purchase price.&lt;ref&gt;{{cite web| url=https://www.investopedia.com/terms/a/anchoring.asp| title=Anchoring in Investing: Overview and Examples| publisher=Investopedia| date=May 20, 2021| accessdate=June 1, 2023}}&lt;/ref&gt;&lt;ref group="note" name="freebeer"&gt;An example of ''framing effect'' (a form of anchoring) and ''confirmation bias'' on purchasing homeowners insurance is in this {{forum post| p=1789459| title=Re: Sometimes Safer NOT to Carry Homeowners Insurance (!?)}}.&lt;/ref&gt;
+ 
+===Confirmation bias===
+A tendency to seek information that confirms our existing opinions, and overlook or ignore information that refutes them. For example, when researching an investment, we inadvertently look for information that supports our beliefs, and miss information that presents different ideas. The resulting one-sided view can result in a poor investment choice.&lt;ref name="confirm"&gt;{{cite web| url=https://www.investopedia.com/terms/c/confirmation-bias.asp| title=Confirmation Bias: Overview and Types and Impact| publisher=Investopedia| date=September 29, 2022| accessdate=June 1, 2023}}&lt;/ref&gt; "In short, your own mind acts like a compulsive yes-man who echoes whatever you want to believe," says Wall Street Journal columnist Jason Zweig.&lt;ref name="Zwieg"/&gt;&lt;ref group="note" name="freebeer" /&gt;
+
+===Endowment effect===
+The tendency to value something you already own more highly than its market value.&lt;ref&gt;{{cite web| url=https://www.investopedia.com/terms/e/endowment-effect.asp| title=Endowment Effect: Definition, What Causes It, and Example| publisher=Investopedia| date=February 17, 2023| accessdate=October 29, 2024}}&lt;/ref&gt; Employer stock options or restricted stock units (RSUs) might be one example. With these, you receive a part of your employment compensation as shares in your employer. The endowment effect would be if you hold on to these shares, where had you instead received this compensation as cash you would not have used it to buy them. Another example might be if you inherit shares that you would not otherwise buy and continue to hold them, rather than selling and then investing the proceeds in your own choice of shares or funds.
+
+===Framing effect===
+The large changes of preferences that are sometimes caused by inconsequential variations in the wording of a choice problem.&lt;ref&gt;{{cite book| author=Daniel Kahneman| author-link=Daniel Kahneman| title=Thinking, Fast and Slow| chapter=Chapter 7, A Machine for Jumping to Conclusions| isbn=978-0-14-103357-0}}&lt;/ref&gt; For example, purchasing an item. The price is advertised as either (1) "$10.00 with a $0.50 cash discount" or (2) "$9.50 and a $0.50 credit card premium." The price is the same. But we feel much better with the first choice (allowing a discount), than with the second (adding a premium).&lt;ref group="note" name="freebeer" /&gt;
+
+===Gambler's fallacy===
+The belief that heads on a coin flip is more likely after a string of tails, red in roulette is more likely after a string of black, and in general good luck is more likely after a string of bad luck, and vice versa. We may expect an investment that has recently experienced losses to "revert to the mean" of its former upward trajectory, or anticipate increased risk after a period of steady gains. While examples of these patterns are easy to find in the past, they are of little value in predicting the future.
+
+===Herd behavior===
+A human instinct that causes people to mimic the actions of a larger group rather than decide independently based on their own information. For example, in a bull market, we join the crowd to avoid being the only one to miss out; in a bear market, we get out to avoid being the only one to lose. In both cases, we abandon our own reasoning and conclude the majority must be right. Herd investors often do not have a sound investment plan and they listen to market noise.&lt;ref name="BogleheadsGuide"/&gt;
+
+===Loss aversion===
+Loss aversion is the emotional tendency to strongly prefer avoiding losses over acquiring gains. As an example, loss aversion implies that if we lose $100, our emotional pain is much larger than the satisfaction we would feel from receiving $100. Common indications include checking your portfolio on an almost daily basis, selling funds before you intended to lock in profits, or selling when you did not intend to in order to avoid further losses.
+
+===Mental accounting===
+Our tendency to put money into separate accounts based on a variety of subjective criteria, for example, the source of the money and intent for each account. According to the theory, we may assign different functions to each asset group, which has an often irrational and detrimental effect on their consumption decisions and other behaviors. For example, people often have a special "money jar" or fund set aside for a vacation or a new home, while still carrying substantial credit card debt. 
+
+===Money illusion===
+Money illusion is a tendency to think of money in nominal terms, instead of inflation-adjusted terms. For example, some people will be happy to get a 1% nominal return on an ''safe'' investment during a year when inflation was 2%, yet they would be unhappy with a 1% loss on the same investment in a year with no inflation, despite the two situations representing a 1% annual loss in inflation-adjusted terms. Money illusion can lead us to underestimate the loss to inflation of a fixed nominal income stream over time, or to overestimate the value of a promised nominal income stream that starts far into the future.
+
+===Myopic loss aversion===
+Myopic loss aversion is loss aversion intensified by constant attention to short-term portfolio performance. This behavior leads us to focus on recent losses, which increases trading without paying attention to our overall portfolio or the long term view. Myopic loss aversion causes poor portfolio management and lower returns. It also may help explain the equity risk premium.&lt;ref&gt;{{cite web| url=https://mutualfunds.com/expert-analysis/myopic-loss-aversion-and-the-equity-risk-premium-puzzle/| title=Myopic Loss Aversion and the Equity Risk Premium Puzzle| author=Larry Swedroe| author-link=Larry Swedroe| publisher=MutualFunds.com| date=October 12, 2016| accessdate=June 1, 2023}}&lt;/ref&gt;
+
+===Overconfidence===
+Being overconfident in our investing abilities can lead to big investing losses. In the short term, the ups and downs of the stock market are random. These unpredictable variations mean that intelligence, skill, and knowledge give us no edge, and thinking they do can be "hazardous to your wealth."&lt;ref name="BogleheadsGuide"&gt;{{cite book| author1=Taylor Larimore| author1-link=Taylor Larimore| author2=Mel Lindauer| author2-link=Mel Lindauer| author3=Michael LeBoeuf| author3-link=Michael LeBoeuf| title=The Bogleheads' Guide to Investing| chapter=Chapter 19, Mastering Investments Means Mastering Emotions| publisher=Wiley| edition=1| date=September 28, 2007| isbn=978-0-470-06736-9}}&lt;/ref&gt; "The only way to achieve everything you’re capable of is to accept what you are not capable of," says Jason Zweig.&lt;ref name="Zwieg"/&gt;
+
+===Paralysis by analysis===
+We have thousands of funds to choose from, and an abundance of market "noise" telling us what we should do. The more choices we have, the harder it is for us to choose one, making it more likely we will not make a choice and will fail to invest. For example, employees pass up billions every year in free money offered by their employer’s matching retirement plans. They do this simply because they cannot decide which investment course to take.&lt;ref name="BogleheadsGuide"/&gt;
+
+===Recency bias===
+The tendency to draw conclusions about the future behavior of an investment from only the recent past. This leads to us chasing performance and then buying high and selling low. "When funds go on a streak of high returns, investors tend to get in right before the peak; then, when the hot streak goes cold, too many shareholders bail out at the bottom," explains Jason Zweig.&lt;ref name="Zwieg"/&gt;
+
+===Regret aversion===
+A theory that says we anticipate regret if we make a choice that is wrong in hindsight, and take this anticipation into consideration when making decisions. Fear of regret can play a large role in dissuading or motivating someone to do something. In investing, the fear of regret can make us either risk averse, or alternatively, motivate us to take greater risks.
+
+We tend to anticipate greater regret from action than from inaction. For example, we may fear missing out on gains if we rebalance out of stocks (action) and the market keeps going up more than we fear losses if we hold tight (inaction) and the market goes down. However, we may fear those same losses more than the potential gains when deciding to invest new money in the market (action).
+
+Fear of regret may also cause us to act if we will later be faced with the consequences of our inaction, such as being left out while our friend makes money on a stock tip or learning that we would have won a lottery.
+
+==Theory and background==
+{{Quotation|Investing is not a science. It is a human activity that involves both emotional as well as rational behavior.|John Bogle|The Clash of the Cultures}}
+
+===What is behavioral economics?===
+Behavioral economics&lt;ref&gt;{{cite web| url=https://www.investopedia.com/behavioral-economics-4689799| title=Introduction to Behavioral Economics| publisher=Investopedia| accessdate=June 1, 2023}}&lt;/ref&gt; explores the emotions and biases that lead investors and consumers to sometimes make irrational economic decisions. It also studies why and how their behavior does not follow the predictions of standard economic models that assume people make rational choices about spending money to "maximize their total satisfaction."&lt;ref name="BogleheadsGuide"/&gt;
+
+Many behavioral pitfalls are based on the finding that investors are risk averse. They dislike losses almost twice as much as they like comparable gains and may take on more risk hoping to avoid a loss than realize a gain. They may also abandon a sound strategy under the stress of a loss. Consider this carefully this when choosing your all-important asset allocation.
+
+You may not sense risk-aversion bias when an asset allocation is made. It will, however, present itself during a market downturn or crash, when the emotional stress of a loss can cause panic. If your asset allocation was not properly based on your risk tolerance, your are likely to abandon the market and sell low.
+
+===History===
+Many ideas now accepted in behavioral economics can be traced back to groundbreaking contributions by mathematician Daniel Bernoulli, ''New Theory on the Measurement of Risk'' (1738),&lt;ref&gt;{{cite journal| title=[Exposition of a New Theory on the Measurement of Risk]| date=1954| journal=Econometrica | volume=22 |pages=23–36| url=https://www.jstor.org/discover/10.2307/1909829| doi=10.2307/1909829| accessdate=June 1, 2023}} English translation of Bernoulli, D., "Specimen Theoriae Novae de Mensura Sortis", (1738).&lt;/ref&gt; and philosopher Adam Smith, ''The Theory of Moral Sentiments'' (1759).&lt;ref&gt;{{cite web| url=https://www.ibiblio.org/ml/libri/s/SmithA_MoralSentiments_p.pdf| title=The Theory of Moral Sentiments| author=Adam Smith| accessdate=June 1, 2023}}&lt;/ref&gt; The key to these early works was their elements of psychology, but psychology was subsequently rejected by economists at the turn of the 20th century because they thought it provided too unsteady a foundation for economics.
+
+In the second half of the 20th century, several researchers challenged the dismissal of psychology as a branch of economics. George Katona, Harvey Leibenstein, Tibor Scitovsky, and Herbert Simon wrote books and articles suggesting the importance of psychological measures and bounds on rationality. They attracted attention, but did not alter the fundamental direction of economics. Additional work by M. Allais (1953),&lt;ref&gt;{{cite journal| author=M. Allais| date=1953| title=Le comportement de l’homme rationnel devant le risque: critique des postulats et axiomes de l’école Américaine| journal=Econometrica| volume=21| page=503–546| url=https://www.jstor.org/discover/10.2307/1907921| doi=10.2307/1907921| accessdate=June 1, 2023}}&lt;/ref&gt; Daniel Ellsberg (1961),&lt;ref&gt;{{cite web| url=https://www.rand.org/content/dam/rand/pubs/papers/2008/P2173.pdf| title=Risk, Ambiguity, and the Savage Axioms| author=Daniel Ellsberg| date=1961| accessdate=June 1, 2023}}&lt;/ref&gt; Harry Markowitz (1952),&lt;ref&gt;{{cite journal| url=https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.1952.tb01525.x/abstract| title=Portfolio Selection| author=Harry Markowitz| author-link=Harry M. Markowitz| journal=The Journal of Finance| volume=7| page=77-91| date=1952| accessdate=June 1, 2023}}&lt;/ref&gt; and R.H. Strotz (1955)&lt;ref&gt;{{cite journal| author=R.H. Strotz| date=1956| title=Myopia and Inconsistency in Dynamic Utility Maximization| journal=Review of Economic Studies| volume=23| page=165–180| url=https://www.jstor.org/discover/10.2307/2295722| doi=10.2307/2295722}}&lt;/ref&gt; added more data, and the argument for psychology as a valid branch of economics became more convincing and generally accepted.&lt;ref&gt;{{cite web| author=Diego Zunino| url=https://diegozunino.files.wordpress.com/2011/06/lf1261932.pdf| title=History of "Prospect Theory": Birth and evolution of a successful paper| date=2010| accessdate=June 1, 2023}}&lt;/ref&gt;
+
+===Prospect theory===
+The final step in the advancement of behavioral economics as a significant field of economic research is often thought to have started with the work of psychologists [[Daniel Kahneman]] and Amos Tversky. They began their joint work in 1969, and the excellent working relationship ultimately led to the publishing of their seminal paper, ''Prospect Theory'', ten years later.&lt;ref group="note"&gt;Daniel Kahneman and Amos Tversky, (1979). [https://web.archive.org/web/20230324075856/https://scholar.princeton.edu/sites/default/files/kahneman/files/prospect_theory.pdf Prospect theory: An analysis of decision under risk]. Econometrica, 47, 263-291. Obtained from [https://web.archive.org/web/20180517164337/https://www.princeton.edu/~kahneman/publications.html Daniel Kahneman's Publications], Woodrow Wilson School of Public and International Affairs, Princeton University.&lt;/ref&gt; Prospect theory offers a framework for how people frame economic outcomes as gains and losses and how this framing affects people's economic decisions and choices. Amos Tversky died in 1996. Daniel Kahneman received the Nobel Prize in Economic Sciences for his work in 2002.&lt;ref group="note"&gt;For more, see [https://www.nobelprize.org/nobel_prizes/economic-sciences/laureates/2002/ NobelPrize.org]:
+*[https://www.nobelprize.org/nobel_prizes/economic-sciences/laureates/2002/kahneman-bio.html Daniel Kahneman - Biographical] A complete biography, including the background and development of prospect theory. ("When we were ready to submit the work for publication, we deliberately chose a meaningless name for our theory: 'prospect theory.' We reasoned that if the theory ever became well known, having a distinctive label would be an advantage.")
+*[https://www.nobelprize.org/nobel_prizes/economic-sciences/laureates/2002/kahneman-lecture.html Prize Lecture - Maps of Bounded Rationality] Daniel Kahneman holds his Prize Lecture December 8, 2002, at Aula Magna, Stockholm University.
+*[https://www.nobelprize.org/mediaplayer/index.php?id=531 Prize Lecture by Daniel Kahneman (Video)],{{dead link}} an overview of prospect theory presented by Kahneman, 38 minutes.
+*[https://www.nobelprize.org/uploads/2018/06/kahnemann-lecture.pdf Maps Of Bounded Rationality: A Perspective On Intuitive Judgment And Choice (PDF)], Prize Lecture, Daniel Kahneman, December 8, 2002.
+&lt;/ref&gt;
+
+===Prospect theory and the individual investor===
+{{Quotation|The investor’s chief problem - and even his worst enemy - is likely to be himself.|Ben Graham}} 
+
+Prospect theory is important because it brings awareness to the common and costly pitfalls that frequently trip up investors. There are two ways pitfalls arise: heuristics and cognitive biases.
+
+Heuristics are mental shortcuts people use for processing complex information. The process falls back on experience by trial and error, rule of thumb, or common sense. While heuristics provide a fast decision, often those decisions are faulty when applied to investing. Anchoring is a heuristic.
+
+Cognitive bias describes inherent thinking errors that humans make in processing information. When investors act on a bias, they do not explore the full issue and can be ignorant of evidence that contradicts their initial opinions. Confirmation bias is an example of cognitive bias.&lt;ref name="confirm" /&gt;
+
+==Notes==
+{{Reflist|group="note"}}
+
+==See also==
+*[[Bogleheads® investing start-up kit]]
+*[[Risk and return: an introduction]]
+
+==References==
+{{Reflist}}
+
+==Further reading==
+
+*{{cite book|author=Dan Ariely|title=Predictably Irrational: The Hidden Forces That Shape Our Decisions|publisher=Harper Perennial|date=April 27, 2010|isbn=978-0-06-135324-6}}
+*{{cite book|author=Gary Belsky|author2=Thomas Gilovich|title=Why Smart People Make Big Money Mistakes and How to Correct Them: Lessons from the Life-Changing Science of Behavioral Economics|publisher=Simon &amp; Schuster|date=January 12, 2010|isbn=978-1-4391-6336-8}}
+*{{Cite book|author=Neil Bendle|title=Behavioural Economics For Kids: Third Edition|publisher=Fehr Advice|date=2018|isbn=978-1-7309-6954-6}} Free download from [https://neilbendle.com/behavioural-econ-for-kids/ Behavioural Econ For Kids].
+*{{cite book|author=Daniel Kahneman|author-link=Daniel Kahneman|title=Thinking, Fast and Slow|publisher=Farrar, Straus and Giroux|date=April 2, 2013|isbn=978-0-374-53355-7}}
+*{{cite book|author=James Montier|title=The Little Book of Behavioral Investing: How not to be your own worst enemy|isbn=978-0-470-68602-7}} Reviewed in {{forum post| t=128853| title=Behavioral Investing - James Montier| author=Robert T| date=December 22, 2013}}
+*Barry Ritholtz, [https://www.ritholtz.com/blog/2012/07/10-behavioral-books-for-investors/ 10 Behavioral Economics/Psychology Books for Investors], blog article containing a  list of 10 recommended books, July 30th, 2012.
+*{{cite book|author=Larry Swedroe|author-link=Larry Swedroe|title=Rational Investing in Irrational Times: How to Avoid the Costly Mistakes Even Smart People Make Today|publisher=Truman Talley Books|date=June 17, 2002|isbn=978-0-312-29130-3}}
+*{{cite book|author=Jason Zweig|title=Your Money and Your Brain: How the New Science of Neuroeconomics Can Help Make You Rich|publisher=Simon &amp; Schuster|date=August 1, 2007|isbn=978-0-7432-7668-9}}
+
+==External links==
+*[[wikipedia:Prospect Theory | Prospect theory]], from Wikipedia
+*[https://www.investopedia.com/university/behavioral_finance/#axzz1rGqUzH6e Behavioral Finance], from Investopedia
+*[http://www.behaviouralfinance.net/ Behavioural Finance], articles and papers
+*[https://www.sec.gov/investor/locinvestorbehaviorreport.pdf Behavior and U.S. Investors: Behavioral Patterns and Pitfalls of U.S. Investors], U.S. Library of Congress, August 2010.
+*[https://www.econlib.org/library/Enc/BehavioralEconomics.html How Behavioral Economics Differs from Traditional Economics], Richard H. Thaler and Sendhil Mullainathan, from the [https://www.econlib.org/index.html Library of Economics and Liberty].
+*[https://www.bogleheads.org/forum/viewtopic.php?f=2&amp;t=120040 Wiki - Emotions and Investing (new investors - read this)], forum discussion
+
+===Bibliography===
+{| border="0"
+||
+*  H. Kent Baker and John R. Nofsinger, ''[https://web.archive.org/web/20060709214520/https://www.rmi.gsu.edu/FSR/abstracts/v11_arts/Vol11_A07.pdf Psychological Biases of Investors]'', April 15, 2002.
+*  [[Brad M. Barber]] and [[Terrance Odean]], ''[https://faculty.haas.berkeley.edu/odean/papers/Courage/FAJ%20NovDec99%20Barber%20and%20Odean.pdf The Courage of Misguided Convictions]'',  December 1999.
+* [[Nicholas C. Barberis]] and [[Richard H. Thaler]], ''[https://papers.ssrn.com/sol3/papers.cfm?abstract_id=327880&amp;rec=1&amp;srcabs=79373 A Survey of Behavioral Finance]'', (September 2002). Available at SSRN.
+* [[Nicholas C. Barberis]], ''[https://ssrn.com/abstract=2177288 Thirty Years of Prospect Theory in Economics: A Review and Assessment]'', (November 2012).  Available at SSRN.
+* Eric J. Johnson, John C. Hershey, Jacqueline Meszaros, and Howard C. Kunreuther, ''[https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1424065 Framing Probability Distortions, and Insurance Decisions]''  (1993). Journal of Risk and Uncertainty, Vol. 7, No. 1, 1993. Available at SSRN.
+* James Montier, ''[https://papers.ssrn.com/sol3/papers.cfm?abstract_id=881760 Seven Sins of Fund Management]'', November 18, 2005. Available at SSRN.
+|}
+{{Bogleheads investing start-up kit}}
+{{Risk navbox}}
+[[Category:Financial theory]]
+[[Category:Portfolio risk management]]</text>
+      <sha1>onkq6w87cchjvwo8qpko9u81momtmgb</sha1>
+    </revision>
+  </page>
+</mediawiki>
