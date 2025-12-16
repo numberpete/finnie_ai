@@ -4,7 +4,12 @@ from typing import List, Optional
 from fastmcp import FastMCP
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
-#from langchain_tavily import TavilySearch
+from src.utils import setup_logger_with_tracing, setup_tracing
+import logging
+
+
+setup_tracing("mcp-server-q-and-a", enable_console_export=False)    
+LOGGER = setup_logger_with_tracing(__name__, logging.DEBUG)
 
 # Initialize your resources
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -22,13 +27,13 @@ basic_vector = FAISS.load_local(
     embeddings,
     allow_dangerous_deserialization=True
 )
-#search_tavily = TavilySearch(max_results=3)
 
 advanced_vector = FAISS.load_local(
     str(VECTOR_STORE_PATH_BOGLEHEADS), 
     embeddings,
     allow_dangerous_deserialization=True
 )
+
 
 categories = set()
 categories.add("Investing")
@@ -42,10 +47,10 @@ categories.add("Glossary")
 def list_categories() -> List[str]:
     """
     Tool to retrieve the full list of available categories for the basic financial knowledge base. Use this when the user asks a domain-specific question and you need to select one or more precise category strings (e.g., 'Retirement') to pass to the basic_query tool.
-    
     Returns:
         A list of unique category names.
     """
+    LOGGER.info("list_categories called")
 
     return list(categories)
 
@@ -58,10 +63,10 @@ adv_categories.add('Retirement Planning')
 def list_advanced_categories() -> List[str]:
     """
     Tool to retrieve the list of available categories for the advanced financial knowledge base. Use this when the user asks a highly technical or advanced question and you are preparing to call the advanced_query tool.
-    
     Returns:
         A list of unique category names.
     """
+    LOGGER.info("list_advanced_categories called")
     return list(adv_categories)
 
 
@@ -78,8 +83,11 @@ def basic_query(query: str, categories: Optional[List[str]] = None) -> str:
     Returns:
         Formatted search results with sources
     """
+    LOGGER.info(f"basic_query called:  query='{query}', categories={categories}")
+
     search_kwargs={
         "k": 3#,      # The final number of documents to return
+        #uncomment below two lines if we switch to MMR search
         #"fetch_k": 20, # Number of *initial* documents to fetch for re-ranking 
         #"lambda_mult": 0.7 # Trade-off between relevance (1.0) and diversity (0.0)
     }
@@ -133,6 +141,7 @@ def advanced_query(query: str, categories: Optional[List[str]] = None) -> str:
     Returns:
         Formatted search results with sources
     """
+    LOGGER.info(f"advanced_query called with query: {query} and categories: {categories}")
     search_kwargs={
         "k": 3,      # The final number of documents to return
         "fetch_k": 20, # Number of *initial* documents to fetch for re-ranking 

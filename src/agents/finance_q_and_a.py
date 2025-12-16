@@ -15,6 +15,13 @@ from langchain.agents import create_agent
 from langchain.messages import HumanMessage, AIMessage, SystemMessage
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from langchain_core.messages import BaseMessage
+from src.utils import setup_logger_with_tracing, setup_tracing
+import logging
+
+
+# Setup Logger
+setup_tracing("finance-q-and-a-agent", enable_console_export=False)
+LOGGER = setup_logger_with_tracing(__name__, logging.DEBUG)
 
 
 # --- CONFIGURATION & PROMPT ---
@@ -40,7 +47,7 @@ for a general audience.
 6.  **Category Use:** If a definition or simple concept is requested, prioritize using the basic_query tool with a precise category (e.g., 'Glossary', 'Tax'). If a query spans multiple domains (e.g., 'Retirement' and 'Tax'), pass a list of categories to the tool. If no specific category is clear, run the basic_query tool without a category.
 7.  If a query with category='Glossary' is made, always use the basic_query tool with that category to provide definitions of financial terms.  If it fails to return a response, try again with no category specified.
 8.  When a user's question clearly indicates a specific financial domain (e.g., 'IRA' or 'Estate Planning'), you should first consider using the list_categories tool to confirm the exact spelling of the category before attempting to call basic_query.
-9.  **Citing Sources:** When providing a final answer based on a tool's output, you MUST clearly 
+9..  **Citing Sources:** When providing a final answer based on a tool's output, you MUST clearly 
     list the source(s) at the end of your response, including the full URL(s) if the tool output 
     provides them. Structure your answer clearly with a "Sources:" section at the very end.
 ---
@@ -57,13 +64,10 @@ MCP_SERVER_URL = "http://localhost:8001/sse"
 async def a_load_mcp_tools(server_name: str, server_url: str = "http://localhost:8001/sse") -> tuple[List[Any], MultiServerMCPClient]:
     """Initializes the MCP client using HTTP/SSE transport."""
     
-    print(f"\n{'='*70}")
-    print(f"🔌 INITIALIZING MCP CLIENT")
-    print(f"{'='*70}")
-    print(f"Server name: {server_name}")
-    print(f"Server URL: {server_url}")
-    print(f"Transport: HTTP/SSE")
-    print(f"{'='*70}\n")
+    LOGGER.info("🔌 Initializing MCP Client...")
+    LOGGER.info(f"Server name: {server_name}")
+    LOGGER.info(f"Server URL: {server_url}")
+    LOGGER.info(f"Transport: HTTP/SSE")
     
     sse_config = {
         server_name: {
@@ -75,13 +79,10 @@ async def a_load_mcp_tools(server_name: str, server_url: str = "http://localhost
     client = MultiServerMCPClient(sse_config)
     tools = await client.get_tools()
     
-    print(f"{'='*70}")
-    print(f"✅ MCP CLIENT INITIALIZED")
-    print(f"{'='*70}")
-    print(f"Tools loaded: {len(tools)}")
+    LOGGER.info("✅ MCP Client initialized successfully.")
+    LOGGER.info(f"Tools loaded: {len(tools)}")
     for tool in tools:
-        print(f"   • {tool.name}: {tool.description[:60]}...")
-    print(f"{'='*70}\n")
+        LOGGER.info(f"   • {tool.name}: {tool.description[:60]}...")
     
     return tools, client
 
@@ -104,8 +105,7 @@ class FinanceQandAAgent:
                 a_load_mcp_tools(MCP_SERVER_NAME, MCP_SERVER_URL)
             )
         except Exception as e:
-            print(f"❌ FATAL ERROR: Could not connect to MCP server at {MCP_SERVER_URL}: {e}")
-            print(f"   Make sure the MCP server is running!")
+            LOGGER.error(f"FATAL ERROR: Could not connect to MCP server at {MCP_SERVER_URL}: {e}")
             self.tools = []
 
         # Create the core ReAct agent chain
@@ -117,7 +117,7 @@ class FinanceQandAAgent:
             debug=False,
         )
         
-        print(f"✅ FinanceQandAAgent initialized with {len(self.tools)} tools (Instance ID: {self.instance_id})")
+        LOGGER.debug(f"✅ FinanceQandAAgent initialized with {len(self.tools)} tools (Instance ID: {self.instance_id})")
 
     async def run_query(self, history: List[BaseMessage], session_id: str) -> str:
         """
@@ -127,32 +127,31 @@ class FinanceQandAAgent:
         :param session_id: The session identifier (for logging/debugging)
         :return: The agent's response as a string
         """
-        
+        LOGGER.info(f"Processing query: {history[-1].content[:50]}...")
+
+
         # Increment and track invocations
         FinanceQandAAgent._invocation_count += 1
         current_invocation = FinanceQandAAgent._invocation_count
         
-        print(f"\n{'='*70}")
-        print(f"🤖 FINANCE Q&A AGENT - Query #{current_invocation}")
-        print(f"{'='*70}")
-        print(f"🆔 Instance ID: {self.instance_id}")
-        print(f"📝 Session ID: {session_id}")
-        print(f"📊 History length: {len(history)} messages")
+        LOGGER.debug(f"🤖 FINANCE Q&A AGENT - Query #{current_invocation}")
+        LOGGER.debug(f"🆔 Instance ID: {self.instance_id}")
+        LOGGER.debug(f"📝 Session ID: {session_id}")
+        LOGGER.debug(f"💬 User Query: {history[-1].content[:100]}...")
+        LOGGER.debug(f"📊 History Length: {len(history)} messages")
         
-        # Print the last few messages for context
-        print(f"\n📜 Message History:")
+        # log the last few messages for context
+        LOGGER.debug(f"📜 Message History:")
         for i, msg in enumerate(history[-3:], start=max(0, len(history)-3)):
             msg_type = "👤 USER" if isinstance(msg, HumanMessage) else "🤖 AI"
             content_preview = msg.content[:80] + "..." if len(msg.content) > 80 else msg.content
-            print(f"   [{i}] {msg_type}: {content_preview}")
+            LOGGER.debug(f"   [{i}] {msg_type}: {content_preview}")
         
-        print(f"\n🔧 Available tools: {len(self.tools)}")
+        LOGGER.debug(f"🔧 Available tools: {len(self.tools)}")
         for tool in self.tools:
-            print(f"   • {tool.name}")
+            LOGGER.debug(f"   • {tool.name}: {tool.description[:60]}...")
         
-        print(f"\n{'='*70}")
-        print(f"⚙️  Invoking Agent (Call #{current_invocation})...")
-        print(f"{'='*70}\n")
+        LOGGER.info(f"⚙️  Invoking Agent (Call #{current_invocation})...")
         
         tool_call_count = 0
         tool_call_details = []
@@ -163,19 +162,18 @@ class FinanceQandAAgent:
                 {"messages": history}
             )
             
-            print(f"\n{'='*70}")
-            print(f"📤 AGENT RESPONSE RECEIVED")
-            print(f"{'='*70}")
+            LOGGER.debug(f"✅ AGENT INVOCATION COMPLETE")
 
             # Extract the last message from the response
             if isinstance(response, dict) and "messages" in response:
                 # Analyze all messages in the response
-                print(f"📨 Total messages in response: {len(response['messages'])}")
-                print(f"\n📋 Message breakdown:")
+                LOGGER.debug(f"📬 Analyzing response messages...")
+                LOGGER.debug(f"🔢 Total messages received: {len(response['messages'])}")
+                LOGGER.debug(f"\n📋 Message breakdown:")
                 
                 for i, msg in enumerate(response["messages"]):
                     msg_type = type(msg).__name__
-                    print(f"   [{i}] {msg_type}", end="")
+                    LOGGER.debug(f"   [{i}] {msg_type}")
                     
                     # Check for tool calls in AIMessage
                     if hasattr(msg, 'tool_calls') and msg.tool_calls:
@@ -184,58 +182,51 @@ class FinanceQandAAgent:
                             tool_name = tc.get('name', 'unknown')
                             tool_args = tc.get('args', {})
                             tool_call_details.append(f"{tool_name}({tool_args})")
-                            print(f" -> Tool: {tool_name}", end="")
+                            LOGGER.debug(f" -> Tool: {tool_name}")
                             # Show abbreviated arguments
                             if tool_args:
                                 args_preview = str(tool_args)[:100]
                                 if len(str(tool_args)) > 100:
                                     args_preview += "..."
-                                print(f" | Args: {args_preview}", end="")
+                                LOGGER.debug(f" | Args: {args_preview}")
                     
                     # Check for tool results in ToolMessage
                     if msg_type == "ToolMessage":
                         tool_name = getattr(msg, 'name', 'unknown')
                         result_preview = str(msg.content)[:80] if hasattr(msg, 'content') else ""
-                        print(f" -> Result from: {tool_name} | {result_preview}...", end="")
+                        LOGGER.debug(f" -> Result from: {tool_name} | {result_preview}...")
                     
                     # Show content preview for HumanMessage and AIMessage
                     if hasattr(msg, 'content') and msg.content and isinstance(msg.content, str) and msg_type in ["HumanMessage", "AIMessage"]:
                         preview = msg.content[:50].replace('\n', ' ')
-                        print(f" | '{preview}...'", end="")
+                        LOGGER.debug(f" | '{preview}...'")
                     
-                    print()  # New line
                 
-                print(f"\n🔧 Total tool calls made: {tool_call_count}")
+                LOGGER.debug(f"\n🔧 Total tool calls made: {tool_call_count}")
                 if tool_call_details:
-                    print(f"\n🔨 Tool calls with arguments:")
+                    LOGGER.debug(f"\n🔨 Tool calls with arguments:")
                     for i, detail in enumerate(tool_call_details, 1):
-                        print(f"   {i}. {detail}")
+                        LOGGER.debug(f"   {i}. {detail}")
                 
                 last_message: BaseMessage = response["messages"][-1]
                 
                 # Return the content of the last message
                 if hasattr(last_message, 'content'):
                     response_preview = last_message.content[:150] + "..." if len(last_message.content) > 150 else last_message.content
-                    print(f"\n💬 Response Preview:")
-                    print(f"   {response_preview}")
-                    print(f"\n✅ Response length: {len(last_message.content)} characters")
-                    print(f"{'='*70}\n")
+                    LOGGER.debug(f"💬 Response Preview:  {response_preview}")
+                    LOGGER.debug(f"✅ Response length: {len(last_message.content)} characters")
                     return last_message.content
                 else:
                     return str(last_message)
             
             # Fallback for unexpected response structure
-            print(f"⚠️  Unexpected response structure: {type(response)}")
+            LOGGER.debug(f"⚠️  Unexpected response structure: {type(response)}")
             return str(response)
             
         except Exception as e:
             error_msg = f"Error processing query: {str(e)}"
-            print(f"\n{'='*70}")
-            print(f"❌ ERROR IN AGENT")
-            print(f"{'='*70}")
-            print(f"Error: {error_msg}")
-            print(f"Tool calls before error: {tool_call_count}")
-            print(f"{'='*70}\n")
+            LOGGER.error(f"Error: {error_msg}")
+            LOGGER.debug(f"Tool calls before error: {tool_call_count}")
             return f"I apologize, but I encountered an error while processing your request: {error_msg}"
 
     async def cleanup(self):
@@ -246,7 +237,7 @@ class FinanceQandAAgent:
                 # await self.mcp_client.close()
                 pass
             except Exception as e:
-                print(f"⚠️ Error during cleanup: {e}")
+                LOGGER.error(f"Error during cleanup: {e}")
 
 
 # Example of how to use this class (for testing):

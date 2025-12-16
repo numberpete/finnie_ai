@@ -11,6 +11,14 @@ from langchain_core.runnables import RunnableConfig
 
 # Import your existing worker agent
 from src.agents.finance_q_and_a import FinanceQandAAgent 
+from src.utils import setup_logger_with_tracing, setup_tracing,  get_tracer
+import logging
+
+
+# Setup Logger
+setup_tracing("supervisor", enable_console_export=False)
+LOGGER = setup_logger_with_tracing(__name__, logging.DEBUG)
+TRACER = get_tracer(__name__)
 
 # --- CONFIGURATION ---
 SUPERVISOR_LLM = ChatOpenAI(model="gpt-4o-mini", temperature=0)
@@ -39,7 +47,7 @@ class SupervisorAgent:
         self.supervisor_chain = self._create_supervisor_chain()
         self.graph = self._build_supervisor_graph()
 
-        print("✅ SupervisorAgent initialized and LangGraph built.")
+        LOGGER.debug("✅ SupervisorAgent initialized and LangGraph built.")
 
     # --- Worker Node Runner ---
     async def _run_worker_agent(self, state: AgentState) -> AgentState:
@@ -56,12 +64,10 @@ class SupervisorAgent:
         last_user_msg = next((msg.content for msg in reversed(full_message_history) 
                               if isinstance(msg, HumanMessage)), "")
         
-        print(f"\n{'='*60}")
-        print(f"🔧 WORKER NODE: {agent_name}")
-        print(f"📝 Session: {session_id}")
-        print(f"💬 Query: {last_user_msg[:60]}...")
-        print(f"📊 Current history length: {len(full_message_history)} messages")
-        print(f"{'='*60}\n")
+        LOGGER.debug(f"🔧 WORKER NODE: {agent_name}")
+        LOGGER.debug(f"📝 Session: {session_id}")
+        LOGGER.debug(f"💬 Query: {last_user_msg[:60]}...")
+        LOGGER.debug(f"📊 Current history length: {len(full_message_history)} messages")
         
         # Call the worker agent's core function (must be async)
         response_text = await worker_instance.run_query(full_message_history, session_id)
@@ -69,7 +75,7 @@ class SupervisorAgent:
         # Create the response message
         ai_response = AIMessage(content=response_text, name=agent_name)
         
-        print(f"✅ {agent_name} completed. Response length: {len(response_text)} chars\n")
+        LOGGER.debug(f"✅ {agent_name} completed. Response length: {len(response_text)} chars\n")
         
         # Return the new state with the agent's response appended
         return {
@@ -155,11 +161,11 @@ REMEMBER: If the last message has name='FinanceQandAAgent', you MUST return 'FIN
             # SAFEGUARD: If the last message is from an agent, force FINISH
             last_msg = state["messages"][-1] if state["messages"] else None
             if isinstance(last_msg, AIMessage) and hasattr(last_msg, 'name') and last_msg.name in AGENT_NAMES:
-                print(f"🛑 Safeguard triggered: Last message from {last_msg.name}, forcing FINISH")
+                LOGGER.debug(f"🛑 Safeguard triggered: Last message from {last_msg.name}, forcing FINISH")
                 return "FINISH"
             
             next_route = state["next"]
-            print(f"🔀 Supervisor routing to: {next_route}")
+            LOGGER.debug(f"🔀 Supervisor routing to: {next_route}")
             return next_route 
         
         workflow.add_conditional_edges(
@@ -184,41 +190,46 @@ REMEMBER: If the last message has name='FinanceQandAAgent', you MUST return 'FIN
         :param session_id: The session identifier for maintaining conversation history.
         :return: The final response string from the agent system.
         """
-        
-        # 1. Define the LangGraph/LangChain configuration
-        config: RunnableConfig = {
-            "configurable": {
-                # This is the key LangGraph uses to retrieve/save the state
-                "thread_id": session_id 
-            },
-            "recursion_limit": 10  # Prevent infinite loops - max 10 steps
-        }
+        with TRACER.start_as_current_span("supervisor_run_query") as span:
+            span.set_attribute("session_id", session_id)
+            span.set_attribute("user_input", user_input[:50])  # Log first 50 chars
 
-        # 2. Prepare the input
-        # Only pass the new user message - the checkpointer will merge with history
-        input_data = {
-            "messages": [HumanMessage(content=user_input)],
-            "next": "",
-            "session_id": session_id
-        }
+            LOGGER.info(f"Processing query: {user_input[:50]}...")
 
-        try:
-            # 3. Invoke the graph with recursion limit
-            final_state = await self.graph.ainvoke(input_data, config=config)
-            
-            # 4. Extract the final AI response (last message in the list)
-            # Find the last AIMessage in the conversation
-            for message in reversed(final_state["messages"]):
-                if isinstance(message, AIMessage):
-                    return message.content
-            
-            # Fallback: if no AI message found, return a default message
-            return "I apologize, but I was unable to generate a response."
-            
-        except Exception as e:
-            error_msg = f"Error in supervisor: {str(e)}"
-            print(f"❌ {error_msg}")
-            return f"I apologize, but I encountered an error: {error_msg}"
+            # 1. Define the LangGraph/LangChain configuration
+            config: RunnableConfig = {
+                "configurable": {
+                    # This is the key LangGraph uses to retrieve/save the state
+                    "thread_id": session_id 
+                },
+                "recursion_limit": 10  # Prevent infinite loops - max 10 steps
+            }
+
+            # 2. Prepare the input
+            # Only pass the new user message - the checkpointer will merge with history
+            input_data = {
+                "messages": [HumanMessage(content=user_input)],
+                "next": "",
+                "session_id": session_id
+            }
+
+            try:
+                # 3. Invoke the graph with recursion limit
+                final_state = await self.graph.ainvoke(input_data, config=config)
+                
+                # 4. Extract the final AI response (last message in the list)
+                # Find the last AIMessage in the conversation
+                for message in reversed(final_state["messages"]):
+                    if isinstance(message, AIMessage):
+                        return message.content
+                
+                # Fallback: if no AI message found, return a default message
+                return "I apologize, but I was unable to generate a response."
+                
+            except Exception as e:
+                error_msg = f"Error in supervisor: {str(e)}"
+                LOGGER.error(f"{error_msg}")
+                return f"I apologize, but I encountered an error: {error_msg}"
 
 
 # Example of how to use this class:
