@@ -19,6 +19,7 @@ charset-normalizer==3.4.4
 click==8.3.1
 cloudpickle==3.1.2
 cryptography==46.0.3
+curl_cffi==0.14.0
 cyclopts==4.3.0
 dataclasses-json==0.6.7
 diskcache==5.6.3
@@ -34,7 +35,7 @@ fastapi==0.124.4
 fastmcp==2.14.0
 ffmpy==1.0.0
 filelock==3.20.0
--e git+https://github.com/numberpete/finnie_ai.git@55b9fc2797d0fbb19bd741412cfeb8e0f118910c#egg=finnie_ai
+frozendict==2.4.7
 frozenlist==1.8.0
 fsspec==2025.12.0
 gradio==6.1.0
@@ -80,6 +81,7 @@ mcp==1.24.0
 mdurl==0.1.2
 more-itertools==10.8.0
 multidict==6.7.0
+multitasking==0.0.12
 mypy_extensions==1.1.0
 numpy==2.3.5
 openai==2.9.0
@@ -100,11 +102,13 @@ packaging==25.0
 pandas==2.3.3
 pathable==0.4.4
 pathvalidate==3.3.1
+peewee==3.18.3
 pillow==12.0.0
 pipdeptree==2.30.0
 platformdirs==4.5.1
 prometheus_client==0.23.1
 propcache==0.4.1
+protobuf==6.33.2
 py-key-value-aio==0.3.0
 py-key-value-shared==0.3.0
 pycparser==2.23
@@ -158,5 +162,6 @@ websockets==15.0.1
 wrapt==1.17.3
 xxhash==3.6.0
 yarl==1.22.0
+yfinance==0.2.66
 zipp==3.23.0
 zstandard==0.25.0

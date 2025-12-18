@@ -26,7 +26,7 @@ class ColoredFormatter(logging.Formatter):
         return super().format(record)
 
 
-def setup_logger(name: str, level: int = logging.INFO) -> logging.Logger:
+def setup_logger(name: str, level: int = logging.DEBUG) -> logging.Logger:
     """
     Creates and configures a logger with colored output.
     
