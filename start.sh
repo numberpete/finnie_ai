@@ -11,6 +11,37 @@ NC='\033[0m' # No Color
 
 echo -e "${BLUE}🚀 Starting Finnie AI Application...${NC}\n"
 
+# --- 1. VIRTUAL ENVIRONMENT CHECK ---
+if [ -d ".venv" ]; then
+    echo -e "${BLUE}📦 Activating virtual environment (.venv)...${NC}"
+    source .venv/bin/activate
+elif [ -d "venv" ]; then
+    echo -e "${BLUE}📦 Activating virtual environment (venv)...${NC}"
+    source venv/bin/activate
+else
+    echo -e "${RED}❌ No virtual environment found (.venv or venv). Please create one first.${NC}"
+    exit 1
+fi
+
+# --- 2. DIRENV / ENV VARS LOAD ---
+if command -v direnv &> /dev/null; then
+    echo -e "${BLUE}🔑 Loading environment variables via direnv...${NC}"
+    direnv allow .
+    eval "$(direnv export bash)"
+else
+    echo -e "${YELLOW}⚠️  direnv not found. Skipping auto-load. Ensure .env is loaded manually.${NC}"
+fi
+
+# --- 3. ENVIRONMENT VARIABLE VALIDATION ---
+if [ -z "$OPENAI_API_KEY" ]; then
+    echo -e "${RED}❌ ERROR: OPENAI_API_KEY is not set.${NC}"
+    echo -e "${YELLOW}👉 Please add 'export OPENAI_API_KEY=your_key_here' to your .envrc file.${NC}"
+    echo -e "${YELLOW}👉 Then run 'direnv allow' or restart this script.${NC}"
+    exit 1
+else
+    echo -e "${GREEN}✅ OPENAI_API_KEY detected.${NC}"
+fi
+
 # Function to cleanup on exit
 cleanup() {
     echo -e "\n${RED}🛑 Shutting down services...${NC}"
@@ -30,17 +61,13 @@ pkill -f "src.mcp.yfinance_mcp" 2>/dev/null
 pkill -f "src.ui.app_chatbot" 2>/dev/null
 
 # Check if ports 8001 and 8002 are in use and kill them
-if lsof -Pi :8001 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
-    echo -e "${YELLOW}⚠️  Port 8001 is in use, killing process...${NC}"
-    lsof -ti:8001 | xargs kill -9 2>/dev/null
-    sleep 1
-fi
-
-if lsof -Pi :8002 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
-    echo -e "${YELLOW}⚠️  Port 8002 is in use, killing process...${NC}"
-    lsof -ti:8002 | xargs kill -9 2>/dev/null
-    sleep 1
-fi
+for port in 8001 8002; do
+    if lsof -Pi :$port -sTCP:LISTEN -t >/dev/null 2>&1 ; then
+        echo -e "${YELLOW}⚠️  Port $port is in use, killing process...${NC}"
+        lsof -ti:$port | xargs kill -9 2>/dev/null
+        sleep 1
+    fi
+done
 
 echo -e "${GREEN}✅ Cleaned up existing processes${NC}\n"
 
@@ -104,8 +131,6 @@ echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━
 echo -e "${BLUE}Finance MCP Server PID:${NC} $MCP_FINANCE_PID"
 echo -e "${BLUE}yFinance MCP Server PID:${NC} $MCP_YFINANCE_PID"
 echo -e "${BLUE}Gradio App PID:${NC} $GRADIO_PID"
-echo -e "${BLUE}Finance MCP URL:${NC} http://localhost:8001"
-echo -e "${BLUE}yFinance MCP URL:${NC} http://localhost:8002"
 echo -e "\n${BLUE}Press CTRL+C to stop all services${NC}\n"
 
 # Wait for all processes
