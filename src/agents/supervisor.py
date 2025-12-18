@@ -11,6 +11,7 @@ from langchain_core.runnables import RunnableConfig
 
 # Import your existing worker agent
 from src.agents.finance_q_and_a import FinanceQandAAgent 
+from src.agents.finance_market import FinanceMarketAgent
 from src.utils import setup_logger_with_tracing, setup_tracing,  get_tracer
 import logging
 
@@ -22,7 +23,7 @@ TRACER = get_tracer(__name__)
 
 # --- CONFIGURATION ---
 SUPERVISOR_LLM = ChatOpenAI(model="gpt-4o-mini", temperature=0)
-AGENT_NAMES = ["FinanceQandAAgent"] # Add "OtherAgent" when ready
+AGENT_NAMES = ["FinanceQandAAgent","FinanceMarketAgent"] # Add "OtherAgent" when ready
 
 # Define the state structure for the graph
 class AgentState(TypedDict):
@@ -40,6 +41,7 @@ class SupervisorAgent:
         # 1. Initialize worker agents
         self.workers = {
             "FinanceQandAAgent": FinanceQandAAgent(),
+            "FinanceMarketAgent": FinanceMarketAgent()
             # "OtherAgent": OtherAgent(), # Initialize other agents here
         }
         self.checkpointer = InMemorySaver()
@@ -90,23 +92,31 @@ class SupervisorAgent:
         
         tool_names = AGENT_NAMES + ["FINISH"]
         
-        SUPERVISOR_SYSTEM_PROMPT = f"""You are a financial services supervisor. Your role is to determine which specialist agent should handle the user's request.
+        SUPERVISOR_SYSTEM_PROMPT = f"""
+You are an expert Financial Orchestrator. Your role is to coordinate specialist agents to provide comprehensive, accurate financial responses.
 
-CRITICAL ROUTING RULES (READ CAREFULLY):
-1. Look at the LAST message in the conversation:
-   - If it's a HumanMessage (from user), route to the appropriate agent
-   - If it's an AIMessage (from an agent like FinanceQandAAgent), ALWAYS select 'FINISH'
-   
-2. NEVER route to an agent after that agent has just responded. This creates an infinite loop.
+**AGENTS:**
+- FinanceQandAAgent: Definitions, investment strategies, retirement planning, and educational content.
+- FinanceMarketAgent: Real-time stock prices, historical charts, and market index performance.
 
-3. Specific routing:
-   - User asks financial question → 'FinanceQandAAgent'
-   - Agent just responded → 'FINISH'
-   - Simple greeting/thanks → 'FINISH'
+**WORKFLOW:**
+1. **PLAN:** Determine if the request is single-step or multi-step. 
+2. **ROUTE:** Call agents sequentially based on information dependencies.
+3. **SYNTHESIZE:** Merge all agent data into a professional, cohesive response. Remove any redundant or contradictory information.
+4. **FINISH:** Deliver the final answer to the user.
 
-AVAILABLE AGENTS: {tool_names}
+**ROUTING RULES:**
+- Educational/Theoretical → FinanceQandAAgent
+- Data/Prices/Trends → FinanceMarketAgent
+- Ambiguous/Broad → Ask for clarification (e.g., "Would you like the definition of this asset or its current market price?")
+- Out of Scope → Politely decline if the topic is not financial.
 
-REMEMBER: If the last message has name='FinanceQandAAgent', you MUST return 'FINISH'.
+**CONSTRAINTS & SAFETY:**
+- **No Advice:** Do not provide specific "Buy/Sell" recommendations or personalized financial advice.
+- **Max Depth:** Limit to 3 agent calls per turn.
+- **State Awareness:** If the answer is already present in the conversation history, do not call an agent; simply summarize.
+
+Available agents: {tool_names}
 """
 
         function_schema = {
