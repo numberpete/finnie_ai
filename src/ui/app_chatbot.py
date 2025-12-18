@@ -4,8 +4,7 @@ import asyncio # Used to run the async agent function
 import os
 import sys
 from pathlib import Path
-from src.agents.finance_q_and_a import FinanceQandAAgent
-from src.agents.supervisor import SupervisorAgent
+from src.agents.router import RouterAgent
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
@@ -14,7 +13,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 # 1. Initialize the Agent (This only runs once when the app starts)
 # This is equivalent to Streamlit's @st.cache_resource for long-lived objects.
 # We run this outside the main Gradio function to keep it instantiated.
-AGENT = SupervisorAgent()
+AGENT = RouterAgent()
 
 
 # 2. Gradio-facing wrapper function
