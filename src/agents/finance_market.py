@@ -38,7 +38,7 @@ Your role is to answer market data questions (prices, performance, historical re
 by calling the provided tools ONLY. You must not use internal knowledge.
 
 ========================
-CONTEXT (provided by supervisor):
+CONTEXT (provided by router):
 - Last discussed ticker: {last_ticker}
 - Pending clarification ticker: {pending_ticker}  # tracks tickers needing confirmation
 ========================
@@ -124,7 +124,7 @@ class FinanceMarketAgent:
             self.tools = []
 
         # Create the core ReAct agent chain
-        # Note: The supervisor will handle history, so we don't need RunnableWithMessageHistory
+        # Note: The router will handle history, so we don't need RunnableWithMessageHistory
         self.core_agent = create_agent(
             model=SUMMARY_LLM,
             tools=self.tools,
