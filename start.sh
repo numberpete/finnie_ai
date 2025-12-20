@@ -60,10 +60,10 @@ pkill -f "src.mcp.finance_q_and_a_mcp" 2>/dev/null
 pkill -f "src.mcp.yfinance_mcp" 2>/dev/null
 pkill -f "src.mcp.charts_mcp" 2>/dev/null
 pkill -f "src.servers.image_server" 2>/dev/null
-pkill -f "src.ui.app_chatbot" 2>/dev/null
+pkill -f "src.ui.app_streamlit" 2>/dev/null
 
 # Check if ports 8001 and 8002 are in use and kill them
-for port in 8001 8002 8003 8010; do
+for port in 8001 8002 8003 8010 8501; do
     if lsof -Pi :$port -sTCP:LISTEN -t >/dev/null 2>&1 ; then
         echo -e "${YELLOW}⚠️  Port $port is in use, killing process...${NC}"
         lsof -ti:$port | xargs kill -9 2>/dev/null
@@ -170,7 +170,7 @@ echo -e "${GREEN}✅ Image Server started (PID: $IMAGE_SERVER_PID)${NC}\n"
 
 # Start Streamlit App in background
 echo -e "${BLUE}🌐 Starting Streamlit App...${NC}"
-streamlit run src/ui/app_streamlit.py --server.port 8501 --server.headless true &
+PYTHONPATH="${PWD}:${PYTHONPATH}" streamlit run src/ui/app_streamlit.py --server.port 8501 --server.headless true &
 STREAMLIT_PID=$!
 
 echo -e "${GREEN}✅ Streamlit App started (PID: $STREAMLIT_PID)${NC}\n"

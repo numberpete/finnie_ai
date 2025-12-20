@@ -238,6 +238,7 @@ def get_stock_price(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
         market_cache.set(cache_key, result, ttl_seconds=1800)
         
         LOGGER.info(f"Successfully fetched data for {symbol}")
+        Logger.debug("Fetched data: {result}")
         return result
     
     except Exception as e:
@@ -289,6 +290,11 @@ def get_stock_history(
             data = {
                 "symbol": symbol.upper(),
                 "period": period,
+                "period_open": float(hist["Open"].iloc[0]),
+                "period_close": float(hist["Close"].iloc[-1]),
+                "period_volume": int(hist["Volume"].sum()),
+                "period_high": float(hist["High"].max()),
+                "period_low": float(hist["Low"].min()),
                 "data": [
                     {
                         "date": str(date.date()),
