@@ -214,4 +214,4 @@ src/utils/logs/
 src/data/
 
 #charts
-generated_charts
+generated_charts/*
