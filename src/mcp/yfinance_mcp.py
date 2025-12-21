@@ -4,11 +4,12 @@ import yfinance as yf
 import time
 import hashlib
 import json
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Optional, Dict, Any
 from fastmcp import FastMCP
 from src.utils.tracing import setup_tracing, setup_logger_with_tracing
 import logging
+from src.utils.cache import TTLCache
 
 # Setup tracing and logging
 setup_tracing("mcp-server-yfinance", enable_console_export=False)
@@ -17,67 +18,8 @@ LOGGER = setup_logger_with_tracing(__name__, logging.INFO)
 # Initialize FastMCP
 mcp = FastMCP("yFinance Market Data Server")
 
-# ============================================================================
-# CACHE IMPLEMENTATION
-# ============================================================================
-
-class MarketDataCache:
-    """Simple in-memory cache with TTL support."""
-    
-    def __init__(self, default_ttl_seconds: int = 1800):  # 30 minutes default
-        self.cache: Dict[str, Dict[str, Any]] = {}
-        self.default_ttl = default_ttl_seconds
-    
-    def _is_expired(self, entry: Dict[str, Any]) -> bool:
-        """Check if cache entry has expired."""
-        expiry_time = entry.get("expires_at", 0)
-        return time.time() > expiry_time
-    
-    def get(self, key: str) -> Optional[Any]:
-        """Get value from cache if exists and not expired."""
-        if key not in self.cache:
-            return None
-        
-        entry = self.cache[key]
-        
-        if self._is_expired(entry):
-            LOGGER.debug(f"Cache EXPIRED: {key}")
-            del self.cache[key]
-            return None
-        
-        LOGGER.info(f"Cache HIT: {key}")
-        return entry["value"]
-    
-    def set(self, key: str, value: Any, ttl_seconds: Optional[int] = None) -> None:
-        """Store value in cache with TTL."""
-        ttl = ttl_seconds if ttl_seconds is not None else self.default_ttl
-        expires_at = time.time() + ttl
-        
-        self.cache[key] = {
-            "value": value,
-            "expires_at": expires_at,
-            "cached_at": datetime.now().isoformat()
-        }
-        LOGGER.debug(f"Cache SET: {key} (TTL: {ttl}s)")
-    
-    def clear(self) -> None:
-        """Clear all cache entries."""
-        self.cache.clear()
-        LOGGER.info("Cache cleared")
-    
-    def get_stats(self) -> Dict[str, Any]:
-        """Get cache statistics."""
-        total = len(self.cache)
-        expired = sum(1 for entry in self.cache.values() if self._is_expired(entry))
-        return {
-            "total_entries": total,
-            "expired_entries": expired,
-            "active_entries": total - expired
-        }
-
-
 # Global cache instance
-market_cache = MarketDataCache(default_ttl_seconds=1800)  # 30 minutes
+market_cache = TTLCache(default_ttl_seconds=1800, name="yfinance-mcp-cache")  # 30 minutes
 
 
 # ============================================================================
@@ -180,7 +122,7 @@ def get_mock_data(symbol: str) -> Dict[str, Any]:
 # ============================================================================
 
 @mcp.tool()
-def get_stock_price(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
+def get_ticker_quote(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
     """
     Get current stock price and basic information.
     
@@ -191,7 +133,7 @@ def get_stock_price(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
     Returns:
         Dictionary with stock price and info, or mock data if API fails
     """
-    LOGGER.info(f"get_stock_price called: symbol={symbol}, use_cache={use_cache}")
+    LOGGER.info(f"get_ticker_quote called: symbol={symbol}, use_cache={use_cache}")
     
     # Create cache key
     cache_key = f"stock_price:{symbol.upper()}"
@@ -219,6 +161,8 @@ def get_stock_price(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
                 "pe_ratio": info.get("trailingPE"),
                 "52week_high": info.get("fiftyTwoWeekHigh"),
                 "52week_low": info.get("fiftyTwoWeekLow"),
+                "all_time_high": info.get("allTimeHigh"),
+                "all_time_low": info.get("allTimeLow"),
                 "company_name": info.get("longName", info.get("shortName")),
                 "currency": info.get("currency", "USD"),
                 "timestamp": datetime.now().isoformat(),
@@ -238,6 +182,7 @@ def get_stock_price(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
         market_cache.set(cache_key, result, ttl_seconds=1800)
         
         LOGGER.info(f"Successfully fetched data for {symbol}")
+        Logger.debug("Fetched data: {result}")
         return result
     
     except Exception as e:
@@ -253,26 +198,26 @@ def get_stock_price(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
 
 
 @mcp.tool()
-def get_stock_history(
+def get_ticker_history(
     symbol: str,
     period: str = "1mo",
     use_cache: bool = True
 ) -> Dict[str, Any]:
     """
-    Get historical stock price data.
+    Get historical ticker price data.
     
     Args:
-        symbol: Stock ticker symbol (e.g., 'AAPL', 'MSFT')
+        symbol: Ticker symbol (e.g., 'AAPL', 'MSFT', '^DJI')
         period: Time period ('1d', '5d', '1mo', '3mo', '6mo', '1y', '5y', 'max')
         use_cache: Whether to use cached data (default: True)
     
     Returns:
         Dictionary with historical data or error message
     """
-    LOGGER.info(f"get_stock_history called: symbol={symbol}, period={period}")
+    LOGGER.info(f"get__history called: symbol={symbol}, period={period}")
     
     # Create cache key
-    cache_key = f"stock_history:{symbol.upper()}:{period}"
+    cache_key = f"ticker_history:{symbol.upper()}:{period}"
     
     # Check cache
     if use_cache:
@@ -289,6 +234,13 @@ def get_stock_history(
             data = {
                 "symbol": symbol.upper(),
                 "period": period,
+                "period_start_date": hist.index[0].isoformat(),
+                "period_end_date": hist.index[-1].isoformat(),
+                "period_open": float(hist["Open"].iloc[0]),
+                "period_close": float(hist["Close"].iloc[-1]),
+                "period_volume": int(hist["Volume"].sum()),
+                "period_high": float(hist["High"].max()),
+                "period_low": float(hist["Low"].min()),
                 "data": [
                     {
                         "date": str(date.date()),
@@ -394,7 +346,7 @@ def get_market_summary(use_cache: bool = True) -> Dict[str, Any]:
     
     for symbol in indices:
         try:
-            data = get_stock_price(symbol, use_cache=False)
+            data = get_ticker_quote(symbol, use_cache=False)
             results[symbol] = data
         except Exception as e:
             LOGGER.error(f"Failed to fetch {symbol}: {str(e)}")

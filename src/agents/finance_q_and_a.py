@@ -16,6 +16,7 @@ from langchain.messages import HumanMessage, AIMessage, SystemMessage
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from langchain_core.messages import BaseMessage
 from src.utils import setup_logger_with_tracing, setup_tracing
+from src.agents.response import AgentResponse
 import logging
 
 
@@ -119,7 +120,7 @@ class FinanceQandAAgent:
         
         LOGGER.debug(f"✅ FinanceQandAAgent initialized with {len(self.tools)} tools (Instance ID: {self.instance_id})")
 
-    async def run_query(self, history: List[BaseMessage], session_id: str) -> str:
+    async def run_query(self, history: List[BaseMessage], session_id: str) -> AgentResponse:
         """
         Runs the agent against the conversation history and returns the response.
         
@@ -215,19 +216,19 @@ class FinanceQandAAgent:
                     response_preview = last_message.content[:150] + "..." if len(last_message.content) > 150 else last_message.content
                     LOGGER.debug(f"💬 Response Preview:  {response_preview}")
                     LOGGER.debug(f"✅ Response length: {len(last_message.content)} characters")
-                    return last_message.content
+                    return AgentResponse(agent="FinanceQandAAgent", message=last_message.content)
                 else:
-                    return str(last_message)
+                    return AgentResponse(agent="FinanceQandAAgent", message=str(last_message))
             
             # Fallback for unexpected response structure
             LOGGER.debug(f"⚠️  Unexpected response structure: {type(response)}")
-            return str(response)
+            return AgentResponse(agent="FinanceQandAAgent", message=str(response))
             
         except Exception as e:
             error_msg = f"Error processing query: {str(e)}"
             LOGGER.error(f"Error: {error_msg}")
             LOGGER.debug(f"Tool calls before error: {tool_call_count}")
-            return f"I apologize, but I encountered an error while processing your request: {error_msg}"
+            return AgentResponse(agent="FinanceQandAAgent", message=f"I apologize, but I encountered an error while processing your request: {error_msg}")
 
     async def cleanup(self):
         """Cleanup method to properly close the MCP client connection."""

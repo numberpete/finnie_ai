@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# start_app.sh - Starts MCP servers and Gradio app
+# start_app.sh - Starts MCP servers and streamlit app
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -45,8 +45,8 @@ fi
 # Function to cleanup on exit
 cleanup() {
     echo -e "\n${RED}🛑 Shutting down services...${NC}"
-    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID $GRADIO_PID 2>/dev/null
-    wait $MCP_FINANCE_PID $MCP_YFINANCE_PID $GRADIO_PID 2>/dev/null
+    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $IMAGE_SERVER_PID $STREAMLIT_PID 2>/dev/null
+    wait $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $IMAGE_SERVER_PID $STREAMLIT_PID 2>/dev/null
     echo -e "${GREEN}✅ Services stopped${NC}"
     exit 0
 }
@@ -58,10 +58,12 @@ trap cleanup SIGINT SIGTERM
 echo -e "${YELLOW}🧹 Checking for existing processes...${NC}"
 pkill -f "src.mcp.finance_q_and_a_mcp" 2>/dev/null
 pkill -f "src.mcp.yfinance_mcp" 2>/dev/null
-pkill -f "src.ui.app_chatbot" 2>/dev/null
+pkill -f "src.mcp.charts_mcp" 2>/dev/null
+pkill -f "src.servers.image_server" 2>/dev/null
+pkill -f "src.ui.app_streamlit" 2>/dev/null
 
 # Check if ports 8001 and 8002 are in use and kill them
-for port in 8001 8002; do
+for port in 8001 8002 8003 8010 8501; do
     if lsof -Pi :$port -sTCP:LISTEN -t >/dev/null 2>&1 ; then
         echo -e "${YELLOW}⚠️  Port $port is in use, killing process...${NC}"
         lsof -ti:$port | xargs kill -9 2>/dev/null
@@ -77,7 +79,7 @@ python -m src.mcp.finance_q_and_a_mcp &
 MCP_FINANCE_PID=$!
 
 # Wait a moment for it to start
-sleep 2
+sleep 4
 
 # Check if Finance MCP server is still running
 if ! kill -0 $MCP_FINANCE_PID 2>/dev/null; then
@@ -100,7 +102,7 @@ python -m src.mcp.yfinance_mcp &
 MCP_YFINANCE_PID=$!
 
 # Wait a moment for it to start
-sleep 2
+sleep 4
 
 # Check if yFinance MCP server is still running
 if ! kill -0 $MCP_YFINANCE_PID 2>/dev/null; then
@@ -118,20 +120,70 @@ fi
 
 echo -e "${GREEN}✅ yFinance MCP Server started (PID: $MCP_YFINANCE_PID)${NC}\n"
 
-# Start Gradio App in background
-echo -e "${BLUE}🌐 Starting Gradio App...${NC}"
-python -m src.ui.app_chatbot &
-GRADIO_PID=$!
+# Start Chart MCP Server in background
+echo -e "${BLUE}📈 Starting Chart  MCP Server (port 8003)...${NC}"
+python -m src.mcp.charts_mcp &
+MCP_CHARTS_PID=$!
 
-echo -e "${GREEN}✅ Gradio App started (PID: $GRADIO_PID)${NC}\n"
+# Wait a moment for it to start
+sleep 4
+
+# Check if Chart MCP server is still running
+if ! kill -0 $MCP_CHARTS_PID 2>/dev/null; then
+    echo -e "${RED}❌ Chart  MCP server failed to start${NC}"
+    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID 2>/dev/null
+    exit 1
+fi
+
+# Verify port 8003 is listening
+if ! lsof -Pi :8003 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
+    echo -e "${RED}❌ Chart  MCP server is not listening on port 8003${NC}"
+    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID 2>/dev/null
+    exit 1
+fi
+
+echo -e "${GREEN}✅ Chart MCP Server started (PID: $MCP_CHARTS_PID)${NC}\n"
+
+# Start Image Server in background
+echo -e "${BLUE}🖼️  Starting Image Server (port 8010)...${NC}"
+python -m src.servers.image_server &
+IMAGE_SERVER_PID=$!
+
+# Wait a moment for it to start
+sleep 4
+
+# Check if Image Server is still running
+if ! kill -0 $IMAGE_SERVER_PID 2>/dev/null; then
+    echo -e "${RED}❌ Image Server failed to start${NC}"
+    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID 2>/dev/null
+    exit 1
+fi
+
+# Verify port 8010 is listening
+if ! lsof -Pi :8010 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
+    echo -e "${RED}❌ Image Server is not listening on port 8010${NC}"
+    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $IMAGE_SERVER_PID 2>/dev/null
+    exit 1
+fi
+
+echo -e "${GREEN}✅ Image Server started (PID: $IMAGE_SERVER_PID)${NC}\n"
+
+# Start Streamlit App in background
+echo -e "${BLUE}🌐 Starting Streamlit App...${NC}"
+PYTHONPATH="${PWD}:${PYTHONPATH}" streamlit run src/ui/app_streamlit.py --server.port 8501 --server.headless true &
+STREAMLIT_PID=$!
+
+echo -e "${GREEN}✅ Streamlit App started (PID: $STREAMLIT_PID)${NC}\n"
 
 echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${GREEN}🎉 Application is running!${NC}"
 echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${BLUE}Finance MCP Server PID:${NC} $MCP_FINANCE_PID"
 echo -e "${BLUE}yFinance MCP Server PID:${NC} $MCP_YFINANCE_PID"
-echo -e "${BLUE}Gradio App PID:${NC} $GRADIO_PID"
+echo -e "${BLUE}Chart MCP Server PID:${NC} $MCP_CHARTS_PID"
+echo -e "${BLUE}Image Server PID:${NC} $IMAGE_SERVER_PID"
+echo -e "${BLUE}Streamlit App PID:${NC} $STREAMLIT_PID"
 echo -e "\n${BLUE}Press CTRL+C to stop all services${NC}\n"
 
 # Wait for all processes
-wait $MCP_FINANCE_PID $MCP_YFINANCE_PID $GRADIO_PID
+wait $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $IMAGE_SERVER_PID $STREAMLIT_PID

@@ -27,7 +27,7 @@ async def test_yfinance_tools():
     print("TEST 1: Get AAPL stock price (cache miss expected)")
     print("="*70)
     
-    price_tool = next(t for t in tools if t.name == "get_stock_price")
+    price_tool = next(t for t in tools if t.name == "get_ticker_quote")
     result1 = await price_tool.ainvoke({"symbol": "AAPL"})
     print(f"Result: {result1}")
     
@@ -53,7 +53,7 @@ async def test_yfinance_tools():
     print("TEST 4: Get AAPL historical data (1 month)")
     print("="*70)
     
-    history_tool = next(t for t in tools if t.name == "get_stock_history")
+    history_tool = next(t for t in tools if t.name == "get_ticker_history")
     history = await history_tool.ainvoke({"symbol": "AAPL", "period": "1mo"})
     
     # Handle both dict and list responses
