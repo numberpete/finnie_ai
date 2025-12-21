@@ -212,3 +212,6 @@ src/utils/logs/
 
 #Data files
 src/data/
+
+#charts
+generated_charts

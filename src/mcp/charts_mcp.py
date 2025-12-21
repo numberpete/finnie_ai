@@ -1,5 +1,6 @@
-# src/mcp/charts_mcp.py
+# src/mcp/charts_mcp.py (PATCHED VERSION with data validation)
 
+import os
 import matplotlib
 matplotlib.use('Agg')  # Non-interactive backend
 import matplotlib.pyplot as plt
@@ -21,7 +22,7 @@ LOGGER = setup_logger_with_tracing(__name__, logging.INFO)
 mcp = FastMCP("Chart Generation Server")
 
 # Chart storage directory
-CHART_DIR = Path("generated_charts")
+CHART_DIR = Path(os.getenv("CHART_PATH", "generated_charts"))
 CHART_DIR.mkdir(exist_ok=True)
 
 LOGGER.info(f"Charts will be saved to: {CHART_DIR.absolute()}")
@@ -47,6 +48,27 @@ def save_chart(fig: plt.Figure, chart_id: str) -> str:
     
     LOGGER.info(f"Chart saved: {filename}")
     return filename
+
+
+def validate_data_lengths(*arrays) -> tuple:
+    """
+    Validate that all arrays have the same length. If not, truncate to shortest.
+    Returns the validated (possibly truncated) arrays.
+    """
+    if not arrays:
+        return arrays
+    
+    lengths = [len(arr) for arr in arrays if arr is not None]
+    
+    if not lengths:
+        return arrays
+    
+    if len(set(lengths)) > 1:
+        min_len = min(lengths)
+        LOGGER.warning(f"⚠️  Mismatched array lengths: {lengths}. Truncating all to {min_len}")
+        return tuple(arr[:min_len] if arr is not None else None for arr in arrays)
+    
+    return arrays
 
 
 # ============================================================================
@@ -80,6 +102,9 @@ def create_pie_chart(
         )
     """
     LOGGER.info(f"Creating pie chart: {title}")
+    
+    # Validate data
+    labels, values = validate_data_lengths(labels, values)
     
     chart_id = generate_chart_id("pie", {"labels": labels, "values": values, "title": title})
     
@@ -143,6 +168,9 @@ def create_bar_chart(
         )
     """
     LOGGER.info(f"Creating bar chart: {title}")
+    
+    # Validate data
+    categories, values = validate_data_lengths(categories, values)
     
     chart_id = generate_chart_id("bar", {"categories": categories, "values": values, "title": title})
     
@@ -208,21 +236,104 @@ def create_line_chart(
             title="Monthly Portfolio Value",
             ylabel="Value ($)"
         )
+    
+    IMPORTANT: If x_values and y_values have different lengths, they will be
+    automatically truncated to match the shorter length.
     """
     LOGGER.info(f"Creating line chart: {title}")
+    
+    # Validate and align data lengths
+    x_values, y_values = validate_data_lengths(x_values, y_values)
+    
+    if len(x_values) == 0 or len(y_values) == 0:
+        LOGGER.error("Cannot create chart with empty data")
+        return {"error": "Cannot create chart with empty data", "chart_type": "line"}
+    
+    # Adaptive rendering based on number of data points
+    num_points = len(x_values)
+    
+    if num_points > 200:
+        use_marker = None
+        markersize = 0
+        markevery = None
+        linewidth = 1.5
+        max_ticks = 8  # Fewer ticks for very dense data
+    elif num_points > 100:
+        use_marker = marker
+        markersize = 4
+        markevery = 10
+        linewidth = 2
+        max_ticks = 10
+    elif num_points > 50:
+        use_marker = marker
+        markersize = 6
+        markevery = 3
+        linewidth = 2
+        max_ticks = 12
+    else:
+        use_marker = marker
+        markersize = 8
+        markevery = 1
+        linewidth = 2
+        max_ticks = 15
     
     chart_id = generate_chart_id("line", {"x": x_values, "y": y_values, "title": title})
     
     fig, ax = plt.subplots(figsize=(12, 7))
     
-    ax.plot(x_values, y_values, color=color, marker=marker, linewidth=2, markersize=8)
+    # Plot with adaptive parameters
+    if use_marker is None:
+        ax.plot(x_values, y_values, color=color, linewidth=linewidth)
+    else:
+        ax.plot(x_values, y_values, color=color, marker=use_marker,
+                linewidth=linewidth, markersize=markersize, markevery=markevery)
     
     ax.set_title(title, fontsize=16, fontweight='bold', pad=20)
     ax.set_xlabel(xlabel, fontsize=12)
     ax.set_ylabel(ylabel, fontsize=12)
     ax.grid(True, alpha=0.3)
     
+    # Smart x-axis decluttering
+    if num_points > 20:
+        # Limit the number of x-axis ticks
+        ax.xaxis.set_major_locator(plt.MaxNLocator(max_ticks))
+        
+        # If x_values look like dates, try to parse and format them
+        try:
+            from matplotlib.dates import AutoDateLocator, ConciseDateFormatter
+            import pandas as pd
+            
+            # Try to detect if these are date strings
+            if isinstance(x_values[0], str) and len(x_values[0]) >= 8:
+                # Convert to datetime if they're date strings
+                dates = pd.to_datetime(x_values)
+                ax.clear()  # Clear and replot with proper dates
+                
+                if use_marker is None:
+                    ax.plot(dates, y_values, color=color, linewidth=linewidth)
+                else:
+                    ax.plot(dates, y_values, color=color, marker=use_marker,
+                            linewidth=linewidth, markersize=markersize, markevery=markevery)
+                
+                # Use auto date formatting
+                locator = AutoDateLocator()
+                formatter = ConciseDateFormatter(locator)
+                ax.xaxis.set_major_locator(locator)
+                ax.xaxis.set_major_formatter(formatter)
+                
+                ax.set_title(title, fontsize=16, fontweight='bold', pad=20)
+                ax.set_xlabel(xlabel, fontsize=12)
+                ax.set_ylabel(ylabel, fontsize=12)
+                ax.grid(True, alpha=0.3)
+        except Exception as e:
+            LOGGER.debug(f"Could not parse dates, using default formatting: {e}")
+            pass
+    
+    # Rotate labels to prevent overlap
     plt.xticks(rotation=45, ha='right')
+    
+    # Tight layout to prevent label cutoff
+    plt.tight_layout()
     
     filename = save_chart(fig, chart_id)
     
@@ -232,7 +343,6 @@ def create_line_chart(
         "chart_type": "line",
         "title": title
     }
-
 
 @mcp.tool()
 def create_multi_line_chart(
@@ -268,20 +378,70 @@ def create_multi_line_chart(
             title="Investment Growth",
             ylabel="Value ($)"
         )
+    
+    IMPORTANT: All y_series values will be truncated to match the length of x_values.
     """
     LOGGER.info(f"Creating multi-line chart: {title}")
     
-    chart_id = generate_chart_id("multiline", {"x": x_values, "y": y_series, "title": title})
+    # Validate all series against x_values
+    validated_series = {}
+    for series_name, y_vals in y_series.items():
+        x_validated, y_validated = validate_data_lengths(x_values, y_vals)
+        validated_series[series_name] = y_validated
+        x_values = x_validated  # Use the validated x_values
+    
+    if len(x_values) == 0:
+        LOGGER.error("Cannot create chart with empty data")
+        return {"error": "Cannot create chart with empty data", "chart_type": "multi_line"}
+    
+    # Adaptive rendering based on number of data points
+    num_points = len(x_values)
+    
+    if num_points > 200:
+        use_marker = None
+        markersize = 0
+        markevery = None
+        linewidth = 1.5
+        max_ticks = 8
+        LOGGER.info(f"Very dense data ({num_points} points) - line only, no markers")
+    elif num_points > 100:
+        use_marker = 'o'
+        markersize = 3
+        markevery = 10
+        linewidth = 2
+        max_ticks = 10
+        LOGGER.info(f"Dense data ({num_points} points) - showing every 10th marker")
+    elif num_points > 50:
+        use_marker = 'o'
+        markersize = 4
+        markevery = 3
+        linewidth = 2
+        max_ticks = 12
+        LOGGER.info(f"Moderate data ({num_points} points) - showing every 3rd marker")
+    else:
+        use_marker = 'o'
+        markersize = 6
+        markevery = 1
+        linewidth = 2
+        max_ticks = 15
+        LOGGER.info(f"Sparse data ({num_points} points) - showing all markers")
+    
+    chart_id = generate_chart_id("multiline", {"x": x_values, "y": validated_series, "title": title})
     
     fig, ax = plt.subplots(figsize=(12, 7))
     
     default_colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c']
     colors = colors or default_colors
     
-    for idx, (series_name, y_vals) in enumerate(y_series.items()):
+    # Plot each series with adaptive parameters
+    for idx, (series_name, y_vals) in enumerate(validated_series.items()):
         color = colors[idx % len(colors)]
-        ax.plot(x_values, y_vals, label=series_name, color=color, 
-                marker='o', linewidth=2, markersize=6)
+        
+        if use_marker is None:
+            ax.plot(x_values, y_vals, label=series_name, color=color, linewidth=linewidth)
+        else:
+            ax.plot(x_values, y_vals, label=series_name, color=color, 
+                    marker=use_marker, linewidth=linewidth, markersize=markersize, markevery=markevery)
     
     ax.set_title(title, fontsize=16, fontweight='bold', pad=20)
     ax.set_xlabel(xlabel, fontsize=12)
@@ -289,7 +449,53 @@ def create_multi_line_chart(
     ax.legend(loc='best', fontsize=10)
     ax.grid(True, alpha=0.3)
     
+    # Smart x-axis decluttering
+    if num_points > 20:
+        # Limit the number of x-axis ticks
+        ax.xaxis.set_major_locator(plt.MaxNLocator(max_ticks))
+        
+        # If x_values look like dates, try to parse and format them
+        try:
+            from matplotlib.dates import AutoDateLocator, ConciseDateFormatter
+            import pandas as pd
+            
+            # Try to detect if these are date strings
+            if isinstance(x_values[0], str) and len(x_values[0]) >= 8:
+                # Convert to datetime if they're date strings
+                dates = pd.to_datetime(x_values)
+                ax.clear()  # Clear and replot with proper dates
+                
+                # Replot all series with dates
+                for idx, (series_name, y_vals) in enumerate(validated_series.items()):
+                    color = colors[idx % len(colors)]
+                    
+                    if use_marker is None:
+                        ax.plot(dates, y_vals, label=series_name, color=color, linewidth=linewidth)
+                    else:
+                        ax.plot(dates, y_vals, label=series_name, color=color,
+                                marker=use_marker, linewidth=linewidth, markersize=markersize, 
+                                markevery=markevery)
+                
+                # Use auto date formatting
+                locator = AutoDateLocator()
+                formatter = ConciseDateFormatter(locator)
+                ax.xaxis.set_major_locator(locator)
+                ax.xaxis.set_major_formatter(formatter)
+                
+                ax.set_title(title, fontsize=16, fontweight='bold', pad=20)
+                ax.set_xlabel(xlabel, fontsize=12)
+                ax.set_ylabel(ylabel, fontsize=12)
+                ax.legend(loc='best', fontsize=10)
+                ax.grid(True, alpha=0.3)
+        except Exception as e:
+            LOGGER.debug(f"Could not parse dates, using default formatting: {e}")
+            pass
+    
+    # Rotate labels to prevent overlap
     plt.xticks(rotation=45, ha='right')
+    
+    # Tight layout to prevent label cutoff
+    plt.tight_layout()
     
     filename = save_chart(fig, chart_id)
     
@@ -297,8 +503,10 @@ def create_multi_line_chart(
         "chart_id": chart_id,
         "filename": filename,
         "chart_type": "multi_line",
-        "title": title
+        "title": title  
     }
+    
+    
 
 
 @mcp.tool()

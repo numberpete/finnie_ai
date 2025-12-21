@@ -1,4 +1,4 @@
-from typing import TypedDict, List, Dict, Any, Annotated
+from typing import TypedDict, List, Dict, Any, Annotated, Optional
 from langgraph.graph import StateGraph, END, START
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, SystemMessage
 from langgraph.graph.message import add_messages
@@ -12,6 +12,7 @@ from typing_extensions import Literal
 # Import your existing worker agent
 from src.agents.finance_q_and_a import FinanceQandAAgent 
 from src.agents.finance_market import FinanceMarketAgent
+from src.agents.response import AgentResponse, ChartArtifact
 from src.utils import setup_logger_with_tracing, setup_tracing,  get_tracer
 import logging
 
@@ -34,6 +35,7 @@ class AgentState(TypedDict):
     messages: Annotated[List[BaseMessage], add_messages]
     next: str # The name of the next agent/node to run
     session_id: str
+    response: Optional[AgentResponse]
 
 
 class RouterAgent:
@@ -70,7 +72,7 @@ class RouterAgent:
         """Determines the next node based on the state's 'next' field."""
         return state["next"]
 
-    async def run_query(self, user_query: str, session_id: str) -> str:
+    async def run_query(self, user_query: str, session_id: str) -> AgentResponse:
         """Runs the router agent while maintaining conversation history."""
         with TRACER.start_as_current_span("router_run_query") as span:       
             # 1. Map session_id to thread_id in the config
@@ -90,40 +92,78 @@ class RouterAgent:
             }
             
             # 3. Invoke the graph with the config
-            final_state = await self.workflow.ainvoke(
+            final_state: AgentState = await self.workflow.ainvoke(
                 input_data,
                 config=config
             )
             
-            if final_state and "messages" in final_state:
-                return final_state["messages"][-1].content
-            
-            return "No response generated."   
+            if final_state.get("response"):
+                return final_state["response"]
+
+            return AgentResponse(
+                agent="Router",
+                message="No response generated.",
+                charts=[]
+            )
 
     async def finance_q_and_a_node(self, state: AgentState) -> AgentState:
-        """Node to handle Finance Q&A Agent."""
         LOGGER.info("Routing to FinanceQandAAgent")
         try:
-            response = await self.finance_qa_agent.run_query(state["messages"], state["session_id"])
-            state["messages"].append(AIMessage(content=response))
+            agent_response: AgentResponse = await self.finance_qa_agent.run_query(
+                state["messages"],
+                state["session_id"]
+            )
+
+            # 1. Preserve conversation continuity
+            state["messages"].append(
+                AIMessage(content=agent_response.message)
+            )
+
+            # 2. Store structured output
+            state["response"] = agent_response
             state["next"] = "end"
+
         except Exception as e:
             LOGGER.error(f"Error in FinanceQandAAgent: {e}")
-            state["messages"].append(AIMessage(content="An error occurred while processing your request."))
+            state["messages"].append(
+                AIMessage(content="An error occurred while processing your request.")
+            )
+            state["response"] = AgentResponse(
+                agent="FinanceQandAAgent",
+                message="An error occurred while processing your request.",
+                charts=[]
+            )
             state["next"] = "end"
+
         return state
 
     async def finance_market_node(self, state: AgentState) -> AgentState:
-        """Node to handle Finance Market Agent."""
         LOGGER.info("Routing to FinanceMarketAgent")
         try:
-            response = await self.finance_market_agent.run_query(state["messages"], state["session_id"])
-            state["messages"].append(AIMessage(content=response))
+            agent_response: AgentResponse = await self.finance_market_agent.run_query(
+                state["messages"],
+                state["session_id"]
+            )
+
+            state["messages"].append(
+                AIMessage(content=agent_response.message)
+            )
+
+            state["response"] = agent_response
             state["next"] = "end"
+
         except Exception as e:
             LOGGER.error(f"Error in FinanceMarketAgent: {e}")
-            state["messages"].append(AIMessage(content="An error occurred while processing your request."))
+            state["messages"].append(
+                AIMessage(content="An error occurred while processing your request.")
+            )
+            state["response"] = AgentResponse(
+                agent="FinanceMarketAgent",
+                message="An error occurred while processing your request.",
+                charts=[]
+            )
             state["next"] = "end"
+
         return state
 
 

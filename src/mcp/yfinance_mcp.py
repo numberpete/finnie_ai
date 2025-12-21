@@ -180,7 +180,7 @@ def get_mock_data(symbol: str) -> Dict[str, Any]:
 # ============================================================================
 
 @mcp.tool()
-def get_stock_price(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
+def get_ticker_quote(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
     """
     Get current stock price and basic information.
     
@@ -191,7 +191,7 @@ def get_stock_price(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
     Returns:
         Dictionary with stock price and info, or mock data if API fails
     """
-    LOGGER.info(f"get_stock_price called: symbol={symbol}, use_cache={use_cache}")
+    LOGGER.info(f"get_ticker_quote called: symbol={symbol}, use_cache={use_cache}")
     
     # Create cache key
     cache_key = f"stock_price:{symbol.upper()}"
@@ -219,6 +219,8 @@ def get_stock_price(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
                 "pe_ratio": info.get("trailingPE"),
                 "52week_high": info.get("fiftyTwoWeekHigh"),
                 "52week_low": info.get("fiftyTwoWeekLow"),
+                "all_time_high": info.get("allTimeHigh"),
+                "all_time_low": info.get("allTimeLow"),
                 "company_name": info.get("longName", info.get("shortName")),
                 "currency": info.get("currency", "USD"),
                 "timestamp": datetime.now().isoformat(),
@@ -254,26 +256,26 @@ def get_stock_price(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
 
 
 @mcp.tool()
-def get_stock_history(
+def get_ticker_history(
     symbol: str,
     period: str = "1mo",
     use_cache: bool = True
 ) -> Dict[str, Any]:
     """
-    Get historical stock price data.
+    Get historical ticker price data.
     
     Args:
-        symbol: Stock ticker symbol (e.g., 'AAPL', 'MSFT')
+        symbol: Ticker symbol (e.g., 'AAPL', 'MSFT', '^DJI')
         period: Time period ('1d', '5d', '1mo', '3mo', '6mo', '1y', '5y', 'max')
         use_cache: Whether to use cached data (default: True)
     
     Returns:
         Dictionary with historical data or error message
     """
-    LOGGER.info(f"get_stock_history called: symbol={symbol}, period={period}")
+    LOGGER.info(f"get__history called: symbol={symbol}, period={period}")
     
     # Create cache key
-    cache_key = f"stock_history:{symbol.upper()}:{period}"
+    cache_key = f"ticker_history:{symbol.upper()}:{period}"
     
     # Check cache
     if use_cache:
@@ -290,6 +292,8 @@ def get_stock_history(
             data = {
                 "symbol": symbol.upper(),
                 "period": period,
+                "period_start_date": hist.index[0].isoformat(),
+                "period_end_date": hist.index[-1].isoformat(),
                 "period_open": float(hist["Open"].iloc[0]),
                 "period_close": float(hist["Close"].iloc[-1]),
                 "period_volume": int(hist["Volume"].sum()),
@@ -400,7 +404,7 @@ def get_market_summary(use_cache: bool = True) -> Dict[str, Any]:
     
     for symbol in indices:
         try:
-            data = get_stock_price(symbol, use_cache=False)
+            data = get_ticker_quote(symbol, use_cache=False)
             results[symbol] = data
         except Exception as e:
             LOGGER.error(f"Failed to fetch {symbol}: {str(e)}")

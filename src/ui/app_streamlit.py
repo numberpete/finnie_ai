@@ -5,8 +5,12 @@ import os
 import sys
 from pathlib import Path
 from src.agents.router import RouterAgent
+from src.agents.response import AgentResponse, ChartArtifact
 import warnings
+
 warnings.filterwarnings("ignore", category=DeprecationWarning)
+
+CHART_URL = os.getenv("CHART_URL", "http://localhost:8010/chart/")
 
 # --- PAGE CONFIG (must be first Streamlit command) ---
 st.set_page_config(
@@ -20,6 +24,16 @@ st.set_page_config(
 def get_agent():
     """Initialize the agent once and cache it across sessions"""
     return RouterAgent()
+
+def run_async(coro):
+    """Helper to run async functions in Streamlit"""
+    try:
+        loop = asyncio.get_event_loop()
+    except RuntimeError:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+    return loop.run_until_complete(coro)
+
 
 AGENT = get_agent()
 
@@ -41,7 +55,7 @@ if "goals_history" not in st.session_state:
     st.session_state.goals_history = []
 
 # --- HELPER FUNCTION ---
-async def get_agent_response(user_input: str, session_id: str):
+async def get_agent_response(user_input: str, session_id: str) -> AgentResponse:
     """Wrapper to call the async agent"""
     try:
         response = await asyncio.wait_for(
@@ -50,9 +64,17 @@ async def get_agent_response(user_input: str, session_id: str):
         )
         return response
     except asyncio.TimeoutError:
-        return "The request timed out. Please try again or simplify your query."
+        return AgentResponse(
+            agent="UI",
+            message="The request timed out. Please try again or simplify your query.",
+            charts=[]
+        )
     except Exception as e:
-        return f"An error occurred during agent execution: {e}"
+        return AgentResponse(
+            agent="UI",
+            message=f"An error occurred during agent execution: {e}",
+            charts=[]
+        )
 
 # --- MAIN APP ---
 st.title("🤖 Finnie AI Financial Assistant")
@@ -60,20 +82,29 @@ st.title("🤖 Finnie AI Financial Assistant")
 with st.container():
     # --- TABS ---
     tab1, tab2, tab3, tab4 = st.tabs(["💬 Chat", "📈 Market", "📊 Portfolio", "🎯 Goals"])
-
     with tab1:
         st.markdown("#### Ask your financial question (with history maintained)")
-        
+
         # Display chat history
         for message in st.session_state.chat_history:
+
             with st.chat_message(message["role"]):
-                st.write(message["content"])
-        
+                #hmm, this is a bit of a hack to get the user and assistant messages to display correctly
+                if message["role"] == "user":
+                    st.write(message["content"])
+                else :
+                    st.write(message["content"].message)
+                    chart_slot = st.empty()
+
+                    if getattr(message["content"], "charts", None):
+                        for chart in message["content"].charts:
+                            st.image(f"{CHART_URL}{chart.filename}", caption=chart.title, use_container_width=True)
+
         # Chat input
         if user_input := st.chat_input("e.g., What is an IRA and how does it relate to tax?"):
             # Add user message to chat history
             st.session_state.chat_history.append({"role": "user", "content": user_input})
-            
+ 
             # Display user message
             with st.chat_message("user"):
                 st.write(user_input)
@@ -82,9 +113,14 @@ with st.container():
             with st.chat_message("assistant"):
                 with st.spinner("Thinking..."):
                     # Run async function in event loop
-                    response = asyncio.run(get_agent_response(user_input, st.session_state.session_id))
-                    st.write(response)
-            
+                    response = run_async(get_agent_response(user_input, st.session_state.session_id))
+                    st.write(response.message + "I did this honestly!" + str(len(response.charts)))
+                    if getattr(response, "charts"):
+                        for chart in response.charts:
+                            st.image(f"{CHART_URL}{chart.filename}", caption=chart.title, use_container_width=True)
+
+
+
             # Add assistant response to chat history
             st.session_state.chat_history.append({"role": "assistant", "content": response})
         
@@ -102,7 +138,10 @@ with st.container():
         # Display market chat history
         for message in st.session_state.market_history:
             with st.chat_message(message["role"]):
-                st.write(message["content"])
+                if message["role"] == "user":
+                    st.write(message["content"])
+                else :
+                    st.write(message["content"].message)
         
         # Market chat input
         if market_input := st.chat_input("Ask about market data...", key="market_input"):
@@ -113,7 +152,7 @@ with st.container():
             with st.chat_message("assistant"):
                 with st.spinner("Analyzing market data..."):
                     response = asyncio.run(get_agent_response(market_input, st.session_state.session_id))
-                    st.write(response)
+                    st.write(response.message)
             
             st.session_state.market_history.append({"role": "assistant", "content": response})
             pass
@@ -125,7 +164,10 @@ with st.container():
         # Display portfolio chat history
         for message in st.session_state.portfolio_history:
             with st.chat_message(message["role"]):
-                st.write(message["content"])
+                if message["role"] == "user":
+                    st.write(message["content"])
+                else :
+                    st.write(message["content"].message)
         
         # Portfolio chat input
         if portfolio_input := st.chat_input("Ask about your portfolio...", key="portfolio_input"):
@@ -136,7 +178,7 @@ with st.container():
             with st.chat_message("assistant"):
                 with st.spinner("Analyzing portfolio..."):
                     response = asyncio.run(get_agent_response(portfolio_input, st.session_state.session_id))
-                    st.write(response)
+                    st.write(response.message)
             
             st.session_state.portfolio_history.append({"role": "assistant", "content": response})
             pass
@@ -148,7 +190,10 @@ with st.container():
         # Display goals chat history
         for message in st.session_state.goals_history:
             with st.chat_message(message["role"]):
-                st.write(message["content"])
+                if message["role"] == "user":
+                    st.write(message["content"])
+                else :
+                    st.write(message["content"].message)
         
         # Goals chat input
         if goals_input := st.chat_input("Ask about your financial goals...", key="goals_input"):
@@ -159,7 +204,7 @@ with st.container():
             with st.chat_message("assistant"):
                 with st.spinner("Setting goals..."):
                     response = asyncio.run(get_agent_response(goals_input, st.session_state.session_id))
-                    st.write(response)
+                    st.write(response.message)
             
             st.session_state.goals_history.append({"role": "assistant", "content": response})
             pass
