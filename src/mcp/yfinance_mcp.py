@@ -4,11 +4,12 @@ import yfinance as yf
 import time
 import hashlib
 import json
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Optional, Dict, Any
 from fastmcp import FastMCP
 from src.utils.tracing import setup_tracing, setup_logger_with_tracing
 import logging
+from src.utils.cache import TTLCache
 
 # Setup tracing and logging
 setup_tracing("mcp-server-yfinance", enable_console_export=False)
@@ -17,67 +18,8 @@ LOGGER = setup_logger_with_tracing(__name__, logging.INFO)
 # Initialize FastMCP
 mcp = FastMCP("yFinance Market Data Server")
 
-# ============================================================================
-# CACHE IMPLEMENTATION
-# ============================================================================
-
-class MarketDataCache:
-    """Simple in-memory cache with TTL support."""
-    
-    def __init__(self, default_ttl_seconds: int = 1800):  # 30 minutes default
-        self.cache: Dict[str, Dict[str, Any]] = {}
-        self.default_ttl = default_ttl_seconds
-    
-    def _is_expired(self, entry: Dict[str, Any]) -> bool:
-        """Check if cache entry has expired."""
-        expiry_time = entry.get("expires_at", 0)
-        return time.time() > expiry_time
-    
-    def get(self, key: str) -> Optional[Any]:
-        """Get value from cache if exists and not expired."""
-        if key not in self.cache:
-            return None
-        
-        entry = self.cache[key]
-        
-        if self._is_expired(entry):
-            LOGGER.debug(f"Cache EXPIRED: {key}")
-            del self.cache[key]
-            return None
-        
-        LOGGER.info(f"Cache HIT: {key}")
-        return entry["value"]
-    
-    def set(self, key: str, value: Any, ttl_seconds: Optional[int] = None) -> None:
-        """Store value in cache with TTL."""
-        ttl = ttl_seconds if ttl_seconds is not None else self.default_ttl
-        expires_at = time.time() + ttl
-        
-        self.cache[key] = {
-            "value": value,
-            "expires_at": expires_at,
-            "cached_at": datetime.now().isoformat()
-        }
-        LOGGER.debug(f"Cache SET: {key} (TTL: {ttl}s)")
-    
-    def clear(self) -> None:
-        """Clear all cache entries."""
-        self.cache.clear()
-        LOGGER.info("Cache cleared")
-    
-    def get_stats(self) -> Dict[str, Any]:
-        """Get cache statistics."""
-        total = len(self.cache)
-        expired = sum(1 for entry in self.cache.values() if self._is_expired(entry))
-        return {
-            "total_entries": total,
-            "expired_entries": expired,
-            "active_entries": total - expired
-        }
-
-
 # Global cache instance
-market_cache = MarketDataCache(default_ttl_seconds=1800)  # 30 minutes
+market_cache = TTLCache(default_ttl_seconds=1800, name="yfinance-mcp-cache")  # 30 minutes
 
 
 # ============================================================================

@@ -98,7 +98,7 @@ with st.container():
 
                     if getattr(message["content"], "charts", None):
                         for chart in message["content"].charts:
-                            st.image(f"{CHART_URL}{chart.filename}", caption=chart.title, use_container_width=True)
+                            st.image(f"{CHART_URL}{chart.filename}", caption=chart.title, width="stretch")
 
         # Chat input
         if user_input := st.chat_input("e.g., What is an IRA and how does it relate to tax?"):
@@ -114,10 +114,9 @@ with st.container():
                 with st.spinner("Thinking..."):
                     # Run async function in event loop
                     response = run_async(get_agent_response(user_input, st.session_state.session_id))
-                    st.write(response.message + "I did this honestly!" + str(len(response.charts)))
                     if getattr(response, "charts"):
                         for chart in response.charts:
-                            st.image(f"{CHART_URL}{chart.filename}", caption=chart.title, use_container_width=True)
+                            st.image(f"{CHART_URL}{chart.filename}", caption=chart.title, width="stretch")
 
 
 

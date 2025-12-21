@@ -13,6 +13,7 @@ from datetime import datetime
 from fastmcp import FastMCP
 from src.utils.tracing import setup_tracing, setup_logger_with_tracing
 import logging
+from src.utils.cache import TTLCache
 
 # Setup tracing and logging
 setup_tracing("mcp-server-charts", enable_console_export=False)
@@ -20,6 +21,8 @@ LOGGER = setup_logger_with_tracing(__name__, logging.INFO)
 
 # Initialize FastMCP
 mcp = FastMCP("Chart Generation Server")
+
+charts_cache = TTLCache(default_ttl_seconds=1800, name="charts_cache")
 
 # Chart storage directory
 CHART_DIR = Path(os.getenv("CHART_PATH", "generated_charts"))
@@ -80,7 +83,8 @@ def create_pie_chart(
     labels: List[str],
     values: List[float],
     title: str = "Pie Chart",
-    colors: Optional[List[str]] = None
+    colors: Optional[List[str]] = None,
+    use_cache: bool = True
 ) -> Dict[str, str]:
     """
     Create a pie chart.
@@ -107,6 +111,10 @@ def create_pie_chart(
     labels, values = validate_data_lengths(labels, values)
     
     chart_id = generate_chart_id("pie", {"labels": labels, "values": values, "title": title})
+    if use_cache:
+        cached_data = charts_cache.get(chart_id)
+        if cached_data is not None:
+            return cached_data
     
     fig, ax = plt.subplots(figsize=(10, 7))
     
@@ -128,13 +136,16 @@ def create_pie_chart(
     
     filename = save_chart(fig, chart_id)
     
-    return {
+    result =  {
         "chart_id": chart_id,
         "filename": filename,
         "chart_type": "pie",
         "title": title
     }
 
+    charts_cache.set(chart_id, result, ttl_seconds=1800)
+
+    return result
 
 @mcp.tool()
 def create_bar_chart(
@@ -143,7 +154,8 @@ def create_bar_chart(
     title: str = "Bar Chart",
     xlabel: str = "",
     ylabel: str = "Value",
-    color: str = "#3498db"
+    color: str = "#3498db",
+    use_cache: bool = True
 ) -> Dict[str, str]:
     """
     Create a bar chart.
@@ -173,6 +185,10 @@ def create_bar_chart(
     categories, values = validate_data_lengths(categories, values)
     
     chart_id = generate_chart_id("bar", {"categories": categories, "values": values, "title": title})
+    if use_cache:
+        cached_data = charts_cache.get(chart_id)
+        if cached_data is not None:
+            return cached_data
     
     fig, ax = plt.subplots(figsize=(12, 7))
     
@@ -196,13 +212,16 @@ def create_bar_chart(
     
     filename = save_chart(fig, chart_id)
     
-    return {
+    result =  {
         "chart_id": chart_id,
         "filename": filename,
         "chart_type": "bar",
         "title": title
     }
 
+    charts_cache.set(chart_id, result, ttl_seconds=1800)
+
+    return result
 
 @mcp.tool()
 def create_line_chart(
@@ -212,7 +231,8 @@ def create_line_chart(
     xlabel: str = "",
     ylabel: str = "Value",
     color: str = "#2ecc71",
-    marker: str = "o"
+    marker: str = "o",
+    use_cache: bool = True
 ) -> Dict[str, str]:
     """
     Create a single-line chart.
@@ -278,6 +298,10 @@ def create_line_chart(
         max_ticks = 15
     
     chart_id = generate_chart_id("line", {"x": x_values, "y": y_values, "title": title})
+    if use_cache:
+        cached_data = charts_cache.get(chart_id)
+        if cached_data is not None:
+            return cached_data
     
     fig, ax = plt.subplots(figsize=(12, 7))
     
@@ -337,12 +361,16 @@ def create_line_chart(
     
     filename = save_chart(fig, chart_id)
     
-    return {
+    result =  {
         "chart_id": chart_id,
         "filename": filename,
         "chart_type": "line",
         "title": title
     }
+
+    charts_cache.set(chart_id, result, ttl_seconds=1800)
+
+    return result
 
 @mcp.tool()
 def create_multi_line_chart(
@@ -351,7 +379,8 @@ def create_multi_line_chart(
     title: str = "Multi-Line Chart",
     xlabel: str = "",
     ylabel: str = "Value",
-    colors: Optional[List[str]] = None
+    colors: Optional[List[str]] = None,
+    use_cache: bool = True
 ) -> Dict[str, str]:
     """
     Create a multi-line chart with multiple data series.
@@ -427,6 +456,10 @@ def create_multi_line_chart(
         LOGGER.info(f"Sparse data ({num_points} points) - showing all markers")
     
     chart_id = generate_chart_id("multiline", {"x": x_values, "y": validated_series, "title": title})
+    if use_cache:
+        cached_data = charts_cache.get(chart_id)
+        if cached_data is not None:
+            return cached_data
     
     fig, ax = plt.subplots(figsize=(12, 7))
     
@@ -499,14 +532,16 @@ def create_multi_line_chart(
     
     filename = save_chart(fig, chart_id)
     
-    return {
+    result = {
         "chart_id": chart_id,
         "filename": filename,
         "chart_type": "multi_line",
         "title": title  
     }
     
-    
+    charts_cache.set(chart_id, result, ttl_seconds=1800)
+
+    return result
 
 
 @mcp.tool()
@@ -516,7 +551,8 @@ def create_goal_projection_chart(
     years: int,
     monthly_contribution: float,
     annual_return_rate: float = 0.07,
-    title: str = "Goal Projection"
+    title: str = "Goal Projection",
+    use_cache: bool = True
 ) -> Dict[str, str]:
     """
     Create a financial goal projection chart showing growth over time.
@@ -549,6 +585,10 @@ def create_goal_projection_chart(
         "years": years,
         "contribution": monthly_contribution
     })
+    if use_cache:
+        cached_data = charts_cache.get(chart_id)
+        if cached_data is not None:
+            return cached_data
     
     # Calculate month-by-month projection
     monthly_rate = annual_return_rate / 12
@@ -602,7 +642,7 @@ def create_goal_projection_chart(
     
     filename = save_chart(fig, chart_id)
     
-    return {
+    result = {
         "chart_id": chart_id,
         "filename": filename,
         "chart_type": "goal_projection",
@@ -611,6 +651,9 @@ def create_goal_projection_chart(
         "goal_reached": "true" if final_value >= goal_value else "false"
     }
 
+    charts_cache.set(chart_id, result, ttl_seconds=1800)
+
+    return result
 
 @mcp.tool()
 def list_generated_charts() -> Dict[str, Any]:
@@ -622,12 +665,15 @@ def list_generated_charts() -> Dict[str, Any]:
     """
     charts = list(CHART_DIR.glob("*.png"))
     
-    return {
+    result = {
         "chart_directory": str(CHART_DIR.absolute()),
         "chart_count": len(charts),
         "charts": [chart.name for chart in sorted(charts, key=lambda x: x.stat().st_mtime, reverse=True)]
     }
 
+    charts_cache.set(chart_id, result, ttl_seconds=1800)
+
+    return result
 
 @mcp.tool()
 def delete_chart(chart_id: str) -> Dict[str, str]:
@@ -640,6 +686,8 @@ def delete_chart(chart_id: str) -> Dict[str, str]:
     Returns:
         Status message
     """
+    charts_cache.remove(chart_id)
+
     filename = chart_id if chart_id.endswith('.png') else f"{chart_id}.png"
     filepath = CHART_DIR / filename
     
