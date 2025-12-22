@@ -224,6 +224,132 @@ def create_bar_chart(
     return result
 
 @mcp.tool()
+def create_stacked_bar_chart(
+    categories: List[str],
+    series_data: Dict[str, List[float]],
+    title: str = "Stacked Bar Chart",
+    xlabel: str = "",
+    ylabel: str = "Value",
+    colors: Optional[List[str]] = None,
+    use_cache: bool = True
+) -> Dict[str, str]:
+    """
+    Create a stacked bar chart with multiple series.
+    
+    Args:
+        categories: List of category names (x-axis)
+        series_data: Dictionary mapping series names to their values
+                    Example: {"Equities": [100, 150, 200], "Fixed Income": [50, 75, 100]}
+        title: Chart title
+        xlabel: X-axis label
+        ylabel: Y-axis label
+        colors: Optional list of colors for each series (hex or named colors)
+        use_cache: Whether to use cached chart if available
+    
+    Returns:
+        Dictionary with chart_id and filename
+    
+    Example:
+        create_stacked_bar_chart(
+            categories=["Bottom 10%", "Median", "Top 10%"],
+            series_data={
+                "Equities": [10000, 12000, 15000],
+                "Fixed Income": [5000, 6000, 7000],
+                "Cash": [2000, 2500, 3000]
+            },
+            title="Portfolio Simulation Outcome (10 years)",
+            ylabel="Amount ($)"
+        )
+    """
+    LOGGER.info(f"Creating stacked bar chart: {title}")
+    
+    # Validate that all series have the same length as categories
+    for series_name, values in series_data.items():
+        if len(values) != len(categories):
+            raise ValueError(
+                f"Series '{series_name}' has {len(values)} values but "
+                f"there are {len(categories)} categories"
+            )
+    
+    # Generate chart ID
+    chart_id = generate_chart_id(
+        "stacked_bar", 
+        {"categories": categories, "series_data": series_data, "title": title}
+    )
+    
+    if use_cache:
+        cached_data = charts_cache.get(chart_id)
+        if cached_data is not None:
+            return cached_data
+    
+    # Set up colors
+    if colors is None:
+        # Default color palette
+        default_colors = [
+            "#3498db", "#e74c3c", "#2ecc71", "#f39c12", 
+            "#9b59b6", "#1abc9c", "#34495e", "#e67e22"
+        ]
+        colors = default_colors[:len(series_data)]
+    
+    fig, ax = plt.subplots(figsize=(12, 7))
+    
+    # Create the stacked bars
+    bottom = [0] * len(categories)
+    bars_list = []
+    
+    for (series_name, values), color in zip(series_data.items(), colors):
+        bars = ax.bar(
+            categories, 
+            values, 
+            bottom=bottom,
+            label=series_name,
+            color=color,
+            alpha=0.8
+        )
+        bars_list.append(bars)
+        
+        # Update bottom for next stack
+        bottom = [b + v for b, v in zip(bottom, values)]
+    
+    # Add value labels on each segment (optional - can be removed if too cluttered)
+    for bars in bars_list:
+        for bar in bars:
+            height = bar.get_height()
+            if height > 0:  # Only show label if segment is visible
+                y_pos = bar.get_y() + height / 2
+                ax.text(
+                    bar.get_x() + bar.get_width() / 2., 
+                    y_pos,
+                    f'${height:,.0f}' if height > 1000 else f'{height:.1f}',
+                    ha='center', 
+                    va='center', 
+                    fontsize=9,
+                    fontweight='bold'
+                )
+    
+    ax.set_title(title, fontsize=16, fontweight='bold', pad=20)
+    ax.set_xlabel(xlabel, fontsize=12)
+    ax.set_ylabel(ylabel, fontsize=12)
+    ax.legend(loc='upper left', framealpha=0.9)
+    ax.grid(axis='y', alpha=0.3)
+    
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+    
+    filename = save_chart(fig, chart_id)
+    
+    result = {
+        "chart_id": chart_id,
+        "filename": filename,
+        "chart_type": "stacked_bar",
+        "title": title
+    }
+    
+    charts_cache.set(chart_id, result, ttl_seconds=1800)
+    
+    return result
+
+@mcp.tool()
 def create_line_chart(
     x_values: List[Any],
     y_values: List[float],
