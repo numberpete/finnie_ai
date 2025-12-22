@@ -100,7 +100,7 @@ def create_pie_chart(
     
     Example:
         create_pie_chart(
-            labels=["Stocks", "Bonds", "Cash"],
+            labels=["Equities", "Fixed Income", "Cash"],
             values=[60, 30, 10],
             title="Portfolio Allocation"
         )
@@ -110,7 +110,24 @@ def create_pie_chart(
     # Validate data
     labels, values = validate_data_lengths(labels, values)
     
-    chart_id = generate_chart_id("pie", {"labels": labels, "values": values, "title": title})
+    # Filter out zero values and their corresponding labels/colors
+    filtered_data = [
+        (label, value, colors[i] if colors else None)
+        for i, (label, value) in enumerate(zip(labels, values))
+        if value > 0
+    ]
+    
+    if not filtered_data:
+        LOGGER.warning("All values are zero, cannot create pie chart")
+        raise ValueError("Cannot create pie chart with all zero values")
+    
+    # Unpack filtered data
+    filtered_labels, filtered_values, filtered_colors = zip(*filtered_data)
+    filtered_labels = list(filtered_labels)
+    filtered_values = list(filtered_values)
+    filtered_colors = [c for c in filtered_colors if c is not None] if any(filtered_colors) else None
+    
+    chart_id = generate_chart_id("pie", {"labels": filtered_labels, "values": filtered_values, "title": title})
     if use_cache:
         cached_data = charts_cache.get(chart_id)
         if cached_data is not None:
@@ -119,11 +136,11 @@ def create_pie_chart(
     fig, ax = plt.subplots(figsize=(10, 7))
     
     wedges, texts, autotexts = ax.pie(
-        values,
-        labels=labels,
+        filtered_values,
+        labels=filtered_labels,
         autopct='%1.1f%%',
         startangle=90,
-        colors=colors
+        colors=filtered_colors
     )
     
     # Make percentage text bold and white
@@ -136,7 +153,7 @@ def create_pie_chart(
     
     filename = save_chart(fig, chart_id)
     
-    result =  {
+    result = {
         "chart_id": chart_id,
         "filename": filename,
         "chart_type": "pie",

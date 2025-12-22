@@ -36,76 +36,67 @@ SUMMARY_LLM = ChatOpenAI(model=MODEL, temperature=0, streaming=True, cache=False
 
 # Your detailed System Prompt (ENHANCED WITH CHART INSTRUCTIONS)
 STRICT_SYSTEM_PROMPT = """
-You are a specialized financial portfolio agent with visualization capabilities.
+# ROLE
+You are the Portfolio Risk & Simulation Engine. You analyze portfolios and create visualizations.
 
-Your role is to visually present a user's financial profile, assess a portfolio's risk 
-tolerance tier, and project it's potential growth.
+# ASSET CLASSES
+The portfolio uses these 6 asset classes:
+- Equities
+- Fixed Income
+- Real Estate
+- Cash
+- Commodities
+- Crypto
 
-========================
-CONTEXT (provided by router):
-- Last discussed ticker: {last_ticker}
-- Pending clarification ticker: {pending_ticker}
-========================
+When creating charts, use these exact colors (unless user requests different colors):
+- Equities: #2E5BFF
+- Fixed Income: #46CDCF
+- Real Estate: #F08A5D
+- Cash: #3DDC84
+- Commodities: #FFD700
+- Crypto: #B832FF
 
-**CORE RULES**
+# CORE RULES
+1. **Find portfolio** - Use portfolio from current message. If not provided, look in conversation history.
+2. **Call each tool only ONCE** - Check {agent_scratchpad}. If a tool has an "Observation:", don't call it again.
+3. **Execute only what's requested** - Don't do extra analysis unless asked.
 
-1. **Tool Usage is Mandatory**
-   - For any query related to a financial portfolio, you must use the tools provided
-   - Never provide any portfolio assessment from memory or general knowledge
+# EXECUTION PIPELINE
 
-2. **Asset Class Determination**
-   - If a user ask what type of asses or asset class or asset classes a particular ticker belongs to → call get_asset_classes to resolve it
-   - If a fund name or company is mentioned without a ticker → call get_ticker to resolve it
-   - Always rely on get_asset_classes for the breakdown of positions.
-   - Note: If get_asset_classes returns values for "Real Estate" or "Commodities," treat these as distinct diversifiers even if the user originally referred to them as "Other."
+**Determine what the user is asking for:**
 
-3. **Data Presentation**
-   You should present portfolios as tabular data AND pie charts, showing the following asset classes:
-    - Equities
-    - Fixed Income
-    - Real Estate
-    - Cash
-    - Commodities
-    - Crypto 
-    In addition to returning a pie chart for a portfolio, you shoud also call the assess_risk_tolerance tool and provide a summary of it's assessment.
+**IF** user asked for simulation/projection/future view:
+  - Skip to Step 3 (simulation only)
 
-4. **Colors**
-    Uless the user asks for specific colors, use the followinhg color for each asset class:
-    - Equities → #2E5BFF
-    - Fixed Income → #46CDCF
-    - Real Estate → #F08A5D
-    - Cash → #3DDC84
-    - Commodities → #FFD700
-    - Crypto → #B832FF
+**ELSE IF** user asked for portfolio analysis/risk assessment:
+  - Execute Steps 1-2 (risk and pie chart)
 
-5. **Unable to Answer**
-   - If tools cannot answer the question, respond: "I cannot generate an answer using the available tools."
-   - Do not guess, estimate, or use general market knowledge
+**Step 1**: Call `assess_risk_tolerance` with portfolio
+**Step 2**: Call `create_pie_chart` with the SAME portfolio
 
-6. **Approach**
-   - Follow ReAct pattern: THINK → ACT (tool call) → OBSERVE → RESPOND
+**Step 3 (simulation)**: 
+  - Call `simple_monte_carlo_simulation` with:
+    - The SAME portfolio (from current message or history)
+    - years: extracted from user request (default: 10)
+    - target_goal: ONLY if user explicitly mentioned a financial goal/target
+  - Call `create_stacked_bar_chart` with simulation results
 
-**CHART GENERATION RULES**
+**Step 4**: Provide text summary and STOP
 
-7. **When to Generate Charts (Automatic)**
-   - Financial Portfolio → create_pie_chart
-   - Monte Carlo Simulation → create_stacked_bar for each portfolio returned by the tool 
+# FINDING PORTFOLIO
 
+1. Check current user message first for portfolio breakdown
+2. Only if not found, review conversation history for portfolio data
+3. Format as: `{"Equities": 40, "Fixed Income": 30, "Real Estate": 20, "Cash": 10}`
+4. **IMPORTANT**: Use this EXACT SAME portfolio dictionary for ALL tools
 
-9. **Data Formatting Requirements**
-   - Ensure numeric values are float or int (not strings)
-   - Clean data before sending to chart tools
+# RESPONSE FORMAT
+- Summarize key findings from tool results (risk tier, projections, etc.)
+- **Reference charts by title only** - Do NOT attempt to embed, display, or recreate the charts in your response
+- Example: "See the pie chart titled 'Portfolio Allocation'" or "The simulation results are shown in the stacked bar chart"
+- If target_goal was NOT provided by the user, do NOT mention it in your summary
+- End with: "FinnieAI can make mistakes, and answers are for educational purposes only."
 
-10. **Chart References**
-    - Reference charts naturally: "I've generated a chart showing {description}."
-    - Do NOT embed chart images in your message - just mention them
-
-11. **Diclaimer Requiremts**
-    - All responses should include a disclaimer that FinnieAI can make mistakes, and any advice or projection
-    provided is for educational purposes only.
-
-12. Data Integrity
-    - If get_asset_classes returns _mock: True, you must include a footnote: "Note: Detailed allocation for [Ticker] was unavailable; using a standard benchmark estimate."
 ========================
 {agent_scratchpad}
 ========================
@@ -114,16 +105,12 @@ CONTEXT (provided by router):
 
 # MCP Server Configuration - NOW WITH THREE SERVERS
 MCP_SERVERS = {
-    "yfinance_mcp": {
-        "url": "http://localhost:8002/sse",
-        "description": "Ticker info from yFinance"
-    },
     "charts_mcp": {
         "url": "http://localhost:8003/sse", 
         "description": "Chart generation tools"
     },
     "goals_mcp": {
-        "url": "http://localhost:8003/sse", 
+        "url": "http://localhost:8004/sse", 
         "description": "Portfolio asessment tools"
     }
 }
@@ -193,15 +180,10 @@ class PortfolioAgent:
     async def run_query(self, history: List[BaseMessage], session_id: str) -> AgentResponse:
         """
         Runs the agent against the conversation history and returns the response.
-        NOW INCLUDES CHART DETECTION AND ARTIFACT POPULATION.
-        
-        :param history: The full conversation history (including the new user message)
-        :param session_id: The session identifier (for logging/debugging)
-        :return: AgentResponse with message and any generated charts
+        Handles multiple sequential or parallel tool calls.
         """
         LOGGER.info(f"Processing query: {history[-1].content[:50]}...")
 
-        # Increment and track invocations
         PortfolioAgent._invocation_count += 1
         current_invocation = PortfolioAgent._invocation_count
         
@@ -211,110 +193,122 @@ class PortfolioAgent:
         LOGGER.debug(f"💬 User Query: {history[-1].content[:100]}...")
         LOGGER.debug(f"📊 History Length: {len(history)} messages")
         
-        # Log the last few messages for context
-        LOGGER.debug(f"📜 Message History:")
-        for i, msg in enumerate(history[-3:], start=max(0, len(history)-3)):
-            msg_type = "👤 USER" if isinstance(msg, HumanMessage) else "🤖 AI"
-            content_preview = msg.content[:80] + "..." if len(msg.content) > 80 else msg.content
-            LOGGER.debug(f"   [{i}] {msg_type}: {content_preview}")
-        
-        LOGGER.debug(f"🔧 Available tools: {len(self.tools)}")
-        
-        LOGGER.info(f"⚙️  Invoking Agent (Call #{current_invocation})...")
-        
         tool_call_count = 0
         tool_call_details = []
-        generated_charts = []  # Track generated charts
+        generated_charts = []
         
         try:
-            # Invoke the agent with the full message history
-            response = await self.core_agent.ainvoke(
-                {"messages": history}
-            )
+            working_history = list(history)
+            max_iterations = 10
+            iteration = 0
             
-            LOGGER.debug(f"✅ AGENT INVOCATION COMPLETE")
-
-            # Extract charts from tool calls and responses
-            if isinstance(response, dict) and "messages" in response:
-                LOGGER.debug(f"📬 Analyzing response messages for charts...")
-                LOGGER.debug(f"🔢 Total messages received: {len(response['messages'])}")
+            while iteration < max_iterations:
+                iteration += 1
+                LOGGER.debug(f"\n{'='*60}")
+                LOGGER.debug(f"🔄 ITERATION {iteration}")
+                LOGGER.debug(f"{'='*60}")
+                LOGGER.debug(f"📝 Working history length: {len(working_history)} messages")
                 
-                for i, msg in enumerate(response["messages"]):
+                # Invoke the agent
+                response = await self.core_agent.ainvoke(
+                    {"messages": working_history}
+                )
+                
+                if not isinstance(response, dict) or "messages" not in response:
+                    LOGGER.warning(f"⚠️  Unexpected response structure: {type(response)}")
+                    break
+                
+                new_messages = response["messages"]
+                LOGGER.debug(f"📬 Received {len(new_messages)} new message(s)")
+                
+                # Log each new message
+                for i, msg in enumerate(new_messages):
                     msg_type = type(msg).__name__
+                    LOGGER.debug(f"  [{i}] {msg_type}")
                     
-                    # Check for chart generation tool calls
-                    if hasattr(msg, 'tool_calls') and msg.tool_calls:
-                        tool_call_count += len(msg.tool_calls)
+                    if msg_type == "AIMessage" and hasattr(msg, 'tool_calls') and msg.tool_calls:
+                        LOGGER.debug(f"      🔧 Contains {len(msg.tool_calls)} tool call(s):")
                         for tc in msg.tool_calls:
                             tool_name = tc.get('name', 'unknown')
-                            tool_args = tc.get('args', {})
-                            tool_call_details.append(f"{tool_name}({tool_args})")
-                            
+                            LOGGER.debug(f"         - {tool_name}")
+                            tool_call_details.append(tool_name)
+                            tool_call_count += 1
                     
-                    # Check for chart generation results in ToolMessage
-                    # There must be a better way, but for the sake of time, here we are!
-                    if msg_type == "ToolMessage":
+                    elif msg_type == "ToolMessage":
                         tool_name = getattr(msg, 'name', 'unknown')
-                        LOGGER.debug("Tool name: " + tool_name)
-                        # If this is a chart tool response, extract the chart info
-                        LOGGER.debug(vars(msg))
-                        #We got a dependency here on the tool name, this is a little fragile, but oh well, time keeps on ticking...
+                        LOGGER.debug(f"      ✅ Tool result for: {tool_name}")
+                        
+                        # Extract charts if applicable
                         if 'chart' in tool_name.lower() and hasattr(msg, 'content'):
                             try:
-                                # Parse the tool result (it should be a dict with chart info)
                                 for chart_data in msg.content:
-                                    if chart_data['type'] == 'text':
+                                    if isinstance(chart_data, dict) and chart_data.get('type') == 'text':
                                         chart = json.loads(chart_data['text'])
                                         chart_artifact = ChartArtifact(
                                             title=chart['title'],
                                             filename=f"{chart['filename']}"
                                         )
                                         generated_charts.append(chart_artifact)
-                                        LOGGER.info(f"📊 Chart generated: {chart_artifact.title} -> {chart_artifact.path}")
+                                        LOGGER.info(f"         📊 Chart captured: {chart_artifact.title}")
                             except Exception as e:
-                                LOGGER.warning(f"⚠️  Could not parse chart data from tool response: {e}")
+                                LOGGER.warning(f"         ⚠️  Could not parse chart data: {e}")
                 
-                LOGGER.debug(f"\n🔧 Total tool calls made: {tool_call_count}")
-                LOGGER.debug(f"📊 Total charts generated: {len(generated_charts)}")
+                # Check if the last message has tool calls
+                last_message = new_messages[-1]
+                has_tool_calls = (
+                    hasattr(last_message, 'tool_calls') and 
+                    last_message.tool_calls and 
+                    len(last_message.tool_calls) > 0
+                )
                 
-                if tool_call_details:
-                    LOGGER.debug(f"\n🔨 Tool calls with arguments:")
-                    for i, detail in enumerate(tool_call_details, 1):
-                        LOGGER.debug(f"   {i}. {detail}")
-                
-                # Extract the final message
-                last_message: BaseMessage = response["messages"][-1]
-                
-                if hasattr(last_message, 'content'):
-                    response_preview = last_message.content[:150] + "..." if len(last_message.content) > 150 else last_message.content
-                    LOGGER.debug(f"💬 Response Preview: {response_preview}")
-                    LOGGER.debug(f"✅ Response length: {len(last_message.content)} characters")
-                    
-                    # Return AgentResponse with charts
-                    return AgentResponse(
-                        agent="PortfolioAgent",
-                        message=last_message.content,
-                        charts=generated_charts
-                    )
+                if has_tool_calls:
+                    LOGGER.debug(f"➡️  Agent needs to execute tools, continuing loop...")
+                    # Add new messages to history for next iteration
+                    working_history.extend(new_messages)
                 else:
-                    return AgentResponse(
-                        agent="PortfolioAgent",
-                        message=str(last_message),
-                        charts=generated_charts
-                    )
+                    # Agent is done - final response received
+                    LOGGER.debug(f"\n{'='*60}")
+                    LOGGER.debug(f"✅ AGENT COMPLETE")
+                    LOGGER.debug(f"{'='*60}")
+                    LOGGER.debug(f"🔧 Total tool calls: {tool_call_count}")
+                    LOGGER.debug(f"📊 Charts generated: {len(generated_charts)}")
+                    
+                    if tool_call_details:
+                        LOGGER.debug(f"🔨 Tool execution sequence:")
+                        for i, tool in enumerate(tool_call_details, 1):
+                            LOGGER.debug(f"   {i}. {tool}")
+                    
+                    # Return final response
+                    if hasattr(last_message, 'content'):
+                        response_preview = last_message.content[:150] + "..." if len(last_message.content) > 150 else last_message.content
+                        LOGGER.debug(f"💬 Response Preview: {response_preview}")
+                        
+                        return AgentResponse(
+                            agent="PortfolioAgent",
+                            message=last_message.content,
+                            charts=generated_charts
+                        )
+                    else:
+                        return AgentResponse(
+                            agent="PortfolioAgent",
+                            message=str(last_message),
+                            charts=generated_charts
+                        )
             
-            # Fallback for unexpected response structure
-            LOGGER.debug(f"⚠️  Unexpected response structure: {type(response)}")
+            # Max iterations reached
+            LOGGER.warning(f"⚠️  Reached max iterations ({max_iterations})")
+            LOGGER.warning(f"Tool calls made: {tool_call_count}, Tools: {tool_call_details}")
             return AgentResponse(
                 agent="PortfolioAgent",
-                message=str(response),
-                charts=[]
+                message="I apologize, but I couldn't complete the request within the iteration limit.",
+                charts=generated_charts
             )
-            
+                
         except Exception as e:
             error_msg = f"Error processing query: {str(e)}"
             LOGGER.error(f"❌ Error: {error_msg}")
-            LOGGER.debug(f"Tool calls before error: {tool_call_count}")
+            import traceback
+            LOGGER.error(traceback.format_exc())
             return AgentResponse(
                 agent="PortfolioAgent",
                 message=f"I apologize, but I encountered an error while processing your request: {error_msg}",

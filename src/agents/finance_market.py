@@ -102,6 +102,22 @@ CONTEXT (provided by router):
     - Reference charts naturally: "I've generated a chart showing {description}."
     - Do NOT embed chart images in your message - just mention them
 
+ 11. **Asset Class Lookups & Normalization**
+    - If a user asks for "breakdown," "composition," or "asset class" of a ticker:
+    - Call get_asset_classes with the resolved ticker symbol.
+    - Normalization: The tool returns ratios (0 to 1). You MUST convert these to percentages (0% to 100%) for the text response and chart data (e.g., 0.65 → 65%).
+    - Report the exact percentages for the 6 core classes.
+    - Use create_pie_chart for these lookups.
+    - Brand Colors: Use the mandatory hex codes (Equities: #2E5BFF, etc.) for the chart segments.   
+
+12. **Brand Colors (MANDATORY)** Unless instructed by the user otherwise, use these specific colors for all charting of asset classes:
+    - Equities: #2E5BFF
+    - Fixed Income: #46CDCF
+    - Real Estate: #F08A5D
+    - Cash: #3DDC84
+    - Commodities: #FFD700
+    - Crypto: #B832FF
+    
 ========================
 {agent_scratchpad}
 ========================

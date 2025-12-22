@@ -8,11 +8,9 @@ from langchain_openai import ChatOpenAI
 from langchain_core.runnables import RunnableConfig
 from pydantic import BaseModel, Field
 from typing_extensions import Literal   
-
-# Import your existing worker agent
 from src.agents.finance_q_and_a import FinanceQandAAgent 
 from src.agents.finance_market import FinanceMarketAgent
-#from src.agents.finance_portfolio import PortfolioAgent
+from src.agents.finance_portfolio import PortfolioAgent
 from src.agents.response import AgentResponse, ChartArtifact
 from src.utils import setup_logger_with_tracing, setup_tracing,  get_tracer
 import logging
@@ -25,11 +23,11 @@ TRACER = get_tracer(__name__)
 
 _FINANCE_QA_AGENT = FinanceQandAAgent()
 _FINANCE_MARKET_AGENT = FinanceMarketAgent()
-#_PORTFOLIO_AGENT = PortfolioAgent()
+_PORTFOLIO_AGENT = PortfolioAgent()
 
 # --- CONFIGURATION ---
 ROUTER_LLM = ChatOpenAI(model="gpt-4o-mini", temperature=0)
-AGENT_NAMES = ["FinanceQandAAgent","FinanceMarketAgent"] # Add "OtherAgent" when ready
+AGENT_NAMES = ["FinanceQandAAgent","FinanceMarketAgent","PortfolioAgent"] # Add "OtherAgent" when ready
 
 # Define the state structure for the graph
 class AgentState(TypedDict):
@@ -37,7 +35,8 @@ class AgentState(TypedDict):
     messages: Annotated[List[BaseMessage], add_messages]
     next: str # The name of the next agent/node to run
     session_id: str
-    response: Optional[AgentResponse]
+    last_agent_used: Optional[str]
+    response: List[AgentResponse]
 
 
 class RouterAgent:
@@ -47,7 +46,7 @@ class RouterAgent:
         #async initialization of agents will be handled in run_query
         self.finance_qa_agent = _FINANCE_QA_AGENT
         self.finance_market_agent = _FINANCE_MARKET_AGENT
-        #self.portfolio_agent = _PORTFOLIO_AGENT
+        self.portfolio_agent = _PORTFOLIO_AGENT
     
         self.saver = InMemorySaver()
         # Build the state graph
@@ -55,7 +54,7 @@ class RouterAgent:
         router_builder.add_node("router_node", self.router_node)
         router_builder.add_node("FinanceQandAAgent", self.finance_q_and_a_node)
         router_builder.add_node("FinanceMarketAgent", self.finance_market_node)
-#        router_builder.add_node("PortfolioAgent", self.portfolio_node)
+        router_builder.add_node("PortfolioAgent", self.portfolio_node)
 
         router_builder.add_edge(START, "router_node")
         router_builder.add_conditional_edges(
@@ -64,12 +63,13 @@ class RouterAgent:
             {
                 "FinanceQandAAgent": "FinanceQandAAgent",
                 "FinanceMarketAgent": "FinanceMarketAgent",
-#                "PortfolioAgent": "PortfolioAgent"
+                "PortfolioAgent": "PortfolioAgent",
             },
         )
+        #STRETCH: if we have time, have these conect with router, to allow multi-agent response
         router_builder.add_edge("FinanceQandAAgent", END)
         router_builder.add_edge("FinanceMarketAgent", END)
-        #router_builder.add_edge("PortfolioAgent", END)
+        router_builder.add_edge("PortfolioAgent", END)
         self.workflow = router_builder.compile(checkpointer=self.saver)
 
 
@@ -211,30 +211,38 @@ class RouterAgent:
             ("system",
              f"""
 # ROLE
-You are a highly efficient Intent Routing Agent. Your sole purpose is to analyze the user's "Query" and determine which specialized expert agent from the "AGENTS" list is best equipped to handle the request.
+You are a high-precision Financial Intent Router. Your sole purpose is to select the correct NODE for the user's request.
 
-# AGENTS
-- FinanceQandAAgent: For financial concepts, definitions, or general educational questions.
-- FinanceMarketAgent: For real-time prices, historical data, specific market indices, or ticker-related questions.
+# ROUTING TABLE (MATCH TO NODE NAMES)
+1. **FinanceMarketAgent**: 
+    - PRIMARY INTENT: Real-time data, price quotes, ticker/company lookups, and asset breakdowns.
+    - TRIGGER: Mention of a company name (Oracle, Apple) or ticker (ORCL).
+2. **PortfolioAgent**: 
+    - PRIMARY INTENT: Personal financial portfolio and growth simulations.
+    - TRIGGER: User provides dollar/percentage totals for asset classes (e.g., "Equities: 100k") OR provides data in a JSON/List format containing "Equities", "Fixed Income", "Cash", etc.
+    - TRIGGER: Questions about portfolio simulations, portfolio projections, or portfolio growth (e.g., "how will my portfolio do in 10 years?")
+    - RULE: If you see a list of asset classes with associated numbers, it is ALWAYS a `PortfolioAgent` intent.
+3. **FinanceQandAAgent**: 
+    - PRIMARY INTENT: General financial theory, definitions, concepts, and educational "how-to" advice.
 
-# RULES & CONSTRAINTS
-1. Analyze the user's "Query" carefully to determine the underlying intent.
-2. If the user is asking for a specific price, ticker, or historical performance, route to the FinanceQandAAgent.
-3. If the user is asking "what is" or "how does" a concept work, route to the FinanceQandAAgent.
-4. If a query is ambiguous, use your best judgment to route to the most likely relevant agent.
-5. If a query contains multiple intents, route to the agent responsible for the primary or first mentioned task.
-6. STICK TO THE LIST: You must only output the name of the agent in the format specified below. Do not invent new agent names.
+# CONTEXT-AWARE ROUTING
+**Check conversation history before routing:**
+- If the previous message was handled by `PortfolioAgent` AND the current query is a follow-up question (e.g., "how will it do?", "what about 10 years?", "run a simulation"), route to `PortfolioAgent`
+- If the previous message was handled by `FinanceMarketAgent` AND the current query is a follow-up (e.g., "what's the price?", "how's it performing?", "how about Apple?"), route to `FinanceMarketAgent`
+- Context clues: pronouns (it, that, this), time references without entities (10 years, next month), or vague queries indicate a follow-up
 
-# OUTPUT FORMAT
-Your output must be a single word (the Agent Name) in uppercase with no other text, explanation, or punctuation.
-Example: FinanceMarketAgent
+# SPECIAL RULE: MIXED INTENT (FIRST MENTIONED)
+If a user query contains multiple intents, you MUST route based on the **FIRST MENTIONED** or **PRIMARY** request.
+- Example: "What is the price of Oracle and how does a 401k work?" -> Route to `FinanceMarketAgent` (Price was mentioned first).
+- Example: "How do I save for college and what's the price of Bitcoin?" -> Route to `FinanceQandAAgent` (General advice was mentioned first).
 
-# EXAMPLES
-Query: What is a P/E ratio?
-Output: FinanceQandAAgent
+# RULES & OVERRIDES
+- **Context Priority**: If the query is clearly a follow-up to the previous conversation, route to the same agent that handled the previous query
+- **Entity Priority**: Any mention of a specific company (Oracle, Nvidia) is ALWAYS a `FinanceMarketAgent` intent. NEVER send specific company queries to `FinanceQandAAgent`.
+- **Output Format**: Exactly one string in lowercase: `FinanceMarketAgent`, `PortfolioAgent`, or `FinanceQandAAgent`.
 
-Query: What is the current price of SPY?
-Output: FinanceMarketAgent
+# MANDATORY FOOTER (Direct Responses Only)
+"FinnieAI can make mistakes, and answers are for educational purposes only."
 """           ),
             ("human",
                 "User query: {user_query}\n"
@@ -243,9 +251,14 @@ Output: FinanceMarketAgent
             )
         ])
 
+        # Get the last agent used from state (if available)
+        last_agent = state.get("last_agent_used", None)
+        if last_agent:
+            LOGGER.info(f"📝 Last agent used: {last_agent}")
+
         # Get the latest user message
         user_message = state["messages"][-1]
-        
+                
         # Format the prompt with the user query
         formatted_prompt = prompt.format_prompt(user_query=user_message.content)
         
@@ -258,9 +271,11 @@ Output: FinanceMarketAgent
         # Update state to indicate next node
         if chosen_agent in AGENT_NAMES:
             state["next"] = chosen_agent
+            state["last_agent_used"] = chosen_agent
         else:
             LOGGER.warning(f"Unknown agent selected: {chosen_agent}. Defaulting to FinanceQandAAgent.")
             state["next"] = "FinanceQandAAgent"  # Default fallback
+            state["last_agent_used"] = "FinanceQandAAgent"
         
         return state
     
