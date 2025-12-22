@@ -114,6 +114,7 @@ with st.container():
                 with st.spinner("Thinking..."):
                     # Run async function in event loop
                     response = run_async(get_agent_response(user_input, st.session_state.session_id))
+                    st.write(response.message)
                     if getattr(response, "charts"):
                         for chart in response.charts:
                             st.image(f"{CHART_URL}{chart.filename}", caption=chart.title, width="stretch")
