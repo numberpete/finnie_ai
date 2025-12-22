@@ -116,7 +116,13 @@ def simple_monte_carlo_simulation(
     """
     LOGGER.info(f"Doing simple simulation on portfolio")
     
-    return analyze_correlated_portfolio(portfolio, target_goal, years, sims)
+    # Normalize portfolio keys: replace spaces with underscores
+    normalized_portfolio = {
+        key.replace(" ", "_"): value 
+        for key, value in portfolio.items()
+    }
+
+    return analyze_correlated_portfolio(normalized_portfolio, target_goal, years, sims)
 
 @mcp.tool()
 def get_asset_classes() -> List[str]:

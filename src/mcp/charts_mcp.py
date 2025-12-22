@@ -4,6 +4,7 @@ import os
 import matplotlib
 matplotlib.use('Agg')  # Non-interactive backend
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
 import numpy as np
 from pathlib import Path
 from typing import List, Dict, Any, Optional
@@ -18,6 +19,18 @@ from src.utils.cache import TTLCache
 # Setup tracing and logging
 setup_tracing("mcp-server-charts", enable_console_export=False)
 LOGGER = setup_logger_with_tracing(__name__, logging.INFO)
+
+# Define standard colors for asset classes
+ASSET_COLORS = {
+    "Equities": "#2E5BFF",
+    "Fixed_Income": "#46CDCF",
+    "Fixed Income": "#46CDCF",
+    "Real_Estate": "#F08A5D",
+    "Real Estate": "#F08A5D",
+    "Cash": "#3DDC84",
+    "Commodities": "#FFD700",
+    "Crypto": "#B832FF"
+}
 
 # Initialize FastMCP
 mcp = FastMCP("Chart Generation Server")
@@ -112,7 +125,7 @@ def create_pie_chart(
     
     # Filter out zero values and their corresponding labels/colors
     filtered_data = [
-        (label, value, colors[i] if colors else None)
+        (label, value, colors[i] if colors else ASSET_COLORS.get(label))
         for i, (label, value) in enumerate(zip(labels, values))
         if value > 0
     ]
@@ -201,7 +214,8 @@ def create_bar_chart(
     # Validate data
     categories, values = validate_data_lengths(categories, values)
     
-    chart_id = generate_chart_id("bar", {"categories": categories, "values": values, "title": title})
+    chart_id = generate_chart_id("stacked_bar", {"categories": categories, "values": values, "title": title})
+
     if use_cache:
         cached_data = charts_cache.get(chart_id)
         if cached_data is not None:
@@ -224,7 +238,18 @@ def create_bar_chart(
     ax.set_xlabel(xlabel, fontsize=12)
     ax.set_ylabel(ylabel, fontsize=12)
     ax.grid(axis='y', alpha=0.3)
-    
+
+    def currency_formatter(x, p):
+        """Format y-axis values as currency"""
+        if x >= 1_000_000:
+            return f'${x/1_000_000:.1f}M'
+        elif x >= 1_000:
+            return f'${x/1_000:.0f}K'
+        else:
+            return f'${x:.0f}'
+
+    ax.yaxis.set_major_formatter(FuncFormatter(currency_formatter))
+
     plt.xticks(rotation=45, ha='right')
     
     filename = save_chart(fig, chart_id)
@@ -350,6 +375,17 @@ def create_stacked_bar_chart(
     ax.legend(loc='upper left', framealpha=0.9)
     ax.grid(axis='y', alpha=0.3)
     
+    def currency_formatter(x, p):
+        """Format y-axis values as currency"""
+        if x >= 1_000_000:
+            return f'${x/1_000_000:.1f}M'
+        elif x >= 1_000:
+            return f'${x/1_000:.0f}K'
+        else:
+            return f'${x:.0f}'
+    
+    ax.yaxis.set_major_formatter(FuncFormatter(currency_formatter))
+
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
     

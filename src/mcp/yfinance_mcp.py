@@ -252,7 +252,7 @@ def get_asset_classes(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
                 data["Crypto"] = 1.0
             elif is_commodities_fund(ticker):
                 data["Commodities"] = 1.0
-            elif ticker.funds_date is not None and ticker.funds_data.asset_classes:
+            elif ticker.funds_data is not None and ticker.funds_data.asset_classes:
                 funds_data = ticker.funds_data
                 """
                 yfinance asset class: our asset class
@@ -394,7 +394,7 @@ def get_ticker_quote(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
         market_cache.set(cache_key, result, ttl_seconds=1800)
         
         LOGGER.info(f"Successfully fetched data for {symbol}")
-        Logger.debug("Fetched data: {result}")
+        LOGGER.debug("Fetched data: {result}")
         return result
     
     except Exception as e:
