@@ -15,6 +15,7 @@ from src.utils.cache import TTLCache
 setup_tracing("mcp-server-yfinance", enable_console_export=False)
 LOGGER = setup_logger_with_tracing(__name__, logging.INFO)
 
+
 # Initialize FastMCP
 mcp = FastMCP("yFinance Market Data Server")
 
@@ -69,7 +70,96 @@ def retry_with_backoff(
     
     raise last_exception
 
+KNOWN_COMMODITIES_FUNDS = {
+    # Broad Commodities
+    "DBC", "PDBC", "GSG", "USCI", "DJP", "BCI", "COMT", "COMB",
+    
+    # Precious Metals
+    "GLD", "IAU", "GLDM", "SGOL", "BAR", "AAAU",  # Gold
+    "SLV", "PSLV", "SIVR",  # Silver
+    "PPLT", "PALL",  # Platinum/Palladium
+    "GLTR",  # Multi-metal
+    
+    # Energy
+    "USO", "BNO", "UCO", "SCO", "USL", "OILK",  # Oil
+    "UNG", "BOIL", "KOLD", "GAZ",  # Natural Gas
+    "UGA",  # Gasoline
+    
+    # Agricultural
+    "DBA", "WEAT", "CORN", "SOYB", "CANE", "NIB", "COW", "JO",
+    
+    # Industrial Metals
+    "CPER", "JJC", "COPX", "JJU", "JJN", "LD",
+}
 
+KNOWN_CRYPTO = {
+    "BTC-USD", "ETH-USD", "USDT-USD", "BNB-USD", "XRP-USD",
+    "ADA-USD", "DOGE-USD", "SOL-USD", "TRX-USD", "DOT-USD",
+    "MATIC-USD", "LTC-USD", "SHIB-USD", "AVAX-USD", "UNI-USD",
+    "LINK-USD", "XLM-USD", "ATOM-USD", "ETC-USD", "XMR-USD",
+    # Add more as needed
+}
+
+def is_commodities_fund(ticker) -> bool:
+    """Check if a ticker is a commodities fund."""
+    info = ticker.info
+    
+    # Check 1: Name/category keywords
+    fund_name = info.get("longName", "").lower()
+    category = info.get("category", "").lower()
+    
+    commodities_keywords = ["commodities", "commodity", "gold", "silver", 
+                           "precious metals", "natural resources"]
+    
+    if any(keyword in fund_name or keyword in category 
+           for keyword in commodities_keywords):
+        return True
+    
+    # Check 2: Known commodities tickers
+    if info.get("symbol").upper() in KNOWN_COMMODITIES_FUNDS:
+        return True
+    
+    # Check 3: Morningstar category
+    if "commodit" in category.lower() or "precious metal" in category.lower():
+        return True
+    
+    return False
+
+def is_crypto(ticker) -> bool:
+    """
+    Determine if a ticker symbol is cryptocurrency.
+    
+    Args:
+        symbol: Ticker symbol to check
+        
+    Returns:
+        True if crypto, False otherwise
+    """
+    try:
+        info = ticker.info
+        
+        # Check 1: Quote type (most reliable)
+        quote_type = info.get("quoteType", "")
+        if quote_type == "CRYPTOCURRENCY":
+            return True
+        
+        # Check 2: Exchange
+        exchange = info.get("exchange", "")
+        if exchange in ["CCC", "CCY", "CryptoCurrency"]:
+            return True
+        
+        # Check 3: Symbol suffix pattern
+        crypto_suffixes = ["-USD", "-EUR", "-GBP", "-USDT", "-BUSD"]
+        if any(info.get("symbol").upper().endswith(suffix) for suffix in crypto_suffixes):
+            return True
+        
+        return False
+        
+    except Exception as e:
+        # Fallback: check suffix pattern
+        crypto_suffixes = ["-USD", "-EUR", "-GBP", "-USDT", "-BUSD"]
+        return any(info.get("symbol").upper().endswith(suffix) for suffix in crypto_suffixes)
+    
 # ============================================================================
 # MOCK DATA FOR FALLBACK
 # ============================================================================
@@ -122,6 +212,128 @@ def get_mock_data(symbol: str) -> Dict[str, Any]:
 # ============================================================================
 
 @mcp.tool()
+def get_asset_classes(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
+    """
+    Look up the asset class breakdown for a ticker.
+    
+    Args:
+        symbol: symbol for the ticker (e.g, 'VFIAX','VFORX')
+        use_cache:  Whether to use cached data (default: True)
+
+    Returns: 
+        Dictionary with asset classes mapped to the ratio (0 to 1) of the fund they comprise,
+        or mock data if API call fails
+    """
+    LOGGER.info(f"get_asset_classes called: symbol={symbol}, use_cache={use_cache}")
+
+    cache_key = f"asset_ticker:{symbol.upper()}"
+
+    # Check cache first
+    if use_cache:
+        cached_data = market_cache.get(cache_key)
+        if cached_data is not None:
+            return cached_data
+
+    try:
+        def fetch_allocation():
+            data = {
+                "symbol": symbol.upper(),
+                "Equities": 0.0,
+                "Fixed_Income": 0.0,
+                "Cash": 0.0,
+                "Real_Estate": 0.0,
+                "Commodities": 0.0,
+                "Crypto": 0.0,
+                "_mock": False
+            }
+
+            ticker = yf.Ticker(symbol)
+            if is_crypto(ticker):
+                data["Crypto"] = 1.0
+            elif is_commodities_fund(ticker):
+                data["Commodities"] = 1.0
+            elif ticker.funds_data is not None and ticker.funds_data.asset_classes:
+                funds_data = ticker.funds_data
+                """
+                yfinance asset class: our asset class
+                * cashPosition: Cash
+                * stockPosition: Equities
+                * bondPosition: Fixed_Income
+                * preferredPosition: Fixed_Income
+                * convertiblePosition: 50% Equities/50% Fixed Income
+                * otherPosition: 50% Commodities/50% Real_Estate
+                """
+
+                if funds_data.asset_classes:
+                    for asset_class, ratio in funds_data.asset_classes.items():
+                        if asset_class == "cashPosition":
+                            data["Cash"] += ratio
+                        elif asset_class == "stockPosition":
+                            data["Equities"] += ratio
+                        elif asset_class == "bondPosition":
+                            data["Fixed_Income"] += ratio
+                        elif asset_class == "preferredPosition":
+                            data["Fixed_Income"] += ratio
+                        elif asset_class == "convertiblePosition":
+                            data["Equities"] += ratio/2
+                            data["Fixed_Income"] += ratio/2
+                        elif asset_class == "otherPosition":
+                            data["Real_Estate"] += ratio/2
+                            data["Commodities"] += ratio/2
+            else:
+                sector = ticker.info.get("sector")
+                industry = ticker.info.get("industry")
+                if sector == "Real Estate" and industry and industry.startswith("REIT -"):
+                    data["Real_Estate"] = 1.0
+                else:
+                    data["Equities"] = 1.0
+
+            # Normalization Step
+            total_ratio = data["Equities"] + data["Fixed_Income"] + data["Cash"] + \
+                        data["Real_Estate"] + data["Commodities"] + data["Crypto"]
+
+            if 0 < total_ratio != 1.0:
+                for key in ["Equities", "Fixed_Income", "Cash", "Real_Estate", "Commodities", "Crypto"]:
+                    data[key] /= total_ratio
+
+            return data
+        
+        # Execute with retry logic
+        result = retry_with_backoff(
+            fetch_allocation,
+            max_retries=3,
+            base_delay=1.0
+        )
+        
+        # Cache the result
+        market_cache.set(cache_key, result, ttl_seconds=1800)
+        
+        LOGGER.info(f"Successfully fetched allocations for {symbol}")
+        LOGGER.debug("Fetched data: {result}")
+        return result
+    
+    except Exception as e:
+        LOGGER.error(f"Failed to fetch {symbol} after retries: {str(e)}")
+        
+        # Return mock data as fallback
+        LOGGER.warning(f"Returning mock allocation for {symbol}")
+        mock_data =  {
+                "symbol": symbol.upper(),
+                "Equities": 0.6,
+                "Fixed_Income": 0.4,
+                "Cash": 0.0,
+                "Real_Estate": 0.0,
+                "Commodities": 0.0,
+                "Crypto": 0.0,
+                "error": str(e),
+                "message": "allocation data unavailable",
+                "_mock": True
+        }
+        mock_data["error"] = str(e)
+        
+        return mock_data
+
+@mcp.tool()
 def get_ticker_quote(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
     """
     Get current stock price and basic information.
@@ -143,7 +355,7 @@ def get_ticker_quote(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
         cached_data = market_cache.get(cache_key)
         if cached_data is not None:
             return cached_data
-    
+        
     # Try to fetch from yFinance with retry
     try:
         def fetch_stock_data():
@@ -182,7 +394,7 @@ def get_ticker_quote(symbol: str, use_cache: bool = True) -> Dict[str, Any]:
         market_cache.set(cache_key, result, ttl_seconds=1800)
         
         LOGGER.info(f"Successfully fetched data for {symbol}")
-        Logger.debug("Fetched data: {result}")
+        LOGGER.debug("Fetched data: {result}")
         return result
     
     except Exception as e:

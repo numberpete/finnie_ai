@@ -4,6 +4,7 @@ import os
 import matplotlib
 matplotlib.use('Agg')  # Non-interactive backend
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
 import numpy as np
 from pathlib import Path
 from typing import List, Dict, Any, Optional
@@ -18,6 +19,18 @@ from src.utils.cache import TTLCache
 # Setup tracing and logging
 setup_tracing("mcp-server-charts", enable_console_export=False)
 LOGGER = setup_logger_with_tracing(__name__, logging.INFO)
+
+# Define standard colors for asset classes
+ASSET_COLORS = {
+    "Equities": "#2E5BFF",
+    "Fixed_Income": "#46CDCF",
+    "Fixed Income": "#46CDCF",
+    "Real_Estate": "#F08A5D",
+    "Real Estate": "#F08A5D",
+    "Cash": "#3DDC84",
+    "Commodities": "#FFD700",
+    "Crypto": "#B832FF"
+}
 
 # Initialize FastMCP
 mcp = FastMCP("Chart Generation Server")
@@ -100,7 +113,7 @@ def create_pie_chart(
     
     Example:
         create_pie_chart(
-            labels=["Stocks", "Bonds", "Cash"],
+            labels=["Equities", "Fixed Income", "Cash"],
             values=[60, 30, 10],
             title="Portfolio Allocation"
         )
@@ -110,7 +123,24 @@ def create_pie_chart(
     # Validate data
     labels, values = validate_data_lengths(labels, values)
     
-    chart_id = generate_chart_id("pie", {"labels": labels, "values": values, "title": title})
+    # Filter out zero values and their corresponding labels/colors
+    filtered_data = [
+        (label, value, colors[i] if colors else ASSET_COLORS.get(label))
+        for i, (label, value) in enumerate(zip(labels, values))
+        if value > 0
+    ]
+    
+    if not filtered_data:
+        LOGGER.warning("All values are zero, cannot create pie chart")
+        raise ValueError("Cannot create pie chart with all zero values")
+    
+    # Unpack filtered data
+    filtered_labels, filtered_values, filtered_colors = zip(*filtered_data)
+    filtered_labels = list(filtered_labels)
+    filtered_values = list(filtered_values)
+    filtered_colors = [c for c in filtered_colors if c is not None] if any(filtered_colors) else None
+    
+    chart_id = generate_chart_id("pie", {"labels": filtered_labels, "values": filtered_values, "title": title})
     if use_cache:
         cached_data = charts_cache.get(chart_id)
         if cached_data is not None:
@@ -119,11 +149,11 @@ def create_pie_chart(
     fig, ax = plt.subplots(figsize=(10, 7))
     
     wedges, texts, autotexts = ax.pie(
-        values,
-        labels=labels,
+        filtered_values,
+        labels=filtered_labels,
         autopct='%1.1f%%',
         startangle=90,
-        colors=colors
+        colors=filtered_colors
     )
     
     # Make percentage text bold and white
@@ -136,7 +166,7 @@ def create_pie_chart(
     
     filename = save_chart(fig, chart_id)
     
-    result =  {
+    result = {
         "chart_id": chart_id,
         "filename": filename,
         "chart_type": "pie",
@@ -184,7 +214,8 @@ def create_bar_chart(
     # Validate data
     categories, values = validate_data_lengths(categories, values)
     
-    chart_id = generate_chart_id("bar", {"categories": categories, "values": values, "title": title})
+    chart_id = generate_chart_id("stacked_bar", {"categories": categories, "values": values, "title": title})
+
     if use_cache:
         cached_data = charts_cache.get(chart_id)
         if cached_data is not None:
@@ -207,7 +238,18 @@ def create_bar_chart(
     ax.set_xlabel(xlabel, fontsize=12)
     ax.set_ylabel(ylabel, fontsize=12)
     ax.grid(axis='y', alpha=0.3)
-    
+
+    def currency_formatter(x, p):
+        """Format y-axis values as currency"""
+        if x >= 1_000_000:
+            return f'${x/1_000_000:.1f}M'
+        elif x >= 1_000:
+            return f'${x/1_000:.0f}K'
+        else:
+            return f'${x:.0f}'
+
+    ax.yaxis.set_major_formatter(FuncFormatter(currency_formatter))
+
     plt.xticks(rotation=45, ha='right')
     
     filename = save_chart(fig, chart_id)
@@ -221,6 +263,143 @@ def create_bar_chart(
 
     charts_cache.set(chart_id, result, ttl_seconds=1800)
 
+    return result
+
+@mcp.tool()
+def create_stacked_bar_chart(
+    categories: List[str],
+    series_data: Dict[str, List[float]],
+    title: str = "Stacked Bar Chart",
+    xlabel: str = "",
+    ylabel: str = "Value",
+    colors: Optional[List[str]] = None,
+    use_cache: bool = True
+) -> Dict[str, str]:
+    """
+    Create a stacked bar chart with multiple series.
+    
+    Args:
+        categories: List of category names (x-axis)
+        series_data: Dictionary mapping series names to their values
+                    Example: {"Equities": [100, 150, 200], "Fixed Income": [50, 75, 100]}
+        title: Chart title
+        xlabel: X-axis label
+        ylabel: Y-axis label
+        colors: Optional list of colors for each series (hex or named colors)
+        use_cache: Whether to use cached chart if available
+    
+    Returns:
+        Dictionary with chart_id and filename
+    
+    Example:
+        create_stacked_bar_chart(
+            categories=["Bottom 10%", "Median", "Top 10%"],
+            series_data={
+                "Equities": [10000, 12000, 15000],
+                "Fixed Income": [5000, 6000, 7000],
+                "Cash": [2000, 2500, 3000]
+            },
+            title="Portfolio Simulation Outcome (10 years)",
+            ylabel="Amount ($)"
+        )
+    """
+    LOGGER.info(f"Creating stacked bar chart: {title}")
+    
+    # Validate that all series have the same length as categories
+    for series_name, values in series_data.items():
+        if len(values) != len(categories):
+            raise ValueError(
+                f"Series '{series_name}' has {len(values)} values but "
+                f"there are {len(categories)} categories"
+            )
+    
+    # Generate chart ID
+    chart_id = generate_chart_id(
+        "stacked_bar", 
+        {"categories": categories, "series_data": series_data, "title": title}
+    )
+    
+    if use_cache:
+        cached_data = charts_cache.get(chart_id)
+        if cached_data is not None:
+            return cached_data
+    
+    # Set up colors
+    if colors is None:
+        # Default color palette
+        default_colors = [
+            "#3498db", "#e74c3c", "#2ecc71", "#f39c12", 
+            "#9b59b6", "#1abc9c", "#34495e", "#e67e22"
+        ]
+        colors = default_colors[:len(series_data)]
+    
+    fig, ax = plt.subplots(figsize=(12, 7))
+    
+    # Create the stacked bars
+    bottom = [0] * len(categories)
+    bars_list = []
+    
+    for (series_name, values), color in zip(series_data.items(), colors):
+        bars = ax.bar(
+            categories, 
+            values, 
+            bottom=bottom,
+            label=series_name,
+            color=color,
+            alpha=0.8
+        )
+        bars_list.append(bars)
+        
+        # Update bottom for next stack
+        bottom = [b + v for b, v in zip(bottom, values)]
+    
+    # Add value labels on each segment (optional - can be removed if too cluttered)
+    for bars in bars_list:
+        for bar in bars:
+            height = bar.get_height()
+            if height > 0:  # Only show label if segment is visible
+                y_pos = bar.get_y() + height / 2
+                ax.text(
+                    bar.get_x() + bar.get_width() / 2., 
+                    y_pos,
+                    f'${height:,.0f}' if height > 1000 else f'{height:.1f}',
+                    ha='center', 
+                    va='center', 
+                    fontsize=9,
+                    fontweight='bold'
+                )
+    
+    ax.set_title(title, fontsize=16, fontweight='bold', pad=20)
+    ax.set_xlabel(xlabel, fontsize=12)
+    ax.set_ylabel(ylabel, fontsize=12)
+    ax.legend(loc='upper left', framealpha=0.9)
+    ax.grid(axis='y', alpha=0.3)
+    
+    def currency_formatter(x, p):
+        """Format y-axis values as currency"""
+        if x >= 1_000_000:
+            return f'${x/1_000_000:.1f}M'
+        elif x >= 1_000:
+            return f'${x/1_000:.0f}K'
+        else:
+            return f'${x:.0f}'
+    
+    ax.yaxis.set_major_formatter(FuncFormatter(currency_formatter))
+
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+    
+    filename = save_chart(fig, chart_id)
+    
+    result = {
+        "chart_id": chart_id,
+        "filename": filename,
+        "chart_type": "stacked_bar",
+        "title": title
+    }
+    
+    charts_cache.set(chart_id, result, ttl_seconds=1800)
+    
     return result
 
 @mcp.tool()

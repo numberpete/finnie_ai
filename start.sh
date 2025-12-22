@@ -45,8 +45,8 @@ fi
 # Function to cleanup on exit
 cleanup() {
     echo -e "\n${RED}🛑 Shutting down services...${NC}"
-    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $IMAGE_SERVER_PID $STREAMLIT_PID 2>/dev/null
-    wait $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $IMAGE_SERVER_PID $STREAMLIT_PID 2>/dev/null
+    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $MCP_GOALS_PID $IMAGE_SERVER_PID $MCP_GOALS_PID $STREAMLIT_PID 2>/dev/null
+    wait $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $MCP_GOALS_PID $IMAGE_SERVER_PID $MCP_GOALS_PID $STREAMLIT_PID 2>/dev/null
     echo -e "${GREEN}✅ Services stopped${NC}"
     exit 0
 }
@@ -59,11 +59,12 @@ echo -e "${YELLOW}🧹 Checking for existing processes...${NC}"
 pkill -f "src.mcp.finance_q_and_a_mcp" 2>/dev/null
 pkill -f "src.mcp.yfinance_mcp" 2>/dev/null
 pkill -f "src.mcp.charts_mcp" 2>/dev/null
+pkill -f "src.mcp.goals_mcp" 2>/dev/null
 pkill -f "src.servers.image_server" 2>/dev/null
 pkill -f "src.ui.app_streamlit" 2>/dev/null
 
 # Check if ports 8001 and 8002 are in use and kill them
-for port in 8001 8002 8003 8010 8501; do
+for port in 8001 8002 8003 8004 8010 8501; do
     if lsof -Pi :$port -sTCP:LISTEN -t >/dev/null 2>&1 ; then
         echo -e "${YELLOW}⚠️  Port $port is in use, killing process...${NC}"
         lsof -ti:$port | xargs kill -9 2>/dev/null
@@ -131,7 +132,7 @@ sleep 4
 # Check if Chart MCP server is still running
 if ! kill -0 $MCP_CHARTS_PID 2>/dev/null; then
     echo -e "${RED}❌ Chart  MCP server failed to start${NC}"
-    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID 2>/dev/null
+    kill $MCP_CHARTS_PID 2>/dev/null
     exit 1
 fi
 
@@ -144,6 +145,30 @@ fi
 
 echo -e "${GREEN}✅ Chart MCP Server started (PID: $MCP_CHARTS_PID)${NC}\n"
 
+# Start Goals MCP Server in background
+echo -e "${BLUE}📈 Starting Goals MCP Server (port 8004)...${NC}"
+python -m src.mcp.goals_mcp &
+MCP_GOALS_PID=$!
+
+# Wait a moment for it to start
+sleep 4
+
+# Check if Goals MCP server is still running
+if ! kill -0 $MCP_GOALS_PID 2>/dev/null; then
+    echo -e "${RED}❌ Goals MCP server failed to start${NC}"
+    kill $MCP_GOALS_PID 2>/dev/null
+    exit 1
+fi
+
+# Verify port 8004 is listening
+if ! lsof -Pi :8004 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
+    echo -e "${RED}❌ Goals MCP server is not listening on port 8003${NC}"
+    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $MCP_GOALS_PID 2>/dev/null
+    exit 1
+fi
+
+echo -e "${GREEN}✅ Goals MCP Server started (PID: $MCP_GOALS_PID)${NC}\n"
+
 # Start Image Server in background
 echo -e "${BLUE}🖼️  Starting Image Server (port 8010)...${NC}"
 python -m src.servers.image_server &
@@ -155,14 +180,14 @@ sleep 4
 # Check if Image Server is still running
 if ! kill -0 $IMAGE_SERVER_PID 2>/dev/null; then
     echo -e "${RED}❌ Image Server failed to start${NC}"
-    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID 2>/dev/null
+    kill $IMAGE_SERVER_PID 2>/dev/null
     exit 1
 fi
 
 # Verify port 8010 is listening
 if ! lsof -Pi :8010 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
     echo -e "${RED}❌ Image Server is not listening on port 8010${NC}"
-    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $IMAGE_SERVER_PID 2>/dev/null
+    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $MCP_GOALS_SERVER $IMAGE_SERVER_PID 2>/dev/null
     exit 1
 fi
 
@@ -181,9 +206,10 @@ echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━
 echo -e "${BLUE}Finance MCP Server PID:${NC} $MCP_FINANCE_PID"
 echo -e "${BLUE}yFinance MCP Server PID:${NC} $MCP_YFINANCE_PID"
 echo -e "${BLUE}Chart MCP Server PID:${NC} $MCP_CHARTS_PID"
+echo -e "${BLUE}Goals MCP Server PID:${NC} $MCP_GOALS_PID"
 echo -e "${BLUE}Image Server PID:${NC} $IMAGE_SERVER_PID"
 echo -e "${BLUE}Streamlit App PID:${NC} $STREAMLIT_PID"
 echo -e "\n${BLUE}Press CTRL+C to stop all services${NC}\n"
 
 # Wait for all processes
-wait $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $IMAGE_SERVER_PID $STREAMLIT_PID
+wait $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $MCP_GOALS_PID $IMAGE_SERVER_PID $STREAMLIT_PID
