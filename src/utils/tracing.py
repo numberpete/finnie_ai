@@ -8,6 +8,7 @@ from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 from opentelemetry.instrumentation.httpx import HTTPXClientInstrumentor
 from opentelemetry.instrumentation.requests import RequestsInstrumentor
 import logging
+import time
 
 # Import your logging setup
 from .logging import ColoredFormatter
@@ -17,6 +18,21 @@ logger = logging.getLogger(__name__)
 
 class TracingFormatter(ColoredFormatter):
     """Extends ColoredFormatter to include OpenTelemetry trace and span IDs."""
+    
+    # Additional colors
+    DARK_GREEN = '\033[32m'
+    DARKER_GREEN = '\033[2;32m'  # ✅ Dimmed/darker green
+    BLUE = '\033[34m'
+    
+    def __init__(self, *args, service_name: str = "unknown", **kwargs):
+        """
+        Initialize formatter with service name.
+        
+        Args:
+            service_name: Name of the service for logging
+        """
+        super().__init__(*args, **kwargs)
+        self.service_name = service_name
     
     def format(self, record):
         # Get current span context
@@ -31,11 +47,31 @@ class TracingFormatter(ColoredFormatter):
         else:
             record.trace_id = ""
         
+        # Add colored service name to record
+        record.service_name = f"{self.BLUE}{self.service_name}{self.RESET}"
+        
         # Add color to level name
         color = self.COLORS.get(record.levelname, self.RESET)
         record.levelname = f"{color}{record.levelname}{self.RESET}"
         
         return super(ColoredFormatter, self).format(record)
+    
+    def formatTime(self, record, datefmt=None):
+        """
+        Override formatTime to add dark green color and brackets around timestamp.
+        """
+        # Get the formatted time with milliseconds
+        ct = self.converter(record.created)
+        if datefmt:
+            s = time.strftime(datefmt, ct)
+        else:
+            s = time.strftime(self.default_time_format, ct)
+        
+        # Add milliseconds
+        s = self.default_msec_format % (s, record.msecs)
+        
+        # Add dark green color and brackets
+        return f"{self.DARKER_GREEN}[{s}]{self.RESET}"
 
 
 def setup_tracing(service_name: str, enable_console_export: bool = False):
@@ -50,7 +86,6 @@ def setup_tracing(service_name: str, enable_console_export: bool = False):
         # In your main app file
         setup_tracing("supervisor")
     """
-    
     # Create a resource identifying this service
     resource = Resource(attributes={
         "service.name": service_name
@@ -97,21 +132,22 @@ def get_tracer(name: str):
     return trace.get_tracer(name)
 
 
-def setup_logger_with_tracing(name: str, level: int = logging.INFO) -> logging.Logger:
+def setup_logger_with_tracing(name: str, level: int = logging.INFO, service_name: str = "unknown") -> logging.Logger:
     """
     Creates a logger with both colored output and OpenTelemetry trace IDs.
     
     Args:
         name: Name of the logger (usually __name__)
         level: Logging level (default: INFO)
+        service_name: Name of the service for log messages (default: "unknown")
     
     Returns:
         Configured logger instance
     
     Example:
         from src.utils.tracing import setup_logger_with_tracing
-        logger = setup_logger_with_tracing(__name__)
-        logger.info("This message includes trace_id")
+        logger = setup_logger_with_tracing(__name__, service_name="supervisor")
+        logger.info("This message includes trace_id and service name")
     """
     import sys
     
@@ -127,10 +163,17 @@ def setup_logger_with_tracing(name: str, level: int = logging.INFO) -> logging.L
     handler = logging.StreamHandler(sys.stdout)
     handler.setLevel(level)
     
-    # Create formatter with tracing support
+    # Create formatter with tracing support, timestamp, and service name
+    # Format: [YYYY-MM-DD HH:MM:SS.mmm] [service] LEVEL [trace:span] file:line - message
     formatter = TracingFormatter(
-        fmt='%(levelname)s:    %(trace_id)s %(filename)s:%(lineno)d - %(message)s'
+        fmt='%(asctime)s [%(service_name)s] %(levelname)s:    %(trace_id)s %(filename)s:%(lineno)d - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S',
+        service_name=service_name
     )
+    
+    # Configure time formatting
+    formatter.default_time_format = '%Y-%m-%d %H:%M:%S'
+    formatter.default_msec_format = '%s.%03d'
     
     handler.setFormatter(formatter)
     logger.addHandler(handler)

@@ -2,10 +2,8 @@
 
 import yfinance as yf
 import time
-import hashlib
-import json
 from datetime import datetime
-from typing import Optional, Dict, Any
+from typing import  Dict, Any
 from fastmcp import FastMCP
 from src.utils.tracing import setup_tracing, setup_logger_with_tracing
 import logging
@@ -13,7 +11,7 @@ from src.utils.cache import TTLCache
 
 # Setup tracing and logging
 setup_tracing("mcp-server-yfinance", enable_console_export=False)
-LOGGER = setup_logger_with_tracing(__name__, logging.INFO)
+LOGGER = setup_logger_with_tracing(__name__, service_name="mcp-server-yfinance")
 
 
 # Initialize FastMCP
@@ -206,6 +204,107 @@ def get_mock_data(symbol: str) -> Dict[str, Any]:
         "_timestamp": datetime.now().isoformat()
     }
 
+def normalize_time_period(period: str) -> str:
+    """
+    Normalize a time period string to the closest valid yfinance period.
+    
+    Valid periods: '1d', '5d', '1mo', '3mo', '6mo', '1y', '5y', 'max'
+    
+    Args:
+        period: Time period string (e.g., '2mo', '10y', '3d', '2y')
+    
+    Returns:
+        Closest valid yfinance period
+    
+    Examples:
+        normalize_time_period('2mo') -> '3mo'
+        normalize_time_period('10y') -> 'max'
+        normalize_time_period('3d') -> '5d'
+        normalize_time_period('2y') -> '5y'
+    """
+    import re
+    
+    # Valid yfinance periods
+    VALID_PERIODS = ['1d', '5d', '1mo', '3mo', '6mo', '1y', '5y', 'max']
+    
+    # If already valid, return as-is
+    period_lower = period.lower().strip()
+    if period_lower in VALID_PERIODS:
+        return period_lower
+    
+    # Handle 'max' variations
+    if period_lower in ['max', 'all', 'forever', 'lifetime']:
+        return 'max'
+    
+    # Parse the period
+    match = re.match(r'^(\d+)\s*(d|day|days|w|week|weeks|mo|month|months|y|year|years)s?$', period_lower)
+    
+    if not match:
+        # If can't parse, default to 1y
+        return '1y'
+    
+    value = int(match.group(1))
+    unit = match.group(2)
+    
+    # Normalize unit
+    if unit in ['d', 'day', 'days']:
+        # Convert to days
+        days = value
+        if days <= 1:
+            return '1d'
+        elif days <= 5:
+            return '5d'
+        elif days <= 30:
+            return '1mo'
+        elif days <= 90:
+            return '3mo'
+        elif days <= 180:
+            return '6mo'
+        elif days <= 365:
+            return '1y'
+        else:
+            return '5y'
+    
+    elif unit in ['w', 'week', 'weeks']:
+        # Convert weeks to closest period
+        days = value * 7
+        if days <= 5:
+            return '5d'
+        elif days <= 30:
+            return '1mo'
+        elif days <= 90:
+            return '3mo'
+        elif days <= 180:
+            return '6mo'
+        elif days <= 365:
+            return '1y'
+        else:
+            return '5y'
+    
+    elif unit in ['mo', 'month', 'months']:
+        # Month mapping
+        if value <= 1:
+            return '1mo'
+        elif value <= 3:
+            return '3mo'
+        elif value <= 6:
+            return '6mo'
+        elif value <= 12:
+            return '1y'
+        else:
+            return '5y'
+    
+    elif unit in ['y', 'year', 'years']:
+        # Year mapping
+        if value <= 1:
+            return '1y'
+        elif value <= 5:
+            return '5y'
+        else:
+            return 'max'
+    
+    # Default fallback
+    return '1mo'
 
 # ============================================================================
 # MCP TOOLS
@@ -426,11 +525,11 @@ def get_ticker_history(
     Returns:
         Dictionary with historical data or error message
     """
-    LOGGER.info(f"get__history called: symbol={symbol}, period={period}")
+    LOGGER.info(f"get_history called: symbol={symbol}, period={period}")
+    period = normalize_time_period(period)
     
     # Create cache key
     cache_key = f"ticker_history:{symbol.upper()}:{period}"
-    
     # Check cache
     if use_cache:
         cached_data = market_cache.get(cache_key)

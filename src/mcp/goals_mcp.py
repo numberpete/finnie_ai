@@ -10,7 +10,7 @@ import logging
 
 # Setup tracing and logging
 setup_tracing("mcp-server-goals", enable_console_export=False)
-LOGGER = setup_logger_with_tracing(__name__, logging.INFO)
+LOGGER = setup_logger_with_tracing(__name__, service_name="mcp-server-goals")
 ASSET_KEYS = ["Equities", "Fixed_Income", "Real_Estate", "Commodities", "Crypto", "Cash"]
 
 # Initialize FastMCP

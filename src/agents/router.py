@@ -18,7 +18,7 @@ import logging
 
 # Setup Logger
 setup_tracing("router", enable_console_export=False)
-LOGGER = setup_logger_with_tracing(__name__, logging.DEBUG)
+LOGGER = setup_logger_with_tracing(__name__, service_name="router")
 TRACER = get_tracer(__name__)
 
 _FINANCE_QA_AGENT = FinanceQandAAgent()
@@ -36,6 +36,7 @@ class AgentState(TypedDict):
     next: str # The name of the next agent/node to run
     session_id: str
     last_agent_used: Optional[str]
+    current_portfolio: Optional[dict]  # Track portfolio being built
     response: List[AgentResponse]
 
 

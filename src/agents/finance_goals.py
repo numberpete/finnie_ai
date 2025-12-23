@@ -1,4 +1,5 @@
-# src/agents/finance_portfolio.py
+# src/agents/finance_market.py
+
 from langchain_openai import ChatOpenAI
 from src.utils import setup_logger_with_tracing, setup_tracing
 from src.agents.base_agent import BaseAgent
@@ -6,8 +7,8 @@ import logging
 
 
 # Setup Logger
-setup_tracing("portfolio-agent", enable_console_export=False)
-LOGGER = setup_logger_with_tracing(__name__, service_name="portfolio-agent")
+setup_tracing("finance-goals-agent", enable_console_export=False)
+LOGGER = setup_logger_with_tracing(__name__, service_name="finance-goals-agent")
 
 
 # --- CONFIGURATION & PROMPT ---
@@ -19,7 +20,7 @@ LLM = ChatOpenAI(model=MODEL, temperature=0, streaming=True, cache=True)
 # Your detailed System Prompt (ENHANCED WITH CHART INSTRUCTIONS)
 STRICT_SYSTEM_PROMPT = """
 # ROLE
-You are the Portfolio Risk & Simulation Engine. You analyze portfolios and create visualizations.
+You are the Goals Simulation Engine. You take portfolios and run simulations on them, and provide visualizations to summarize.
 
 # ASSET CLASSES
 The portfolio uses these 6 asset classes:
@@ -109,7 +110,7 @@ Only if the current message does NOT contain portfolio data:
 """
 
 
-# MCP Server Configuration 
+# MCP Server Configuration - NOW WITH THREE SERVERS
 MCP_SERVERS = {
     "charts_mcp": {
         "url": "http://localhost:8003/sse", 
@@ -117,18 +118,18 @@ MCP_SERVERS = {
     },
     "goals_mcp": {
         "url": "http://localhost:8004/sse", 
-        "description": "Portfolio asessment tools"
+        "description": "Goals tools"
     }
 }
 
 
-class PortfolioAgent(BaseAgent):
+class GoalsAgent(BaseAgent):
     """
-    Enhanced LangChain ReAct agent for portfolio presentation and analysis WITH chart generation.
+    Enhanced LangChain ReAct agent for financial goal planning WITH chart generation.
     """
     def __init__(self):
         super().__init__(
-            agent_name="PortfolioAgent",
+            agent_name="GoalsAgent",
             llm=LLM,
             system_prompt=STRICT_SYSTEM_PROMPT,
             logger=LOGGER,

@@ -9,8 +9,8 @@ import logging
 
 # Setup logging
 # Setup tracing and logging
-setup_tracing("mcp-server-yfinance", enable_console_export=False)
-LOGGER = setup_logger_with_tracing(__name__, logging.INFO)
+setup_tracing("image_server", enable_console_export=False)
+LOGGER = setup_logger_with_tracing(__name__, service_name="image_server")
 
 
 # Initialize FastAPI

@@ -2,11 +2,13 @@ import streamlit as st
 from langsmith import uuid7
 import asyncio
 import os
-import sys
-from pathlib import Path
 from src.agents.router import RouterAgent
-from src.agents.response import AgentResponse, ChartArtifact
+from src.agents.response import AgentResponse
 import warnings
+from langchain_core.globals import set_llm_cache
+from langchain_community.cache import InMemoryCache
+
+set_llm_cache(InMemoryCache())
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 

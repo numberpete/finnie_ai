@@ -9,7 +9,7 @@ import logging
 
 
 setup_tracing("mcp-server-q-and-a", enable_console_export=False)    
-LOGGER = setup_logger_with_tracing(__name__, logging.DEBUG)
+LOGGER = setup_logger_with_tracing(__name__, service_name="mcp-server-q-and-a")
 
 # Initialize your resources
 SCRIPT_DIR = Path(__file__).resolve().parent
