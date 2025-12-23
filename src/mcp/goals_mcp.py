@@ -7,7 +7,6 @@ from typing import List, Dict, Any, Optional
 from fastmcp import FastMCP
 from src.utils.tracing import setup_tracing, setup_logger_with_tracing
 import logging
-from src.utils.cache import TTLCache
 
 # Setup tracing and logging
 setup_tracing("mcp-server-goals", enable_console_export=False)
@@ -16,8 +15,6 @@ ASSET_KEYS = ["Equities", "Fixed_Income", "Real_Estate", "Commodities", "Crypto"
 
 # Initialize FastMCP
 mcp = FastMCP("Goals Server")
-
-charts_cache = TTLCache(default_ttl_seconds=1800, name="charts_cache")
 
 def analyze_correlated_portfolio(portfolio, target_goal=500000, years=10, sims=1000) -> Dict[str, Any]:
     """
@@ -94,7 +91,7 @@ def analyze_correlated_portfolio(portfolio, target_goal=500000, years=10, sims=1
 
 
 # ============================================================================
-# CHART GENERATION FUNCTIONS
+# TOOLS
 # ============================================================================
 
 @mcp.tool()
