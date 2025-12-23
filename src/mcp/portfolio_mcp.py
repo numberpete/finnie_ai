@@ -1,14 +1,8 @@
 # src/mcp/portfolio_mcp.py (PATCHED VERSION with data validation)
 
-import os
-import json  # ✅ ADD THIS - needed for get_portfolio_summary
-import numpy as np
-import pandas as pd
-from typing import List, Dict, Any, Optional
+from typing import  Dict, Any
 from fastmcp import FastMCP
 from src.utils.tracing import setup_tracing, setup_logger_with_tracing
-import logging
-from src.utils.cache import TTLCache
 from mcp.types import TextContent
 
 
@@ -21,7 +15,7 @@ ASSET_KEYS = ["Equities", "Fixed_Income", "Real_Estate", "Commodities", "Crypto"
 mcp = FastMCP("Portfolio Server")
 
 @mcp.tool()
-def get_new_portfolio() -> Dict[str, Any]:
+def get_new_portfolio() -> Dict[str, float]:
     """
     Returns a 6-asset portfolio with all assets at 0.
     Returns:
@@ -74,6 +68,31 @@ def add_to_portfolio_with_allocation(
     
     return updated_portfolio
 
+@mcp.tool()
+def add_to_portfolio(portfolio: Dict[str,float], additions: Dict[str,float]) -> Dict[str,float]:
+    """
+    Adds the asset amounts provided (additions) to the portfolio provided.  Both arguments are portfolios, the first
+    being the current_portfolio, the second containing amounts to add to the portfolio.
+
+    Can also be to subtract from portfolio assets by passing in negative values in the additions.
+
+    Args:
+        portfolio: the portfolio to have amounts added to
+        additions: a "portfolio" with amounts to add to the portfolio
+    Returns:
+        a portfolio with the asset class amounts from the two arguments added together
+    """
+    LOGGER.info(f"Adding ${sum(additions.values()):,.2f} to portfolio${sum(portfolio.values()):,.2f}.")
+
+    updated_portfolio = {
+        key: value + additions.get(key, 0)
+        for key, value in portfolio.items()
+    }
+    
+    LOGGER.info(f"Updated portfolio total: ${sum(updated_portfolio.values()):,.2f}")
+    
+    return updated_portfolio
+
 
 @mcp.tool()
 def get_portfolio_summary(portfolio: Dict[str, float]) -> Dict[str, Any]:  # ✅ CHANGE RETURN TYPE
@@ -102,6 +121,48 @@ def get_portfolio_summary(portfolio: Dict[str, float]) -> Dict[str, Any]:  # ✅
         "asset_count": len([v for v in portfolio.values() if v > 0])
     }
 
+@mcp.tool()
+def assess_risk_tolerance(portfolio):
+    """
+    Calculates the weighted volatility of a 6-asset portfolio and 
+    maps it to a risk tolerance tier.
+    """
+    # 1. Standard Volatility Assumptions (Annual Sigma)
+    # Higher sigma = more risk/swing
+    vol_map = {
+        "Equities": 0.18,       # 18% annual swing
+        "Fixed_Income": 0.06,   # 6% annual swing
+        "Real_Estate": 0.12,    # 12% annual swing
+        "Commodities": 0.15,    # 15% annual swing
+        "Crypto": 0.70,         # 70% annual swing
+        "Cash": 0.01            # 1% annual swing
+    }
+
+    total_val = sum(portfolio.values())
+    if total_val == 0:
+        return "Empty Portfolio", 0.0
+
+    # 2. Calculate Weighted Portfolio Volatility
+    # This is a simplified linear weight for a quick assessment tool
+    p_vol = sum((val / total_val) * vol_map[ac] for ac, val in portfolio.items() if ac in vol_map)
+
+    # 3. Map Volatility to Risk Tier
+    if p_vol < 0.04:
+        tier = "Conservative (Preservation focused)"
+    elif p_vol < 0.09:
+        tier = "Moderate-Conservative (Income focused)"
+    elif p_vol < 0.14:
+        tier = "Moderate (Balanced Growth)"
+    elif p_vol < 0.20:
+        tier = "Aggressive (Growth focused)"
+    else:
+        tier = "Very Aggressive (Speculative/High Growth)"
+
+    return {
+        "weighted_volatility": f"{p_vol:.2%}",
+        "risk_tolerance_tier": tier,
+        "primary_risk_driver": max(portfolio, key=portfolio.get)
+    }
 
 # ============================================================================
 # SERVER STARTUP

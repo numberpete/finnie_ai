@@ -103,7 +103,7 @@ class BaseAgent:
         self.LOGGER.debug(f"✅ {self.agent_name} initialized with {len(self.tools)} tools (Instance ID: {self.instance_id})")
 
 
-    async def run_query(self, history: List[BaseMessage], session_id: str) -> AgentResponse:
+    async def run_query(self, history: List[BaseMessage], session_id: str, portfolio: Optional[Dict[str, float]] = None) -> AgentResponse:
         """
         Runs the agent against the conversation history and returns the response.
         Handles multiple sequential or parallel tool calls.
@@ -170,7 +170,7 @@ class BaseAgent:
                     elif msg_type == "ToolMessage":
                         tool_name = getattr(msg, 'name', 'unknown')
                         self.LOGGER.debug(f"      ✅ Tool result for: {tool_name}")
-                        
+
                         # Extract charts if applicable
                         if 'chart' in tool_name.lower() and hasattr(msg, 'content'):
                             try:

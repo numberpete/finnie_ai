@@ -215,3 +215,6 @@ src/data/
 
 #charts
 generated_charts/*
+
+.DS_Store
+**/.DS_Store
