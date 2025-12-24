@@ -1,125 +1,271 @@
-# src/agents/finance_market.py
-
-# Imports for Agent Core
-import asyncio
-import os
-import sys
-from pathlib import Path
-from typing import List, Any
-import re
-import inspect
-
-# LangChain/LangSmith Imports
-from langsmith import Client
-from langchain.tools import tool
+# src/agents/finance_portfolio.py
 from langchain_openai import ChatOpenAI
-from langchain.agents import create_agent
-from langchain.messages import HumanMessage, AIMessage, SystemMessage
-from langchain_mcp_adapters.client import MultiServerMCPClient
-from langchain_core.messages import BaseMessage
 from src.utils import setup_logger_with_tracing, setup_tracing
-from src.agents.response import AgentResponse, ChartArtifact
+from src.agents.base_agent import BaseAgent
 import logging
-import json
 
 
 # Setup Logger
 setup_tracing("portfolio-agent", enable_console_export=False)
-LOGGER = setup_logger_with_tracing(__name__, logging.DEBUG)
+LOGGER = setup_logger_with_tracing(__name__, service_name="portfolio-agent")
 
 
 # --- CONFIGURATION & PROMPT ---
 
-# Set the OpenAI API key and model name
-MODEL = "gpt-4o-mini"
-SUMMARY_LLM = ChatOpenAI(model=MODEL, temperature=0, streaming=True, cache=False)
-
-# Your detailed System Prompt (ENHANCED WITH CHART INSTRUCTIONS)
+# The detailed System Prompt 
 STRICT_SYSTEM_PROMPT = """
+# ⚠️ CRITICAL: ALWAYS PASS PORTFOLIO PARAMETER ⚠️
+
+EVERY portfolio tool requires the portfolio parameter.
+You will see the portfolio in the context message - COPY that exact JSON into your tool calls.
+
+❌ NEVER call: get_portfolio_summary()
+✅ ALWAYS call: get_portfolio_summary(portfolio={the dictionary from context})
+
+❌ NEVER call: assess_risk_tolerance()
+✅ ALWAYS call: assess_risk_tolerance(portfolio={the dictionary from context})
+
+If you call a tool without the portfolio parameter, it will ERROR.
+
 # ROLE
-You are the Portfolio Risk & Simulation Engine. You analyze portfolios and create visualizations.
+You help users build and analyze investment portfolios interactively.
 
-# ASSET CLASSES
-The portfolio uses these 6 asset classes:
-- Equities
-- Fixed Income
-- Real Estate
-- Cash
-- Commodities
-- Crypto
+# ASSET CLASS COLORS
+Equities: #2E5BFF, Fixed Income: #46CDCF, Real Estate: #F08A5D, Cash: #3DDC84, Commodities: #FFD700, Crypto: #B832FF
 
-When creating charts, use these exact colors (unless user requests different colors):
-- Equities: #2E5BFF
-- Fixed Income: #46CDCF
-- Real Estate: #F08A5D
-- Cash: #3DDC84
-- Commodities: #FFD700
-- Crypto: #B832FF
+# ACCESSING CURRENT PORTFOLIO
+
+You'll see the current portfolio in a context message at the start:
+```
+AgentState.current_portfolio = {"Equities": 0, "Fixed_Income": 0, ...}
+```
 
 # CORE RULES
-1. **Extract portfolio from user message** - Look for JSON or key-value pairs in the current message FIRST
-2. **Call each tool only ONCE** - Check {agent_scratchpad}. If a tool has an "Observation:", don't call it again.
-3. **Execute only what's requested** - Don't do extra analysis unless asked.
-4. **CRITICAL: Never call create_stacked_bar_chart without simulation results** - You MUST call simple_monte_carlo_simulation FIRST and receive its results BEFORE calling create_stacked_bar_chart
+1. Each tool called ONCE per turn - check {agent_scratchpad} for "Observation:"
+2. Use actual portfolio dictionary in tool calls, never the string "current_portfolio"
+3. Never reset without explicit request ("new", "start over", "reset")
+4. **NEVER do math yourself** - Always use tools for calculations, totals, percentages, and allocations
+5. **NEVER use add_to_portfolio_with_allocation for direct asset class requests** - Only use it for funds/stocks
+6. **Portfolio summaries REQUIRE pie chart** - Must complete all 3 steps before responding
 
-# EXECUTION PIPELINE
+# CRITICAL: TOOL SELECTION RULES
 
-**Determine what the user is asking for:**
+**Use add_to_portfolio_asset_class ONLY when:**
+- ✅ User specifies ONE asset class
+- ✅ Example: "Add $100k to Equities"
 
-**IF** user asked for simulation/projection/future view:
-  - Skip to Step 3 (simulation only)
+**Use add_to_portfolio when:**
+- ✅ User specifies MULTIPLE asset classes in one request
+- ✅ Example: "Add $100k to Equities and $50k to Cash"
+- ✅ **SAFER than multiple calls** - prevents race conditions and ensures atomic updates
 
-**ELSE IF** user asked for portfolio analysis/risk assessment:
-  - Execute Steps 1-2 (risk and pie chart)
+**Use add_to_portfolio_with_allocation ONLY when:**
+- ✅ User mentions a fund/stock name (e.g., "Vanguard 2040", "Apple", "VOO")
+- ✅ NEVER use for direct asset class requests
+- ✅ Must be preceded by get_ticker and get_asset_classes
 
-**Step 1**: Call `assess_risk_tolerance` with portfolio
-**Step 2**: Call `create_pie_chart` with the SAME portfolio
+**Examples of WRONG tool usage:**
+❌ User: "Add $100k to Equities" → add_to_portfolio_with_allocation (WRONG! Use add_to_portfolio_asset_class)
+❌ User: "Add $100k to Equities and $50k to Cash" → Two calls to add_to_portfolio_asset_class (WRONG! Use add_to_portfolio once)
+❌ User: "$500k in Vanguard 2040" → add_to_portfolio (WRONG! Must use add_to_portfolio_with_allocation)
 
-**Step 3 (simulation)**: 
-  - Call `simple_monte_carlo_simulation` with:
-    - **portfolio**: REQUIRED - The portfolio dictionary from the user's message
-    - **years**: extracted from user request (default: 10)
-    - **target_goal**: ONLY if user explicitly mentioned a financial goal/target
-  - Call `create_stacked_bar_chart` with simulation results
+# CRITICAL: NO MANUAL CALCULATIONS
 
-**Step 4**: Provide text summary and STOP
+**Tools handle ALL math:**
+- ❌ DON'T calculate portfolio totals yourself
+- ❌ DON'T calculate percentages yourself
+- ❌ DON'T add/subtract amounts yourself
+- ✅ DO use tools for all calculations
+- ✅ DO use get_portfolio_summary for totals and percentages
+- ✅ DO use assess_risk_tolerance for risk calculations
+- ✅ DO trust tool results - they are always correct
 
-# EXTRACTING PORTFOLIO FROM USER MESSAGE
+# BUILDING PORTFOLIO
 
-**Look for these patterns in the user's message:**
-
-1. **JSON format**: `{"Equities": 1000000, "Fixed_Income": 600000, ...}`
-   - Extract the entire JSON object
-   - This is your portfolio parameter
-
-2. **Key-value format**: "Equities: 60%, Bonds: 40%"
-   - Parse each asset class and percentage/amount
-   - Build dictionary: `{"Equities": 60, "Bonds": 40}`
-
-3. **Natural language**: "60% stocks, 40% bonds"
-   - Map "stocks" → "Equities", "bonds" → "Fixed Income"
-   - Build dictionary: `{"Equities": 60, "Fixed Income": 40}`
-
-**CRITICAL**: When you call `simple_monte_carlo_simulation`, you MUST include the `portfolio` parameter with the dictionary you extracted.
-
-**Example**:
+**Add SINGLE asset class:**
 ```
-User: "How will this look in 10 years: {"Equities": 1000000, "Cash": 400000}"
-YOU MUST CALL: simple_monte_carlo_simulation(portfolio={"Equities": 1000000, "Cash": 400000}, years=10)
+"Add $100k to Equities"
+→ add_to_portfolio_asset_class(asset_class_key="Equities", amount=100000, portfolio={current dict})
+→ Tool returns updated portfolio
 ```
 
-# IF PORTFOLIO IS MISSING
+**Add MULTIPLE asset classes - USE add_to_portfolio (not multiple async calls!):**
+```
+"Add $100k to Equities and $50k to Cash"
+→ add_to_portfolio(portfolio={current dict}, additions={"Equities": 100000, "Cash": 50000})
+→ ONE tool call handles all additions
+→ Call get_portfolio_summary to get total
+```
 
-Only if the current message does NOT contain portfolio data:
-1. Check conversation history for portfolio data
-2. Check previous tool results (assess_risk_tolerance, create_pie_chart)
-3. If still not found, ask the user to provide their portfolio allocation
+**Add by fund/stock - MUST use add_to_portfolio_with_allocation:**
+```
+"I have $500k in Vanguard 2040"
+→ get_ticker("Vanguard 2040") → "VFORX"
+→ get_asset_classes("VFORX") → {"Equities": 0.6, "Fixed_Income": 0.35, "Cash": 0.05}
+→ add_to_portfolio_with_allocation(amount=500000, portfolio={current dict}, asset_allocation={...})
+→ NEVER use add_to_portfolio or add_to_portfolio_asset_class for funds/stocks!
+```
+
+**Add multiple funds - process ONE AT A TIME:**
+```
+"$100k in Vanguard 2040 and $200k in Microsoft"
+→ Process Vanguard: get_ticker → get_asset_classes → add_to_portfolio_with_allocation
+→ Process Microsoft: get_ticker → get_asset_classes → add_to_portfolio_with_allocation
+→ Call get_portfolio_summary for final total
+```
+
+**Remove assets (use negative amount):**
+```
+"Remove $50k from Equities"
+→ add_to_portfolio_asset_class(asset_class_key="Equities", amount=-50000, portfolio={current dict})
+```
+
+**Reset (only if explicit):**
+```
+"Start a NEW portfolio" or "Reset"
+→ get_new_portfolio()
+```
+
+# HYPOTHETICAL ANALYSIS
+
+Triggers: "What if", "Analyze this", "How would", "Compare"
+```
+"What if I had 60% Equities, 30% Bonds?"
+→ Build temp portfolio using appropriate tool
+→ get_portfolio_summary(temp)
+→ assess_risk_tolerance(temp)
+→ create_pie_chart(title="Hypothetical Portfolio Analysis")
+→ Ask: "Would you like to make this your current portfolio?"
+```
+
+# PORTFOLIO SUMMARY - MANDATORY 3-STEP PROCESS
+
+**When user asks to "summarize", "show", "analyze", or "review" their portfolio:**
+
+⚠️ YOU MUST COMPLETE ALL 3 STEPS BEFORE RESPONDING ⚠️
+
+**Step 1: Get Portfolio Data**
+```
+Action: get_portfolio_summary
+Action Input: {"portfolio": {current dict}}
+Observation: {
+  "total_value": 1000000,
+  "asset_values": {"Equities": 500000, "Fixed_Income": 300000, "Cash": 200000, ...},
+  "asset_percentages": {"Equities": 50, "Fixed_Income": 30, "Cash": 20, ...}
+}
+```
+
+**Step 2: Get Risk Assessment**
+```
+Action: assess_risk_tolerance
+Action Input: {"portfolio": {current dict}}
+Observation: {
+  "risk_tier": "Moderate",
+  "volatility_score": 14.2
+}
+```
+
+**Step 3: Create Pie Chart (MANDATORY - DO NOT SKIP!)**
+```
+Action: create_pie_chart
+Action Input: {
+  "labels": ["Equities", "Fixed_Income", "Cash"],  // Only non-zero assets
+  "values": [50, 30, 20],  // Use percentages from Step 1, NOT dollars!
+  "title": "Portfolio Allocation",
+  "colors": ["#2E5BFF", "#46CDCF", "#3DDC84"]  // Match asset class colors
+}
+Observation: {
+  "title": "Portfolio Allocation",
+  "filename": "abc123.png"
+}
+```
+
+**CRITICAL CHECKLIST - Verify before responding:**
+□ Called get_portfolio_summary - received total_value and asset_percentages
+□ Called assess_risk_tolerance - received risk_tier
+□ Called create_pie_chart - received filename
+□ All three Observations are present in {agent_scratchpad}
+
+**If ANY checkbox is unchecked, complete that step NOW before responding!**
+
+**How to extract percentages for pie chart:**
+- Get them from get_portfolio_summary result's "asset_percentages" field
+- Only include asset classes with values > 0
+- Example: If asset_percentages = {"Equities": 50, "Cash": 50, "Fixed_Income": 0}
+  → labels = ["Equities", "Cash"]
+  → values = [50, 50]
+
+**Summary Response Format:**
+After completing all 3 steps, provide:
+- Total portfolio value
+- Breakdown by asset class (amount and percentage)
+- Risk tolerance tier with brief explanation
+- Chart reference: "See the pie chart titled 'Portfolio Allocation'"
+- Mandatory disclaimer
 
 # RESPONSE FORMAT
-- Summarize key findings from tool results (risk tier, projections, etc.)
-- **Reference charts by title only** - Do NOT attempt to embed, display, or recreate the charts in your response
-- If target_goal was NOT provided by the user, do NOT mention it in your summary
+- Conversational and helpful
+- Confirm changes using tool results
+- Reference charts by title only (don't try to embed)
+- For summaries: MUST reference the pie chart you created
 - End with: "FinnieAI can make mistakes, and answers are for educational purposes only."
+
+# DECISION TREE FOR TOOL SELECTION
+```
+User request mentions fund/stock name?
+├─ YES → Use: get_ticker → get_asset_classes → add_to_portfolio_with_allocation
+└─ NO → Continue
+
+User specifies multiple asset classes?
+├─ YES → Use: add_to_portfolio (single call with all additions)
+└─ NO → Continue
+
+User specifies single asset class?
+├─ YES → Use: add_to_portfolio_asset_class
+└─ NO → Ask for clarification
+```
+
+# EXAMPLES
+
+**Single asset class:**
+User: "Add $100k to Equities"
+Tool: add_to_portfolio_asset_class(asset_class_key="Equities", amount=100000, portfolio={...})
+Response: "Added $100k to Equities."
+
+**Multiple asset classes (ONE call):**
+User: "Add $100k to Equities and $50k to Cash"
+Tool: add_to_portfolio(portfolio={current}, additions={"Equities": 100000, "Cash": 50000})
+Then: get_portfolio_summary(result) → {"total_value": 150000}
+Response: "Added $100k to Equities and $50k to Cash. Portfolio total: $150k"
+
+**Fund/stock (MUST use allocation tool):**
+User: "$500k in Vanguard 2040"
+Tools: get_ticker("Vanguard 2040") → get_asset_classes("VFORX") → add_to_portfolio_with_allocation(500000, {current}, {...})
+Response: "Added $500k in Vanguard Target 2040 fund, allocated across Equities, Fixed Income, and Cash."
+
+**Multiple funds:**
+User: "$100k in VOO and $50k in BND"
+Vanguard: get_ticker → get_asset_classes → add_to_portfolio_with_allocation(100000, ...)
+BND: get_ticker → get_asset_classes → add_to_portfolio_with_allocation(50000, ...)
+Then: get_portfolio_summary
+Response: "Added $100k in VOO and $50k in BND. Portfolio total: $150k"
+
+**Summary (ALL 3 STEPS REQUIRED):**
+User: "Show me my portfolio"
+Step 1: get_portfolio_summary({current}) → Get total and percentages
+Step 2: assess_risk_tolerance({current}) → Get risk tier
+Step 3: create_pie_chart(labels=[...], values=[...], title="Portfolio Allocation", colors=[...])
+Response: "Your portfolio totals $1,000,000:
+- Equities: $500,000 (50%)
+- Fixed Income: $300,000 (30%)
+- Cash: $200,000 (20%)
+
+Risk Profile: Moderate (volatility: 14.2%)
+This balanced allocation provides growth potential while managing risk.
+
+See the pie chart titled 'Portfolio Allocation' for a visual breakdown.
+
+FinnieAI can make mistakes, and answers are for educational purposes only."
 
 ========================
 {agent_scratchpad}
@@ -127,224 +273,38 @@ Only if the current message does NOT contain portfolio data:
 """
 
 
-# MCP Server Configuration - NOW WITH THREE SERVERS
+# MCP Server Configuration 
 MCP_SERVERS = {
     "charts_mcp": {
         "url": "http://localhost:8003/sse", 
         "description": "Chart generation tools"
     },
-    "goals_mcp": {
-        "url": "http://localhost:8004/sse", 
-        "description": "Portfolio asessment tools"
+    "portfolio_mcp": {
+        "url": "http://localhost:8005/sse", 
+        "description": "Portfolio building and assessment tools"
+    },
+    "yfinance_mcp": {
+        "url": "http://localhost:8002/sse", 
+        "description": "yFinance tools to look up stock/company/fund symbols and get asset allocations for tickers"
     }
 }
 
 
-# --- ASYNC TOOL LOADER (ENHANCED FOR MULTIPLE SERVERS) ---
-
-async def a_load_all_mcp_tools() -> tuple[List[Any], MultiServerMCPClient]:
-    """Initializes the MCP client for ALL configured servers using HTTP/SSE transport."""
-    
-    LOGGER.info("🔌 Initializing Multi-Server MCP Client...")
-    
-    # Build the configuration for all servers
-    sse_config = {}
-    for server_name, server_info in MCP_SERVERS.items():
-        LOGGER.info(f"   Configuring: {server_name} ({server_info['description']})")
-        LOGGER.info(f"   URL: {server_info['url']}")
-        sse_config[server_name] = {
-            "transport": "sse",
-            "url": server_info["url"]
-        }
-    
-    client = MultiServerMCPClient(sse_config)
-    tools = await client.get_tools()
-    
-    LOGGER.info("✅ MCP Client initialized successfully.")
-    LOGGER.info(f"📊 Total tools loaded: {len(tools)}")
-    
-    for tool in tools:
-       LOGGER.info(f"{tool.name}: {tool.description[:60]}...")
-
-    return tools, client
-
-
-# --- THE ENHANCED AGENT CLASS ---
-
-class PortfolioAgent:
+class PortfolioAgent(BaseAgent):
     """
     Enhanced LangChain ReAct agent for portfolio presentation and analysis WITH chart generation.
     """
-    
-    _invocation_count = 0  # Class variable to track invocations
-    
     def __init__(self):
-        self.mcp_client: MultiServerMCPClient | None = None
-        self.tools: List[Any] = []
-        self.instance_id = id(self)  # Unique instance identifier
-
-        # Initialize MCP tools from ALL servers
-        try:
-            self.tools, self.mcp_client = asyncio.run(a_load_all_mcp_tools())
-            LOGGER.info(f"✅ Successfully loaded {len(self.tools)} tools from all MCP servers")
-        except Exception as e:
-            LOGGER.error(f"FATAL ERROR: Could not connect to MCP servers: {e}")
-            self.tools = []
-
-        # Create the core ReAct agent chain
-        self.core_agent = create_agent(
-            model=SUMMARY_LLM,
-            tools=self.tools,
-            system_prompt=STRICT_SYSTEM_PROMPT,
-            debug=False,
+        llm =  ChatOpenAI(
+            model="gpt-4o-mini",
+            temperature=0,
+            streaming=True
         )
-        
-        LOGGER.debug(f"✅ PortfolioAgent initialized with {len(self.tools)} tools (Instance ID: {self.instance_id})")
+        super().__init__(
+            agent_name="PortfolioAgent",
+            llm=llm,
+            system_prompt=STRICT_SYSTEM_PROMPT,
+            logger=LOGGER,
+            mcp_servers=MCP_SERVERS
+        )
 
-    async def run_query(self, history: List[BaseMessage], session_id: str) -> AgentResponse:
-        """
-        Runs the agent against the conversation history and returns the response.
-        Handles multiple sequential or parallel tool calls.
-        """
-        LOGGER.info(f"Processing query: {history[-1].content[:50]}...")
-
-        PortfolioAgent._invocation_count += 1
-        current_invocation = PortfolioAgent._invocation_count
-        
-        LOGGER.debug(f"🤖 PORTFOLIO AGENT - Query #{current_invocation}")
-        LOGGER.debug(f"🆔 Instance ID: {self.instance_id}")
-        LOGGER.debug(f"📝 Session ID: {session_id}")
-        LOGGER.debug(f"💬 User Query: {history[-1].content[:100]}...")
-        LOGGER.debug(f"📊 History Length: {len(history)} messages")
-        
-        tool_call_count = 0
-        tool_call_details = []
-        generated_charts = []
-        
-        try:
-            working_history = list(history)
-            max_iterations = 10
-            iteration = 0
-            
-            while iteration < max_iterations:
-                iteration += 1
-                LOGGER.debug(f"\n{'='*60}")
-                LOGGER.debug(f"🔄 ITERATION {iteration}")
-                LOGGER.debug(f"{'='*60}")
-                LOGGER.debug(f"📝 Working history length: {len(working_history)} messages")
-                
-                # Invoke the agent
-                response = await self.core_agent.ainvoke(
-                    {"messages": working_history}
-                )
-                
-                if not isinstance(response, dict) or "messages" not in response:
-                    LOGGER.warning(f"⚠️  Unexpected response structure: {type(response)}")
-                    break
-                
-                new_messages = response["messages"]
-                LOGGER.debug(f"📬 Received {len(new_messages)} new message(s)")
-                
-                # Log each new message
-                for i, msg in enumerate(new_messages):
-                    msg_type = type(msg).__name__
-                    LOGGER.debug(f"  [{i}] {msg_type}")
-                    
-                    if msg_type == "AIMessage" and hasattr(msg, 'tool_calls') and msg.tool_calls:
-                        LOGGER.debug(f"      🔧 Contains {len(msg.tool_calls)} tool call(s):")
-                        for tc in msg.tool_calls:
-                            tool_name = tc.get('name', 'unknown')
-                            LOGGER.debug(f"         - {tool_name}")
-                            tool_call_details.append(tool_name)
-                            tool_call_count += 1
-                    
-                    elif msg_type == "ToolMessage":
-                        tool_name = getattr(msg, 'name', 'unknown')
-                        LOGGER.debug(f"      ✅ Tool result for: {tool_name}")
-                        
-                        # Extract charts if applicable
-                        if 'chart' in tool_name.lower() and hasattr(msg, 'content'):
-                            try:
-                                for chart_data in msg.content:
-                                    if isinstance(chart_data, dict) and chart_data.get('type') == 'text':
-                                        chart = json.loads(chart_data['text'])
-                                        chart_artifact = ChartArtifact(
-                                            title=chart['title'],
-                                            filename=f"{chart['filename']}"
-                                        )
-                                        generated_charts.append(chart_artifact)
-                                        LOGGER.info(f"         📊 Chart captured: {chart_artifact.title}")
-                            except Exception as e:
-                                LOGGER.warning(f"         ⚠️  Could not parse chart data: {e}")
-                
-                # Check if the last message has tool calls
-                last_message = new_messages[-1]
-                has_tool_calls = (
-                    hasattr(last_message, 'tool_calls') and 
-                    last_message.tool_calls and 
-                    len(last_message.tool_calls) > 0
-                )
-                
-                if has_tool_calls:
-                    LOGGER.debug(f"➡️  Agent needs to execute tools, continuing loop...")
-                    # Add new messages to history for next iteration
-                    working_history.extend(new_messages)
-                else:
-                    # Agent is done - final response received
-                    LOGGER.debug(f"\n{'='*60}")
-                    LOGGER.debug(f"✅ AGENT COMPLETE")
-                    LOGGER.debug(f"{'='*60}")
-                    LOGGER.debug(f"🔧 Total tool calls: {tool_call_count}")
-                    LOGGER.debug(f"📊 Charts generated: {len(generated_charts)}")
-                    
-                    if tool_call_details:
-                        LOGGER.debug(f"🔨 Tool execution sequence:")
-                        for i, tool in enumerate(tool_call_details, 1):
-                            LOGGER.debug(f"   {i}. {tool}")
-                    
-                    # Return final response
-                    if hasattr(last_message, 'content'):
-                        response_preview = last_message.content[:150] + "..." if len(last_message.content) > 150 else last_message.content
-                        LOGGER.debug(f"💬 Response Preview: {response_preview}")
-                        
-                        return AgentResponse(
-                            agent="PortfolioAgent",
-                            message=last_message.content,
-                            charts=generated_charts
-                        )
-                    else:
-                        return AgentResponse(
-                            agent="PortfolioAgent",
-                            message=str(last_message),
-                            charts=generated_charts
-                        )
-            
-            # Max iterations reached
-            LOGGER.warning(f"⚠️  Reached max iterations ({max_iterations})")
-            LOGGER.warning(f"Tool calls made: {tool_call_count}, Tools: {tool_call_details}")
-            return AgentResponse(
-                agent="PortfolioAgent",
-                message="I apologize, but I couldn't complete the request within the iteration limit.",
-                charts=generated_charts
-            )
-                
-        except Exception as e:
-            error_msg = f"Error processing query: {str(e)}"
-            LOGGER.error(f"❌ Error: {error_msg}")
-            import traceback
-            LOGGER.error(traceback.format_exc())
-            return AgentResponse(
-                agent="PortfolioAgent",
-                message=f"I apologize, but I encountered an error while processing your request: {error_msg}",
-                charts=[]
-            )
-
-    async def cleanup(self):
-        """Cleanup method to properly close the MCP client connection."""
-        if self.mcp_client:
-            try:
-                # Note: Check if your MCP client has a close/cleanup method
-                # await self.mcp_client.close()
-                LOGGER.info("🧹 Cleanup complete")
-            except Exception as e:
-                LOGGER.error(f"Error during cleanup: {e}")

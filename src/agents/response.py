@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import List
+from typing import List, Optional, Dict
 
 class ChartArtifact(BaseModel):
     title: str
@@ -8,4 +8,5 @@ class ChartArtifact(BaseModel):
 class AgentResponse(BaseModel):
     agent: str = Field(..., description="Name of the responding agent")
     message: str = Field(..., description="Primary textual response")
-    charts: List[ChartArtifact] = Field(default_factory=list)
+    charts: List[ChartArtifact] = Field(default_factory=list, description="Chart Artifacts containing chart metadata")
+    portfolio: Optional[Dict] = None 

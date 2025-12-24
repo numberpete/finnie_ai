@@ -6,7 +6,7 @@ import logging
 
 # Setup tracing and logging
 setup_tracing("ttl-cache", enable_console_export=False)
-LOGGER = setup_logger_with_tracing(__name__, logging.INFO)
+LOGGER = setup_logger_with_tracing(__name__, service_name="ttl-cache")
 
 
 class TTLCache:

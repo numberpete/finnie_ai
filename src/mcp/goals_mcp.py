@@ -3,14 +3,13 @@
 import os
 import numpy as np
 import pandas as pd
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any
 from fastmcp import FastMCP
 from src.utils.tracing import setup_tracing, setup_logger_with_tracing
-import logging
 
 # Setup tracing and logging
 setup_tracing("mcp-server-goals", enable_console_export=False)
-LOGGER = setup_logger_with_tracing(__name__, logging.INFO)
+LOGGER = setup_logger_with_tracing(__name__, service_name="mcp-server-goals")
 ASSET_KEYS = ["Equities", "Fixed_Income", "Real_Estate", "Commodities", "Crypto", "Cash"]
 
 # Initialize FastMCP
@@ -96,7 +95,7 @@ def analyze_correlated_portfolio(portfolio, target_goal=500000, years=10, sims=1
 
 @mcp.tool()
 def simple_monte_carlo_simulation(
-    portfolio: Dict[str, Any], 
+    portfolio: Dict[str, float], 
     target_goal=500000, 
     years=10, 
     sims=1000) -> Dict[str, Any]:
@@ -133,49 +132,6 @@ def get_asset_classes() -> List[str]:
 
     return ASSET_KEYS
 
-
-@mcp.tool()
-def assess_risk_tolerance(portfolio):
-    """
-    Calculates the weighted volatility of a 6-asset portfolio and 
-    maps it to a risk tolerance tier.
-    """
-    # 1. Standard Volatility Assumptions (Annual Sigma)
-    # Higher sigma = more risk/swing
-    vol_map = {
-        "Equities": 0.18,       # 18% annual swing
-        "Fixed_Income": 0.06,   # 6% annual swing
-        "Real_Estate": 0.12,    # 12% annual swing
-        "Commodities": 0.15,    # 15% annual swing
-        "Crypto": 0.70,         # 70% annual swing
-        "Cash": 0.01            # 1% annual swing
-    }
-
-    total_val = sum(portfolio.values())
-    if total_val == 0:
-        return "Empty Portfolio", 0.0
-
-    # 2. Calculate Weighted Portfolio Volatility
-    # This is a simplified linear weight for a quick assessment tool
-    p_vol = sum((val / total_val) * vol_map[ac] for ac, val in portfolio.items() if ac in vol_map)
-
-    # 3. Map Volatility to Risk Tier
-    if p_vol < 0.04:
-        tier = "Conservative (Preservation focused)"
-    elif p_vol < 0.09:
-        tier = "Moderate-Conservative (Income focused)"
-    elif p_vol < 0.14:
-        tier = "Moderate (Balanced Growth)"
-    elif p_vol < 0.20:
-        tier = "Aggressive (Growth focused)"
-    else:
-        tier = "Very Aggressive (Speculative/High Growth)"
-
-    return {
-        "weighted_volatility": f"{p_vol:.2%}",
-        "risk_tolerance_tier": tier,
-        "primary_risk_driver": max(portfolio, key=portfolio.get)
-    }
 
 # ============================================================================
 # SERVER STARTUP

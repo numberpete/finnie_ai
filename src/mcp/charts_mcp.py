@@ -13,12 +13,11 @@ import json
 from datetime import datetime
 from fastmcp import FastMCP
 from src.utils.tracing import setup_tracing, setup_logger_with_tracing
-import logging
 from src.utils.cache import TTLCache
 
 # Setup tracing and logging
 setup_tracing("mcp-server-charts", enable_console_export=False)
-LOGGER = setup_logger_with_tracing(__name__, logging.INFO)
+LOGGER = setup_logger_with_tracing(__name__, service_name="mcp-server-charts")
 
 # Define standard colors for asset classes
 ASSET_COLORS = {
@@ -214,7 +213,7 @@ def create_bar_chart(
     # Validate data
     categories, values = validate_data_lengths(categories, values)
     
-    chart_id = generate_chart_id("stacked_bar", {"categories": categories, "values": values, "title": title})
+    chart_id = generate_chart_id("bar_chart", {"categories": categories, "values": values, "title": title})
 
     if use_cache:
         cached_data = charts_cache.get(chart_id)
@@ -353,22 +352,62 @@ def create_stacked_bar_chart(
         # Update bottom for next stack
         bottom = [b + v for b, v in zip(bottom, values)]
     
-    # Add value labels on each segment (optional - can be removed if too cluttered)
-    for bars in bars_list:
-        for bar in bars:
+    # Calculate totals for each category
+    totals = bottom  # This is the sum after all stacking
+    
+    # ✅ Add grand total above each bar
+    for i, total in enumerate(totals):
+        if total > 0:
+            # Format the total
+            if total >= 1_000_000:
+                label_text = f'${total/1_000_000:.2f}M'
+            elif total >= 1_000:
+                label_text = f'${total/1_000:.0f}K'
+            else:
+                label_text = f'${total:,.0f}'
+            
+            ax.text(
+                i,  # x position (category index)
+                total,  # y position (top of bar)
+                label_text,
+                ha='center',
+                va='bottom',  # Place text above the bar
+                fontsize=11,
+                fontweight='bold',
+                color='black'
+            )
+    # ✅ Improved label placement - only show labels for significant segments
+    # Calculate total height for each bar to determine minimum visible percentage
+    totals = bottom  # This is the sum after all stacking
+    min_percentage = 0.05  # Only show labels for segments > 5% of total
+    
+    for bars, (series_name, values) in zip(bars_list, series_data.items()):
+        for i, bar in enumerate(bars):
             height = bar.get_height()
-            if height > 0:  # Only show label if segment is visible
+            total = totals[i]
+            
+            # ✅ Only show label if segment is significant enough
+            if height > 0 and total > 0 and (height / total) >= min_percentage:
                 y_pos = bar.get_y() + height / 2
+                
+                # ✅ Format based on size
+                if height >= 1000:
+                    label_text = f'${height:,.0f}'
+                else:
+                    label_text = f'${height:.0f}'
+                
+                # ✅ Add label with background for readability
                 ax.text(
                     bar.get_x() + bar.get_width() / 2., 
                     y_pos,
-                    f'${height:,.0f}' if height > 1000 else f'{height:.1f}',
+                    label_text,
                     ha='center', 
                     va='center', 
                     fontsize=9,
-                    fontweight='bold'
+                    fontweight='bold',
+                    bbox=dict(boxstyle='round,pad=0.3', facecolor='white', alpha=0.7, edgecolor='none')
                 )
-    
+        
     ax.set_title(title, fontsize=16, fontweight='bold', pad=20)
     ax.set_xlabel(xlabel, fontsize=12)
     ax.set_ylabel(ylabel, fontsize=12)
@@ -404,7 +443,7 @@ def create_stacked_bar_chart(
 
 @mcp.tool()
 def create_line_chart(
-    x_values: List[Any],
+    x_values: List[str],
     y_values: List[float],
     title: str = "Line Chart",
     xlabel: str = "",
@@ -553,7 +592,7 @@ def create_line_chart(
 
 @mcp.tool()
 def create_multi_line_chart(
-    x_values: List[Any],
+    x_values: List[str],
     y_series: Dict[str, List[float]],
     title: str = "Multi-Line Chart",
     xlabel: str = "",
@@ -562,6 +601,7 @@ def create_multi_line_chart(
     use_cache: bool = True
 ) -> Dict[str, str]:
     """
+    MANDATORY tool for comparing 2 or more stock tickers.
     Create a multi-line chart with multiple data series.
     
     Args:
@@ -849,8 +889,6 @@ def list_generated_charts() -> Dict[str, Any]:
         "chart_count": len(charts),
         "charts": [chart.name for chart in sorted(charts, key=lambda x: x.stat().st_mtime, reverse=True)]
     }
-
-    charts_cache.set(chart_id, result, ttl_seconds=1800)
 
     return result
 
