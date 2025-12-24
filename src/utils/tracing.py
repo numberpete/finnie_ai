@@ -10,6 +10,8 @@ from opentelemetry.instrumentation.requests import RequestsInstrumentor
 import logging
 import time
 
+_INSTRUMENTED = False
+
 # Import your logging setup
 from .logging import ColoredFormatter
 
@@ -54,52 +56,46 @@ class TracingFormatter(ColoredFormatter):
 
 def setup_tracing(service_name: str, enable_console_export: bool = False):
     """
-    Initialize OpenTelemetry tracing for the application.
-    Includes guards to prevent 'Overriding of current TracerProvider' warnings.
+    Initialize OpenTelemetry tracing with strict guards for Streamlit reruns.
     """
-    # 1. GUARD: Check if provider is already an SDK TracerProvider
+    global _INSTRUMENTED
+    
+    # 1. Check if TracerProvider is already set
+    # Using ProxyTracerProvider check is standard, but a custom flag is more reliable in Streamlit.
     current_provider = trace.get_tracer_provider()
     
-    # If the current provider has 'get_span_processor', it's already a real SDK provider.
-    if hasattr(current_provider, 'get_span_processor'):
-        logger.debug(f"Tracing already initialized for {service_name}, skipping setup.")
+    if hasattr(current_provider, 'get_span_processor') or _INSTRUMENTED:
+        # Already initialized, exit silently
         return
 
-    # Create a resource identifying this service
-    resource = Resource(attributes={
-        "service.name": service_name
-    })
-    
-    # Create tracer provider
+    # 2. Configure the Provider
+    resource = Resource(attributes={"service.name": service_name})
     provider = TracerProvider(resource=resource)
     
     if enable_console_export:
         console_exporter = ConsoleSpanExporter()
         provider.add_span_processor(BatchSpanProcessor(console_exporter))
     
-    # Set as global tracer provider
+    # Set global provider (wrapped in try/except for race conditions)
     try:
         trace.set_tracer_provider(provider)
     except ValueError:
-        # Fallback in case of race condition
-        pass
-    
-    # 2. GUARD: Auto-instrument ONLY if not already instrumented
-    # FastAPIInstrumentor doesn't have a simple is_instrumented check, 
-    # but we can wrap it in a try-except or check the global state.
-    
-    try:
-        # FastAPI
-        FastAPIInstrumentor().instrument()
-        # HTTP clients
-        HTTPXClientInstrumentor().instrument()
-        RequestsInstrumentor().instrument()
-    except Exception as e:
-        # Silence "Already instrumented" errors
-        if "already instrumented" not in str(e).lower():
-            logger.warning(f"Instrumentation warning: {e}")
-    
-    logger.info(f"OpenTelemetry tracing initialized for service: {service_name}")
+        pass 
+
+    # 3. Apply Instrumentation (THE FIX)
+    # This block is what causes the "Attempting to instrument" spam.
+    # We only enter if _INSTRUMENTED is False.
+    if not _INSTRUMENTED:
+        try:
+            FastAPIInstrumentor().instrument()
+            HTTPXClientInstrumentor().instrument()
+            RequestsInstrumentor().instrument()
+            _INSTRUMENTED = True
+            logging.info(f"✅ OTEL: Instrumentation complete for {service_name}")
+        except Exception as e:
+            # Catch internal OTEL warnings that trigger even with the guard
+            if "already instrumented" not in str(e).lower():
+                logging.warning(f"OTEL Instrumentation warning: {e}")
 
 
 def get_tracer(name: str):
