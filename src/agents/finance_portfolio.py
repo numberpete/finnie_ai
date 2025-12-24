@@ -37,7 +37,7 @@ Equities: #2E5BFF, Fixed Income: #46CDCF, Real Estate: #F08A5D, Cash: #3DDC84, C
 
 You'll see the current portfolio in a context message at the start:
 ```
-AgentState.current_portfolio = {"Equities": 100000, "Fixed_Income": 0, ...}
+AgentState.current_portfolio = {"Equities": 0, "Fixed_Income": 0, ...}
 ```
 
 # CORE RULES

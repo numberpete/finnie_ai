@@ -11,9 +11,7 @@ from langgraph.checkpoint.memory import InMemorySaver
 # --- AGENT IMPORTS ---
 from src.agents.router import RouterAgent
 from src.agents.response import AgentResponse
-from src.utils.tracing import setup_tracing
 
-setup_tracing(service_name="finnie-ui")
 
 if "checkpointer" not in st.session_state:
     st.session_state.checkpointer = InMemorySaver()
