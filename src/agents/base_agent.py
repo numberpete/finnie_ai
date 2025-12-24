@@ -129,7 +129,8 @@ class BaseAgent:
         tool_call_count = 0
         tool_call_details = []
         generated_charts = []
-        
+        updated_portfolio = None
+
         try:
             working_history = list(history)
             max_iterations = 10
@@ -185,7 +186,22 @@ class BaseAgent:
                                         self.LOGGER.info(f"         📊 Chart captured: {chart_artifact.title}")
                             except Exception as e:
                                 self.LOGGER.warning(f"         ⚠️  Could not parse chart data: {e}")
-                
+                        elif 'portfolio' in tool_name.lower() and hasattr(msg, 'content'):
+                            try:
+                                # Portfolio tools return dict directly
+                                if isinstance(msg.content, dict):
+                                    updated_portfolio = msg.content
+                                    self.LOGGER.info(f"         💼 Portfolio updated: Total ${sum(updated_portfolio.values()):,.0f}")
+                                # Or if wrapped in content array
+                                elif isinstance(msg.content, list):
+                                    for content_item in msg.content:
+                                        if isinstance(content_item, dict):
+                                            if 'Equities' in content_item:  # It's a portfolio
+                                                updated_portfolio = content_item
+                                                self.LOGGER.info(f"         💼 Portfolio updated: Total ${sum(updated_portfolio.values()):,.0f}")
+                            except Exception as e:
+                                self.LOGGER.warning(f"         ⚠️  Could not extract portfolio: {e}")
+               
                 # Check if the last message has tool calls
                 last_message = new_messages[-1]
                 has_tool_calls = (
@@ -219,13 +235,15 @@ class BaseAgent:
                         return AgentResponse(
                             agent=self.agent_name,
                             message=last_message.content,
-                            charts=generated_charts
+                            charts=generated_charts,
+                            portfolio=updated_portfolio
                         )
                     else:
                         return AgentResponse(
                             agent=self.agent_name,
                             message=str(last_message),
-                            charts=generated_charts
+                            charts=generated_charts,
+                            portfolio=updated_portfolio
                         )
             
             # Max iterations reached
@@ -234,7 +252,8 @@ class BaseAgent:
             return AgentResponse(
                 agent=self.agent_name,
                 message="I apologize, but I couldn't complete the request within the iteration limit.",
-                charts=generated_charts
+                charts=generated_charts,
+                portfolio=updated_portfolio
             )
                 
         except Exception as e:
@@ -245,7 +264,8 @@ class BaseAgent:
             return AgentResponse(
                 agent=self.agent_name,
                 message=f"I apologize, but I encountered an error while processing your request: {error_msg}",
-                charts=[]
+                charts=[],
+                portfolio=None
             )
 
     async def cleanup(self):

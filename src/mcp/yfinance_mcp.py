@@ -203,6 +203,40 @@ def get_mock_data(symbol: str) -> Dict[str, Any]:
         "_mock": True,
         "_timestamp": datetime.now().isoformat()
     }
+def format_market_summary(data):
+    """Extract key market summary data"""
+    return {
+        # Current State
+        'name': data['shortName'],
+        'symbol': data['symbol'],
+        'current_price': data['regularMarketPrice'],
+        'change': data['regularMarketChange'],
+        'change_percent': data['regularMarketChangePercent'],
+        'previous_close': data['previousClose'],
+        
+        # Today's Activity
+        'day_high': data['regularMarketDayHigh'],
+        'day_low': data['regularMarketDayLow'],
+        'day_range': f"{data['regularMarketDayLow']} - {data['regularMarketDayHigh']}",
+        'volume': data['volume'],
+        'avg_volume': data['averageVolume'],
+        
+        # Performance Context
+        '52_week_high': data['fiftyTwoWeekHigh'],
+        '52_week_low': data['fiftyTwoWeekLow'],
+        '52_week_change_percent': data['52WeekChange'],
+        'ytd_performance': data['52WeekChange'],
+        
+        # Trend Indicators
+        '50_day_avg': data['fiftyDayAverage'],
+        '200_day_avg': data['twoHundredDayAverage'],
+        'above_50_day': data['regularMarketPrice'] > data['fiftyDayAverage'],
+        'above_200_day': data['regularMarketPrice'] > data['twoHundredDayAverage'],
+        
+        # Meta
+        'currency': data['currency'],
+        'market_state': data['marketState'],
+    }
 
 def normalize_time_period(period: str) -> str:
     """
@@ -657,7 +691,7 @@ def get_market_summary(use_cache: bool = True) -> Dict[str, Any]:
     
     for symbol in indices:
         try:
-            data = get_ticker_quote(symbol, use_cache=False)
+            data = format_market_summary(yf.Ticker(symbol).info)
             results[symbol] = data
         except Exception as e:
             LOGGER.error(f"Failed to fetch {symbol}: {str(e)}")

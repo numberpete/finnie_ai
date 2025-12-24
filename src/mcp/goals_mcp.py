@@ -95,7 +95,7 @@ def analyze_correlated_portfolio(portfolio, target_goal=500000, years=10, sims=1
 
 @mcp.tool()
 def simple_monte_carlo_simulation(
-    portfolio: Dict[str, Any], 
+    portfolio: Dict[str, float], 
     target_goal=500000, 
     years=10, 
     sims=1000) -> Dict[str, Any]:

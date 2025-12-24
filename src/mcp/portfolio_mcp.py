@@ -93,6 +93,27 @@ def add_to_portfolio(portfolio: Dict[str,float], additions: Dict[str,float]) -> 
     
     return updated_portfolio
 
+@mcp.tool()
+def add_to_portfolio_asset_class(asset_class_key: str, amount: float, portfolio: Dict[str,float]) -> Dict[str, float]:
+    """
+    Add a specific amount for a single asset class to the portfolio.
+
+    Args:
+        asset_class_key: the asset class to add the value to
+        amount: the amount to add to the asset class
+        portfolio: the portfolio which contains the asset class being added to
+    """
+    LOGGER.info(f"Adding ${amount:,.2f} to {asset_class_key}.")
+
+    try:
+        asset_class_key = asset_class_key.replace(" ","_")
+        portfolio[asset_class_key] += amount
+    except KeyError:
+        raise ValueError(f"{asset_class_key} is not an asset class in the portfolio")        
+
+    LOGGER.info(f"Updated portfolio total: ${sum(portfolio.values()):,.2f}")
+
+    return portfolio
 
 @mcp.tool()
 def get_portfolio_summary(portfolio: Dict[str, float]) -> Dict[str, Any]:  # ✅ CHANGE RETURN TYPE

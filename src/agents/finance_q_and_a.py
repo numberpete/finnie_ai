@@ -8,14 +8,10 @@ import logging
 
 # Setup Logger
 setup_tracing("finance-q-and-a-agent", enable_console_export=False)
-LOGGER = setup_logger_with_tracing(__name__, logging.DEBUG)
+LOGGER = setup_logger_with_tracing(__name__, service_name="finance-q-and-a-agent")
 
 
 # --- CONFIGURATION & PROMPT ---
-
-# Set the OpenAI API key and model name
-MODEL = "gpt-4o-mini"
-LLM = ChatOpenAI(model=MODEL, temperature=0, streaming=True, cache=True)
 
 # Your detailed System Prompt
 STRICT_SYSTEM_PROMPT = """
@@ -53,9 +49,14 @@ class FinanceQandAAgent(BaseAgent):
     Enhanced LangChain ReAct agent for financial Q and A.
     """
     def __init__(self):
+        llm =  ChatOpenAI(
+            model="gpt-4o-mini",
+            temperature=0,
+            streaming=True
+        )
         super().__init__(
             agent_name="FinanceQandAAgent",
-            llm=LLM,
+            llm=llm,
             system_prompt=STRICT_SYSTEM_PROMPT,
             logger=LOGGER,
             mcp_servers=MCP_SERVERS

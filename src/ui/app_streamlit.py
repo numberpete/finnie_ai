@@ -1,212 +1,165 @@
+import nest_asyncio
+nest_asyncio.apply()
+
 import streamlit as st
 from langsmith import uuid7
 import asyncio
 import os
+import warnings
+from langgraph.checkpoint.memory import InMemorySaver
+
+# --- AGENT IMPORTS ---
 from src.agents.router import RouterAgent
 from src.agents.response import AgentResponse
-import warnings
-from langchain_core.globals import set_llm_cache
-from langchain_community.cache import InMemoryCache
+from src.utils.tracing import setup_tracing
 
-set_llm_cache(InMemoryCache())
+setup_tracing(service_name="finnie-ui")
 
+if "checkpointer" not in st.session_state:
+    st.session_state.checkpointer = InMemorySaver()
+    
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 CHART_URL = os.getenv("CHART_URL", "http://localhost:8010/chart/")
 
-# --- PAGE CONFIG (must be first Streamlit command) ---
+# --- PAGE CONFIG ---
 st.set_page_config(
     page_title="Finnie AI Financial Assistant",
     page_icon="🤖",
     layout="wide"
 )
 
-# --- INITIALIZE AGENT (runs once per session) ---
-@st.cache_resource
-def get_agent():
-    """Initialize the agent once and cache it across sessions"""
-    return RouterAgent()
-
+# --- ASYNC BRIDGE HELPER ---
 def run_async(coro):
-    """Helper to run async functions in Streamlit"""
+    """
+    Robust helper to bridge Streamlit threads to an async loop.
+    Prevents the 'attached to a different loop' error.
+    """
     try:
-        loop = asyncio.get_event_loop()
+        loop = asyncio.get_running_loop()
     except RuntimeError:
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
     return loop.run_until_complete(coro)
 
-
-AGENT = get_agent()
+# --- INITIALIZE AGENT (runs once per session) ---
+#@st.cache_resource
+def get_agent():
+    """Initialize the agent once and cache it across sessions."""
+    # Importing inside the function ensures the loop isn't captured during module load
+    return RouterAgent(checkpointer=st.session_state.checkpointer)
 
 # --- INITIALIZE SESSION STATE ---
 if "session_id" not in st.session_state:
     st.session_state.session_id = str(uuid7())
 
-# Initialize chat history for each tab
-if "chat_history" not in st.session_state:
-    st.session_state.chat_history = []
+# Initialize individual tab histories
+for hist_key in ["chat_history", "market_history", "portfolio_history", "goals_history"]:
+    if hist_key not in st.session_state:
+        st.session_state[hist_key] = []
 
-if "market_history" not in st.session_state:
-    st.session_state.market_history = []
+# --- UI HELPER: RENDER MESSAGES ---
+def render_chat_message(message):
+    role = message["role"]
+    content = message["content"]
+    
+    with st.chat_message(role):
+        if role == "user":
+            st.markdown(content)
+        else:
+            # content is an AgentResponse object
+            st.markdown(content.message)
+            if hasattr(content, "charts") and content.charts:
+                for chart in content.charts:
+                    st.image(f"{CHART_URL}{chart.filename}", caption=chart.title, width="stretch")
 
-if "portfolio_history" not in st.session_state:
-    st.session_state.portfolio_history = []
-
-if "goals_history" not in st.session_state:
-    st.session_state.goals_history = []
-
-# --- HELPER FUNCTION ---
-async def get_agent_response(user_input: str, session_id: str) -> AgentResponse:
-    """Wrapper to call the async agent"""
+# --- CORE AGENT LOGIC ---
+async def call_agent(user_input: str) -> AgentResponse:
+    """Wrapper with timeout to call the cached Agent."""
     try:
-        response = await asyncio.wait_for(
-            AGENT.run_query(user_input, session_id),
-            timeout=120  # 2 minutes timeout
+        return await asyncio.wait_for(
+            AGENT.run_query(user_input, st.session_state.session_id),
+            timeout=120
         )
-        return response
     except asyncio.TimeoutError:
-        return AgentResponse(
-            agent="UI",
-            message="The request timed out. Please try again or simplify your query.",
-            charts=[]
-        )
+        return AgentResponse(agent="System", message="Request timed out.", charts=[])
     except Exception as e:
-        return AgentResponse(
-            agent="UI",
-            message=f"An error occurred during agent execution: {e}",
-            charts=[]
-        )
+        return AgentResponse(agent="System", message=f"Execution error: {e}", charts=[])
 
-# --- MAIN APP ---
+# --- MAIN APP UI ---
 st.title("🤖 Finnie AI Financial Assistant")
 
-with st.container():
-    # --- TABS ---
-    tab1, tab2, tab3, tab4 = st.tabs(["💬 Chat", "📈 Market", "📊 Portfolio", "🎯 Goals"])
-    with tab1:
-        st.markdown("#### Ask your financial question (with history maintained)")
+# Sidebar for Global Controls
+with st.sidebar:
+    st.header("Controls")
+    if st.button("🗑️ Reset All Sessions", use_container_width=True):
+        run_async(AGENT.cleanup()) # Ensure MCP connections close
+        st.session_state.chat_history = []
+        st.session_state.market_history = []
+        st.session_state.portfolio_history = []
+        st.session_state.goals_history = []
+        st.session_state.session_id = str(uuid7())
+        st.rerun()
+    st.divider()
+    st.caption(f"Thread ID: {st.session_state.session_id}")
 
-        # Display chat history
-        for message in st.session_state.chat_history:
+# --- TABS ---
+tab1, tab2, tab3, tab4 = st.tabs(["💬 Chat", "📈 Market", "📊 Portfolio", "🎯 Goals"])
 
-            with st.chat_message(message["role"]):
-                #hmm, this is a bit of a hack to get the user and assistant messages to display correctly
-                if message["role"] == "user":
-                    st.write(message["content"])
-                else :
-                    st.write(message["content"].message)
-                    chart_slot = st.empty()
+def handle_tab_input(input_text, history_key, spinner_text="Thinking..."):
+    if input_text:
+        # Save user input
+        AGENT = get_agent()
 
-                    if getattr(message["content"], "charts", None):
-                        for chart in message["content"].charts:
-                            st.image(f"{CHART_URL}{chart.filename}", caption=chart.title, width="stretch")
-
-        # Chat input
-        if user_input := st.chat_input("e.g., What is an IRA and how does it relate to tax?"):
-            # Add user message to chat history
-            st.session_state.chat_history.append({"role": "user", "content": user_input})
- 
-            # Display user message
-            with st.chat_message("user"):
-                st.write(user_input)
-            
-            # Get and display assistant response
-            with st.chat_message("assistant"):
-                with st.spinner("Thinking..."):
-                    # Run async function in event loop
-                    response = run_async(get_agent_response(user_input, st.session_state.session_id))
-                    st.write(response.message)
-                    if getattr(response, "charts"):
-                        for chart in response.charts:
-                            st.image(f"{CHART_URL}{chart.filename}", caption=chart.title, width="stretch")
-
-
-
-            # Add assistant response to chat history
-            st.session_state.chat_history.append({"role": "assistant", "content": response})
+        st.session_state[history_key].append({"role": "user", "content": input_text})
         
-        # Clear chat button
-        if st.button("Clear Chat", key="clear_chat"):
-            st.session_state.chat_history = []
-            st.session_state.session_id = str(uuid7())
-            st.rerun()
-        pass
+        # Display current interaction
+        with st.chat_message("user"):
+            st.write(input_text)
+        
+        with st.chat_message("assistant"):
+            with st.spinner(spinner_text):
+                # Use the bridge to call the async agent logic
+                response = run_async(AGENT.run_query(input_text, st.session_state.session_id))
+                st.write(response.message)
+                if response.charts:
+                    for chart in response.charts:
+                        st.image(f"{CHART_URL}{chart.filename}", caption=chart.title)
+        
+        # Save response
+        st.session_state[history_key].append({"role": "assistant", "content": response})
 
-    with tab2:
-        st.markdown("### Market Data")
-        st.info("Market data and visualization coming soon...")
-        
-        # Display market chat history
-        for message in st.session_state.market_history:
-            with st.chat_message(message["role"]):
-                if message["role"] == "user":
-                    st.write(message["content"])
-                else :
-                    st.write(message["content"].message)
-        
-        # Market chat input
-        if market_input := st.chat_input("Ask about market data...", key="market_input"):
-            st.session_state.market_history.append({"role": "user", "content": market_input})
-            with st.chat_message("user"):
-                st.write(market_input)
-            
-            with st.chat_message("assistant"):
-                with st.spinner("Analyzing market data..."):
-                    response = asyncio.run(get_agent_response(market_input, st.session_state.session_id))
-                    st.write(response.message)
-            
-            st.session_state.market_history.append({"role": "assistant", "content": response})
-            pass
+# Chat Tab
+with tab1:
+    for msg in st.session_state.chat_history:
+        render_chat_message(msg)
+    
+    chat_input = st.chat_input("Ask a general financial question...")
+    handle_tab_input(chat_input, "chat_history")
 
-    with tab3:
-        st.markdown("### Portfolio Analysis")
-        st.info("Portfolio data and visualization coming soon...")
-        
-        # Display portfolio chat history
-        for message in st.session_state.portfolio_history:
-            with st.chat_message(message["role"]):
-                if message["role"] == "user":
-                    st.write(message["content"])
-                else :
-                    st.write(message["content"].message)
-        
-        # Portfolio chat input
-        if portfolio_input := st.chat_input("Ask about your portfolio...", key="portfolio_input"):
-            st.session_state.portfolio_history.append({"role": "user", "content": portfolio_input})
-            with st.chat_message("user"):
-                st.write(portfolio_input)
-            
-            with st.chat_message("assistant"):
-                with st.spinner("Analyzing portfolio..."):
-                    response = asyncio.run(get_agent_response(portfolio_input, st.session_state.session_id))
-                    st.write(response.message)
-            
-            st.session_state.portfolio_history.append({"role": "assistant", "content": response})
-            pass
+# Market Tab
+with tab2:
+    for msg in st.session_state.market_history:
+        render_chat_message(msg)
+    
+    m_input = st.chat_input("Ask about market data...", key="m_input")
+    handle_tab_input(m_input, "market_history", "Analyzing market...")
 
-    with tab4:
-        st.markdown("### Financial Goals")
-        st.info("Goals data and visualization coming soon...")
-        
-        # Display goals chat history
-        for message in st.session_state.goals_history:
-            with st.chat_message(message["role"]):
-                if message["role"] == "user":
-                    st.write(message["content"])
-                else :
-                    st.write(message["content"].message)
-        
-        # Goals chat input
-        if goals_input := st.chat_input("Ask about your financial goals...", key="goals_input"):
-            st.session_state.goals_history.append({"role": "user", "content": goals_input})
-            with st.chat_message("user"):
-                st.write(goals_input)
-            
-            with st.chat_message("assistant"):
-                with st.spinner("Setting goals..."):
-                    response = asyncio.run(get_agent_response(goals_input, st.session_state.session_id))
-                    st.write(response.message)
-            
-            st.session_state.goals_history.append({"role": "assistant", "content": response})
-            pass
+# Portfolio Tab
+with tab3:
+    for msg in st.session_state.portfolio_history:
+        render_chat_message(msg)
+    
+    p_input = st.chat_input("Update your portfolio...", key="p_input")
+    handle_tab_input(p_input, "portfolio_history", "Calculating allocations...")
+
+# Goals Tab
+with tab4:
+    for msg in st.session_state.goals_history:
+        render_chat_message(msg)
+    
+    g_input = st.chat_input("Simulate your financial future...", key="g_input")
+    handle_tab_input(g_input, "goals_history", "Running simulations...")
+
+st.divider()
+st.caption("FinnieAI can make mistakes, and answers are for educational purposes only.")

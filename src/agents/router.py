@@ -12,20 +12,16 @@ from src.agents.finance_goals import GoalsAgent
 from src.agents.response import AgentResponse
 from src.utils import setup_logger_with_tracing, setup_tracing,  get_tracer
 from functools import partial
+import asyncio
 
 # Setup Logger
+# Only setup if the global provider hasn't been set yet
 setup_tracing("router", enable_console_export=False)
 LOGGER = setup_logger_with_tracing(__name__, service_name="router")
 TRACER = get_tracer(__name__)
 
-_FINANCE_QA_AGENT = FinanceQandAAgent()
-_FINANCE_MARKET_AGENT = FinanceMarketAgent()
-_PORTFOLIO_AGENT = PortfolioAgent()
-_GOALS_AGENT = GoalsAgent()
-
 # --- CONFIGURATION ---
-ROUTER_LLM = ChatOpenAI(model="gpt-4o-mini", temperature=0)
-AGENT_NAMES = ["FinanceQandAAgent","FinanceMarketAgent","PortfolioAgent"] # Add "OtherAgent" when ready
+AGENT_NAMES = ["FinanceQandAAgent","FinanceMarketAgent","PortfolioAgent","GoalsAgent"] # Add "OtherAgent" when ready
 
 # Define the state structure for the graph
 class AgentState(TypedDict):
@@ -52,21 +48,27 @@ def get_empty_portfolio() -> Dict[str, float]:
 class RouterAgent:
     """A router agent that directs queries to specialized financial agents."""
     
-    def __init__(self):
-        #async initialization of agents will be handled in run_query
-        self.finance_qa_agent = _FINANCE_QA_AGENT
-        self.finance_market_agent = _FINANCE_MARKET_AGENT
-        self.portfolio_agent = _PORTFOLIO_AGENT
-        self.goals_agent = _GOALS_AGENT
+    def __init__(self, checkpointer=None):
+        self.router_llm = ChatOpenAI(
+            model="gpt-4o-mini",
+            temperature=0,
+            streaming=True
+        )        
+        
+        self.saver = checkpointer if checkpointer else InMemorySaver()
+
+        self.finance_qa_agent = FinanceQandAAgent()
+        self.finance_market_agent = FinanceMarketAgent()
+        self.portfolio_agent =  PortfolioAgent()
+        self.goals_agent = GoalsAgent()
     
-        self.saver = InMemorySaver()
         # Build the state graph
         router_builder = StateGraph(AgentState)
         router_builder.add_node("router_node", self.router_node)
-        router_builder.add_node(partial(self._run_agent_logic, agent_instance=self.finance_qa_agent), self.finance_q_and_a_node)
-        router_builder.add_node(partial(self._run_agent_logic, agent_instance=self.finance_market_agent), self.finance_market_node)
-        router_builder.add_node(partial(self._run_agent_logic, agent_instance=self.finance_market_agent), self.portfolio_node)
-        router_builder.add_node(partial(self._run_agent_logic, agent_instance=self.finance_market_agent), self.goals_node)
+        router_builder.add_node("FinanceQandAAgent", partial(self._run_agent_logic, agent_instance=self.finance_qa_agent))
+        router_builder.add_node("FinanceMarketAgent", partial(self._run_agent_logic, agent_instance=self.finance_market_agent))
+        router_builder.add_node("PortfolioAgent", partial(self._run_agent_logic, agent_instance=self.portfolio_agent))
+        router_builder.add_node("GoalsAgent", partial(self._run_agent_logic, agent_instance=self.goals_agent))
 
         router_builder.add_edge(START, "router_node")
         router_builder.add_conditional_edges(
@@ -136,9 +138,13 @@ class RouterAgent:
                 state["session_id"]
             )
 
+            if agent_response.portfolio:
+                state["current_portfolio"] = agent_response.portfolio
+                LOGGER.info(f"💼 Updated current_portfolio: Total ${sum(agent_response.portfolio.values()):,.0f}")
+
             state["messages"].append(AIMessage(content=agent_response.message))
             state["response"] = agent_response
-            state["next"] = "end"
+            state["next"] = "end" #not needed doesn't hurt, but if we change the router pattern....
 
         except Exception as e:
             LOGGER.error(f"Error in {agent_name}: {e}")
@@ -152,6 +158,16 @@ class RouterAgent:
             state["next"] = "end"
 
         return state
+
+    async def cleanup(self):
+        """Force cleanup of all underlying MCP sessions across all agents."""
+        LOGGER.info("🧹 Cleaning up RouterAgent and specialized sub-agents...")
+        await asyncio.gather(
+            self.finance_qa_agent.cleanup(),
+            self.finance_market_agent.cleanup(),
+            self.portfolio_agent.cleanup(),
+            self.goals_agent.cleanup()
+        )
 
     async def router_node(self, state: AgentState) -> AgentState:   
         """Node to route the query to the appropriate specialized agent."""
@@ -185,7 +201,7 @@ You are a high-precision Financial Intent Router. Your sole purpose is to select
     - EXAMPLES: "I want to build my portfolio", "Add $100k to Equities", "I have $500k in Vanguard 2040", "Summarize my portfolio", "What if I had 60% stocks?"
 
 3. **GoalsAgent**:
-    - PRIMARY INTENT: Future projections, simulations, and goal planning.
+    - PRIMARY INTENT: Future projections, simulations, and goal planning in regards to financial portfolios.
     - TRIGGER: Time-based questions: "in 10 years", "future", "projection", "forecast", "simulate"
     - TRIGGER: Goal-oriented: "will I reach", "chances of hitting", "probability", "target"
     - TRIGGER: Simulation requests: "run a simulation", "monte carlo", "project growth"
@@ -205,6 +221,8 @@ You are a high-precision Financial Intent Router. Your sole purpose is to select
 - Context clues: pronouns (it, that, this, my portfolio) indicate a follow-up to the previous agent
 
 # DISAMBIGUATION RULES
+**Context Priority:**
+- If the query is clearly a follow-up to the previous conversation, route to the same agent that handled the previous query
 
 **Portfolio Building vs. Market Lookup:**
 - "I have $100k in Apple" + building context → `PortfolioAgent` (adding to portfolio)
@@ -221,6 +239,7 @@ You are a high-precision Financial Intent Router. Your sole purpose is to select
 # SPECIAL RULE: MIXED INTENT (FIRST MENTIONED)
 If a user query contains multiple intents, route based on the **FIRST MENTIONED** or **PRIMARY** request:
 - "What is the price of Oracle and how does a 401k work?" → `FinanceMarketAgent` (Price first)
+- "How does this compare to Berkshire Hathaway?" → `FinanceMarketAgent` (Asking about a company)
 - "How do I save for college and what's the price of Bitcoin?" → `FinanceQandAAgent` (General advice first)
 - "Add $100k to my portfolio and simulate 10 years" → `PortfolioAgent` (Building first, simulation is follow-up)
 
@@ -285,8 +304,6 @@ Is query general financial education?
 - Current: "Add $50k to bonds"
 - Route: PortfolioAgent (modifying portfolio)
 
-# MANDATORY FOOTER (Direct Responses Only)
-"FinnieAI can make mistakes, and answers are for educational purposes only."
 """           ),
             ("human",
                 "User query: {user_query}\n"
@@ -307,7 +324,7 @@ Is query general financial education?
         formatted_prompt = prompt.format_prompt(user_query=user_message.content)
         
         # Call the router LLM
-        response = await ROUTER_LLM.ainvoke(formatted_prompt.to_messages())
+        response = await self.router_llm.ainvoke(formatted_prompt.to_messages())
         chosen_agent = response.content.strip()
         
         LOGGER.info(f"Router selected agent: {chosen_agent}")

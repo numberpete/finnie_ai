@@ -33,7 +33,7 @@ else
 fi
 
 # --- 3. ENVIRONMENT VARIABLE VALIDATION ---
-if [ -z "$OPENAI_API_KEY" ]; then
+if [ -z "$OPENAI_API_KEY " ]; then
     echo -e "${RED}❌ ERROR: OPENAI_API_KEY is not set.${NC}"
     echo -e "${YELLOW}👉 Please add 'export OPENAI_API_KEY=your_key_here' to your .envrc file.${NC}"
     echo -e "${YELLOW}👉 Then run 'direnv allow' or restart this script.${NC}"
@@ -45,8 +45,8 @@ fi
 # Function to cleanup on exit
 cleanup() {
     echo -e "\n${RED}🛑 Shutting down services...${NC}"
-    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $MCP_GOALS_PID $IMAGE_SERVER_PID $MCP_GOALS_PID $STREAMLIT_PID 2>/dev/null
-    wait $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $MCP_GOALS_PID $IMAGE_SERVER_PID $MCP_GOALS_PID $STREAMLIT_PID 2>/dev/null
+    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $MCP_GOALS_PID $MCP_PORTFOLIO $IMAGE_SERVER_PID $STREAMLIT_PID 2>/dev/null
+    wait $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $MCP_GOALS_PID $MCP_PORTFOLIO $IMAGE_SERVER_PID $STREAMLIT_PID 2>/dev/null
     echo -e "${GREEN}✅ Services stopped${NC}"
     exit 0
 }
@@ -60,11 +60,12 @@ pkill -f "src.mcp.finance_q_and_a_mcp" 2>/dev/null
 pkill -f "src.mcp.yfinance_mcp" 2>/dev/null
 pkill -f "src.mcp.charts_mcp" 2>/dev/null
 pkill -f "src.mcp.goals_mcp" 2>/dev/null
+pkill -f "src.mcp.portfolio_mcp" 2>/dev/null
 pkill -f "src.servers.image_server" 2>/dev/null
 pkill -f "src.ui.app_streamlit" 2>/dev/null
 
 # Check if ports 8001 and 8002 are in use and kill them
-for port in 8001 8002 8003 8004 8010 8501; do
+for port in 8001 8002 8003 8004 8005 8010 8501; do
     if lsof -Pi :$port -sTCP:LISTEN -t >/dev/null 2>&1 ; then
         echo -e "${YELLOW}⚠️  Port $port is in use, killing process...${NC}"
         lsof -ti:$port | xargs kill -9 2>/dev/null
@@ -169,6 +170,31 @@ fi
 
 echo -e "${GREEN}✅ Goals MCP Server started (PID: $MCP_GOALS_PID)${NC}\n"
 
+# Start POrtfolio MCP Server in background
+echo -e "${BLUE}📈 Starting Goals MCP Server (port 8005)...${NC}"
+python -m src.mcp.portfolio_mcp &
+MCP_PORTFOLIO_PID=$!
+
+# Wait a moment for it to start
+sleep 4
+
+# Check if Portfolio MCP server is still running
+if ! kill -0 $MCP_PORTFOLIO_PID 2>/dev/null; then
+    echo -e "${RED}❌ Portfolio MCP server failed to start${NC}"
+    kill $MCP_PORTFOLIO_PID 2>/dev/null
+    exit 1
+fi
+
+# Verify port 8005 is listening
+if ! lsof -Pi :8005 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
+    echo -e "${RED}❌ Portfolio MCP server is not listening on port 8003${NC}"
+    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $MCP_GOALS_PID $MCP_PORTFOLIO_PID 2>/dev/null
+    exit 1
+fi
+
+echo -e "${GREEN}✅ Portfolio MCP Server started (PID: $MCP_PORTFOLIO_PID)${NC}\n"
+
+
 # Start Image Server in background
 echo -e "${BLUE}🖼️  Starting Image Server (port 8010)...${NC}"
 python -m src.servers.image_server &
@@ -187,7 +213,7 @@ fi
 # Verify port 8010 is listening
 if ! lsof -Pi :8010 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
     echo -e "${RED}❌ Image Server is not listening on port 8010${NC}"
-    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $MCP_GOALS_SERVER $IMAGE_SERVER_PID 2>/dev/null
+    kill $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $MCP_GOALS_SERVER $MCP_PORTFOLIO_PID $IMAGE_SERVER_PID 2>/dev/null
     exit 1
 fi
 
@@ -207,9 +233,10 @@ echo -e "${BLUE}Finance MCP Server PID:${NC} $MCP_FINANCE_PID"
 echo -e "${BLUE}yFinance MCP Server PID:${NC} $MCP_YFINANCE_PID"
 echo -e "${BLUE}Chart MCP Server PID:${NC} $MCP_CHARTS_PID"
 echo -e "${BLUE}Goals MCP Server PID:${NC} $MCP_GOALS_PID"
+echo -e "${BLUE}Portfolio MCP Server PID:${NC} $MCP_PORTFOLIO_PID"
 echo -e "${BLUE}Image Server PID:${NC} $IMAGE_SERVER_PID"
 echo -e "${BLUE}Streamlit App PID:${NC} $STREAMLIT_PID"
 echo -e "\n${BLUE}Press CTRL+C to stop all services${NC}\n"
 
 # Wait for all processes
-wait $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $MCP_GOALS_PID $IMAGE_SERVER_PID $STREAMLIT_PID
+wait $MCP_FINANCE_PID $MCP_YFINANCE_PID $MCP_CHARTS_PID $MCP_GOALS_PID $MCP_PORTFOLIO_PID $IMAGE_SERVER_PID $STREAMLIT_PID

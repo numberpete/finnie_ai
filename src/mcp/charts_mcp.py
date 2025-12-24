@@ -13,12 +13,11 @@ import json
 from datetime import datetime
 from fastmcp import FastMCP
 from src.utils.tracing import setup_tracing, setup_logger_with_tracing
-import logging
 from src.utils.cache import TTLCache
 
 # Setup tracing and logging
 setup_tracing("mcp-server-charts", enable_console_export=False)
-LOGGER = setup_logger_with_tracing(__name__, logging.INFO)
+LOGGER = setup_logger_with_tracing(__name__, service_name="mcp-server-charts")
 
 # Define standard colors for asset classes
 ASSET_COLORS = {
@@ -404,7 +403,7 @@ def create_stacked_bar_chart(
 
 @mcp.tool()
 def create_line_chart(
-    x_values: List[Any],
+    x_values: List[str],
     y_values: List[float],
     title: str = "Line Chart",
     xlabel: str = "",
@@ -553,7 +552,7 @@ def create_line_chart(
 
 @mcp.tool()
 def create_multi_line_chart(
-    x_values: List[Any],
+    x_values: List[str],
     y_series: Dict[str, List[float]],
     title: str = "Multi-Line Chart",
     xlabel: str = "",
@@ -562,6 +561,7 @@ def create_multi_line_chart(
     use_cache: bool = True
 ) -> Dict[str, str]:
     """
+    MANDATORY tool for comparing 2 or more stock tickers.
     Create a multi-line chart with multiple data series.
     
     Args:
@@ -849,8 +849,6 @@ def list_generated_charts() -> Dict[str, Any]:
         "chart_count": len(charts),
         "charts": [chart.name for chart in sorted(charts, key=lambda x: x.stat().st_mtime, reverse=True)]
     }
-
-    charts_cache.set(chart_id, result, ttl_seconds=1800)
 
     return result
 
