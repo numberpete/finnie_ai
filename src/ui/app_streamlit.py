@@ -72,7 +72,6 @@ with st.sidebar:
         for key in ["chat_history", "market_history", "portfolio_history", "goals_history"]:
             st.session_state[key] = []
         st.session_state.session_id = str(uuid7())
-        # Trigger rerun by toggling dummy session_state variable
         st.session_state._rerun = not st.session_state.get("_rerun", False)
 
 current_tab = selected_tab
@@ -80,30 +79,37 @@ st.session_state.selected_tab = current_tab
 
 # --- HELPER TO RENDER RESPONSE ---
 def render_response(resp: AgentResponse):
-    st.markdown(f"**{resp.agent}:** {resp.message}")
+    """Render AgentResponse with two-column layout if charts exist."""
     if hasattr(resp, "charts") and resp.charts:
-        for chart in resp.charts:
-            st.image(f"{CHART_URL}{chart.filename}", caption=chart.title, width="stretch")
+        col1, col2 = st.columns([2, 3])
+        with col1:
+            st.markdown(f"**{resp.agent}:** {resp.message}")
+        with col2:
+            for chart in resp.charts:
+                st.image(f"{CHART_URL}{chart.filename}", caption=chart.title)
+    else:
+        st.markdown(f"**{resp.agent}:** {resp.message}")
 
 # --- RENDER PREVIOUS HISTORY ---
-if current_tab == "Chat":
-    for msg in st.session_state.chat_history:
-        role = msg["role"]
-        content = msg["content"]
-        with st.chat_message(role):
-            if role == "user":
-                st.markdown(content)
-            else:
-                render_response(content)
-elif current_tab == "Market":
-    for resp in st.session_state.market_history:
-        render_response(resp)
-elif current_tab == "Portfolio":
-    for resp in st.session_state.portfolio_history:
-        render_response(resp)
-elif current_tab == "Goals":
-    for resp in st.session_state.goals_history:
-        render_response(resp)
+history_map = {
+    "Chat": st.session_state.chat_history,
+    "Market": st.session_state.market_history,
+    "Portfolio": st.session_state.portfolio_history,
+    "Goals": st.session_state.goals_history
+}
+
+if current_tab in history_map:
+    for entry in history_map[current_tab]:
+        if current_tab == "Chat":
+            role = entry["role"]
+            content = entry["content"]
+            with st.chat_message(role):
+                if role == "user":
+                    st.markdown(content)
+                else:
+                    render_response(content)
+        else:
+            render_response(entry)
 
 # --- STICKY INPUT + DISCLAIMER ---
 st.markdown(
@@ -161,10 +167,7 @@ if user_input:
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
             response = run_async(AGENT.run_query(user_input, st.session_state.session_id))
-        st.markdown(response.message)
-        if hasattr(response, "charts") and response.charts:
-            for chart in response.charts:
-                st.image(f"{CHART_URL}{chart.filename}", caption=chart.title, width="stretch")
+        render_response(response)
 
     # Append to chat history
     st.session_state.chat_history.append({"role": "assistant", "content": response})
