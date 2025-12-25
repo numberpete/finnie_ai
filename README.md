@@ -171,7 +171,7 @@ flowchart TB
     FAISS1[(FAISS: financial_articles)]
     FAISS2[(FAISS: bogleheads)]
     
-    YFinanceCache[TTL Cache - 5 min]
+    YFinanceCache[TTL Cache - 30 min]
     ChartsCache[TTL Cache - 30 min]
     
     ImagesServer[Images Server :8010]
@@ -196,15 +196,15 @@ flowchart TB
     
     QandAAgent --> QAMCP
     
-    QAMCP --> FAISS1
-    QAMCP --> FAISS2
+    QAMCP --> FAISS1_Basic
+    QAMCP --> FAISS2_Bogleheads
     
     YFinanceMCP --> YFinanceCache
     ChartsMCP --> ChartsCache
     
     ChartsMCP -->|Write PNGs| ChartStorage
-    ChartStorage --> ImagesServer
-    UI -->|HTTP GET| ImagesServer
+   ImagesServer <--> ChartStorage 
+    UI <-->|HTTP GET| ImagesServer
     
     PortfolioAgent --> Router
     MarketAgent --> Router
