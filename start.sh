@@ -19,16 +19,26 @@ elif [ -d "venv" ]; then
     echo -e "${BLUE}📦 Activating virtual environment (venv)...${NC}"
     source venv/bin/activate
 else
-    echo -e "${YELLOW}⚠️  No virtual environment found. Creating one now...${NC}"
-    python3 -m venv .venv
+    echo -e "${YELLOW}⚠️  No virtual environment found. Creating one with Python 3.11...${NC}"
+    
+    # Explicitly try to find the 3.11 executable
+    if command -v python3.11 &> /dev/null; then
+        PYTHON_EXE="python3.11"
+    elif [[ $(python --version 2>&1) == *"3.11"* ]]; then
+        PYTHON_EXE="python"
+    else
+        echo -e "${RED}❌ Python 3.11 not found. Please install it first.${NC}"
+        exit 1
+    fi
+
+    echo -e "${BLUE}🛠️  Using: $($PYTHON_EXE --version)${NC}"
+    $PYTHON_EXE -m venv .venv
+    
     if [ $? -eq 0 ]; then
         echo -e "${GREEN}✅ Virtual environment (.venv) created successfully.${NC}"
         source .venv/bin/activate
-        # Force a pip upgrade and install since it's a fresh venv
-        echo -e "${BLUE}⬆️  Upgrading pip...${NC}"
-        pip install --upgrade pip
     else
-        echo -e "${RED}❌ Failed to create virtual environment. Please install python3-venv.${NC}"
+        echo -e "${RED}❌ Failed to create virtual environment.${NC}"
         exit 1
     fi
 fi
