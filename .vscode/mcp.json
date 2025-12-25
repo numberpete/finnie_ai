@@ -1,7 +1,7 @@
 {
 	"servers": {
 		"FinanceQandA": {
-			"type": "stdio",
+			"type": "sse",
 			"command": "/Users/peterhanus/Projects/finnie_ai/src/mcp/start-mcp.sh",
 		}
 	},
