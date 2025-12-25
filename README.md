@@ -5,28 +5,61 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-latest-red.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-**Finnie AI** is a production-ready, multi-agent financial assistant system that leverages LangChain, LangGraph, and Model Context Protocol (MCP) to provide intelligent portfolio management, market analysis, and financial goal planning.
+**Finnie AI** is a multi-agent financial assistant system that leverages LangChain, LangGraph, and Model Context Protocol (MCP) to provide intelligent portfolio management, market analysis, and financial goal planning.  It was built to fulfill the capstone requirements for the Interview Kickstart Agentic AI program for developers.
 
 ---
+## Quick Start
 
+This is assuming you are runing on a Mac.  For the purpose of this project, it's a local "deployment".
+
+Python 3.11+ is required.
+
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/yourusername/finnie_ai.git
+cd finnie_ai
+```
+
+2. **Set up environment variables:**
+
+Create a `.envrc` file in the project root:
+
+```bash
+# LLM Configuration
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+3. **run start.sh sheel script**
+
+The first run will take a few minutes as it build sup the FAISS indexes.  Subsequent starts shoudl be faster.
+
+```bash
+./start.sh
+```
+
+And that should be it. If not, you can either dig into the documentation and try to figure it our.  Or contact me.
+
+---
 ## Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
 - [Architecture](#architecture)
   - [System Architecture](#system-architecture)
-  - [Agent Architecture](#agent-architecture)
+  - [Agent Object Model](#agent-object-model)
+  - [Routing](#routing)
   - [Data Flow](#data-flow)
 - [Technology Stack](#technology-stack)
 - [Project Structure](#project-structure)
 - [Installation & Setup](#installation--setup)
   - [Prerequisites](#prerequisites)
+  - [Setup Quick Start](#setup-quick-start)
   - [Environment Setup](#environment-setup)
   - [Running the Application](#running-the-application)
 - [Configuration](#configuration)
   - [Environment Variables](#environment-variables)
-  - [MCP Server Configuration](#mcp-server-configuration)
-  - [LLM Configuration](#llm-configuration)
 - [Agent System](#agent-system)
   - [RouterAgent](#routeragent)
   - [PortfolioAgent](#portfolioagent)
@@ -182,7 +215,7 @@ The name of the generated file is passed back by the Charts tools to the calling
 
 You could also eliminate the Image Server by configuring the Charts tools to write to the Streamlit static folder.  The current architecture demonstrates how various UIs could be used.
 
-A basic im-memory cache layer is in from of the yFinance and Charts tools, with a TTL of 30 minutes.
+A basic im-memory cache layer is in front of the yFinance and Charts tools, with a TTL of 30 minutes.  API calls to yFinance are rate limited.
 
 ### Agent Object Model
 ```mermaid
@@ -404,7 +437,7 @@ finnie_ai/
 - **Virtual environment** (recommended)
 - **OpenAI API key** (or alternative LLM provider)
 
-### Environment Setup Quick Start
+### Setup Quick Start
 This is assuming you are runing on a Mac.  For the purpose of this project, it's a local "deployment".
 
 Python 3.11+ is required.
@@ -413,7 +446,7 @@ Python 3.11+ is required.
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/yourusername/finnie_ai.git
+git clone https://github.com/numberpete/finnie_ai.git
 cd finnie_ai
 ```
 
@@ -1639,6 +1672,7 @@ class TTLCache:
 ---
 
 ## Testing
+This is definitely a work-in-progress.  
 
 ### Unit Tests
 
@@ -2068,66 +2102,23 @@ def test_new_tool():
 ```
 
 ### Extending Functionality
+What are some ideal extensions for this.
 
-#### Add New Asset Class
+#### Multiple portfolio support
 
-**1. Update Portfolio MCP:**
-```python
-# In portfolio_mcp.py
-ASSET_CLASSES = {
-    "Equities": 0.0,
-    "Fixed_Income": 0.0,
-    "Real_Estate": 0.0,
-    "Cash": 0.0,
-    "Commodities": 0.0,
-    "Crypto": 0.0,
-    "New_Asset_Class": 0.0  # ✅ Add here
-}
-```
+#### Save user state beyond the session
 
-**2. Update Colors:**
-```python
-# In prompts and chart tools
-ASSET_CLASS_COLORS = {
-    # ... existing ...
-    "New_Asset_Class": "#FF5733"
-}
-```
+#### Have AgentResponse include chart data to allow UI to construct dynamic charting (e.g., Chartly)
 
-**3. Update Prompts:**
-```python
-# Update all agent prompts
-# ASSET CLASS COLORS
-Equities: #2E5BFF, ..., New_Asset_Class: #FF5733
-```
+#### Add additional calculator to the Goals Tools, such as
+- Interest Calculator
+- Amortization Calculator
+- etc.
 
-#### Add New Chart Type
+#### More Dynamic StageGraph.  
+Have edges between the specialty Agents to allow the LLM to construct more elaborate responses to questions.
 
-**1. Create Chart Function:**
-```python
-# In charts_mcp.py
-@mcp.tool()
-def create_new_chart_type(data: List, title: str) -> Dict:
-    """Create new chart type"""
-    fig, ax = plt.subplots(figsize=(10, 6))
-    
-    # Chart logic here
-    
-    filename = save_chart(fig, chart_id)
-    return {
-        "chart_id": chart_id,
-        "filename": filename,
-        "title": title
-    }
-```
 
-**2. Update Agent Prompts:**
-```python
-# Add to chart generation rules
-# NEW CHART TYPE
-When to use: [conditions]
-Example: create_new_chart_type(data=[...], title="...")
-```
 
 ---
 
