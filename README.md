@@ -196,8 +196,8 @@ flowchart TB
     
     QandAAgent --> QAMCP
     
-    QAMCP --> FAISS1_Basic
-    QAMCP --> FAISS2_Bogleheads
+    QAMCP --> FAISS1
+    QAMCP --> FAISS2
     
     YFinanceMCP --> YFinanceCache
     ChartsMCP --> ChartsCache
