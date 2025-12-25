@@ -13,7 +13,6 @@ setup_tracing("finance-market-agent", enable_console_export=False)
 LOGGER = setup_logger_with_tracing(__name__, service_name="finance-market-agent")
 
 
-# Your detailed System Prompt (ENHANCED WITH CHART INSTRUCTIONS)
 STRICT_SYSTEM_PROMPT = """
 You are a specialized financial market data agent with visualization capabilities.
 
@@ -118,6 +117,40 @@ CONTEXT (provided by router):
     - Ensure numeric values are float or int (not strings)
     - Clean data: remove NaN, None, or invalid values before charting
 
+**CRITICAL: create_multi_line_chart Correct Signature**
+```python
+create_multi_line_chart(
+    x_values=["2024-01-01", "2024-01-02", ...],      # List of date strings (shared x-axis)
+    y_series={"SAP": [100, 102, ...], "ORCL": [80, 82, ...]},  # Dict mapping ticker to price lists
+    title="SAP vs Oracle Stock Prices (Sep 24 - Dec 24, 2024)",  # SEPARATE parameter (not in y_series!)
+    xlabel="Date",        # SEPARATE parameter (not in y_series!)
+    ylabel="Price ($)"    # SEPARATE parameter (not in y_series!)
+)
+```
+
+**Common Mistake to Avoid:**
+❌ WRONG - Do NOT put title/xlabel/ylabel inside y_series:
+```python
+create_multi_line_chart(
+    y_series={
+        "title": "SAP vs Oracle...",  # WRONG! This is NOT part of y_series
+        "SAP": [...], 
+        "ORCL": [...]
+    }
+)
+```
+
+✅ CORRECT - y_series contains ONLY ticker-to-data mappings:
+```python
+create_multi_line_chart(
+    x_values=[...],
+    y_series={"SAP": [...], "ORCL": [...]},  # ONLY data here
+    title="SAP vs Oracle...",                 # Separate parameter
+    xlabel="Date",                            # Separate parameter
+    ylabel="Price ($)"                        # Separate parameter
+)
+```
+
 12. **Chart References**
     - Chart titles must include ticker and explicit date ranges
       * Example: "AAPL Stock Price (Jan 1, 2024 - Dec 21, 2024)"
@@ -162,8 +195,11 @@ User: "Compare SAP to Oracle over the last 3 months"
 Step 1: Call get_stock_history(ticker="SAP", period="3mo")
 Step 2: Call get_stock_history(ticker="ORCL", period="3mo")
 Step 3: Call create_multi_line_chart(
-    series_data={"SAP": [...], "ORCL": [...]},
-    title="SAP vs Oracle Stock Prices (Sep 24, 2024 - Dec 23, 2024)"
+    x_values=[list of dates],
+    y_series={"SAP": [list of SAP prices], "ORCL": [list of ORCL prices]},
+    title="SAP vs Oracle Stock Prices (Sep 24, 2024 - Dec 23, 2024)",
+    xlabel="Date",
+    ylabel="Price ($)"
 )
 Step 4: Respond with comparison summary
 NOTE: Do NOT create individual charts for SAP and Oracle separately!

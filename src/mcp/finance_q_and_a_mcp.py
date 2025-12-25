@@ -1,11 +1,17 @@
-import os
+import sys
+from pathlib import Path
+
+# Add project root to path
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = SCRIPT_DIR.parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
+
 from pathlib import Path
 from typing import List, Optional
 from fastmcp import FastMCP
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from src.utils import setup_logger_with_tracing, setup_tracing
-import logging
 
 
 setup_tracing("mcp-server-q-and-a", enable_console_export=False)    

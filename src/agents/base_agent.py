@@ -103,10 +103,11 @@ class BaseAgent:
         self.LOGGER.debug(f"✅ {self.agent_name} initialized with {len(self.tools)} tools (Instance ID: {self.instance_id})")
 
 
+
     async def run_query(self, history: List[BaseMessage], session_id: str, portfolio: Optional[Dict[str, float]] = None) -> AgentResponse:
         """
         Runs the agent against the conversation history and returns the response.
-        Handles multiple sequential or parallel tool calls.
+        Handles multiple sequential or parallel tool calls with retry on validation errors.
         """
         self.LOGGER.info(f"Processing query: {history[-1].content[:50]}...")
 
@@ -130,10 +131,12 @@ class BaseAgent:
         tool_call_details = []
         generated_charts = []
         updated_portfolio = None
+        validation_error_count = 0
+        MAX_VALIDATION_RETRIES = 2
 
         try:
             working_history = list(history)
-            max_iterations = 15  # ✅ Increased for complex operations
+            max_iterations = 15
             iteration = 0
             
             while iteration < max_iterations:
@@ -143,10 +146,69 @@ class BaseAgent:
                 self.LOGGER.debug(f"{'='*60}")
                 self.LOGGER.debug(f"📝 Working history length: {len(working_history)} messages")
                 
-                # Invoke the agent
-                response = await self.core_agent.ainvoke(
-                    {"messages": working_history}
-                )
+                try:
+                    # Invoke the agent
+                    response = await self.core_agent.ainvoke(
+                        {"messages": working_history}
+                    )
+                    
+                    # Reset validation error count on successful call
+                    validation_error_count = 0
+                    
+                except Exception as e:
+                    error_str = str(e)
+                    
+                    # Check if it's a validation error
+                    if "validation error" in error_str.lower() or "ValidationError" in error_str or "ToolException" in str(type(e).__name__):
+                        validation_error_count += 1
+                        self.LOGGER.warning(f"⚠️  Tool validation error (attempt {validation_error_count}/{MAX_VALIDATION_RETRIES})")
+                        self.LOGGER.warning(f"Error details: {error_str[:300]}")
+                        
+                        if validation_error_count >= MAX_VALIDATION_RETRIES:
+                            self.LOGGER.error("❌ Max validation retries exceeded")
+                            # Return with partial results
+                            return AgentResponse(
+                                agent=self.agent_name,
+                                message="I encountered repeated validation errors when calling the tools. This typically means the tool parameters were not formatted correctly. Please try rephrasing your request or contact support if the issue persists.",
+                                charts=generated_charts,
+                                portfolio=updated_portfolio
+                            )
+                        
+                        # Extract specific validation errors if possible
+                        validation_hints = []
+                        if "y_series.title" in error_str:
+                            validation_hints.append("The 'title' parameter should NOT be inside 'y_series'. It's a separate parameter.")
+                        if "y_series.xlabel" in error_str:
+                            validation_hints.append("The 'xlabel' parameter should NOT be inside 'y_series'. It's a separate parameter.")
+                        if "y_series.ylabel" in error_str:
+                            validation_hints.append("The 'ylabel' parameter should NOT be inside 'y_series'. It's a separate parameter.")
+                        
+                        # Build helpful error message
+                        error_feedback = (
+                            f"❌ VALIDATION ERROR: The previous tool call failed validation.\n\n"
+                            f"Error: {error_str[:200]}\n\n"
+                        )
+                        
+                        if validation_hints:
+                            error_feedback += "💡 Specific issues detected:\n" + "\n".join(f"  • {hint}" for hint in validation_hints) + "\n\n"
+                        
+                        error_feedback += (
+                            "Please fix the tool call by:\n"
+                            "1. Check the tool signature carefully\n"
+                            "2. Ensure all parameters are passed as separate arguments\n"
+                            "3. Do NOT nest parameters inside dictionaries unless the signature explicitly requires it\n"
+                            "4. For create_multi_line_chart: y_series should ONLY contain ticker-to-data mappings, "
+                            "not title/xlabel/ylabel"
+                        )
+                        
+                        # Add error feedback to history and retry
+                        error_msg = HumanMessage(content=error_feedback)
+                        working_history.append(error_msg)
+                        self.LOGGER.info("🔄 Retrying with detailed error feedback...")
+                        continue  # Retry the iteration
+                    else:
+                        # Not a validation error, re-raise
+                        raise
                 
                 if not isinstance(response, dict) or "messages" not in response:
                     self.LOGGER.warning(f"⚠️  Unexpected response structure: {type(response)}")
@@ -161,7 +223,6 @@ class BaseAgent:
                     self.LOGGER.debug(f"  [{i}] {msg_type}")
                     
                     if msg_type == "AIMessage":
-                        # ✅ Log AIMessage details
                         has_content = hasattr(msg, 'content') and msg.content
                         has_tools = hasattr(msg, 'tool_calls') and msg.tool_calls
                         self.LOGGER.debug(f"      AIMessage - has_content: {has_content}, has_tool_calls: {has_tools}")
@@ -195,21 +256,18 @@ class BaseAgent:
 
                         elif 'portfolio' in tool_name.lower() and hasattr(msg, 'content'):
                             try:
-                                # Portfolio tools return dict directly
                                 if isinstance(msg.content, dict):
                                     updated_portfolio = msg.content
                                     self.LOGGER.info(f"         💼 Portfolio updated: Total ${sum(updated_portfolio.values()):,.0f}")
-                                # Or if wrapped in content array
                                 elif isinstance(msg.content, list):
                                     for content_item in msg.content:
                                         if isinstance(content_item, dict):
-                                            if 'Equities' in content_item:  # It's a portfolio
+                                            if 'Equities' in content_item:
                                                 updated_portfolio = content_item
                                                 self.LOGGER.info(f"         💼 Portfolio updated: Total ${sum(updated_portfolio.values()):,.0f}")
                             except Exception as e:
                                 self.LOGGER.warning(f"         ⚠️  Could not extract portfolio: {e}")
                 
-                # ✅ Log total charts captured
                 self.LOGGER.debug(f"      📋 Total charts captured so far: {len(generated_charts)}")
                 
                 # Check if the last message has tool calls
@@ -220,7 +278,6 @@ class BaseAgent:
                     len(last_message.tool_calls) > 0
                 )
                 
-                # ✅ Log details about the last message
                 last_msg_type = type(last_message).__name__
                 self.LOGGER.debug(f"📋 Last message type: {last_msg_type}")
                 if hasattr(last_message, 'content'):
@@ -230,13 +287,10 @@ class BaseAgent:
                 
                 if has_tool_calls:
                     self.LOGGER.debug(f"➡️  Agent needs to execute tools, continuing loop...")
-                    
-                    # ✅ Debug logging before extend
                     self.LOGGER.debug(f"📝 About to extend history:")
                     self.LOGGER.debug(f"   Current history length: {len(working_history)}")
                     self.LOGGER.debug(f"   New messages count: {len(new_messages)}")
                     
-                    # Add new messages to history for next iteration
                     working_history.extend(new_messages)
                     
                     self.LOGGER.debug(f"   History after extend: {len(working_history)} messages")
@@ -277,7 +331,6 @@ class BaseAgent:
             self.LOGGER.warning(f"⚠️  Reached max iterations ({max_iterations})")
             self.LOGGER.warning(f"Tool calls made: {tool_call_count}, Tools: {tool_call_details}")
             
-            # ✅ Return partial results
             return AgentResponse(
                 agent=self.agent_name,
                 message="I apologize, but I couldn't complete the request within the iteration limit. Here are the results I was able to generate.",
@@ -291,7 +344,6 @@ class BaseAgent:
             import traceback
             self.LOGGER.error(traceback.format_exc())
             
-            # ✅ Return partial results even on error
             self.LOGGER.info(f"📊 Returning partial results despite error: {len(generated_charts)} charts, portfolio: {updated_portfolio is not None}")
             
             return AgentResponse(
