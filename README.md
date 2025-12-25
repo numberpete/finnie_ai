@@ -175,7 +175,7 @@ flowchart TB
     ChartsCache[TTL Cache - 30 min]
     
     ImagesServer[Images Server :8010]
-    ChartStorage[(charts/ directory)]
+    ChartStorage[charts/ directory]
     
     UI -->|User Query| Router
     
