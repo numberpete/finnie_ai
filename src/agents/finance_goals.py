@@ -19,6 +19,7 @@ STRICT_SYSTEM_PROMPT = """
 
 ❌ NEVER: simple_monte_carlo_simulation(years=10, target_goal=5000000)
 ✅ ALWAYS: simple_monte_carlo_simulation(portfolio={dict from context}, years=10, target_goal=5000000)
+✅ ALWAYS: call create_stacked_bar_chart after running simple_monte_carlo_simulation
 
 # ROLE
 Run Monte Carlo simulations on portfolios and create visualizations.
