@@ -208,7 +208,7 @@ __marimo__/
 
 #Logs
 src/logs/
-src/utils/logs/
+src/indexer/logs/
 
 #Data files
 src/data/

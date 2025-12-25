@@ -39,13 +39,15 @@ BATCH_SIZE = args.batch_size
 EMBEDDING_MODEL = args.model
 
 # --- PATH CONFIG ---
-CSV_FILE = os.path.join("articles", args.articles_csv)
-OUTPUT_DIR = os.path.join("..", "data")
+CURRENT_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(CURRENT_SCRIPT_DIR))
+CSV_FILE = os.path.join(CURRENT_SCRIPT_DIR, "articles", args.articles_csv)
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, "src", "data")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 FAISS_INDEX_DIR = os.path.join(OUTPUT_DIR, args.index_dir)
 
-LOG_SUBDIR = "logs"
+LOG_SUBDIR = os.path.join(CURRENT_SCRIPT_DIR, "logs")
 os.makedirs(LOG_SUBDIR, exist_ok=True)
 LOG_FILE = os.path.join(LOG_SUBDIR, args.log_file)
 FAILURE_CSV = os.path.join(LOG_SUBDIR, args.failure_csv)
