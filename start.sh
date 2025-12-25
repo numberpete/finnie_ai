@@ -43,7 +43,25 @@ else
     fi
 fi
 
-# --- 2. DEPENDENCY INSTALLATION & DATA INITIALIZATION ---
+# --- 2. DIRENV / ENV VARS LOAD ---
+if command -v direnv &> /dev/null; then
+    echo -e "${BLUE}🔑 Loading environment variables via direnv...${NC}"
+    direnv allow .
+    eval "$(direnv export bash)"
+else
+    echo -e "${YELLOW}⚠️  direnv not found. Skipping auto-load. Ensure .env is loaded manually.${NC}"
+fi
+
+# --- 3. ENVIRONMENT VARIABLE VALIDATION ---
+if [ -z "$OPENAI_API_KEY" ]; then
+    echo -e "${RED}❌ ERROR: OPENAI_API_KEY is not set.${NC}"
+    echo -e "${YELLOW}👉 Please add 'export OPENAI_API_KEY=your_key_here' to your .envrc file.${NC}"
+    exit 1
+else
+    echo -e "${GREEN}✅ OPENAI_API_KEY detected.${NC}"
+fi
+
+# --- 4. DEPENDENCY INSTALLATION & DATA INITIALIZATION ---
 echo -e "${BLUE}🛠️  Checking dependencies (pip install)...${NC}"
 if [ -f "requirements.txt" ]; then
     pip install -r requirements.txt
@@ -65,23 +83,6 @@ else
     echo -e "${GREEN}✅ src/data directory exists. Skipping index build.${NC}"
 fi
 
-# --- 3. DIRENV / ENV VARS LOAD ---
-if command -v direnv &> /dev/null; then
-    echo -e "${BLUE}🔑 Loading environment variables via direnv...${NC}"
-    direnv allow .
-    eval "$(direnv export bash)"
-else
-    echo -e "${YELLOW}⚠️  direnv not found. Skipping auto-load. Ensure .env is loaded manually.${NC}"
-fi
-
-# --- 4. ENVIRONMENT VARIABLE VALIDATION ---
-if [ -z "$OPENAI_API_KEY" ]; then
-    echo -e "${RED}❌ ERROR: OPENAI_API_KEY is not set.${NC}"
-    echo -e "${YELLOW}👉 Please add 'export OPENAI_API_KEY=your_key_here' to your .envrc file.${NC}"
-    exit 1
-else
-    echo -e "${GREEN}✅ OPENAI_API_KEY detected.${NC}"
-fi
 
 # Function to cleanup on exit
 cleanup() {
