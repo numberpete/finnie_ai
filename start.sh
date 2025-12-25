@@ -11,7 +11,7 @@ NC='\033[0m' # No Color
 
 echo -e "${BLUE}🚀 Starting Finnie AI Application...${NC}\n"
 
-# --- 1. VIRTUAL ENVIRONMENT CHECK ---
+# --- 1. VIRTUAL ENVIRONMENT CHECK & AUTO-CREATE ---
 if [ -d ".venv" ]; then
     echo -e "${BLUE}📦 Activating virtual environment (.venv)...${NC}"
     source .venv/bin/activate
@@ -19,8 +19,18 @@ elif [ -d "venv" ]; then
     echo -e "${BLUE}📦 Activating virtual environment (venv)...${NC}"
     source venv/bin/activate
 else
-    echo -e "${RED}❌ No virtual environment found (.venv or venv). Please create one first.${NC}"
-    exit 1
+    echo -e "${YELLOW}⚠️  No virtual environment found. Creating one now...${NC}"
+    python3 -m venv .venv
+    if [ $? -eq 0 ]; then
+        echo -e "${GREEN}✅ Virtual environment (.venv) created successfully.${NC}"
+        source .venv/bin/activate
+        # Force a pip upgrade and install since it's a fresh venv
+        echo -e "${BLUE}⬆️  Upgrading pip...${NC}"
+        pip install --upgrade pip
+    else
+        echo -e "${RED}❌ Failed to create virtual environment. Please install python3-venv.${NC}"
+        exit 1
+    fi
 fi
 
 # --- 2. DEPENDENCY INSTALLATION & DATA INITIALIZATION ---
