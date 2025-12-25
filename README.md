@@ -31,15 +31,16 @@ Create a `.envrc` file in the project root:
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-3. **run start.sh sheel script**
+3. **run start.sh shell script**
 
-The first run will take a few minutes as it build sup the FAISS indexes.  Subsequent starts shoudl be faster.
+The first run will take a few minutes as it build sup the FAISS indexes.  Subsequent starts should be faster.
 
 ```bash
 ./start.sh
 ```
 
 And that should be it. If not, you can either dig into the documentation and try to figure it our.  Or contact me.
+
 ---
 ### Tests
 
@@ -223,7 +224,7 @@ flowchart TB
 
 A note onthe chart generation.  The Chart tools are creating basic bitmap charts with matplotlib, and writing them to a folder.  There is the a FastAPI build images server which offer a get to retrieve the chart.  Currently there is no clean up being done (it would make sense to cleanup files older than 30 minutes as that's the chache life for the Chart tools).
 
-The name of the generated file is passed back by the Charts tools to the calling agent.  Thsi can then be used by the UI to construnct IMG elements that reference the charts on the image server.  A future enhancement woudl be to pass back the data used to construct the charts and allow the UI to build more sophisticated charts (e.g., Chartly).
+The name of the generated file is passed back by the Charts tools to the calling agent.  This can then be used by the UI to construct IMG elements that reference the charts on the image server.  A future enhancement would be to pass back the data used to construct the charts and allow the UI to build more sophisticated charts (e.g., Chartly).
 
 You could also eliminate the Image Server by configuring the Charts tools to write to the Streamlit static folder.  The current architecture demonstrates how various UIs could be used.
 
