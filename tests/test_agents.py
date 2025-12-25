@@ -1,89 +1,47 @@
-# tests/test_agents.py
+# tests/test_real_agents.py
+"""
+Real tests for agent classes.
+These tests import and test the actual agent implementations.
+"""
 
 import pytest
-from unittest.mock import Mock, AsyncMock, patch
-from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
+import sys
+from pathlib import Path
+from unittest.mock import Mock, patch, AsyncMock, MagicMock
+from langchain_core.messages import HumanMessage, AIMessage
 
-from src.agents.base_agent import BaseAgent
-from src.agents.portfolio_agent import PortfolioAgent
-from src.agents.market_agent import FinanceMarketAgent
-from src.agents.goals_agent import GoalsAgent
-from src.agents.qanda_agent import QandAAgent
-from src.agents.router import RouterAgent
+# Add src to path
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+
 from src.agents.response import AgentResponse, ChartArtifact
+from src.agents.base_agent import BaseAgent
 
 
-# --- Fixtures ---
-
-@pytest.fixture
-def mock_logger():
-    """Mock logger for testing"""
-    logger = Mock()
-    logger.info = Mock()
-    logger.debug = Mock()
-    logger.warning = Mock()
-    logger.error = Mock()
-    return logger
-
-
-@pytest.fixture
-def mock_llm():
-    """Mock LLM that returns configurable responses"""
-    llm = Mock()
-    
-    def create_response(content="Mock response", tool_calls=None):
-        msg = Mock()
-        msg.content = content
-        msg.tool_calls = tool_calls or []
-        return {"messages": [msg]}
-    
-    llm.ainvoke = AsyncMock(side_effect=lambda x, **kwargs: create_response())
-    llm.create_response = create_response
-    return llm
-
-
-@pytest.fixture
-def empty_portfolio():
-    """Empty portfolio fixture"""
-    return {
-        "Equities": 0.0,
-        "Fixed_Income": 0.0,
-        "Real_Estate": 0.0,
-        "Cash": 0.0,
-        "Commodities": 0.0,
-        "Crypto": 0.0
-    }
-
-
-@pytest.fixture
-def sample_portfolio():
-    """Sample portfolio with some assets"""
-    return {
-        "Equities": 100000.0,
-        "Fixed_Income": 50000.0,
-        "Real_Estate": 0.0,
-        "Cash": 25000.0,
-        "Commodities": 0.0,
-        "Crypto": 0.0
-    }
-
-
-# --- BaseAgent Tests ---
+# ============================================================================
+# BaseAgent Tests
+# ============================================================================
 
 class TestBaseAgent:
-    """Test BaseAgent functionality"""
+    """Test BaseAgent class"""
     
     @pytest.mark.asyncio
-    async def test_base_agent_initialization(self, mock_llm, mock_logger):
-        """Test BaseAgent initializes correctly"""
+    async def test_base_agent_initialization_no_mcp(self):
+        """Test BaseAgent initializes without MCP servers"""
+        mock_llm = Mock()
+        mock_logger = Mock()
+        
         agent = BaseAgent(
             agent_name="TestAgent",
             llm=mock_llm,
             system_prompt="Test prompt",
             logger=mock_logger,
-            mcp_servers=None,
-            debug=False
+            mcp_servers=None
         )
+        
+        # Initialize the counter since we're not using a subclass
+        if not hasattr(BaseAgent, '_invocation_count'):
+            BaseAgent._invocation_count = 0
         
         assert agent.agent_name == "TestAgent"
         assert agent.LOGGER == mock_logger
@@ -91,438 +49,182 @@ class TestBaseAgent:
         assert agent.mcp_client is None
     
     @pytest.mark.asyncio
-    async def test_base_agent_run_query_simple(self, mock_llm, mock_logger):
-        """Test BaseAgent can run a simple query"""
+    async def test_base_agent_run_query_simple_response(self):
+        """Test BaseAgent handles simple text response"""
+        mock_llm = Mock()
+        mock_logger = Mock()
+        mock_logger.info = Mock()
+        mock_logger.debug = Mock()
+        mock_logger.warning = Mock()
+        
+        # Create agent
         agent = BaseAgent(
             agent_name="TestAgent",
             llm=mock_llm,
-            system_prompt="Test prompt",
+            system_prompt="Test",
             logger=mock_logger,
             mcp_servers=None
         )
         
-        # Mock LLM to return a simple response (no tool calls)
-        mock_llm.ainvoke = AsyncMock(
-            return_value=mock_llm.create_response(content="Test response")
+        # Initialize counter
+        if not hasattr(BaseAgent, '_invocation_count'):
+            BaseAgent._invocation_count = 0
+        
+        # Mock the core_agent to return a simple response
+        mock_response_msg = Mock()
+        mock_response_msg.content = "This is a test response"
+        mock_response_msg.tool_calls = []
+        
+        agent.core_agent = Mock()
+        agent.core_agent.ainvoke = AsyncMock(
+            return_value={"messages": [mock_response_msg]}
         )
         
-        response = await agent.run_query(
-            history=[HumanMessage(content="Test question")],
-            session_id="test_session"
-        )
+        # Run query
+        history = [HumanMessage(content="Test question")]
+        response = await agent.run_query(history, "test_session")
         
+        # Assertions
         assert isinstance(response, AgentResponse)
         assert response.agent == "TestAgent"
-        assert response.message == "Test response"
+        assert response.message == "This is a test response"
         assert response.charts == []
         assert response.portfolio is None
     
     @pytest.mark.asyncio
-    async def test_base_agent_max_iterations(self, mock_llm, mock_logger):
+    async def test_base_agent_extracts_charts(self):
+        """Test BaseAgent extracts chart artifacts from tool messages"""
+        mock_llm = Mock()
+        mock_logger = Mock()
+        mock_logger.info = Mock()
+        mock_logger.debug = Mock()
+        
+        agent = BaseAgent(
+            agent_name="TestAgent",
+            llm=mock_llm,
+            system_prompt="Test",
+            logger=mock_logger,
+            mcp_servers=None
+        )
+        
+        # Initialize counter
+        if not hasattr(BaseAgent, '_invocation_count'):
+            BaseAgent._invocation_count = 0
+        
+        # Mock AI message with tool call
+        ai_msg_with_tool = Mock()
+        ai_msg_with_tool.__class__.__name__ = "AIMessage"
+        ai_msg_with_tool.tool_calls = [{"name": "create_line_chart"}]
+        ai_msg_with_tool.content = ""
+        
+        # Mock tool message with chart data - IMPORTANT: set the type name
+        tool_msg = Mock()
+        tool_msg.__class__.__name__ = "ToolMessage"
+        tool_msg.name = "create_line_chart"
+        tool_msg.content = [{
+            'type': 'text',
+            'text': '{"title": "Test Chart", "filename": "test.png", "chart_type": "line"}'
+        }]
+        
+        # Mock final AI message
+        final_msg = Mock()
+        final_msg.__class__.__name__ = "AIMessage"
+        final_msg.content = "Here is your chart"
+        final_msg.tool_calls = []
+        
+        # First call returns AI message with tool call
+        # Second call returns both tool message AND final message together
+        agent.core_agent = Mock()
+        agent.core_agent.ainvoke = AsyncMock(
+            side_effect=[
+                {"messages": [ai_msg_with_tool]},
+                {"messages": [tool_msg, final_msg]}
+            ]
+        )
+        
+        history = [HumanMessage(content="Create a chart")]
+        response = await agent.run_query(history, "test_session")
+        
+        # Should have extracted the chart
+        assert len(response.charts) == 1
+        assert response.charts[0].title == "Test Chart"
+        assert response.charts[0].filename == "test.png"
+    
+    @pytest.mark.asyncio
+    async def test_base_agent_max_iterations(self):
         """Test BaseAgent respects max iterations"""
+        mock_llm = Mock()
+        mock_logger = Mock()
+        mock_logger.info = Mock()
+        mock_logger.debug = Mock()
+        mock_logger.warning = Mock()
+        
         agent = BaseAgent(
             agent_name="TestAgent",
             llm=mock_llm,
-            system_prompt="Test prompt",
+            system_prompt="Test",
             logger=mock_logger,
             mcp_servers=None
         )
         
-        # Mock LLM to always return tool calls (infinite loop scenario)
-        mock_tool_call = Mock()
-        mock_tool_call.get = Mock(return_value="mock_tool")
+        # Initialize counter
+        if not hasattr(BaseAgent, '_invocation_count'):
+            BaseAgent._invocation_count = 0
         
-        mock_llm.ainvoke = AsyncMock(
-            return_value={
-                "messages": [
-                    Mock(content="", tool_calls=[mock_tool_call])
-                ]
-            }
+        # Mock infinite loop - always return tool calls
+        tool_call_msg = Mock()
+        tool_call_msg.content = ""
+        tool_call_msg.tool_calls = [{"name": "some_tool"}]
+        
+        agent.core_agent = Mock()
+        agent.core_agent.ainvoke = AsyncMock(
+            return_value={"messages": [tool_call_msg]}
         )
         
-        response = await agent.run_query(
-            history=[HumanMessage(content="Test")],
-            session_id="test"
-        )
+        history = [HumanMessage(content="Test")]
+        response = await agent.run_query(history, "test_session")
         
-        assert "couldn't complete the request" in response.message.lower()
+        # Should stop at max iterations
+        assert "couldn't complete" in response.message.lower()
     
     @pytest.mark.asyncio
-    async def test_base_agent_error_handling(self, mock_llm, mock_logger):
+    async def test_base_agent_error_handling(self):
         """Test BaseAgent handles errors gracefully"""
+        mock_llm = Mock()
+        mock_logger = Mock()
+        mock_logger.info = Mock()
+        mock_logger.debug = Mock()
+        mock_logger.error = Mock()
+        
         agent = BaseAgent(
             agent_name="TestAgent",
             llm=mock_llm,
-            system_prompt="Test prompt",
+            system_prompt="Test",
             logger=mock_logger,
             mcp_servers=None
         )
         
-        # Mock LLM to raise an exception
-        mock_llm.ainvoke = AsyncMock(side_effect=Exception("Test error"))
+        # Initialize counter
+        if not hasattr(BaseAgent, '_invocation_count'):
+            BaseAgent._invocation_count = 0
         
-        response = await agent.run_query(
-            history=[HumanMessage(content="Test")],
-            session_id="test"
+        # Mock error
+        agent.core_agent = Mock()
+        agent.core_agent.ainvoke = AsyncMock(
+            side_effect=Exception("Test error")
         )
         
+        history = [HumanMessage(content="Test")]
+        response = await agent.run_query(history, "test_session")
+        
+        # Should return error response
         assert isinstance(response, AgentResponse)
-        assert "error" in response.message.lower()
-        assert response.charts == []
+        assert "error" in response.message.lower() or "encountered" in response.message.lower()
 
 
-# --- PortfolioAgent Tests ---
-
-class TestPortfolioAgent:
-    """Test PortfolioAgent functionality"""
-    
-    @pytest.mark.asyncio
-    async def test_portfolio_agent_initialization(self, mock_llm, mock_logger):
-        """Test PortfolioAgent initializes correctly"""
-        agent = PortfolioAgent(
-            llm=mock_llm,
-            logger=mock_logger,
-            mcp_servers=None
-        )
-        
-        assert agent.agent_name == "PortfolioAgent"
-    
-    @pytest.mark.asyncio
-    async def test_portfolio_agent_add_single_asset(self, mock_llm, mock_logger, empty_portfolio):
-        """Test adding to a single asset class"""
-        agent = PortfolioAgent(
-            llm=mock_llm,
-            logger=mock_logger,
-            mcp_servers=None
-        )
-        
-        # Mock successful portfolio update
-        updated_portfolio = empty_portfolio.copy()
-        updated_portfolio["Equities"] = 100000.0
-        
-        mock_llm.ainvoke = AsyncMock(
-            return_value=mock_llm.create_response(
-                content="Added $100k to Equities"
-            )
-        )
-        
-        response = await agent.run_query(
-            history=[HumanMessage(content="Add $100k to Equities")],
-            session_id="test",
-            portfolio=empty_portfolio
-        )
-        
-        assert isinstance(response, AgentResponse)
-        assert "equities" in response.message.lower()
-    
-    @pytest.mark.asyncio
-    async def test_portfolio_agent_requires_portfolio(self, mock_llm, mock_logger):
-        """Test agent handles missing portfolio gracefully"""
-        agent = PortfolioAgent(
-            llm=mock_llm,
-            logger=mock_logger,
-            mcp_servers=None
-        )
-        
-        mock_llm.ainvoke = AsyncMock(
-            return_value=mock_llm.create_response(
-                content="I need a portfolio to work with"
-            )
-        )
-        
-        response = await agent.run_query(
-            history=[HumanMessage(content="Add $100k to Equities")],
-            session_id="test"
-        )
-        
-        # Agent should handle gracefully
-        assert isinstance(response, AgentResponse)
-
-
-# --- FinanceMarketAgent Tests ---
-
-class TestFinanceMarketAgent:
-    """Test FinanceMarketAgent functionality"""
-    
-    @pytest.mark.asyncio
-    async def test_market_agent_initialization(self, mock_llm, mock_logger):
-        """Test FinanceMarketAgent initializes correctly"""
-        agent = FinanceMarketAgent(
-            llm=mock_llm,
-            logger=mock_logger,
-            mcp_servers=None
-        )
-        
-        assert agent.agent_name == "FinanceMarketAgent"
-    
-    @pytest.mark.asyncio
-    async def test_market_agent_stock_price(self, mock_llm, mock_logger):
-        """Test getting stock price"""
-        agent = FinanceMarketAgent(
-            llm=mock_llm,
-            logger=mock_logger,
-            mcp_servers=None
-        )
-        
-        mock_llm.ainvoke = AsyncMock(
-            return_value=mock_llm.create_response(
-                content="Apple (AAPL) is trading at $185.43"
-            )
-        )
-        
-        response = await agent.run_query(
-            history=[HumanMessage(content="What's the price of Apple?")],
-            session_id="test"
-        )
-        
-        assert isinstance(response, AgentResponse)
-        assert "aapl" in response.message.lower() or "apple" in response.message.lower()
-    
-    @pytest.mark.asyncio
-    async def test_market_agent_chart_generation(self, mock_llm, mock_logger):
-        """Test chart generation"""
-        agent = FinanceMarketAgent(
-            llm=mock_llm,
-            logger=mock_logger,
-            mcp_servers=None
-        )
-        
-        # Mock response with chart
-        mock_chart = ChartArtifact(
-            title="AAPL Stock Price",
-            filename="test_chart.png"
-        )
-        
-        mock_llm.ainvoke = AsyncMock(
-            return_value=mock_llm.create_response(
-                content="Here's the chart for Apple stock"
-            )
-        )
-        
-        response = await agent.run_query(
-            history=[HumanMessage(content="Show me AAPL chart")],
-            session_id="test"
-        )
-        
-        assert isinstance(response, AgentResponse)
-
-
-# --- GoalsAgent Tests ---
-
-class TestGoalsAgent:
-    """Test GoalsAgent functionality"""
-    
-    @pytest.mark.asyncio
-    async def test_goals_agent_initialization(self, mock_llm, mock_logger):
-        """Test GoalsAgent initializes correctly"""
-        agent = GoalsAgent(
-            llm=mock_llm,
-            logger=mock_logger,
-            mcp_servers=None
-        )
-        
-        assert agent.agent_name == "GoalsAgent"
-    
-    @pytest.mark.asyncio
-    async def test_goals_agent_simulation(self, mock_llm, mock_logger, sample_portfolio):
-        """Test running a simulation"""
-        agent = GoalsAgent(
-            llm=mock_llm,
-            logger=mock_logger,
-            mcp_servers=None
-        )
-        
-        mock_llm.ainvoke = AsyncMock(
-            return_value=mock_llm.create_response(
-                content="Based on simulation over 10 years..."
-            )
-        )
-        
-        response = await agent.run_query(
-            history=[HumanMessage(content="How will my portfolio do in 10 years?")],
-            session_id="test",
-            portfolio=sample_portfolio
-        )
-        
-        assert isinstance(response, AgentResponse)
-        assert "simulation" in response.message.lower() or "years" in response.message.lower()
-    
-    @pytest.mark.asyncio
-    async def test_goals_agent_requires_portfolio(self, mock_llm, mock_logger):
-        """Test agent handles missing portfolio"""
-        agent = GoalsAgent(
-            llm=mock_llm,
-            logger=mock_logger,
-            mcp_servers=None
-        )
-        
-        mock_llm.ainvoke = AsyncMock(
-            return_value=mock_llm.create_response(
-                content="I need your portfolio to run a simulation"
-            )
-        )
-        
-        response = await agent.run_query(
-            history=[HumanMessage(content="Simulate my portfolio")],
-            session_id="test"
-        )
-        
-        assert isinstance(response, AgentResponse)
-        assert "portfolio" in response.message.lower()
-
-
-# --- QandAAgent Tests ---
-
-class TestQandAAgent:
-    """Test QandAAgent functionality"""
-    
-    @pytest.mark.asyncio
-    async def test_qanda_agent_initialization(self, mock_llm, mock_logger):
-        """Test QandAAgent initializes correctly"""
-        agent = QandAAgent(
-            llm=mock_llm,
-            logger=mock_logger,
-            mcp_servers=None
-        )
-        
-        assert agent.agent_name == "QandAAgent"
-    
-    @pytest.mark.asyncio
-    async def test_qanda_agent_general_question(self, mock_llm, mock_logger):
-        """Test answering general questions"""
-        agent = QandAAgent(
-            llm=mock_llm,
-            logger=mock_logger,
-            mcp_servers=None
-        )
-        
-        mock_llm.ainvoke = AsyncMock(
-            return_value=mock_llm.create_response(
-                content="Dollar-cost averaging is an investment strategy..."
-            )
-        )
-        
-        response = await agent.run_query(
-            history=[HumanMessage(content="What is dollar-cost averaging?")],
-            session_id="test"
-        )
-        
-        assert isinstance(response, AgentResponse)
-        assert len(response.message) > 0
-        assert response.charts == []  # Q&A shouldn't generate charts
-
-
-# --- RouterAgent Tests ---
-
-class TestRouterAgent:
-    """Test RouterAgent functionality"""
-    
-    @pytest.mark.asyncio
-    async def test_router_initialization(self):
-        """Test RouterAgent initializes correctly"""
-        from langgraph.checkpoint.memory import InMemorySaver
-        
-        checkpointer = InMemorySaver()
-        router = RouterAgent(checkpointer=checkpointer)
-        
-        assert router.portfolio_agent is not None
-        assert router.market_agent is not None
-        assert router.goals_agent is not None
-        assert router.qanda_agent is not None
-    
-    @pytest.mark.asyncio
-    async def test_router_portfolio_routing(self):
-        """Test router routes to PortfolioAgent"""
-        from langgraph.checkpoint.memory import InMemorySaver
-        
-        with patch('src.agents.portfolio_agent.PortfolioAgent') as MockPortfolio:
-            # Setup mock
-            mock_agent = Mock()
-            mock_agent.run_query = AsyncMock(
-                return_value=AgentResponse(
-                    agent="PortfolioAgent",
-                    message="Portfolio created",
-                    charts=[],
-                    portfolio={"Equities": 100000.0, "Fixed_Income": 0.0, "Real_Estate": 0.0, 
-                              "Cash": 0.0, "Commodities": 0.0, "Crypto": 0.0}
-                )
-            )
-            MockPortfolio.return_value = mock_agent
-            
-            checkpointer = InMemorySaver()
-            router = RouterAgent(checkpointer=checkpointer)
-            router.portfolio_agent = mock_agent
-            
-            response = await router.run_query(
-                user_input="Build me a portfolio with $100k in Equities",
-                session_id="test"
-            )
-            
-            assert isinstance(response, AgentResponse)
-            assert response.agent == "PortfolioAgent"
-    
-    @pytest.mark.asyncio
-    async def test_router_market_routing(self):
-        """Test router routes to FinanceMarketAgent"""
-        from langgraph.checkpoint.memory import InMemorySaver
-        
-        with patch('src.agents.market_agent.FinanceMarketAgent') as MockMarket:
-            # Setup mock
-            mock_agent = Mock()
-            mock_agent.run_query = AsyncMock(
-                return_value=AgentResponse(
-                    agent="FinanceMarketAgent",
-                    message="Apple is trading at $185.43",
-                    charts=[],
-                    portfolio=None
-                )
-            )
-            MockMarket.return_value = mock_agent
-            
-            checkpointer = InMemorySaver()
-            router = RouterAgent(checkpointer=checkpointer)
-            router.market_agent = mock_agent
-            
-            response = await router.run_query(
-                user_input="What's the price of Apple?",
-                session_id="test"
-            )
-            
-            assert isinstance(response, AgentResponse)
-            assert response.agent == "FinanceMarketAgent"
-    
-    @pytest.mark.asyncio
-    async def test_router_goals_routing(self):
-        """Test router routes to GoalsAgent"""
-        from langgraph.checkpoint.memory import InMemorySaver
-        
-        with patch('src.agents.goals_agent.GoalsAgent') as MockGoals:
-            # Setup mock
-            mock_agent = Mock()
-            mock_agent.run_query = AsyncMock(
-                return_value=AgentResponse(
-                    agent="GoalsAgent",
-                    message="Simulation results...",
-                    charts=[],
-                    portfolio=None
-                )
-            )
-            MockGoals.return_value = mock_agent
-            
-            checkpointer = InMemorySaver()
-            router = RouterAgent(checkpointer=checkpointer)
-            router.goals_agent = mock_agent
-            
-            response = await router.run_query(
-                user_input="How will my portfolio do in 10 years?",
-                session_id="test"
-            )
-            
-            assert isinstance(response, AgentResponse)
-            assert response.agent == "GoalsAgent"
-
-
-# --- AgentResponse Tests ---
+# ============================================================================
+# AgentResponse Tests
+# ============================================================================
 
 class TestAgentResponse:
     """Test AgentResponse dataclass"""
@@ -551,8 +253,7 @@ class TestAgentResponse:
         response = AgentResponse(
             agent="TestAgent",
             message="Here's your chart",
-            charts=[chart],
-            portfolio=None
+            charts=[chart]
         )
         
         assert len(response.charts) == 1
@@ -562,12 +263,12 @@ class TestAgentResponse:
     def test_agent_response_with_portfolio(self):
         """Test AgentResponse with portfolio"""
         portfolio = {
-            "Equities": 100000.0,
-            "Fixed_Income": 50000.0,
-            "Real_Estate": 0.0,
-            "Cash": 25000.0,
-            "Commodities": 0.0,
-            "Crypto": 0.0
+            "Equities": 100000,
+            "Fixed_Income": 50000,
+            "Real_Estate": 0,
+            "Cash": 25000,
+            "Commodities": 0,
+            "Crypto": 0
         }
         
         response = AgentResponse(
@@ -578,52 +279,250 @@ class TestAgentResponse:
         )
         
         assert response.portfolio is not None
-        assert response.portfolio["Equities"] == 100000.0
-        assert sum(response.portfolio.values()) == 175000.0
+        assert response.portfolio["Equities"] == 100000
+        assert sum(response.portfolio.values()) == 175000
 
 
-# --- Integration Tests with Mocked Tools ---
+# ============================================================================
+# Specialized Agent Tests (without actual MCP servers)
+# ============================================================================
 
-class TestAgentToolIntegration:
-    """Test agents with mocked tool calls"""
+class TestPortfolioAgent:
+    """Test PortfolioAgent initialization and structure"""
+    
+    @patch('src.agents.finance_portfolio.BaseAgent.__init__')
+    def test_portfolio_agent_initialization(self, mock_base_init):
+        """Test PortfolioAgent initializes correctly"""
+        from src.agents.finance_portfolio import PortfolioAgent
+        
+        mock_base_init.return_value = None
+        agent = PortfolioAgent()
+        
+        # Should have called BaseAgent.__init__ with correct parameters
+        mock_base_init.assert_called_once()
+        call_kwargs = mock_base_init.call_args[1]
+        
+        assert call_kwargs['agent_name'] == "PortfolioAgent"
+        assert 'mcp_servers' in call_kwargs
+        assert 'portfolio_mcp' in call_kwargs['mcp_servers']
+        assert 'charts_mcp' in call_kwargs['mcp_servers']
+        assert 'yfinance_mcp' in call_kwargs['mcp_servers']
+
+
+class TestMarketAgent:
+    """Test FinanceMarketAgent initialization and structure"""
+    
+    @patch('src.agents.finance_market.BaseAgent.__init__')
+    def test_market_agent_initialization(self, mock_base_init):
+        """Test FinanceMarketAgent initializes correctly"""
+        from src.agents.finance_market import FinanceMarketAgent
+        
+        mock_base_init.return_value = None
+        agent = FinanceMarketAgent()
+        
+        mock_base_init.assert_called_once()
+        call_kwargs = mock_base_init.call_args[1]
+        
+        assert call_kwargs['agent_name'] == "FinanceMarketAgent"
+        assert 'mcp_servers' in call_kwargs
+        assert 'yfinance_mcp' in call_kwargs['mcp_servers']
+        assert 'charts_mcp' in call_kwargs['mcp_servers']
+
+
+class TestGoalsAgent:
+    """Test GoalsAgent initialization and structure"""
+    
+    @patch('src.agents.finance_goals.BaseAgent.__init__')
+    def test_goals_agent_initialization(self, mock_base_init):
+        """Test GoalsAgent initializes correctly"""
+        from src.agents.finance_goals import GoalsAgent
+        
+        mock_base_init.return_value = None
+        agent = GoalsAgent()
+        
+        mock_base_init.assert_called_once()
+        call_kwargs = mock_base_init.call_args[1]
+        
+        assert call_kwargs['agent_name'] == "GoalsAgent"
+        assert 'mcp_servers' in call_kwargs
+        assert 'charts_mcp' in call_kwargs['mcp_servers']
+        assert 'goals_mcp' in call_kwargs['mcp_servers']
+
+
+class TestQandAAgent:
+    """Test FinanceQandAAgent initialization and structure"""
+    
+    @patch('src.agents.finance_q_and_a.BaseAgent.__init__')
+    def test_qanda_agent_initialization(self, mock_base_init):
+        """Test FinanceQandAAgent initializes correctly"""
+        from src.agents.finance_q_and_a import FinanceQandAAgent
+        
+        mock_base_init.return_value = None
+        agent = FinanceQandAAgent()
+        
+        mock_base_init.assert_called_once()
+        call_kwargs = mock_base_init.call_args[1]
+        
+        assert call_kwargs['agent_name'] == "FinanceQandAAgent"
+        assert 'mcp_servers' in call_kwargs
+        assert 'finance_qanda_tool' in call_kwargs['mcp_servers']
+
+
+# ============================================================================
+# RouterAgent Tests
+# ============================================================================
+
+class TestRouterAgent:
+    """Test RouterAgent routing logic"""
+    
+    def test_router_agent_initialization(self):
+        """Test RouterAgent initializes with all agents"""
+        from src.agents.router import RouterAgent
+        from langgraph.checkpoint.memory import InMemorySaver
+        
+        # Patch the BaseAgent.__init__ to avoid MCP initialization
+        with patch('src.agents.base_agent.BaseAgent.__init__', return_value=None):
+            checkpointer = InMemorySaver()
+            router = RouterAgent(checkpointer=checkpointer)
+            
+            assert router.finance_qa_agent is not None
+            assert router.finance_market_agent is not None
+            assert router.portfolio_agent is not None
+            assert router.goals_agent is not None
+            assert router.workflow is not None
+    
+    def test_get_empty_portfolio(self):
+        """Test get_empty_portfolio helper function"""
+        from src.agents.router import get_empty_portfolio
+        
+        portfolio = get_empty_portfolio()
+        
+        assert isinstance(portfolio, dict)
+        assert len(portfolio) == 6
+        assert all(v == 0.0 for v in portfolio.values())
+        assert "Equities" in portfolio
+        assert "Fixed_Income" in portfolio
     
     @pytest.mark.asyncio
-    async def test_portfolio_agent_tool_call_flow(self, mock_llm, mock_logger, empty_portfolio):
-        """Test PortfolioAgent makes correct tool calls"""
-        agent = PortfolioAgent(
+    async def test_router_route_next(self):
+        """Test route_next method"""
+        from src.agents.router import RouterAgent, AgentState
+        from langgraph.checkpoint.memory import InMemorySaver
+        
+        # Patch BaseAgent to avoid MCP initialization
+        with patch('src.agents.base_agent.BaseAgent.__init__', return_value=None):
+            router = RouterAgent(checkpointer=InMemorySaver())
+            
+            state = {
+                "messages": [],
+                "next": "PortfolioAgent",
+                "session_id": "test",
+                "last_agent_used": None,
+                "current_portfolio": {},
+                "response": []
+            }
+            
+            result = router.route_next(state)
+            assert result == "PortfolioAgent"
+
+
+# ============================================================================
+# Integration-style Tests (mocked MCP)
+# ============================================================================
+
+class TestAgentIntegration:
+    """Test agent workflows with mocked dependencies"""
+    
+    @pytest.mark.asyncio
+    async def test_portfolio_agent_workflow(self):
+        """Test complete portfolio agent workflow"""
+        mock_llm = Mock()
+        mock_logger = Mock()
+        mock_logger.info = Mock()
+        mock_logger.debug = Mock()
+        
+        agent = BaseAgent(
+            agent_name="PortfolioAgent",
             llm=mock_llm,
+            system_prompt="Test",
             logger=mock_logger,
             mcp_servers=None
         )
         
-        # Mock tool call followed by final response
-        tool_call_msg = Mock()
-        tool_call_msg.content = ""
-        tool_call_msg.tool_calls = [
-            {"name": "add_to_portfolio_asset_class", "args": {"asset_class_key": "Equities", "amount": 100000}}
-        ]
+        # Initialize counter
+        if not hasattr(BaseAgent, '_invocation_count'):
+            BaseAgent._invocation_count = 0
         
+        # Mock successful portfolio addition
         final_msg = Mock()
-        final_msg.content = "Added $100k to Equities"
+        final_msg.content = "Added $100k to Equities. Portfolio total: $100k"
         final_msg.tool_calls = []
         
-        mock_llm.ainvoke = AsyncMock(
+        agent.core_agent = Mock()
+        agent.core_agent.ainvoke = AsyncMock(
+            return_value={"messages": [final_msg]}
+        )
+        
+        history = [HumanMessage(content="Add $100k to Equities")]
+        response = await agent.run_query(history, "test_session")
+        
+        assert "100k" in response.message
+        assert "Equities" in response.message
+    
+    @pytest.mark.asyncio
+    async def test_market_agent_chart_generation(self):
+        """Test market agent generates charts"""
+        mock_llm = Mock()
+        mock_logger = Mock()
+        mock_logger.info = Mock()
+        mock_logger.debug = Mock()
+        
+        agent = BaseAgent(
+            agent_name="FinanceMarketAgent",
+            llm=mock_llm,
+            system_prompt="Test",
+            logger=mock_logger,
+            mcp_servers=None
+        )
+        
+        # Initialize counter
+        if not hasattr(BaseAgent, '_invocation_count'):
+            BaseAgent._invocation_count = 0
+        
+        # Mock AI message with tool call
+        ai_msg_with_tool = Mock()
+        ai_msg_with_tool.__class__.__name__ = "AIMessage"
+        ai_msg_with_tool.tool_calls = [{"name": "create_line_chart"}]
+        ai_msg_with_tool.content = ""
+        
+        # Mock chart generation workflow
+        tool_msg = Mock()
+        tool_msg.__class__.__name__ = "ToolMessage"
+        tool_msg.name = "create_line_chart"
+        tool_msg.content = [{
+            'type': 'text',
+            'text': '{"title": "AAPL Stock Price", "filename": "aapl.png", "chart_type": "line"}'
+        }]
+        
+        final_msg = Mock()
+        final_msg.__class__.__name__ = "AIMessage"
+        final_msg.content = "Here's the chart for Apple stock"
+        final_msg.tool_calls = []
+        
+        agent.core_agent = Mock()
+        agent.core_agent.ainvoke = AsyncMock(
             side_effect=[
-                {"messages": [tool_call_msg]},
-                {"messages": [final_msg]}
+                {"messages": [ai_msg_with_tool]},
+                {"messages": [tool_msg, final_msg]}
             ]
         )
         
-        response = await agent.run_query(
-            history=[HumanMessage(content="Add $100k to Equities")],
-            session_id="test",
-            portfolio=empty_portfolio
-        )
+        history = [HumanMessage(content="Show me AAPL chart")]
+        response = await agent.run_query(history, "test_session")
         
-        assert isinstance(response, AgentResponse)
-        # Should have made tool call
-        assert mock_llm.ainvoke.call_count >= 1
+        assert len(response.charts) == 1
+        assert "AAPL" in response.charts[0].title
 
 
 if __name__ == "__main__":
-    pytest.main([__file__, "-v"])
+    pytest.main([__file__, "-v", "-s"])

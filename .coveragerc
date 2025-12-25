@@ -1,0 +1,14 @@
+# Coverage options (if using pytest-cov)
+[coverage:run]
+source = src/
+omit = 
+    */tests/*
+    */test_*.py
+    */__pycache__/*
+    */ui/*
+    */app*.py
+
+[coverage:report]
+precision = 2
+show_missing = True
+skip_covered = False
