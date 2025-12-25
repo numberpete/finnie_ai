@@ -10,7 +10,7 @@ import logging
 
 # Setup Logger
 setup_tracing("finance-market-agent", enable_console_export=False)
-LOGGER = setup_logger_with_tracing(__name__, service_name="inance-market-agent")
+LOGGER = setup_logger_with_tracing(__name__, service_name="finance-market-agent")
 
 
 # Your detailed System Prompt (ENHANCED WITH CHART INSTRUCTIONS)

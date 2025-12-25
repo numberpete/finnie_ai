@@ -133,7 +133,7 @@ class BaseAgent:
 
         try:
             working_history = list(history)
-            max_iterations = 10
+            max_iterations = 15  # ✅ Increased for complex operations
             iteration = 0
             
             while iteration < max_iterations:
@@ -160,13 +160,19 @@ class BaseAgent:
                     msg_type = type(msg).__name__
                     self.LOGGER.debug(f"  [{i}] {msg_type}")
                     
-                    if msg_type == "AIMessage" and hasattr(msg, 'tool_calls') and msg.tool_calls:
-                        self.LOGGER.debug(f"      🔧 Contains {len(msg.tool_calls)} tool call(s):")
-                        for tc in msg.tool_calls:
-                            tool_name = tc.get('name', 'unknown')
-                            self.LOGGER.debug(f"         - {tool_name}")
-                            tool_call_details.append(tool_name)
-                            tool_call_count += 1
+                    if msg_type == "AIMessage":
+                        # ✅ Log AIMessage details
+                        has_content = hasattr(msg, 'content') and msg.content
+                        has_tools = hasattr(msg, 'tool_calls') and msg.tool_calls
+                        self.LOGGER.debug(f"      AIMessage - has_content: {has_content}, has_tool_calls: {has_tools}")
+                        
+                        if has_tools:
+                            self.LOGGER.debug(f"      🔧 Contains {len(msg.tool_calls)} tool call(s):")
+                            for tc in msg.tool_calls:
+                                tool_name = tc.get('name', 'unknown')
+                                self.LOGGER.debug(f"         - {tool_name}")
+                                tool_call_details.append(tool_name)
+                                tool_call_count += 1
                     
                     elif msg_type == "ToolMessage":
                         tool_name = getattr(msg, 'name', 'unknown')
@@ -186,6 +192,7 @@ class BaseAgent:
                                         self.LOGGER.info(f"         📊 Chart captured: {chart_artifact.title}")
                             except Exception as e:
                                 self.LOGGER.warning(f"         ⚠️  Could not parse chart data: {e}")
+
                         elif 'portfolio' in tool_name.lower() and hasattr(msg, 'content'):
                             try:
                                 # Portfolio tools return dict directly
@@ -201,7 +208,10 @@ class BaseAgent:
                                                 self.LOGGER.info(f"         💼 Portfolio updated: Total ${sum(updated_portfolio.values()):,.0f}")
                             except Exception as e:
                                 self.LOGGER.warning(f"         ⚠️  Could not extract portfolio: {e}")
-               
+                
+                # ✅ Log total charts captured
+                self.LOGGER.debug(f"      📋 Total charts captured so far: {len(generated_charts)}")
+                
                 # Check if the last message has tool calls
                 last_message = new_messages[-1]
                 has_tool_calls = (
@@ -210,12 +220,29 @@ class BaseAgent:
                     len(last_message.tool_calls) > 0
                 )
                 
+                # ✅ Log details about the last message
+                last_msg_type = type(last_message).__name__
+                self.LOGGER.debug(f"📋 Last message type: {last_msg_type}")
+                if hasattr(last_message, 'content'):
+                    has_content = bool(last_message.content)
+                    self.LOGGER.debug(f"   - has_content: {has_content}")
+                self.LOGGER.debug(f"   - has_tool_calls: {has_tool_calls}")
+                
                 if has_tool_calls:
                     self.LOGGER.debug(f"➡️  Agent needs to execute tools, continuing loop...")
+                    
+                    # ✅ Debug logging before extend
+                    self.LOGGER.debug(f"📝 About to extend history:")
+                    self.LOGGER.debug(f"   Current history length: {len(working_history)}")
+                    self.LOGGER.debug(f"   New messages count: {len(new_messages)}")
+                    
                     # Add new messages to history for next iteration
                     working_history.extend(new_messages)
+                    
+                    self.LOGGER.debug(f"   History after extend: {len(working_history)} messages")
                 else:
                     # Agent is done - final response received
+                    self.LOGGER.info(f"🎯 Agent has no more tool calls - completing")
                     self.LOGGER.debug(f"\n{'='*60}")
                     self.LOGGER.debug(f"✅ AGENT COMPLETE")
                     self.LOGGER.debug(f"{'='*60}")
@@ -249,9 +276,11 @@ class BaseAgent:
             # Max iterations reached
             self.LOGGER.warning(f"⚠️  Reached max iterations ({max_iterations})")
             self.LOGGER.warning(f"Tool calls made: {tool_call_count}, Tools: {tool_call_details}")
+            
+            # ✅ Return partial results
             return AgentResponse(
                 agent=self.agent_name,
-                message="I apologize, but I couldn't complete the request within the iteration limit.",
+                message="I apologize, but I couldn't complete the request within the iteration limit. Here are the results I was able to generate.",
                 charts=generated_charts,
                 portfolio=updated_portfolio
             )
@@ -261,11 +290,15 @@ class BaseAgent:
             self.LOGGER.error(f"❌ Error: {error_msg}")
             import traceback
             self.LOGGER.error(traceback.format_exc())
+            
+            # ✅ Return partial results even on error
+            self.LOGGER.info(f"📊 Returning partial results despite error: {len(generated_charts)} charts, portfolio: {updated_portfolio is not None}")
+            
             return AgentResponse(
                 agent=self.agent_name,
-                message=f"I apologize, but I encountered an error while processing your request: {error_msg}",
-                charts=[],
-                portfolio=None
+                message=f"I encountered an error, but here are the results I was able to generate before the error occurred.",
+                charts=generated_charts,
+                portfolio=updated_portfolio
             )
 
     async def cleanup(self):
