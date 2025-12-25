@@ -3,7 +3,7 @@
 ![Python Version](https://img.shields.io/badge/python-3.11-blue.svg)
 ![LangChain](https://img.shields.io/badge/LangChain-latest-green.svg)
 ![Streamlit](https://img.shields.io/badge/Streamlit-latest-red.svg)
-![License](https://img.shields.io/badge/license-Apache 2.0-blue.svg)
+![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
 
 **Finnie AI** is a multi-agent financial assistant system that leverages LangChain, LangGraph, and Model Context Protocol (MCP) to provide intelligent portfolio management, market analysis, and financial goal planning.  It was built to fulfill the capstone requirements for the Interview Kickstart Agentic AI program for developers.
 
