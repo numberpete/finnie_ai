@@ -39,7 +39,7 @@ The first run will take a few minutes as it build sup the FAISS indexes.  Subseq
 ./start.sh
 ```
 
-And that should be it. If not, you can either dig into the documentation and try to figure it our.  Or contact me.
+And that should be it. If not, you can either dig into the documentation and try to figure it out.  Or contact me.
 
 ---
 ### Tests
