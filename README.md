@@ -168,6 +168,9 @@ flowchart TB
     GoalsMCP[Goals MCP :8004]
     PortfolioMCP[Portfolio MCP :8005]
     
+    FAISS1[(FAISS: financial_articles)]
+    FAISS2[(FAISS: bogleheads)]
+    
     YFinanceCache[TTL Cache - 5 min]
     ChartsCache[TTL Cache - 30 min]
     
@@ -191,7 +194,10 @@ flowchart TB
     GoalsAgent --> GoalsMCP
     GoalsAgent --> ChartsMCP
     
-    QandAAgent --> FinanceQAMCP
+    QandAAgent --> QAMCP
+    
+    QAMCP --> FAISS1
+    QAMCP --> FAISS2
     
     YFinanceMCP --> YFinanceCache
     ChartsMCP --> ChartsCache
@@ -207,6 +213,7 @@ flowchart TB
     
     Router -->|AgentResponse| UI
 ```
+
 
 
 A note onthe chart generation.  The Chart tools are creating basic bitmap charts with matplotlib, and writing them to a folder.  There is the a FastAPI build images server which offer a get to retrieve the chart.  Currently there is no clean up being done (it would make sense to cleanup files older than 30 minutes as that's the chache life for the Chart tools).
