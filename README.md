@@ -40,7 +40,12 @@ The first run will take a few minutes as it build sup the FAISS indexes.  Subseq
 ```
 
 And that should be it. If not, you can either dig into the documentation and try to figure it our.  Or contact me.
+---
+### Tests
 
+```bash
+ pytest tests/ --cov=src --cov-report=term-missing
+```
 ---
 ## Table of Contents
 
