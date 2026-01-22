@@ -474,7 +474,7 @@ OPENAI_API_KEY=your_openai_api_key_here
 
 3. **run start.sh sheel script**
 
-The first run will take a few minutes as it build sup the FAISS indexes.  Subsequent starts shoudl be faster.
+The first run will take a few minutes as it build sup the FAISS indexes.  Subsequent starts should be faster.
 
 ```bash
 ./start.sh
