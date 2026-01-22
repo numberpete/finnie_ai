@@ -3,6 +3,8 @@
 from langchain_openai import ChatOpenAI
 from src.utils import setup_logger_with_tracing, setup_tracing
 from src.agents.base_agent import BaseAgent
+from src.mcp.mcp_config import get_finance_goals_mcp_servers
+
 import logging
 
 
@@ -147,16 +149,7 @@ REMINDER: Pass portfolio dict to simulation. Create chart after simulation. Chec
 
 
 # MCP Server Configuration - NOW WITH THREE SERVERS
-MCP_SERVERS = {
-    "charts_mcp": {
-        "url": "http://localhost:8003/sse", 
-        "description": "Chart generation tools"
-    },
-    "goals_mcp": {
-        "url": "http://localhost:8004/sse", 
-        "description": "Goals tools"
-    }
-}
+MCP_SERVERS = get_finance_goals_mcp_servers()
 
 
 class GoalsAgent(BaseAgent):

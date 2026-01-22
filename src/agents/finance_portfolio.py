@@ -2,6 +2,8 @@
 from langchain_openai import ChatOpenAI
 from src.utils import setup_logger_with_tracing, setup_tracing
 from src.agents.base_agent import BaseAgent
+from src.mcp.mcp_config import get_finance_portfolio_mcp_servers
+
 import logging
 
 
@@ -274,20 +276,7 @@ FinnieAI can make mistakes, and answers are for educational purposes only."
 
 
 # MCP Server Configuration 
-MCP_SERVERS = {
-    "charts_mcp": {
-        "url": "http://localhost:8003/sse", 
-        "description": "Chart generation tools"
-    },
-    "portfolio_mcp": {
-        "url": "http://localhost:8005/sse", 
-        "description": "Portfolio building and assessment tools"
-    },
-    "yfinance_mcp": {
-        "url": "http://localhost:8002/sse", 
-        "description": "yFinance tools to look up stock/company/fund symbols and get asset allocations for tickers"
-    }
-}
+MCP_SERVERS = get_finance_portfolio_mcp_servers()
 
 
 class PortfolioAgent(BaseAgent):

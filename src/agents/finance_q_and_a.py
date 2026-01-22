@@ -3,6 +3,8 @@
 from langchain_openai import ChatOpenAI
 from src.utils import setup_logger_with_tracing, setup_tracing
 from src.agents.base_agent import BaseAgent
+from src.mcp.mcp_config import get_finance_qanda_mcp_servers
+
 import logging
 
 
@@ -36,12 +38,7 @@ for a general audience.
 ---
 {agent_scratchpad}
 """
-MCP_SERVERS = {
-    "finance_qanda_tool": {
-        "url": "http://localhost:8001/sse", 
-        "description": "Financial Q&A vector lookup"
-    }
-}
+MCP_SERVERS = get_finance_qanda_mcp_servers()
 
 
 class FinanceQandAAgent(BaseAgent):

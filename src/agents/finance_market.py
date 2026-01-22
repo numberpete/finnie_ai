@@ -5,6 +5,8 @@ from langchain_openai import ChatOpenAI
 from langchain_core.messages import  HumanMessage
 from src.utils import setup_logger_with_tracing, setup_tracing
 from src.agents.base_agent import BaseAgent
+from src.mcp.mcp_config import get_finance_market_mcp_servers
+
 import logging
 
 
@@ -220,16 +222,7 @@ Step 3: Respond with text summary (no chart)
 
 
 # MCP Server Configuration - NOW WITH TWO SERVERS
-MCP_SERVERS = {
-    "yfinance_mcp": {
-        "url": "http://localhost:8002/sse",
-        "description": "Market data from yFinance"
-    },
-    "charts_mcp": {
-        "url": "http://localhost:8003/sse", 
-        "description": "Chart generation tools"
-    }
-}
+MCP_SERVERS = get_finance_market_mcp_servers()
 
 
 class FinanceMarketAgent(BaseAgent):

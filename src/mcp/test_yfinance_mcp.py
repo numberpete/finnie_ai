@@ -2,8 +2,11 @@
 # Quick test script for yFinance tools
 
 import asyncio
+import pytest
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
+@pytest.mark.integration
+@pytest.mark.asyncio
 async def test_yfinance_tools():
     """Test the yFinance MCP tools."""
     

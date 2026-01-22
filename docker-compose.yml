@@ -1,0 +1,21 @@
+# Single-container docker-compose for local development
+# For production deployment, use the Dockerfile directly
+
+services:
+  finnie-ai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+      - "8010:8010"  # image server port
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ./src/data:/app/src/data  # FAISS indexes (pre-built)
+      - finnie-charts:/app/generated_charts  # Generated charts
+    restart: unless-stopped
+
+volumes:
+  finnie-charts:
+    driver: local
