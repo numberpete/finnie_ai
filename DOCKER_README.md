@@ -29,56 +29,29 @@ docker-compose up --build
 
 ## Deployment Options Comparison
 
-| Platform | Free Tier | RAM | Best For | Difficulty |
-|----------|-----------|-----|----------|------------|
-| **Render.com** | ✅ 750 hrs/mo | 512MB-2GB | Hobby projects | ⭐ Easy |
-| **Railway.app** | ✅ $5 credit/mo | 512MB-8GB | Side projects | ⭐ Easy |
-| **Google Cloud Run** | ✅ 2M requests/mo | Up to 4GB | Production | ⭐⭐ Medium |
-| **AWS App Runner** | ⚠️ Limited | 1-4GB | AWS ecosystem | ⭐⭐ Medium |
-| **Fly.io** | ✅ 3 shared VMs | 256MB-2GB | Global edge | ⭐⭐ Medium |
-| **DigitalOcean Apps** | ❌ $5/mo min | 512MB-8GB | Simple PaaS | ⭐ Easy |
+⚠️ **Memory requirement:** Finnie AI uses ~775MB at startup and needs 1-2GB under load.
+
+| Platform | Free Tier | RAM | Will it work? | Cost if not |
+|----------|-----------|-----|---------------|-------------|
+| **Railway.app** ⭐ | ✅ $5 credit/mo | Flexible | ⚠️ Maybe | ~$5/mo usage-based |
+| **Google Cloud Run** | ✅ 2M requests/mo | Up to 4GB | ✅ Yes | Pay per request |
+| **Render.com** | ✅ 750 hrs/mo | 512MB | ❌ No | $7/mo (Starter) |
+| **OCI Always Free** | ✅ Forever free | Up to 24GB | ⚠️ Maybe* | N/A |
+| **Fly.io** | ✅ 3 shared VMs | 256MB | ❌ No | $5-10/mo |
+| **DigitalOcean Apps** | ❌ $5/mo min | 512MB-8GB | ✅ Yes | $5-12/mo |
+
+*OCI has caveats — see below.
 
 ---
 
-## 🏆 Recommended: Render.com (Easiest + Free)
-
-**Why Render:**
-- Generous free tier (750 hours/month = always on)
-- Automatic HTTPS
-- Easy GitHub integration
-- No credit card required for free tier
-
-### Deploy to Render
-
-1. **Push your code to GitHub** (with the Dockerfile in repo root)
-
-2. **Create Render account** at https://render.com
-
-3. **New Web Service:**
-   - Connect your GitHub repo
-   - Select "Docker" as environment
-   - Set environment variable: `OPENAI_API_KEY`
-
-4. **Configure:**
-   ```
-   Name: finnie-ai
-   Region: Oregon (or closest to you)
-   Instance Type: Free (or Starter $7/mo for more RAM)
-   ```
-
-5. **Deploy!**
-
-⚠️ **Free tier limitation:** 512MB RAM may be tight. If you hit memory issues, upgrade to Starter ($7/mo) for 2GB RAM.
-
----
-
-## 🥈 Alternative: Railway.app (Best DX)
+## 🏆 Recommended: Railway.app (Easiest)
 
 **Why Railway:**
-- $5 free credit/month
-- Excellent developer experience
-- Easy environment variables
-- Auto-deploys from GitHub
+- Usage-based pricing ($5 free credit/month)
+- Can burst above limits temporarily  
+- Dead simple GitHub deploy
+- If you exceed free tier, you only pay for what you use
+- Best developer experience
 
 ### Deploy to Railway
 
@@ -86,24 +59,28 @@ docker-compose up --build
 
 2. **New Project → Deploy from GitHub repo**
 
-3. **Add environment variable:**
+3. **Add environment variables:**
    ```
    OPENAI_API_KEY=your-key-here
+   CHART_URL=https://your-app.up.railway.app/chart/
    ```
+   (Update CHART_URL after first deploy with your actual Railway URL)
 
 4. **Railway auto-detects Dockerfile and deploys**
 
-5. **Get your URL** from the deployment dashboard
+5. **Get your URL** from the deployment dashboard, then update CHART_URL
+
+💡 **Tip:** Railway's $5 free credit should cover light usage. If you go over, you'll pay a few dollars based on actual usage.
 
 ---
 
-## 🥉 Alternative: Google Cloud Run (Most Scalable)
+## 🥉 Alternative: Google Cloud Run (Scales to Zero)
 
 **Why Cloud Run:**
 - Generous free tier (2M requests/month)
-- Scales to zero (saves money)
-- Up to 4GB RAM
-- Production-ready
+- **Scales to zero** when not in use (saves money)
+- Can allocate 2-4GB RAM — no memory issues
+- Only pay when it's actually running
 
 ### Deploy to Cloud Run
 
@@ -125,9 +102,142 @@ gcloud run deploy finnie-ai \
   --cpu 1 \
   --timeout 300 \
   --set-env-vars "OPENAI_API_KEY=your-key-here"
+
+# 4. Get your URL from the output, then update CHART_URL:
+gcloud run services update finnie-ai \
+  --set-env-vars "CHART_URL=https://finnie-ai-XXXXX-uc.a.run.app/chart/"
 ```
 
 ⚠️ **Note:** Cloud Run has a request timeout (default 5 min). Long-running LLM calls might need timeout adjustment.
+
+---
+
+## 4️⃣ Alternative: Oracle Cloud (OCI) Always Free
+
+**Why OCI:**
+- **Forever free** (not a 12-month trial)
+- Up to **24GB RAM** and **4 ARM cores** — overkill for Finnie AI
+- 200GB storage included
+
+⚠️ **Important caveats:**
+- **Idle instance reclamation:** Oracle may delete your VM if CPU usage stays below 20% for 7 days. You'd need to set up a cron job to keep it active.
+- **Capacity lottery:** ARM instances are in high demand — you may get "Out of Capacity" errors and be unable to provision a VM at all.
+- **No support:** Always Free users cannot open support tickets.
+- **More complex setup:** You manage the VM yourself (not a PaaS).
+- **Credit card required:** For verification only, but still required.
+
+### Deploy to OCI Always Free
+
+#### 1. Create OCI Account
+1. Go to https://www.oracle.com/cloud/free/
+2. Sign up for Always Free tier (credit card required for verification)
+3. Wait for account to be provisioned
+
+#### 2. Create a Free VM
+1. Go to **Compute → Instances → Create Instance**
+2. Configure:
+   ```
+   Name: finnie-ai
+   Image: Oracle Linux 8 (or Ubuntu 22.04)
+   Shape: VM.Standard.A1.Flex (Always Free eligible)
+   OCPUs: 1 (stay within free tier)
+   Memory: 2GB (plenty for Finnie AI)
+   ```
+3. Download your SSH key or add your public key
+4. Create the instance
+
+💡 **Tip:** If you get "Out of Capacity" errors, try a different availability domain or retry later (sometimes for days/weeks).
+
+#### 3. Configure Networking
+1. Go to **Networking → Virtual Cloud Networks**
+2. Click on your VCN → Security Lists → Default Security List
+3. Add **Ingress Rules**:
+   ```
+   Port 8501 (Streamlit): 0.0.0.0/0, TCP, 8501
+   Port 8010 (Images):    0.0.0.0/0, TCP, 8010
+   ```
+
+#### 4. Install Docker on the VM
+```bash
+# SSH into your instance
+ssh -i your-key.pem opc@<your-vm-public-ip>
+
+# Install Docker (Oracle Linux 8)
+sudo dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo dnf install -y docker-ce docker-ce-cli containerd.io
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker $USER
+
+# Log out and back in for group changes
+exit
+ssh -i your-key.pem opc@<your-vm-public-ip>
+```
+
+#### 5. Deploy Finnie AI
+```bash
+# Clone your repo
+git clone https://github.com/yourusername/finnie_ai.git
+cd finnie_ai
+
+# Create .env file
+cat > .env << EOF
+OPENAI_API_KEY=your-key-here
+CHART_URL=http://<your-vm-public-ip>:8010/chart/
+EOF
+
+# Build and run
+docker build -t finnie-ai .
+docker run -d --name finnie-ai \
+  -p 8501:8501 -p 8010:8010 \
+  --env-file .env \
+  -v $(pwd)/src/data:/app/src/data \
+  --restart unless-stopped \
+  finnie-ai
+```
+
+#### 6. Prevent Idle Reclamation
+Add a cron job to keep CPU usage above Oracle's 20% threshold:
+```bash
+# Add to crontab
+crontab -e
+
+# Add this line (runs a short CPU spike every 6 hours)
+0 */6 * * * timeout 60 yes > /dev/null &
+```
+
+#### 7. Access Your App
+Open `http://<your-vm-public-ip>:8501` in your browser.
+
+---
+
+## 5️⃣ Alternative: Render.com (Paid Tier)
+
+Render's free tier (512MB) won't work, but their **Starter tier ($7/mo)** gives you 2GB RAM.
+
+### Deploy to Render
+
+1. **Push your code to GitHub** (with the Dockerfile in repo root)
+
+2. **Create Render account** at https://render.com
+
+3. **New Web Service:**
+   - Connect your GitHub repo
+   - Select "Docker" as environment
+   - Set environment variables:
+     - `OPENAI_API_KEY` = your key
+     - `CHART_URL` = `https://your-app-name.onrender.com/chart/` (use your actual Render URL)
+
+4. **Configure:**
+   ```
+   Name: finnie-ai
+   Region: Oregon (or closest to you)
+   Instance Type: Starter ($7/mo) — Free tier won't work!
+   ```
+
+5. **Deploy!**
+
+⚠️ **Important:** After your first deploy, copy your Render URL and update `CHART_URL` to match (e.g., `https://finnie-ai.onrender.com/chart/`). Charts won't display until this is set correctly.
 
 ---
 
@@ -175,6 +285,11 @@ If running on limited RAM (512MB-1GB):
 
 ## Troubleshooting
 
+### Charts not displaying
+- **Check CHART_URL:** Must be set to your public URL (e.g., `https://your-app.onrender.com/chart/`)
+- Using `localhost` won't work in production — the browser needs to reach the image server
+- Verify image server is running: `docker exec -it finnie-ai supervisorctl status`
+
 ### Container won't start
 ```bash
 # Check logs
@@ -206,11 +321,15 @@ docker exec -it finnie-ai cat /var/log/supervisor/supervisord.log
 docker build -t finnie-ai .
 
 # Run locally
-docker run -p 8501:8501 -e OPENAI_API_KEY=your-key finnie-ai
+docker run -p 8501:8501 -p 8010:8010 \
+  -e OPENAI_API_KEY=your-key \
+  -e CHART_URL=http://localhost:8010/chart/ \
+  finnie-ai
 
 # Run with mounted data
-docker run -p 8501:8501 \
+docker run -p 8501:8501 -p 8010:8010 \
   -e OPENAI_API_KEY=your-key \
+  -e CHART_URL=http://localhost:8010/chart/ \
   -v $(pwd)/src/data:/app/src/data \
   finnie-ai
 
