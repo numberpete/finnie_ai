@@ -1,6 +1,6 @@
 # Finnie AI - Single Container Deployment
 
-This setup runs all Finnie AI services (MCP servers + Streamlit UI) in a single Docker container, making it easy to deploy anywhere.
+This setup runs all Finnie AI services (MCP servers + Streamlit UI) in a single Docker container, making it easy to deploy anywhere.  This is simply meant to be done for a quick deployment for remote demo purposes, it is NOT meant to be a production-grade deployment.
 
 ## Files
 
