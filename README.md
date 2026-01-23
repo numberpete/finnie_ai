@@ -48,6 +48,11 @@ And that should be it. If not, you can either dig into the documentation and try
  pytest tests/ --cov=src --cov-report=term-missing
 ```
 ---
+### Docker Deployment
+
+For Docker deployment instructions (including local, Railway, Google Cloud Run, and other platforms), see [DOCKER_README.md](./DOCKER_README.md).
+
+---
 ## Table of Contents
 
 - [Overview](#overview)
