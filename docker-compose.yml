@@ -7,10 +7,11 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8501:8501"
-      - "8010:8010"  # image server port
+      - "8080:8080"
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - CHART_URL=${CHART_URL:-http://localhost:8080/chart/}
+      - CHART_PATH=generated_charts
     volumes:
       - ./src/data:/app/src/data  # FAISS indexes (pre-built)
       - finnie-charts:/app/generated_charts  # Generated charts

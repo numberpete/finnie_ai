@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     git \
     supervisor \
+    nginx \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first for better caching
@@ -24,23 +25,27 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Create directories for generated content
-RUN mkdir -p /app/charts /app/src/data /var/log/supervisor
+RUN mkdir -p /app/generated_charts /app/src/data /var/log/supervisor
 
 # Environment variables
 ENV PYTHONPATH="/app"
 ENV OPENAI_API_KEY=""
+ENV CHART_PATH="generated_charts"
+# CHART_URL must be set to your public URL in production (e.g., https://your-app.render.com:8010/chart/)
 ENV CHART_URL="http://localhost:8010/chart/"
-ENV CHART_PATH="/app/generated_charts"
 
 # Copy supervisor configuration
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Expose only the Streamlit port (internal services stay internal)
-EXPOSE 8501
+# Copy nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# Health check on Streamlit
+# Expose single port (nginx proxies to internal services)
+EXPOSE 8080
+
+# Health check on nginx
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD curl -f http://localhost:8501/_stcore/health || exit 1
+    CMD curl -f http://localhost:8080/_stcore/health || exit 1
 
 # Start all services via supervisor
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
