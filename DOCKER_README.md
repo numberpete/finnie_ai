@@ -27,6 +27,9 @@ docker-compose up --build
 # 5. Open http://localhost:8501
 ```
 
+## Deloyment to Hosting service
+This repository is integrated with a Railway account such that any committed pull request to the "deploy" branch will result in the deployment of this app.  It can be viewed online at https://finnieai-production.up.railway.app/.
+
 ## Deployment Options Comparison
 
 ⚠️ **Memory requirement:** Finnie AI uses ~775MB at startup and needs 1-2GB under load.
@@ -63,6 +66,7 @@ docker-compose up --build
    ```
    OPENAI_API_KEY=your-key-here
    CHART_URL=https://your-app.up.railway.app/chart/
+   CHART_PATH=generated_charts
    ```
    (Update CHART_URL after first deploy with your actual Railway URL)
 
