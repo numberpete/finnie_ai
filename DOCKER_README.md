@@ -27,7 +27,7 @@ docker-compose up --build
 # 5. Open http://localhost:8501
 ```
 
-## Deloyment to Hosting service
+## Deployment to Hosting service
 This repository is integrated with a Railway account such that any committed pull request to the "deploy" branch will result in the deployment of this app.  It can be viewed online at https://finnieai-production.up.railway.app/.
 
 ## Deployment Options Comparison
