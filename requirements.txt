@@ -53,8 +53,6 @@ gitdb==4.0.12
 GitPython==3.1.45
 google-auth==2.45.0
 google-genai==1.56.0
-gradio==6.1.0
-gradio_client==2.0.1
 groovy==0.1.2
 h11==0.16.0
 hf-xet==1.2.0
