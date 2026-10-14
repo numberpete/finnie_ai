@@ -10,7 +10,7 @@
 ---
 ## Quick Start
 
-This is assuming you are runing on a Mac.  For the purpose of this project, it's a local "deployment".
+This is assuming you are running on a Mac.  For the purpose of this project, it's a local "deployment".
 
 Python 3.11+ is required.
 
