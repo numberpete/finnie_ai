@@ -217,4 +217,6 @@ src/data/
 generated_charts/*
 
 .DS_Store
+
+.gradio/
 **/.DS_Store
