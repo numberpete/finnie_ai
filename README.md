@@ -18,7 +18,7 @@ Python 3.11+ is required.
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/yourusername/finnie_ai.git
+git clone https://github.com/numberpete/finnie_ai.git
 cd finnie_ai
 ```
 
@@ -2366,7 +2366,7 @@ async def run_query(
 
 ## Support
 
-**Issues:** https://github.com/yourusername/finnie_ai/issues
+**Issues:** https://github.com/numberpete/finnie_ai/issues
 
 **Documentation:** This README
 
